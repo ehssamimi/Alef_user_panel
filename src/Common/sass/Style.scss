@@ -1,0 +1,151 @@
+$green: #215831 !default;
+.glide-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+}
+.glide__slides {
+   & > * {
+     white-space: initial;
+   }
+ }
+.border-Carousel{
+  border: dashed 2px $green;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+//.vjs-big-play-button {
+//  background-color: transparent!important;
+//  width: 100%!important;
+//  height: 100%!important;
+//  top: 0!important;
+//  left: 0!important;
+//  right: 0!important;
+//  bottom: 0!important;
+//  background-image: url('./../../Common/img/Polygon 1.png')!important;
+//  background-repeat: no-repeat!important;
+//  background-size: 46px!important;
+//  background-position: 50% calc(50% - 10px)!important;
+//  border: none !important; // @stylint ignore
+//  box-shadow: none !important; // @stylint ignore
+//  &:before {
+//    content: "\f101"!important;
+//    display: none!important;
+//  }
+//  &:hover {
+//    background-color: transparent;
+//    opacity: .7;
+//  }
+//}
+//.vjs-big-play-button{
+//  content: "\f200"!important;
+//  &:before {
+//    content: "\f200"!important;
+//  }
+//}
+//
+//
+
+
+
+
+
+.playCustom.video-js {
+
+}
+
+/* Change the border of the big play button. */
+.playCustom .vjs-big-play-button {
+  //border-color: $green;
+  //width: 15% !important;
+  //height: 25% !important;
+  //top: 35% !important;
+  //left: 40% !important;
+  //border-radius: 50% !important;
+  //background-color: white !important;
+  //border: none !important; // @stylint ignore
+  //
+  //color: $green;
+  //content:"\f105" !important;
+  ackground-color: transparent!important;
+    width: 100%!important;
+    height: 100%!important;
+    top: 0!important;
+    left: 0!important;
+    right: 0!important;
+    bottom: 0!important;
+    background-image: url('./../../Common/img/play_on_video.png')!important;
+    background-repeat: no-repeat!important;
+    background-size: 100px!important;
+    background-position: 50% calc(50% - 10px)!important;
+    border: none !important; // @stylint ignore
+    box-shadow: none !important; // @stylint ignore
+
+
+}
+.playCustom .vjs-icon-placeholder:before {
+  font-family: FontAwesome;
+  content:"" !important;
+}
+/* Change the color of various "bars". */
+.playCustom .vjs-volume-level,
+.playCustom .vjs-play-progress,
+.playCustom .vjs-slider-bar {
+  //background: $green;
+}
+
+
+.lockCustom.video-js {
+
+}
+
+/* Change the border of the big play button. */
+.lockCustom .vjs-big-play-button {
+  //border-color: $green;
+  //width: 15% !important;
+  //height: 25% !important;
+  //top: 35% !important;
+  //left: 40% !important;
+  //border-radius: 50% !important;
+  //background-color: white !important;
+  //border: none !important; // @stylint ignore
+  //
+  //color: $green;
+  //content:"\f105" !important;
+  ackground-color: transparent!important;
+  width: 100%!important;
+  height: 100%!important;
+  top: 0!important;
+  left: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+  background-image: url('./../../Common/img/lock_on_video.png')!important;
+  background-repeat: no-repeat!important;
+  background-size: 100px!important;
+  background-position: 50% calc(50% - 10px)!important;
+  border: none !important; // @stylint ignore
+  box-shadow: none !important; // @stylint ignore
+
+
+}
+.lockCustom .vjs-icon-placeholder:before {
+  font-family: FontAwesome;
+  content:"" !important;
+}
+/* Change the color of various "bars". */
+.lockCustom .vjs-volume-level,
+.lockCustom .vjs-play-progress,
+.lockCustom .vjs-slider-bar {
+  //background: $green;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+.arsenal{
+    background-color: red;
+    color: white;
+}
+.img-self-fill {
+    /*border-radius: calc(0.25rem - 1px);*/
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    /*max-height: 200px;*/
+    /*width: unset;*/
+}
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(0.15rem - 1px);
+    border-top-right-radius: calc(0.15rem - 1px);
+}
+.vh25{
+    height: 25vh;
+}
+.vh35{
+    height: 35vh;
+}
+.he35{
+    height: 35em;
+}
+.he25{
+    height: 25em;
+}
+.hpx200{
+    height: 200px;
+}
+.hpx300{
+    height: 300px;
+}
+
+.carousel-button-group{
+    position: absolute;
+    top:0px;
+    right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+}
+.carousel-header{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: absolute;
+    top:0px;
+    left: 0;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
