@@ -1,3 +1,9 @@
+.green-them {
+  color: #687a6d; }
+
+.green-color {
+  color: #687a6d; }
+
 .glide-item {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -13,6 +19,22 @@
   justify-content: center;
   align-items: center;
   cursor: pointer; }
+
+.br-y {
+  border: 3px solid #fbca01; }
+
+.br-g {
+  border: dashed 2px #215831; }
+
+.brt-s {
+  border-top: dashed 2px #215831; }
+
+.border-primary-s {
+  border: 2px solid #215831; }
+
+.fs-lesion {
+  font-size: 1.5em;
+  color: #364539; }
 
 /* Change the border of the big play button. */
 .playCustom .vjs-big-play-button {
@@ -56,5 +78,13 @@
   content: "" !important; }
 
 /* Change the color of various "bars". */
+html {
+  font-family: IRANSans !important;
+  width: 100%;
+  height: 100%;
+  background: white !important; }
+
+body {
+  font-family: IRANSans !important; }
 
 /*# sourceMappingURL=Style.css.map */

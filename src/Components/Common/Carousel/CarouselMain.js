@@ -1,25 +1,61 @@
 import React, { useState,useEffect } from 'react';
-import {Card,CardBody} from "reactstrap";
+import { CardBody} from "reactstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import VideoPlayerMain from "../Upload/VideoPlayerMain";
+import VideoPlayerMain from "../VideoPlayerComponents/VideoPlayerMain";
+
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
+const useStyles = makeStyles({
+    root: {
+        maxWidth: 345,
+    },
+    media: {
+        height: 140,
+    },
+});
 
-const NoControlCarouselItem = ({ Destination, img }) => {
+const CourseCard = (props) => {
+    // const classes = useStyles();
+
     return (
-        <div className="glide-item   cursor-pointer" >
-            <Card>
-                <div className="position-relative hpx200">
-                    <img className="card-img-top img-self-fill " src={img} alt={img} />
-                    {/*Destination: null*/}
-                    {/*DestinationId: null*/}
-                    {/*Image: "http://chichiapp.ir:3005/download/5d9884457c1e36d6e452598e"*/}
-                    {/*Position: 4*/}
-                </div>
-            </Card>
-        </div>
+        <Card  className="m-2">
+            <CardActionArea>
+                <CardMedia
+                    className="hpx300"
+                    image={props.img}
+                    title="Course Section"
+                />
+                <CardContent>
+                    <p>حسابان</p>
+                    <div>
+                       ریاضی و فیزیک | پایه دهم
+                    </div>
+                    <div>
+                        <Button className="btn green-color">مشاهده درس</Button>
+                    </div>
+
+
+                </CardContent>
+            </CardActionArea>
+            {/*<CardActions>*/}
+                {/*<Button size="small" color="primary">*/}
+                    {/*Share*/}
+                {/*</Button>*/}
+                {/*<Button size="small" color="primary">*/}
+                    {/*Learn More*/}
+                {/*</Button>*/}
+            {/*</CardActions>*/}
+        </Card>
     );
 };
 
@@ -133,6 +169,7 @@ export  function CarouselMain(props) {
                     <div key={key} id={key}  >
                         {/*<NoControlCarouselItem {...item} index={key}/>*/}
                         <VideoCardItem {...item}  />
+                        {/*<CourseCard {...item}/>*/}
                     </div>
                 );
             })}

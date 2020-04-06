@@ -1,12 +1,20 @@
 .arsenal{
     background-color: red;
-    color: white;
+    color: #dde2de;
 }
 .img-self-fill {
     /*border-radius: calc(0.25rem - 1px);*/
     height: 100%;
     width: 100%;
     object-fit: fill;
+    /*max-height: 200px;*/
+    /*width: unset;*/
+}
+.img-self-cover {
+    /*border-radius: calc(0.25rem - 1px);*/
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
     /*max-height: 200px;*/
     /*width: unset;*/
 }
@@ -33,6 +41,9 @@
 .hpx300{
     height: 300px;
 }
+.p6px{
+    padding: 6px!important;
+}
 
 .carousel-button-group{
     position: absolute;
@@ -53,7 +64,22 @@
     cursor: pointer;
 }
 
+.br-r50{
+    border-radius: 50%;
+}
 
+.profile-pic {
+    width: 5em;
+    height: 5em;
+    /*object-fit: cover;*/
+    /*border:3px solid #fbca01;*/
+}
+.p-05 {
+    padding: .12rem!important;
+}
+
+
+.w
 
 
 
