@@ -32,31 +32,34 @@ class Home extends Component {
 
     render() {
         return (
-            <MainHeader>
-                <div className="mt-5 col-12 ml-auto mr-auto">
-                    <div className="row m-0">
+            <div className="w-100 d-flex justify-content-center">
+                <MainHeader>
+                    <div className="mt-5 col-12 ml-auto mr-auto">
+                        <div className="row m-0">
 
-                        {
-                            this.state.teachers.map((item , index)=>{return(<TeacherInRow {...item} key={index}/>)})
-                        }
+                            {
+                                this.state.teachers.map((item , index)=>{return(<TeacherInRow {...item} key={index}/>)})
+                            }
+
+                        </div>
+                        {/*<CarouselMain files={this.state.courses}/>*/}
+
+                        <HeaderCourse>
+                            <ExtendedDiv>
+                                <CarouselMain files={this.state.files}/>
+                            </ExtendedDiv>
+                            <ExtendedDiv>
+                                <CarouselMain files={this.state.files}/>
+                            </ExtendedDiv>
+                        </HeaderCourse>
+
+
+
 
                     </div>
-                    {/*<CarouselMain files={this.state.courses}/>*/}
+                </MainHeader>
+            </div>
 
-                    <HeaderCourse>
-                        <ExtendedDiv>
-                            <CarouselMain files={this.state.files}/>
-                        </ExtendedDiv>
-                        <ExtendedDiv>
-                            <CarouselMain files={this.state.files}/>
-                        </ExtendedDiv>
-                    </HeaderCourse>
-
-
-
-
-                </div>
-            </MainHeader>
 
         );
     }

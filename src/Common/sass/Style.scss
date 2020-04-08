@@ -2,6 +2,7 @@ $green: #215831 !default;
 $yellow: #fbca01 !default;
 $darkGreen: #364539 !default;
 $LightGreen: #687a6d !default;
+$white-border: white !default;
 
 
 .green-them{
@@ -10,7 +11,10 @@ $LightGreen: #687a6d !default;
 .green-color{
   color:$LightGreen ;
 }
-$background-color:white!important;
+.green-background{
+  background:$green ;
+}
+$background-color: #f7faf8 !important;
 
 .glide-item {
   padding-left: 1rem;
@@ -36,6 +40,11 @@ $background-color:white!important;
 .br-g{
   border : dashed 2px $green;
 }
+.br-w {
+  border: dashed  2px $white-border;
+  letter-spacing: 4px;
+}
+
 .brt-s{
   border-top: dashed 2px $green;
 }
@@ -179,7 +188,9 @@ html {
 }
 body{
   font-family: IRANSans !important;
+  background: $background-color;
 }
+
 
 
 

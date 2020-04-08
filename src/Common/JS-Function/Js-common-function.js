@@ -1,3 +1,4 @@
+import * as city from './../Const/cityAndCountery'
 export function gregorian_to_jalali(g_y, g_m, g_d) {
     function div(a, b) {
         return parseInt((a / b));
@@ -48,3 +49,34 @@ export function gregorian_to_jalali(g_y, g_m, g_d) {
 export function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
+export function getCity(ostan) {
+    switch(ostan) {
+        case "اصفهان":
+            return city.Esfahan;
+            // code block
+            break;
+        case "البرز":
+            return city.Alborz;
+            break;
+        case "ايلام":
+            return city.Ilam;
+            break;
+        case "آذربايجان شرقي":
+            return city.AzarbayjanSharghi;
+            break;
+        case "آذربايجان غربي":
+            return city.Azarbayjangharbi;
+            break;
+        case "بوشهر":
+            return city.Boshehr;
+            break;
+
+
+        default:
+            return city.Boshehr;
+        // code block
+    };
+
+
+}
+

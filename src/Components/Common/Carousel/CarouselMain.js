@@ -28,17 +28,17 @@ const CourseCard = (props) => {
     // const classes = useStyles();
 
     return (
-        <Card  className="m-2">
+        <Card  className="m-2 br20px">
             <CardActionArea>
                 <CardMedia
-                    className="hpx300"
+                    className="hpx200 "
                     image={props.img}
                     title="Course Section"
                 />
                 <CardContent>
-                    <p>حسابان</p>
+                    <p>{props.title}</p>
                     <div>
-                       ریاضی و فیزیک | پایه دهم
+                        {props.course} | {props.class}
                     </div>
                     <div>
                         <Button className="btn green-color">مشاهده درس</Button>
@@ -108,15 +108,18 @@ const ButtonGroup = ({ next, previous, goToSlide , ...rest }) => {
 export  function CarouselMain(props) {
 
 
-    return <div className="position-relative hpx300">
-        <h2 className="carousel-header">this is header </h2>
+    return <div className="position-relative hpx300  ">
+        <div className="d-flex align-items-center">
+            <span className="carousel-header">{props.header} </span>
+        </div>
+
         <Carousel
             additionalTransfrom={0}
              autoPlaySpeed={3000}
             centerMode={false}
-            className="pt-5"
+            className="pt-5 rtl"
             containerClass="container-with-dots"
-            customButtonGroup={<ButtonGroup />}
+            customButtonGroup={props.files.length>2?<ButtonGroup />:""}
             // customDot={<CustomDot />}
             arrows={false}
             dotListClass=""
@@ -155,10 +158,6 @@ export  function CarouselMain(props) {
                 }
             }}
 
-
-
-
-
             showDots={true}
             sliderClass=""
             slidesToSlide={1}
@@ -166,10 +165,10 @@ export  function CarouselMain(props) {
         >
             {props.files.map((item,key) => {
                 return (
-                    <div key={key} id={key}  >
+                    <div key={key} id={key}   >
                         {/*<NoControlCarouselItem {...item} index={key}/>*/}
-                        <VideoCardItem {...item}  />
-                        {/*<CourseCard {...item}/>*/}
+                        {/*<VideoCardItem {...item}  />*/}
+                        <CourseCard {...item}/>
                     </div>
                 );
             })}
