@@ -10,6 +10,7 @@ import Home from "./Components/Main/Home/Home";
 import UserInfo from "./Components/UserProfile/UserInfo/UserInfo";
 import UserProfile from "./Components/UserProfile/UserProfilew/UserProfile";
 import MyCourse from "./Components/UserProfile/MyCourse/MyCourse";
+import MySchedule from "./Components/UserProfile/MyProgram/MyProgram";
 
 
 function App() {
@@ -23,8 +24,10 @@ function App() {
                           <Route path="/about" component={MainAbout}/>
                           <Route path="/courses" component={MainCourses}/>
 
+                          {/*<Route path="/user-profile" component={UserInfo}/>*/}
                           <Route path="/user-profile" component={UserProfile}/>
                           <Route path="/my-course" component={MyCourse}/>
+                          <Route path="/my-schedule" component={MySchedule}/>
                           <Route  component={NoMatch}/>
 
                       {/*</MainHeader>*/}

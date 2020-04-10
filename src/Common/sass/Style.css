@@ -5,7 +5,11 @@
   color: #687a6d; }
 
 .green-background {
-  background: #215831; }
+  background: #215831 !important; }
+
+.green-rightMenu {
+  width: 75%;
+  background-color: #215831; }
 
 .glide-item {
   padding-left: 1rem;

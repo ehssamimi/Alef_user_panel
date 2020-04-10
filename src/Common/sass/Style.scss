@@ -12,7 +12,12 @@ $white-border: white !default;
   color:$LightGreen ;
 }
 .green-background{
-  background:$green ;
+  background:$green !important;
+}
+
+.green-rightMenu {
+  width: 75%;
+  background-color: $green;
 }
 $background-color: #f7faf8 !important;
 

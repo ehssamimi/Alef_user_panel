@@ -76,7 +76,11 @@ export default function RightMenu (props){
                                             <img src={active}  alt="active" className="  img-self-fill zIndex-2"/>
                                             <span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span>
                                         </li>:
-                                        <li className="list-unstyled text-white fs13vw fw200     position-relative h-List-item      " onClick={()=>{handelClick('second')}}><span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span></li>
+                                        <li className="list-unstyled text-white fs13vw fw200     position-relative h-List-item      "
+                                            onClick={() => {
+                                                handelClick('second')
+                                            }}><Link to="/my-schedule"><span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span></Link>
+                                        </li>
                                 }
                                 {
                                     selected.three?

@@ -38,23 +38,24 @@ const CourseCard = (props) => {
                 <CardContent>
                     <p>{props.title}</p>
                     <div>
-                        {props.course} | {props.class}
+                        {props.course}  {props.class? "|"+ props.class:""}
                     </div>
                     <div>
-                        <Button className="btn green-color">مشاهده درس</Button>
+
                     </div>
 
 
                 </CardContent>
             </CardActionArea>
-            {/*<CardActions>*/}
+            <CardActions className="w-100 d-flex justify-content-center">
+                <Button className="btn green-background text-white col-6 fontFamily-Sans ">{props.button}</Button>
                 {/*<Button size="small" color="primary">*/}
                     {/*Share*/}
                 {/*</Button>*/}
                 {/*<Button size="small" color="primary">*/}
                     {/*Learn More*/}
                 {/*</Button>*/}
-            {/*</CardActions>*/}
+            </CardActions>
         </Card>
     );
 };
@@ -108,8 +109,10 @@ const ButtonGroup = ({ next, previous, goToSlide , ...rest }) => {
 export  function CarouselMain(props) {
 
 
+
     return <div className="position-relative hpx300  ">
-        <div className="d-flex align-items-center">
+        {/*h-header-slider*/}
+        <div className="d-flex align-items-center ">
             <span className="carousel-header">{props.header} </span>
         </div>
 
@@ -117,7 +120,7 @@ export  function CarouselMain(props) {
             additionalTransfrom={0}
              autoPlaySpeed={3000}
             centerMode={false}
-            className="pt-5 rtl"
+            className={['pt-5', props.files.length>2?"":"d-flex justify-content-end"  ].join(' ')}
             containerClass="container-with-dots"
             customButtonGroup={props.files.length>2?<ButtonGroup />:""}
             // customDot={<CustomDot />}
@@ -165,10 +168,12 @@ export  function CarouselMain(props) {
         >
             {props.files.map((item,key) => {
                 return (
-                    <div key={key} id={key}   >
-                        {/*<NoControlCarouselItem {...item} index={key}/>*/}
-                        {/*<VideoCardItem {...item}  />*/}
-                        <CourseCard {...item}/>
+                    <div key={key} id={key} className=""  >
+
+                        {
+                            props.type==="Course"?  <CourseCard {...item}/>:<VideoCardItem {...item}  />
+                        }
+
                     </div>
                 );
             })}

@@ -35,9 +35,17 @@
 .he25{
     height: 25em;
 }
-.hpx200{
+.hpx150{
+    height: 150px;
+}.hpx200{
     height: 200px;
+}.hpx250{
+    height: 250px;
 }
+
+ .h-today{
+     min-height: 150px;
+ }
 .hpx300{
     height: 300px;
 }
@@ -45,10 +53,13 @@
     padding: 6px!important;
 }
 .br10px{
-    border-radius: 10px;
+    border-radius: 10px!important;
 }
 .br20px{
     border-radius: 20px!important;
+}
+.mt-13rem{
+    margin-top: 13rem!important;
 }
 
 .carousel-button-group{
@@ -94,11 +105,14 @@
     width: 20%;
     height: 100vh;
 }
-.green-rightMenu {
-    width: 75%;
-    background-color: #215831;
-
+.h-header-slider{
+    min-height: 2.5rem;
+    height: 3vw;
 }
+.fontFamily-Sans{
+    font-family: IRANSans !important
+}
+
 .h-30{
     height: 30%;
 }
@@ -149,13 +163,13 @@
     height: 8rem;
 }
 .txt-content-main{
-    font-size: calc(1.1vw + 0.2em);
+    font-size: calc(1vw + 0.2em);
     color: #aaa;
 
     font-weight: 500;
 }
 .txt-content-branch{
-    font-size:calc(1.4vw + 0.2em);;
+    font-size:calc(1.2vw + 0.2em);;
 
     font-weight: 500;
 }
@@ -207,7 +221,22 @@ select option:hover {
     background-color:  #215831  !important;
     color: white!important;
 }
+.box-shadow-custom{
 
+    -webkit-box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;
+    -moz-box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;
+    box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;
+    border: 0!important;
+}
+.text-break{
+    overflow-wrap: break-word;
+}
+.header-color{
+    color: #364539 !important;
+}
+.second-color{
+    color: #67796c !important;
+}
 
 
 
