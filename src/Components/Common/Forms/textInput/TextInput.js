@@ -16,15 +16,15 @@ export  function TextInput (props){
     </div>
 };
 export  function SelectedInput (props){
-    let{id,placeholder,type,error,label,is_required,changeEdit ,onChange,options,value}=props;
+    let{id,placeholder,type,error,label,is_required,changeEdit ,onChange,options,value,class_input}=props;
     return <div>
-        <FormGroup className=" ">
-            <Label for={id}>
+        <FormGroup className={class_input}>
+            <Label for={id}  >
                 <span>{label +':'  }</span>
                 <span>{ (is_required||false?'(اجباری)':"") }</span>
                 <span className="red-color">{ (changeEdit||false?'(اجباری)':"") }</span>
              </Label>
-            <Input type={type} value={value} name={id} id={id} onChange={(e) => onChange(`${e.target.value}`, id)}>
+            <Input type={type} value={value} name={id} id={id} onChange={(e) => onChange(`${e.target.value}`, id)}  >
                 {options.map((item, index) => {
                     return (<option key={index}>{item}</option>)
                 })}

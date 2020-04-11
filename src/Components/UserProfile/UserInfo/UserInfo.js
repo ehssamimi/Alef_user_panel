@@ -193,7 +193,7 @@ export default function UserInfo(props) {
                                                     onClick={handelDiscard}>لغو تغییرات
                                                 </button>
                                                 <button
-                                                    className="btn green-background  br10px text-white col-5 h-input-s"
+                                                    className="btn green-background  br10px text-white col-5 h-input-s "
                                                     type="submit">ثبت تغییرات
                                                 </button>
                                             </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route,Switch} from 'react-router-dom';
+import React,{useContext} from 'react';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import './Common/sass/Style.scss'
 import './App.css';
 import MainAbout from "./Components/Main/Main-About/MainAbout";
@@ -11,9 +11,34 @@ import UserInfo from "./Components/UserProfile/UserInfo/UserInfo";
 import UserProfile from "./Components/UserProfile/UserProfilew/UserProfile";
 import MyCourse from "./Components/UserProfile/MyCourse/MyCourse";
 import MySchedule from "./Components/UserProfile/MyProgram/MyProgram";
+import Login from "./Components/LogIn/LogIn";
+import {UserContext} from "./Components/Common/Context/UserProvider";
 
+
+
+const AuthRoute = ({ component: Component, authUser, ...rest }) => (
+    <Route
+        {...rest}
+        render={props =>
+            authUser ? (
+                <Component {...props} />
+            ) : (
+                <Redirect
+                    to={{
+                        pathname: "/login",
+                        state: { from: props.location }
+                    }}
+                />
+            )
+        }
+    />
+);
 
 function App() {
+    const User=useContext(UserContext);
+    console.log("is _LOGIN??");
+    console.log(User.isLogIn);
+
   return (
       <div className="w-100 h-100">
           <div className="w-100">
@@ -24,10 +49,13 @@ function App() {
                           <Route path="/about" component={MainAbout}/>
                           <Route path="/courses" component={MainCourses}/>
 
-                          {/*<Route path="/user-profile" component={UserInfo}/>*/}
-                          <Route path="/user-profile" component={UserProfile}/>
-                          <Route path="/my-course" component={MyCourse}/>
-                          <Route path="/my-schedule" component={MySchedule}/>
+                      <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={UserInfo}  />
+
+                          {/*<Route path="/user-info" component={UserInfo}/>*/}
+                          <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={UserProfile}/>
+                          <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>
+                          <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>
+                          <Route path="/login" component={Login}/>
                           <Route  component={NoMatch}/>
 
                       {/*</MainHeader>*/}

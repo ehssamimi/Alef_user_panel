@@ -25,6 +25,9 @@ export default function MainHeader (props){
                             <li className="nav-item">
                                 <a className="nav-link" href="/user-profile">User Info</a>
                             </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/login">Login</a>
+                            </li>
                         </ul>
 
                     </div>

@@ -5,9 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from 'react-dom';
+import UserProvider from "./Components/Common/Context/UserProvider";
  render(
     <BrowserRouter>
-        <App />
+        <UserProvider>
+            <App />
+        </UserProvider>
+
+
+
     </BrowserRouter>,
   document.getElementById('root')
 );

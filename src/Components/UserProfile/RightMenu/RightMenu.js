@@ -97,7 +97,11 @@ export default function RightMenu (props){
                                             <img src={active}  alt="active" className="  img-self-fill zIndex-2"/>
                                             <span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
                                         </li>:
-                                        <li className="list-unstyled text-white fs13vw fw200   pl-2 position-relative h-List-item " onClick={()=>{handelClick('four')}}><span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span></li>
+                                        <li className="list-unstyled text-white fs13vw fw200   pl-2 position-relative h-List-item "
+                                            onClick={() => {
+                                                handelClick('four')
+                                            }}><span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
+                                        </li>
                                 }
 
 
