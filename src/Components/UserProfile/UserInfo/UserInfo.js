@@ -16,7 +16,7 @@ import {
     InputGroupText
 } from 'reactstrap';
 import {country, Ardebil} from './../../../Common/Const/cityAndCountery'
-import {classType, Schoolkind, fields} from './../../../Common/Const/School'
+
 import {FaLock} from "react-icons/fa";
 
 import RightMenu from "../RightMenu/RightMenu";
@@ -25,11 +25,13 @@ import {SelectedInput, TextInput} from "../../Common/Forms/textInput/TextInput";
 import {getCity} from "../../../Common/JS-Function/Js-common-function";
 import profile from './../../../Common/img/Profile Picture.png'
 import {GetUserDropDown} from "../../../Common/Const/ServerConnection";
-import {
-    error_Notification,
-    success_Notification
-} from "./../../functions/componentHelpFunction";
+
 import Loader from "../../Common/Loader/Loader";
+import 'react-notifications/lib/notifications.css';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css'
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 export default function UserInfo(props) {
     const [isLoder, setisLoder] = useState(true);
@@ -47,6 +49,9 @@ export default function UserInfo(props) {
         "parent_name": "",
         "parent_num": ""
     });
+    const [options, setOptions] = useState({
+        "school_type": [], "field_type": [], "grade_type": []
+    });
     const [DefaultValue, setDefaultValue] = useState({
         "name": "احسان صمیمی راد",
         "class": "یازدهم",
@@ -60,34 +65,30 @@ export default function UserInfo(props) {
         "parent_name": "",
         "parent_num": ""
     });
+
     const [citys, setcitys] = useState(Ardebil);
     useEffect(  () => {
 
         async function getUserDropDown(user_id) {
 
-            // setisLoder(false);
-            // console.log('Register')
-            // console.log(Register)
-
-            // let {state, Description} = Register;
-            // if (state===200 ) {
-            //     success_Notification( "اطلاعات شما با موفقیت ثبت شد")
-            // } else {
-            //     error_Notification(state,Description)
-            // }
-
-
             const {state, Description}=await GetUserDropDown();
             if (state===200 ) {
-                success_Notification( "اطلاعات شما با موفقیت ثبت شد")
+                setisLoder(false)
+                const option={
+                    "school_type":Description.school_type, "field_type":Description.field_type, "grade_type":Description.grade_type
+                };
+                setOptions(option);
+
             } else {
-                error_Notification(state,Description)
+                NotificationManager.success(state, Description);
+                setisLoder(false);
+                // error_Notification(state,Description)
             }
             // console.log(UserDropDown)
 
         }
-
-        getUserDropDown()
+        setisLoder(true);
+        getUserDropDown();
 
 
     },[]);
@@ -166,12 +167,12 @@ export default function UserInfo(props) {
 
                                                     <SelectedInput onChange={onChange} label={'پایه تحصیلی'} id={'class'}
                                                                    type={"select"}
-                                                                   is_required={true} value={values.class} options={classType}
+                                                                   is_required={true} value={values.class} options={options.grade_type}
                                                                    error={error.name}/>
 
                                                     <SelectedInput onChange={onChange} label={'رشته تحصیلی'} id={'fields'}
                                                                    type={"select"}
-                                                                   is_required={true} value={values.fields} options={fields}
+                                                                   is_required={true} value={values.fields} options={options.field_type}
                                                                    error={error.name}/>
 
                                                 </Col>
@@ -212,7 +213,7 @@ export default function UserInfo(props) {
                                                                        id={'Schoolkind'}
                                                                        type={"select"} is_required={false}
                                                                        value={values.Schoolkind}
-                                                                       error={error.name} options={Schoolkind}/>
+                                                                       error={error.name} options={options.school_type}/>
                                                         <TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}
                                                                    id={'average_num'}
                                                                    placeholder={"معدل"} type={"text"} is_required={false}
@@ -260,6 +261,7 @@ export default function UserInfo(props) {
                 </MainHeader>
 
             </RightMenu>
+            <NotificationContainer />
         </div>
 
     )

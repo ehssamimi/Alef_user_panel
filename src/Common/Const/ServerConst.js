@@ -14,3 +14,4 @@ export const ID="5d87e194549ae0267b5268cc";
 // export const ChichiMan="http://192.168.1.78:3003/";
 // export const product="http://chichiapp.ir:30034/";
 export const user="https://useralef.liara.run/users/";
+export const admin_route="https://useralef.liara.run/admin_route/";

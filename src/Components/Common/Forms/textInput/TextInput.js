@@ -3,6 +3,7 @@ import {Col, FormFeedback, FormGroup, Input, Label} from "reactstrap";
 import TeacherInRow from "../../../Main/Main-Courses/Teachers/TeacheInRow/TeacherInRow";
 export  function TextInput (props){
     let{id,placeholder,type,error,label,is_required,changeEdit ,onChange,value}=props;
+
     return <div className=" ">
         <FormGroup>
             <Label for={id}>
@@ -24,7 +25,7 @@ export  function SelectedInput (props){
                 <span>{ (is_required||false?'(اجباری)':"") }</span>
                 <span className="red-color">{ (changeEdit||false?'(اجباری)':"") }</span>
              </Label>
-            <Input type={type} value={value} name={id} id={id} onChange={(e) => onChange(`${e.target.value}`, id)}  >
+            <Input invalid={error.length > 0} placeHolder={placeholder} type={type} value={value} name={id} id={id} onChange={(e) => onChange(`${e.target.value}`, id)}  >
                 {options.map((item, index) => {
                     return (<option key={index}>{item}</option>)
                 })}

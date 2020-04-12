@@ -24,7 +24,127 @@ export async  function  GetUserDropDown(page_number){
     });
     return resp;
 }
+export async function Regestry(Data){
 
+    let headers = {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+    };
+    console.log(Data);
+
+
+    var resp ="";
+    await axios.post(`${Const.user}register`, Data, {headers: headers}).then(function (response) {
+        console.log(response );
+        let {Description}=response.data;
+        // let {Items} = response.data;
+        resp={state:200,Description:Description};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  GetLogin(phoneNumber){
+
+    let headers = {
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.user}login?phone_number=${phoneNumber}`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  GetVerifycationCode(phoneNumber){
+
+    let headers = {
+
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.admin_route}activation-code?phone_number=${phoneNumber}`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  ResendVerifycationCode(phoneNumber){
+
+    let headers = {
+
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.user}sms/resend?phone_number=${phoneNumber}`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  Verify(type,phoneNumber,code){
+
+    let headers = {
+
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.user}${type}/phone_number/verify?phone_number=${phoneNumber}&code=${code}`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        }else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
 
 
 

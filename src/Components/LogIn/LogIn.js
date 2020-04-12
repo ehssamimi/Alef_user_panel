@@ -8,73 +8,51 @@ import {getCity} from "../../Common/JS-Function/Js-common-function";
 import {UserContext} from "../Common/Context/UserProvider";
 import FormLogin from "./FormLogin";
 import UserInfo from "../UserProfile/UserInfo/UserInfo";
+import FormSignUp from "./FormSignUp";
+import {GetVerifycationCode} from "../../Common/Const/ServerConnection";
+import VerificationState from "./VerificationState";
 const Login = (props) => {
-    let User=useContext(UserContext);
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [error, seterror] = useState({"phoneNumber":"","digiCode":""});
-    const [digiCode, setDigiCode] = useState("");
     const Redirect = useRef(null);
-    useEffect(() => {
-        // Update the document title using the browser API
 
-    });
-    const onChange = (value, names) => {
+    const[formType,setformType]=useState("login");
+    const [type, setType] = useState("");
 
-
-
-        if (names === "phoneNumber") {
-            setPhoneNumber(value)
-        }
-        if (names === "digiCode") {
-            setDigiCode(value)
-        }
-        // console.log(values);
-        // console.log(names);
-    };
-    const handelSubmit = (e) => {
-        console.log(e);
-        e.preventDefault();
-
-        const $el = document.getElementById(`img-bg-login`);
-        const $form1 = document.getElementById(`form1`);
-        const $form2 = document.getElementById(`form2`);
-        const duration = 2 ;
-        const from = { width: '100%'};
-        TweenMax.to($el, duration, from);
-        TweenMax.to($form1, duration/5,   {display:"none",delay:duration});
-        TweenMax.to($form2,  duration/5, {display:"block",delay:duration});
-        setTimeout(() => {
-            TweenMax.to($el, duration,  { width: '50%'});
-        }, 2000)
-
-        // console.log(type);
-        // e.preventDefault();
-        // console.log('phone Number');
-        // console.log(phoneNumber)
-    };
-    const handelLogin=async (e)=>{
-        e.preventDefault();
-        console.log(digiCode);
-
-       await User.HandelLogin();
+    const ActiveLoader=(value,duration)=>{
         const $el = document.getElementById(`img-bg-login`);
 
-        const duration = 2 ;
-        const from = { width: '100%'};
-        TweenMax.to($el, duration, from);
+        if (value===0){
+            TweenMax.to($el, duration, {width: '0'});
+        }else if(value===50){
+            TweenMax.to($el, duration, {width: '50%'});
+        }else if (value===100){
+            TweenMax.to($el, duration, {width: '100%'});
+        }
+    };
+    const handelChangeForm=(value)=>{
 
-        setTimeout(() => {
-            TweenMax.to($el, duration,  { width: '0'});
-        }, 2000)
+        if (value==="signUp"||value==="login"){
+            ActiveLoader(100,1);
+            setTimeout(function(){  ActiveLoader(50, 1); }, 1000);
+            setTimeout(function(){    setformType(value); }, 700);
+
+        }else {
+            console.log(value);
+            setformType(value);
+        }
+    };
+
+
+    const handelType=async (type)=>{
+        setType(type)
+
         // Redirect.current.click();
     }
-console.log("User.isLogIn")
-console.log(User.isLogIn)
+console.log("formType")
+console.log(formType)
     return (
         <div className="row w-100 h-100 overflow-hidden justify-content-end">
             <div className="  h-100 bg-login d-flex justify-content-center align-items-center    "
                 style={{width:'50%', overFlow:"hidden"}} id="img-bg-login">
-
 
                 <div className="">
                     <img src={logo} alt="logo" className="logo-login"/>
@@ -82,19 +60,27 @@ console.log(User.isLogIn)
 
             </div>
 
-
             {
-                User.isLogIn ?<UserInfo/>:
-                    <div className="w-100  d-flex justify-content-end">
-                        <FormLogin header={"خوش  آمدید به"} subHeader={"آکادمی آنلاین کلید "} onSubmit={handelSubmit}
-                                   onChange={onChange} label={'شماره تلفن همراه '} style={"block"} id_form={"form1"}
-                                   id={"phoneNumber"} placeHolder={"شماره تماس"} type={"number"} value={phoneNumber}
-                                   error={error.phoneNumber} btn_txt={"ارسال کد تایید"}/>
 
-                        <FormLogin header={" ادامه بدهید ..."} subHeader={"تقریبا تمومه"} onSubmit={handelLogin}
-                                   onChange={onChange} label={'کد فعال سازی '} style={"none"} id_form={"form2"}
-                                   id={'digiCode'} placeHolder={"کد فعال سازی را وارد کنید "} type={"number"} value={digiCode}
-                                   error={error.digiCode} btn_txt={"ورود"}/>
+                    <div className="w-100  d-flex justify-content-end">
+
+
+                        {formType==="login"? <FormLogin header={"خوش  آمدید به"} subHeader={"آکادمی آنلاین کلید "}  handelType={handelType}
+                                                        btn_txt={"ارسال کد تایید"} handelChangeForm={handelChangeForm} loading={ActiveLoader}  />:""}
+
+
+                        {formType==="signUp"? <FormSignUp header={"خوش  آمدید به"} subHeader={"آکادمی آنلاین کلید "}  handelType={handelType}
+                                                          btn_txt={"ارسال کد تایید"} handelChangeForm={handelChangeForm} loading={ActiveLoader}/>:""}
+
+
+
+                         {formType==="validate"?  <VerificationState header={" ادامه بدهید ..."} subHeader={"تقریبا تمومه"} type={type}
+                                                                       btn_txt={"ورود"} loading={ActiveLoader}  handelChangeForm={handelChangeForm}/>:""}
+
+
+                          {formType==="Profile"? <UserInfo/>:""}
+
+                        {/*token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkI…k0Mn0.uDebJhqeqzVLiGktJLMtv4IstHz9yUz3Aj2kdJcZSXE"*/}
                     </div>
 
             }
@@ -102,29 +88,6 @@ console.log(User.isLogIn)
 
 
 
-
-            {/*<div className="w-50 h-100  overflow-hidden " id="form2" style={{display:"none"}}   dir="rtl" >*/}
-                {/*<div className="w-100 h-100  d-flex justify-content-center overflow-hidden">*/}
-                    {/*<div className="main-login-field col-8">*/}
-                        {/*<p className="header-color" style={{fontSize:"1.5rem"}}>ادامه بدهید ...  </p>*/}
-                        {/*<p className="header-color font-weight-bold  mb-5 mt-3" style={{fontSize:"3rem"}}>تقریبا تمومه </p>*/}
-                        {/*<form onSubmit={handelLogin} className="mt-5 pt-5">*/}
-                            {/*<TextInput onChange={onChange} label={'کد فعال سازی '} id={'digiCode'} class_input="mt-3"*/}
-                                       {/*placeholder={"کد فعال سازی را وارد کنید "} type={"text"}*/}
-                                       {/*is_required={true} value={digiCode}*/}
-                                       {/*error={error.digiCode}/>*/}
-                            {/*<button*/}
-                                {/*className="btn green-background  br10px text-white col-5 h-input-s col-md-6 col-sm-12 sendButton-shadow mt-3"*/}
-                                {/*type="submit">ورود*/}
-                            {/*</button>*/}
-
-                        {/*</form>*/}
-
-                    {/*</div>*/}
-                {/*</div>*/}
-
-
-            {/*</div>*/}
             <Link to='/user-info'  className="d-none" ref={Redirect} />
 
 

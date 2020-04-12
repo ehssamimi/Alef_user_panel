@@ -13,6 +13,7 @@ import MyCourse from "./Components/UserProfile/MyCourse/MyCourse";
 import MySchedule from "./Components/UserProfile/MyProgram/MyProgram";
 import Login from "./Components/LogIn/LogIn";
 import {UserContext} from "./Components/Common/Context/UserProvider";
+import SignUp from "./Components/LogIn/SignUp";
 
 
 
@@ -56,6 +57,7 @@ function App() {
                           <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>
                           <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>
                           <Route path="/login" component={Login}/>
+                          <Route path="/sign-up" component={SignUp}/>
                           <Route  component={NoMatch}/>
 
                       {/*</MainHeader>*/}

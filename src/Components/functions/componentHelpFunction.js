@@ -1,8 +1,15 @@
-import NotificationManager from "./../Common/react-notifications/NotificationManager";
+import NotificationManagerss from "./../Common/react-notifications/NotificationManager";
 import {TweenMax} from "gsap/TweenMax";
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css'
+import React from "react";
 
+
+export const Notifications_eee=(txt)=>{
+    return <ReactNotification />
+};
 export const error_Notification=(state,Description)=>{
-    return NotificationManager.error(
+    return NotificationManagerss.error(
         state,
         Description,
         3000,
@@ -12,7 +19,7 @@ export const error_Notification=(state,Description)=>{
     );
 };
 export const success_Notification=(Response)=>{
-    return NotificationManager.success(
+    return NotificationManagerss.success(
         "تبریک",
         Response,
         3000,
