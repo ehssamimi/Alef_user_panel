@@ -23,8 +23,8 @@ export default class VideoPlayerMain extends React.Component {
     // see https://github.com/videojs/video.js/pull/3856
     render() {
         return (
-            <div data-vjs-player>
-                <video ref={node => (this.videoNode = node)} className="video-js vjs-fluid  lockCustom  " />
+            <div   data-vjs-player>
+                <video ref={node => (this.videoNode = node)} className="video-js vjs-fluid  playCustom  w-100 object-fit-cover " />
             </div>
         );
     }

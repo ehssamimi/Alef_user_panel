@@ -1,16 +1,24 @@
 import React, {Component} from 'react';
 import MainHeader from "../Main-Header/MainHeader";
+import {FaAngleLeft} from "react-icons/fa";
+import HeaderCourse from "./HeaderCourse/HeaderCourse";
+ import CourseIntroducing from "./IntroducingCoursse/CourseIntroducing";
 
-class MainCourses extends Component {
-    render() {
-        return (
+
+export default function MainCourses (props){
+
+    return(
+        <div className="w-100 d-flex justify-content-center">
             <MainHeader>
+                <HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>
                 <div>
-                    <h2>MainCourses</h2>
-                </div>
+                    <CourseIntroducing/>
+                 </div>
+
             </MainHeader>
-        );
-    }
+        </div>
+    )
 }
 
-export default MainCourses;
+
+

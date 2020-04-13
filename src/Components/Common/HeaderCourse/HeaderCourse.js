@@ -12,7 +12,7 @@ export default function HeaderCourse (props){
     let number=1321546463;
     return (
 
-        <div className='mt-3 w-100 brt-s' dir='rtl' >
+        <div className='mt-3 w-100  ' dir='rtl' >
 
 
             <div className='mt-4 w-100' >
@@ -21,9 +21,14 @@ export default function HeaderCourse (props){
                 >
 
                     <div className="d-flex w-100 ">
+                        <h3 className="header-color">{props.header}</h3>
+                        <div className="ml-auto row">
+                            <span className='red-color text-decoration-line-through  mr-2 fs15rem    '>{formatNumber(props.cost)} تومن  </span>
+                            {props.sellcost?<span className='header-color   fs15rem   '>{formatNumber(props.sellcost)} تومن  </span>:""}
 
-                        <div className='  fs-lesion '>{'ریاضی'} </div>
-                        <div className='fs-lesion  d-flex ml-auto '>{formatNumber(250000)} تومن  </div>
+                        </div>
+
+
 
                     </div>
 

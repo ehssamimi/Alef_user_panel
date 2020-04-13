@@ -96,8 +96,21 @@
     padding: .12rem!important;
 }
 
+.header-top{
+ width: 100%;
+    position: absolute;
+    top: 0;
+    height:3.8rem ;
+    background: #f8faf9;
+
+    -webkit-box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;
+    -moz-box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;
+    box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;
+
+}
+
 .HomePage {
-    width: 68%;
+    width: 70%;
 }
 
 
@@ -128,11 +141,26 @@
     font-size: 70%;
 }
  .h-min-12em{
-     min-height: 12em;
+     min-height: 12em!important;
  }
+.h-min-img-card{
+
+
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+
+
+
+/*height: 15vw;*/
+    /*min-height: 10rem;*/
+}
  .h-min-20em{
      min-height: 20em;
  }
+.h-min-24vw{
+       min-height: 24vw;
+   }
  .h-min-45em{
      min-height: 45em;
  }
@@ -176,6 +204,9 @@
 .red-color{
     color:red;
 }
+.text-decoration-line-through{
+    text-decoration: line-through;
+}
 
 .form-control{
     height: calc(3.25rem + 2px);!important;
@@ -213,7 +244,7 @@
 }
 select.decorated option:hover {
     box-shadow: 0 0 10px 100px #687a6d  ;
-    background-color:    background-color:  #215831  ;
+    background-color:   #215831  ;
     color: white;;
 }
 select option:checked,
@@ -277,7 +308,24 @@ select option:hover {
     margin-top: 1.5rem;
     /*margin-right: 4rem;*/
 }
-.
+.text-ex span{
+    color: #67796c !important;;
+}
+
+.img-cover-preLoader{
+    position: absolute;
+    top: 25%;
+    right: 35%;
+}
+.filter-img-course{
+    /*-webkit-filter: sepia(30%) hue-rotate(70deg) saturate(200%)  brightness(0.4)  ;*/
+    /*filter: sepia(30%) hue-rotate(70deg) saturate(200%)  brightness(0.4)  ;*/
+
+    -webkit-filter:   hue-rotate(70deg)   brightness(0.4)  ;
+    filter:    hue-rotate(70deg)   brightness(0.4)  ;
+
+
+}
 
 
 

@@ -56,7 +56,7 @@ export default function RightMenu (props){
 
                                 {
                                     selected.first?
-                                        <li className="list-unstyled  fs13vw fw200 position-relative  ">
+                                        <li className="list-unstyled  fs13vw fw200 position-relative h-List-item ">
                                             <img src={active}  alt="active" className="  img-self-fill zIndex-2"/>
                                             <span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>دور ه های من</span>
                                         </li>:
@@ -65,8 +65,6 @@ export default function RightMenu (props){
                                                 handelClick('first')
                                             }}>
                                             <Link to="/my-course"><span className="zIndex-3 list-user-profile w-100 pl-2"> <GiGraduateCap/>دور ه های من</span></Link></li>
-
-
 
                                 }
 

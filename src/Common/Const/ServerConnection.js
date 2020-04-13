@@ -1,7 +1,7 @@
 import * as Const from "./ServerConst";
 import axios from "axios";
 
-export async  function  GetUserDropDown(page_number){
+export async  function  GetUserDropDown( ){
 
     let headers = {
 
@@ -146,12 +146,30 @@ export async  function  Verify(type,phoneNumber,code){
     return resp;
 }
 
+export async  function  GetUserProfile(phoneNumber){
 
+    let headers = {
 
+        'accept': 'application/json',
+        'token':Const.Token
+    };
 
-
-
-
+    var resp ="";
+    await axios.get(`${Const.user}profile`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
 
 
 // export async  function  GetAllPermission(page_number){

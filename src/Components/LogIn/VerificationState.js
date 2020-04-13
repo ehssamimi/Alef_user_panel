@@ -70,8 +70,8 @@ const VerificationState = (props) => {
 
                 let {state ,Description} = await Verify(type,localStorage.getItem("phoneNumber_K"),values.verificationCode);
                 console.log(state ,Description)
-
-                if (state===200 ) {
+                 if (state===200 ) {
+                    localStorage.setItem("token",Description.token);
                     User.HandelLogin()
                     setTimeout(function(){
                         loading(0, 1);

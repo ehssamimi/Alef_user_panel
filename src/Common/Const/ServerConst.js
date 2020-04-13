@@ -1,5 +1,5 @@
 // ****ID and Token********
-export const Token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw"  ;
+export const Token=localStorage.getItem("token")  ;
 export const Liara_Url="https://casalef.liara.run/";
 // export const User="https://useralef.liara.run/";
 export const ID="5d87e194549ae0267b5268cc";

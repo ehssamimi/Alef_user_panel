@@ -10,6 +10,7 @@ import CheckBoxCustom from "../../Common/CheckBoxCustom/CheckBoxCustom";
 import HeaderCourse from "../../Common/HeaderCourse/HeaderCourse";
 import profile from './../../../Common/img/profile.jpg'
 import TeacherInRow from "../Main-Courses/Teachers/TeacheInRow/TeacherInRow";
+import HeaderTop from "../../Common/Header-top/HeaderTop";
 
 // const Video_src='https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
 const Video_src='https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
@@ -32,33 +33,9 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="w-100 d-flex justify-content-center">
-                <MainHeader>
-                    <div className="mt-5 col-12 ml-auto mr-auto">
-                        <div className="row m-0">
-
-                            {
-                                this.state.teachers.map((item , index)=>{return(<TeacherInRow {...item} key={index}/>)})
-                            }
-
-                        </div>
-                        {/*<CarouselMain files={this.state.courses}/>*/}
-
-                        <HeaderCourse>
-                            <ExtendedDiv>
-                                <CarouselMain files={this.state.files}/>
-                            </ExtendedDiv>
-                            <ExtendedDiv>
-                                <CarouselMain files={this.state.files}/>
-                            </ExtendedDiv>
-                        </HeaderCourse>
-
-
-
-
-                    </div>
-                </MainHeader>
-            </div>
+            <HeaderTop>
+                this is header
+            </HeaderTop>
 
 
         );

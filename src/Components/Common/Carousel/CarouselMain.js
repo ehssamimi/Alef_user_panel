@@ -12,7 +12,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import  Play from'./../../../Common/img/play_on_video.png'
+import  lock from'./../../../Common/img/lock_on_video.png'
 
 
 const useStyles = makeStyles({
@@ -23,6 +24,23 @@ const useStyles = makeStyles({
         height: 140,
     },
 });
+
+const PreModal=(props)=>{
+    return(
+
+        <div className="w-100 hpx200 position-relative pl-3 ">
+            <img src={props.img} alt="main img" className="img-self-cover br10px filter-img-course"/>
+            {
+                props.type==='play'? <img src={Play} alt="play" className="img-cover-preLoader"/>:<img src={lock} alt="lock" className="img-cover-preLoader"/>
+            }
+
+        </div>
+
+    )
+}
+
+
+
 
 const CourseCard = (props) => {
     // const classes = useStyles();
@@ -49,12 +67,7 @@ const CourseCard = (props) => {
             </CardActionArea>
             <CardActions className="w-100 d-flex justify-content-center">
                 <Button className="btn green-background text-white col-6 fontFamily-Sans ">{props.button}</Button>
-                {/*<Button size="small" color="primary">*/}
-                    {/*Share*/}
-                {/*</Button>*/}
-                {/*<Button size="small" color="primary">*/}
-                    {/*Learn More*/}
-                {/*</Button>*/}
+
             </CardActions>
         </Card>
     );
@@ -107,6 +120,7 @@ const ButtonGroup = ({ next, previous, goToSlide , ...rest }) => {
 
 
 export  function CarouselMain(props) {
+    console.log(props)
 
 
 
@@ -161,7 +175,7 @@ export  function CarouselMain(props) {
                 }
             }}
 
-            showDots={true}
+            showDots={false}
             sliderClass=""
             slidesToSlide={1}
             swipeable
@@ -171,7 +185,14 @@ export  function CarouselMain(props) {
                     <div key={key} id={key} className=""  >
 
                         {
-                            props.type==="Course"?  <CourseCard {...item}/>:<VideoCardItem {...item}  />
+                            props.type==="Course"?  <CourseCard {...item}/>: ""
+                        }
+
+                        {/*{*/}
+                            {/*props.type==="Course"?  <CourseCard {...item}/>:<VideoCardItem {...item}  />*/}
+                        {/*}*/}
+                        {
+                            props.type==="preModal"?  <PreModal {...item}/>:""
                         }
 
                     </div>
