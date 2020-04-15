@@ -1,5 +1,6 @@
 import MainHeader from "../../Main/Main-Header/MainHeader";
 import React from "react";
+import {NotificationContainer} from "react-notifications";
 
 
 const HeaderTop = (props) => {
@@ -13,6 +14,7 @@ const HeaderTop = (props) => {
             <MainHeader>
                 {props.children }
             </MainHeader>
+            <NotificationContainer />
         </div>
     );
 };

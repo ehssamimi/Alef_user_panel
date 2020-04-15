@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import {Card, CardBody, Collapse} from "reactstrap";
+import {Button, Card, CardBody, Collapse} from "reactstrap";
 import { FaPlus , FaMinus,FaRegPlayCircle} from "react-icons/fa";
 import { GiStopwatch} from "react-icons/gi";
 import {formatNumber} from './../../../Common/JS-Function/Js-common-function'
@@ -42,7 +42,8 @@ export default function ExtendedDiv (props){
                                     <span className= ' mr-2' > 4hr,20min </span>
                                     <span className= ' ' ><GiStopwatch/></span>
                                 </div>
-                                <div className="mr-3 green-them">
+
+                                <div className="mr-3 green-them" onClick={()=>{props.toggle('toggle')}}>
                                     <span className= '  mr-2'    > مشاهده پیش نمایش  </span>
                                     <span className= ' '    ><FaRegPlayCircle/></span>
                                 </div>

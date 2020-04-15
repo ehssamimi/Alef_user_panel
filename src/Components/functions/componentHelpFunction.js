@@ -3,6 +3,7 @@ import {TweenMax} from "gsap/TweenMax";
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 import React from "react";
+import profile from "../../Common/img/profile.jpg";
 
 
 export const Notifications_eee=(txt)=>{
@@ -30,25 +31,90 @@ export const success_Notification=(Response)=>{
 };
 
 // *****show all product***
-export const getProductList=(Products)=>{
-    let productSeparate=[];
-    Products.map((each, index) => {
-        let sub = {"تعداد": each['Count'],"تولید": each['Manufacture'],"دسته بندی": each['Category'] };
-        let Main = {
-            "name": each['Name'],
-            "Attribute": each['Attribute'],
-            "Description": each['Description'],
-            "PrevPrice": each['PrevPrice'],
-            "CurrentPrice": each['CurrentPrice'],
-            "Images": each['Images'][0],
-            "ViewCount": each['ViewCount'] ,
-            "Off": each['Off'],
-            "id":each['_id']
-        };
-        let row={'Main':Main,'sub':sub};
-        productSeparate.push(row)
+export const seprateEachCourseData=(courses)=>{
+
+    console.log(courses)
+
+    let{off,course}=courses;
+    let off_percent=0;
+    if (off['hours_to_end']!==null){
+        off_percent=off['hours_to_end']
+    } else if(off['special_students']!==null){
+        off_percent=off['special_students']
+    }else if (off['institute_students']!==null) {
+        off_percent=off['institute_students']
+    }else if (off['public_off']!==null) {
+        off_percent=off['public_off']
+    }
+
+
+    const Top = {
+        "video_img": course.demo_video_cover,
+        "Video_src": course.demo_video,
+        "course_img": course.image,
+        "grade": course.grade,
+        "cost": course.price,
+        "sellCost": off_percent * course.price,
+        "field": course.field,
+        "name":course.name,
+        "description":course.description,
+    };
+
+
+
+
+
+//
+//     lessons: Array(1)
+//     0:
+//     name: "ریاضی"
+//     image: "https://stream.kelidiha.com/public/lesson/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/image.png"
+//     price: 120000
+//     chapter_count: 10
+//     teachers: Array(1)
+//     0:
+//     name: "بخشنده"
+//     image: "https://stream.kelidiha.com/public/teacher/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/image.png"
+//     total_videos_time: 54
+//     demo_video_cover: "https://stream.kelidiha.com/public/teacher/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/demo-video/image.png"
+//     demo_video: "https://stream.kelidiha.com/public/teachers/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/stream/index.m3u8"
+//     chapters: [{…}]
+// ز
+    let Teachers=[];
+let Lesson=[];
+    course.lessons.map((each, index) => {
+
+
+        console.log(each)
+        each.teachers.map((item,index2)=>{
+            Teachers.push({name:item.name,img:item.image,"course":each.name})
+            Lesson.push({
+                name: each.name,
+                cost: each.price,
+                sellcost: off_percent * each.price,
+                teacher_name: item.name,
+                Teache_time: item.total_videos_time,
+                teacher_V_img: item.demo_video_cover,
+                teacher_V: item.demo_video,
+                chapter_count:each.chapter_count,
+                items:[]
+            })
+        });
     });
-    return productSeparate;
+
+
+
+
+
+
+
+
+
+
+     let Result={ Top,Teachers,  Lesson,
+         "main":off_percent};
+
+    return Result;
 };
 
 export function categoryDetails (categories) {

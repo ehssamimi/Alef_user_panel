@@ -5,13 +5,19 @@ import CardMedia from "@material-ui/core/CardMedia/CardMedia";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import CardActions from "@material-ui/core/CardActions/CardActions";
 import Button from "@material-ui/core/Button/Button";
+import {formatNumber} from "../../../../../Common/JS-Function/Js-common-function";
+import {Link} from "react-router-dom"
+
+
 
 const CourseCarsBuy = (props) => {
 
-    let{img,title,course,grade,button,cost,sellCost}=props;
+    let{img,title,course,grade,button,cost,sellCost,sub_text,id}=props;
+    console.log(img);
     const [count, setCount] = useState(1);
     useEffect(() => {
         // Update the document title using the browser API
+
         document.title = `You clicked ${count} times`;
     });
 
@@ -29,8 +35,8 @@ const CourseCarsBuy = (props) => {
                             <span className="header-color">{ title}</span>
                             <div className="d-inline-block ml-auto ">
                                 <div className="d-flex flex-column">
-                                    <span className="header-color">{ cost}</span>
-                                    <span className="  red-color  text-decoration-line-through">{ sellCost}</span>
+                                    <span className="header-color">{ formatNumber(sellCost )+"ت"}</span>
+                                    <span className="  red-color  text-decoration-line-through">{ formatNumber(cost)+"ت"}</span>
                                 </div>
 
                             </div>
@@ -43,11 +49,18 @@ const CourseCarsBuy = (props) => {
 
                         </div>
 
+
                     </CardContent>
 
                 <CardActions className="w-100 d-flex justify-content-center">
                     <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow">{button}</Button>
                 </CardActions>
+                <div className="d-flex justify-content-center">
+                    {
+                        sub_text?  <Link to={`/courses/${id}`}  className="pt-4"> {sub_text } </Link>:""
+                    }
+
+                </div>
             </Card>
 
     );

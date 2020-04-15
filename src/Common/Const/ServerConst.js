@@ -1,6 +1,7 @@
 // ****ID and Token********
-export const Token=localStorage.getItem("token")  ;
-export const Liara_Url="https://casalef.liara.run/";
+// export const Token=localStorage.getItem("token")  ;
+export const Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw";
+export const Kelidha_User="https://resource.kelidiha.com/users/";
 // export const User="https://useralef.liara.run/";
 export const ID="5d87e194549ae0267b5268cc";
 // *****URL*******
@@ -14,4 +15,5 @@ export const ID="5d87e194549ae0267b5268cc";
 // export const ChichiMan="http://192.168.1.78:3003/";
 // export const product="http://chichiapp.ir:30034/";
 export const user="https://useralef.liara.run/users/";
+export const ResourceUser="https://resourcealef.liara.run/users/";
 export const admin_route="https://useralef.liara.run/admin_route/";

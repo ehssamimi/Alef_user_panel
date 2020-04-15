@@ -47,7 +47,7 @@ export default function HeaderCourse (props){
                             <span className= ' mr-2' > 4hr,20min </span>
 
                         </div>
-                        <div className="mr-3 green-them">
+                        <div className="mr-3 green-them" onClick={()=>{props.toggle('toggle')}}>
                             <span className= ' '    ><FaRegPlayCircle/></span>
                             <span className= '  mr-2'    > مشاهده پیش نمایش  </span>
 
