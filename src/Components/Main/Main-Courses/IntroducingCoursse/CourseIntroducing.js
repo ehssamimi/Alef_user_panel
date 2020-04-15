@@ -22,6 +22,7 @@ import TopCourseDetail from "./topCourseDetail/TopCourseDetail";
 import {CardBody} from "reactstrap";
 import Loader from "../../../Common/Loader/Loader";
 import EachLesson from "../EachLesson";
+import VideoModalDemo from "../../../Common/VideoPlayerComponents/VideoModal/VideoModalDemo";
 const Video_src='https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
 
 const CourseIntroducing = (props) => {
@@ -31,15 +32,18 @@ const CourseIntroducing = (props) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [isLoder, setisLoder] = useState(true);
     const [Data, setData] = useState({Top:{},Teachers:[],Lesson:[]});
+    const[videos,setVideos]=useState({type:"",video:[]});
     // const [Data, setData] = useState({top:{},main:{}});
 
-    const toggle = (value) => {
-        if (value==="toggle"){
-            setIsOpenModal(!isOpenModal)
+    const toggle = (type,value) => {
+        console.log(type,value)
+        setIsOpenModal(!isOpenModal)
+        if (type==="main"){
+            setVideos({type,video:value});
         } else {
+            setVideos({type,video:value});
 
         }
-
     };
 
     useEffect(() => {
@@ -61,46 +65,45 @@ const CourseIntroducing = (props) => {
         getData()
 
     }, Data );
+// console.log(Data.Lesson)
+
+
 
 
      return (
-        <div className={ "w-100"}>
-            {
-                isLoder?     <div className='d-flex justify-content-center align-items-center'>
-                        <div className='col-6'>
-                            <Loader/>
-                        </div>
-                    </div>:
+         <div className={"w-100"}>
+        {
+            isLoder ? <div className='d-flex justify-content-center align-items-center'>
+                    <div className='col-6'>
+                        <Loader/>
+                    </div>
+                </div> :
 
-            <div className="w-100">
-                <TopCourseDetail {... Data.Top} />
-
-
-
-                <TeachersInCourseDetails header="اساتید این دوره" teachers={  Data.Teachers}/>
-
-                {
-                    Data.Lesson.map((each,index)=><EachLesson {... each} toggle={toggle} files={files}/>)
-
-                }
+                <div className="w-100">
+                    <TopCourseDetail {...Data.Top} />
 
 
+                    <TeachersInCourseDetails header="اساتید این دوره" teachers={Data.Teachers}/>
+
+                    {
+                        Data.Lesson.map((each, index) => <EachLesson key={index} {...each} toggle={toggle} files={files}/>)
+
+                    }
 
 
+                    <ModalCustomVideo isOpen={isOpenModal} toggle={toggle}>
+                        {
+                            videos.type==="demo"?<VideoModalDemo  video={videos.video[1]} img={videos.video[0]}/>:""
+                        }
+                        {
+                            videos.type==="main"?<VideoModal file={videos.video} />:""
+                        }
 
+                    </ModalCustomVideo>
+                </div>
+        }
 
-
-                <ModalCustomVideo  isOpen={isOpenModal} toggle={toggle}>
-                    <VideoModal video={Video_src} img={profile}/>
-                </ModalCustomVideo>
-            </div>
-            }
-
-
-
-
-
-        </div>
+</div>
     );
 };
 

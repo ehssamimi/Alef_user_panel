@@ -7,11 +7,13 @@ import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
 
 
 export default function ExtendedDiv (props){
-    const [collapse, setcollapse] = useState(false);
-    let number=1321546463;
+    const [collapse, setcollapse,] = useState(false);
+    let{name,index,off,price,total_video_times,videos,toggle}=props
+
+
     return (
 
-        <div className='mt-3 w-100 brt-s' dir='rtl' >
+        <div className='mt-3 w-100 brt-s' dir='ltr' >
 
 
                     <div className='mt-4 w-100' >
@@ -19,33 +21,41 @@ export default function ExtendedDiv (props){
                             {
                                collapse?
 
-                                   <span className= ' border-Carousel p-2 mr-3'     ><FaMinus/></span>
+                                   <span className= ' border-Carousel p-2 mr-3' ><FaMinus/></span>
 
                                     :
-                                   <span className= ' border-Carousel p-2 mr-3'     > <FaPlus/></span>
+                                   <span className= ' border-Carousel p-2 mr-3' > <FaPlus/></span>
 
                             }
 
                             <div className="d-flex w-100 ">
 
-                                    <div className='  fs-lesion '>درس {'2'}: {'توابع'} </div>
-                                    <div className='fs-lesion  d-flex ml-auto '>{formatNumber(12000)} تومن  </div>
+                                    <div className='  fs-lesion '>درس {index+1}: {name} </div>
+                                <div className="ml-auto row">
+                                    <span className='red-color text-decoration-line-through  mr-2 fs15rem    '>{formatNumber(price)} تومن  </span>
+                                    {off!==0?<span className='header-color   fs15rem   '>{formatNumber(price-(price*off))} تومن  </span>:""}
+                                </div>
+
+
+
 
                             </div>
 
 
 
                         </div>
-                        <div className="col-12 pl-5 pr-0 pt-2 pb-2 d-flex  ">
+                        <div className="col-12 pl-5 pr-0 pt-2 pb-2 d-flex  "  >
                             <div className=" d-flex align-items-center">
                                 <div className="mr-3 green-them">
-                                    <span className= ' mr-2' > 4hr,20min </span>
                                     <span className= ' ' ><GiStopwatch/></span>
+                                    <span className= ' mr-2' > {total_video_times} </span>
+
                                 </div>
 
-                                <div className="mr-3 green-them" onClick={()=>{props.toggle('toggle')}}>
-                                    <span className= '  mr-2'    > مشاهده پیش نمایش  </span>
+                                <div className="mr-3 green-them cursor-pointer" onClick={( )=>{ toggle('demo',videos)}}>
                                     <span className= ' '    ><FaRegPlayCircle/></span>
+                                    <span className= '  mr-2'    > مشاهده پیش نمایش  </span>
+
                                 </div>
                             </div>
 

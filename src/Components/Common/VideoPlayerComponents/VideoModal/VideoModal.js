@@ -7,6 +7,7 @@ import {FaRegDotCircle, FaCheck,FaAngleRight,FaAngleLeft} from "react-icons/fa";
 import {GiStopwatch} from "react-icons/gi";
 import {FiDownload} from "react-icons/fi";
 import ShowMoreDescription from "../../../Main/Main-Courses/IntroducingCoursse/ShowMoreDescription/ShowMoreDescription";
+import {Link} from "react-router-dom";
 
 const VideoModal = (props) => {
     // const [count, setCount] = useState(1);
@@ -14,41 +15,59 @@ const VideoModal = (props) => {
     //     // Update the document title using the browser API
     //     document.title = `You clicked ${count} times`;
     // });
+    let{index ,items}=props.file;
+
+    // video: "https://stream.kelidiha.com/item/video/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/index.m3u8"
+// video_cover: "https://stream.kelidiha.com/public/item/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/video_cover/image.png"
+// audio: "https://stream.kelidiha.com/item/item_audio/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/audio.mp3"
+// description: "string"
+// name: "مفاهیم اولیه"
+// downloadable_content: "https://stream.kelidiha.com/item/item_downloadable_content/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/pdf.pdf"
+// time_to_done: 3
+// is_free: false
+// is_locked: false
+// is_seen: false
+    console.log(items[index].downloadable_content)
+
+
+
 
     return (
         <div className="w-100 h-min-20em" dir="rtl">
           <div style={{height:"60%"}}>
-              <PlayVideo169 video={props.video} img={props.img}/>
+              <PlayVideo169 video={items[index].video} img={items[index].video_cover}/>
           </div>
             <div style={{height:"40%"}}>
                 <div className="col-12 pl-3 pr-0 pt-2 pb-2    ">
                     <div className=" d-flex align-items-center">
                         <div className="mr-3 green-them">
                             <span className= ' ' ><GiStopwatch/></span>
-                            <span className= ' mr-2' >4 ساعت و 20 دقبقه </span>
+                            <span className= ' mr-2 ml-1' >{items[index].time_to_done} </span>
                         </div>
                         <div className="mr-3 green-them">
                             <span className= ' ' ><FiDownload/></span>
-                            <span className= ' mr-2' > دانلود جزوه </span>
+                            <span className=' mr-2'>
+                                <a href={items[index].downloadable_content} target="_blank" download className="second-color ml-1 ">دانلود جزوه</a>
+                            </span>
 
                         </div>
                         <div className="mr-3 second-color">
                             {
-                                props.see?<div className="d-flex">
+                                !items[index].is_seen?<div className="d-flex">
                                         <span className= ' '    ><FaCheck/></span>
-                                        <span className= '  mr-2'    > شما این درس را قبلا مشاهده کرده اید </span>
+                                        <span className= '  mr-2 ml-1'    > شما این درس را قبلا مشاهده کرده اید </span>
                                     </div>:
                                     <div className="ml-auto">
                                         <span className= ' '    ><FaRegDotCircle/></span>
-                                        <span className= '  mr-2'    > شما این درس را قبلا مشاهده نکرده اید </span>
+                                        <span className= '  mr-2 ml-1'    > شما این درس را قبلا مشاهده نکرده اید </span>
                                     </div>
                             }
                         </div>
                     </div>
                     <div className="mt-4">
 
-                        <ShowMoreDescription header={"مثلثات"} class="pl-3 pr-3"
-                                             desc={" لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.   "}/>
+                        <ShowMoreDescription header={items[index].name} class="pl-3 pr-3"
+                                             desc={items[index].description}/>
 
                     </div>
 

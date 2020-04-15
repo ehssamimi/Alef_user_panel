@@ -327,7 +327,17 @@ select option:hover {
 
 }
 
-
+.buy-footer{
+    position: absolute;
+    bottom: 0;
+    min-height:3.2rem ;
+    width: 100%;
+    background: #f8faf9;
+    /*box-shadow: 9px 10px 14px -5px rgba(234, 225, 234, 0.91) !important;*/
+    -webkit-box-shadow: -25px 0 14px 5px   rgba(234, 225, 234, 0.91) !important;
+    -moz-box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
+    box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
+}
 
 
 

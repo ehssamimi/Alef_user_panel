@@ -26,18 +26,43 @@ const useStyles = makeStyles({
 });
 
 const PreModal=(props)=>{
+    let{img,is_locked,toggle,name,video,audio,video_cover,description ,index,items}=props;
+    // let  main={"video":video!==null?video:audio,"video_cover":video_cover,"description":description};
+
+    // items: Array(1)
+// 0:
+// video: "https://stream.kelidiha.com/item/video/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/index.m3u8"
+// video_cover: "https://stream.kelidiha.com/public/item/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/video_cover/image.png"
+// audio: "https://stream.kelidiha.com/item/item_audio/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/audio.mp3"
+// description: "string"
+// name: "مفاهیم اولیه"
+// downloadable_content: "https://stream.kelidiha.com/item/item_downloadable_content/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/pdf.pdf"
+// time_to_done: 3
+// is_free: false
+// is_locked: false
+// is_seen: false
+
+    let main={index:index,items:items};
+
+    // {"src":Video_src,img:ax2,type:"lock"}
     return(
 
-        <div className="w-100 hpx200 position-relative pl-3 ">
-            <img src={props.img} alt="main img" className="img-self-cover br10px filter-img-course"/>
+        <div className="w-100 hpx200 position-relative pl-3 " >
             {
-                props.type==='play'? <img src={Play} alt="play" className="img-cover-preLoader"/>:<img src={lock} alt="lock" className="img-cover-preLoader"/>
+                !is_locked ?
+                    <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer" onClick={() => {
+                        toggle('main', main)
+                    }}/> : <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer"/>
             }
 
+            {
+                !is_locked? <img src={Play} alt="play" className="img-cover-preLoader cursor-pointer"/>:<img src={lock} alt="lock" className="img-cover-preLoader"/>
+            }
+            <p className="pt-2 pb-0 second-color">درس {index+1} {name}</p>
         </div>
 
     )
-}
+};
 
 
 
@@ -192,7 +217,7 @@ export  function CarouselMain(props) {
                             {/*props.type==="Course"?  <CourseCard {...item}/>:<VideoCardItem {...item}  />*/}
                         {/*}*/}
                         {
-                            props.type==="preModal"?  <PreModal {...item}/>:""
+                            props.type==="preModal"?  <PreModal {...item} {...props} index={key} items={props.files}/>:""
                         }
 
                     </div>

@@ -1,6 +1,7 @@
 import MainHeader from "../../Main/Main-Header/MainHeader";
 import React from "react";
 import {NotificationContainer} from "react-notifications";
+import BuyFooter from "../BuyFooter/BuyFooter";
 
 
 const HeaderTop = (props) => {
@@ -14,6 +15,7 @@ const HeaderTop = (props) => {
             <MainHeader>
                 {props.children }
             </MainHeader>
+             <BuyFooter price={2000} off={0.3}/>
             <NotificationContainer />
         </div>
     );
