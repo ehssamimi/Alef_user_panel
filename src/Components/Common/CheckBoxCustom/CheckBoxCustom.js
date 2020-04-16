@@ -46,7 +46,6 @@ function CheckBoxCustom(props) {
                         }}
                         checked={checked}
                         onChange={handleChange}
-
                         style={{color:'#215831'}}
                         value="checkedA"
                     />

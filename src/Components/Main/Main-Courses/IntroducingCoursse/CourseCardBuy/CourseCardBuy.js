@@ -20,7 +20,8 @@ const CourseCarsBuy = (props) => {
 
         document.title = `You clicked ${count} times`;
     });
-
+console.log("sssssssssss");
+console.log(sellCost);
     return (
 
             <Card  className= "m-2 br20px h-100 h-min-24vw  box-shadow-custom" >
@@ -35,8 +36,8 @@ const CourseCarsBuy = (props) => {
                             <span className="header-color">{ title}</span>
                             <div className="d-inline-block ml-auto ">
                                 <div className="d-flex flex-column">
-                                    <span className="header-color">{ formatNumber(sellCost )+"ت"}</span>
-                                    <span className="  red-color  text-decoration-line-through">{ formatNumber(cost)+"ت"}</span>
+                                    <span className="header-color">{ formatNumber((cost))}</span>
+                                    <span className="  red-color  text-decoration-line-through">{ formatNumber(sellCost ) }</span>
                                 </div>
 
                             </div>

@@ -60,6 +60,7 @@ const BuyFooter = (props) => {
 
 
                         </div>
+                        
 
 
 

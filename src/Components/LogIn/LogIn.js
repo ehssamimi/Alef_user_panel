@@ -9,7 +9,7 @@ import {UserContext} from "../Common/Context/UserProvider";
 import FormLogin from "./FormLogin";
 import UserInfo from "../UserProfile/UserInfo/UserInfo";
 import FormSignUp from "./FormSignUp";
-import {GetVerifycationCode} from "../../Common/Const/ServerConnection";
+
 import VerificationState from "./VerificationState";
 const Login = (props) => {
     const Redirect = useRef(null);

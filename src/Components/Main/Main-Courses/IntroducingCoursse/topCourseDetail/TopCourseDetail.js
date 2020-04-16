@@ -14,13 +14,12 @@ let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description}=p
                 <PlayVideo169 video={Video_src} img={video_img}/>
             </div>
             <div className="col-md-4 col-sm-12 h-100 ">
-                <CourseCarsBuy img={course_img} title={name} cost={formatNumber(cost) + "ت"}
-                               sellCost={formatNumber(sellCost) + "ت"} course={field} button={"خرید دروه"}
+                <CourseCarsBuy img={course_img} title={name} cost={formatNumber(sellCost-cost) + "ت"}
+                               sellCost={formatNumber( sellCost) + "ت"} course={field} button={"خرید دروه"}
                                class={"h-min-img-card"}/>
             </div>
             <ShowMoreDescription header={name}
                                  desc={ description}/>
-
 
         </div>
     );

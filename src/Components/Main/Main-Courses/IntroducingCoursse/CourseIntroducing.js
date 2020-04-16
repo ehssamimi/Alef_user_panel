@@ -67,9 +67,6 @@ const CourseIntroducing = (props) => {
     }, Data );
 // console.log(Data.Lesson)
 
-
-
-
      return (
          <div className={"w-100"}>
         {

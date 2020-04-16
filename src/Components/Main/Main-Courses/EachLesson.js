@@ -1,20 +1,20 @@
-import React    from 'react';
+import React, {useContext} from 'react';
 import HeaderCourse from "../../Common/HeaderCourse/HeaderCourse";
 import ExtendedDiv from "../../Common/ExtendedDiv/ExtendedDiv";
 import {CarouselMain} from "../../Common/Carousel/CarouselMain";
-
+// import {BuyContext} from "../../Common/Context/BuyProvider";
+// let Buy=useContext(BuyContext);
 const EachLesson = (props) => {
     let{toggle, teacher_V_img,teacher_V ,chapters,off}=props;
 
     return (
-        <div className="w-100">
+        <div className="w-100 mb-5">
             <HeaderCourse      {...props} >
 
                 {chapters.map((each,index)=>
                     <ExtendedDiv key={index} toggle={toggle} {...each} videos={[each.demo_video_cover,each.demo_video]} off={off} index={index}>
                         <CarouselMain files={each.items} header={"aaaa"} type="preModal" toggle={toggle}/>
                     </ExtendedDiv>
-
                 )}
 
 

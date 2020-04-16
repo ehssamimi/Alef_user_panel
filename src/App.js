@@ -14,6 +14,8 @@ import MySchedule from "./Components/UserProfile/MyProgram/MyProgram";
 import Login from "./Components/LogIn/LogIn";
 import {UserContext} from "./Components/Common/Context/UserProvider";
 import SignUp from "./Components/LogIn/SignUp";
+import CourseIntroducing from "./Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing";
+import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse/IntroducingCourse";
 
 
 
@@ -49,6 +51,7 @@ function App() {
                           <Route path="/" exact={true} component={Home}/>
                           <Route path="/about" component={MainAbout}/>
                           <Route path="/courses" component={MainCourses}/>
+                          <Route path="/course/:id" component={IntroducingCourse}/>
 
                       <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={UserInfo}  />
 

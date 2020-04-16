@@ -135,6 +135,22 @@ let Lesson=[];
 
     return Result;
 };
+export const getOff=(off)=>{
+    let off_percent=0;
+    // if (off['hours_to_end']!==null){
+    //     off_percent=off['hours_to_end']
+    // } else
+
+
+        if(off['special_students']!==null){
+        off_percent=off['special_students']
+    }else if (off['institute_students']!==null) {
+        off_percent=off['institute_students']
+    }else if (off['public_off']!==null) {
+        off_percent=off['public_off']
+    }
+    return ({"off_percent":off_percent,"hourse":off['public_off']} )
+}
 
 export function categoryDetails (categories) {
     let CategoryOption=[];let Subs={};

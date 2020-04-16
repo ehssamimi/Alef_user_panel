@@ -240,7 +240,9 @@
 }
 .h-input-s{
     height: calc(3.25rem + 2px);!important;
-
+}
+.h-input-buy{
+    height: calc(2.7rem + 2px);!important;
 }
 select.decorated option:hover {
     box-shadow: 0 0 10px 100px #687a6d  ;
@@ -328,7 +330,7 @@ select option:hover {
 }
 
 .buy-footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     min-height:3.2rem ;
     width: 100%;
@@ -337,6 +339,9 @@ select option:hover {
     -webkit-box-shadow: -25px 0 14px 5px   rgba(234, 225, 234, 0.91) !important;
     -moz-box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
     box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
+}
+.mt-14{
+    margin-top: 14rem;
 }
 
 

@@ -5,7 +5,7 @@ import { GiStopwatch} from "react-icons/gi";
 import {formatNumber} from './../../../Common/JS-Function/Js-common-function'
 import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
 
-
+// User.HandelLogin()
 
 export default function HeaderCourse (props){
     let{name,cost,sellcost,teacher_V_img,toggle, teacher_V,Teache_time,teacher_name}=props

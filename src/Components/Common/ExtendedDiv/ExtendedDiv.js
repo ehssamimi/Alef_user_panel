@@ -13,7 +13,7 @@ export default function ExtendedDiv (props){
 
     return (
 
-        <div className='mt-3 w-100 brt-s' dir='ltr' >
+        <div className='mt-3 w-100 brt-s ' dir='rtl' >
 
 
                     <div className='mt-4 w-100' >

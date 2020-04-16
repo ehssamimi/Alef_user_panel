@@ -14,6 +14,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import  Play from'./../../../Common/img/play_on_video.png'
 import  lock from'./../../../Common/img/lock_on_video.png'
+import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
+import {Link} from "react-router-dom";
 
 
 const useStyles = makeStyles({
@@ -131,6 +133,73 @@ const VideoCardItem=(props)=>{
 };
 
 
+const CourseCarsMain = (props) => {
+
+
+
+
+    // let{img,title,course,grade,button,cost,sellCost,sub_text,id}=props;
+    let{name,grade,field,price,image,off,course_id,sub_text }=props;
+    console.log("image")
+    console.log(image)
+
+    const [count, setCount] = useState(1);
+    useEffect(() => {
+        // Update the document title using the browser API
+
+        document.title = `You clicked ${count} times`;
+    });
+
+    return (
+
+        <Card  className= "m-2 br20px h-100 h-min-24vw  box-shadow-custom" >
+
+            <CardMedia
+                className={props.class}
+                image={image}
+                title="Course Section"
+            />
+            <CardContent>
+                <div className="row col-12 m-0">
+                    <div className="d-inline-block  ">
+                        <div className="d-flex flex-column" dir="rtl">
+                            <span className="header-color " > {  off!==0?formatNumber(price-(price*off)):formatNumber(price)}  تومان </span>
+                            <span className="  red-color  text-decoration-line-through">{ formatNumber(price) } تومان</span>
+                        </div>
+                    </div>
+                    <span className="header-color mr-auto  ">{ name}</span>
+
+                </div>
+
+                <div >
+                    {/*<span className="second-color">{grade} </span>*/}
+                    {/*<span className="second-color"> {field? "|"+ field:""} </span>*/}
+                    <span className="second-color pl-2"> {field } </span>
+                </div>
+            </CardContent>
+
+            <CardActions className="w-100 d-flex justify-content-center">
+                <button className="btn green-background text-white col-8 fontFamily-Sans sendButton-shadow br10px h-input-buy"> خرید دوره </button>
+            </CardActions>
+            <div className="d-flex justify-content-center">
+                {
+                    sub_text?  <Link to={`/course/${course_id}`}  className="pt-4"> {sub_text  } </Link>:""
+                }
+
+            </div>
+        </Card>
+
+    );
+};
+
+
+
+
+
+
+
+
+
 const ButtonGroup = ({ next, previous, goToSlide , ...rest }) => {
     const { carouselState: { currentSlide } } = rest;
     return (
@@ -149,7 +218,7 @@ export  function CarouselMain(props) {
 
 
 
-    return <div className="position-relative hpx300  ">
+    return <div className="position-relative hpx300  w-100  ">
         {/*h-header-slider*/}
         <div className="d-flex align-items-center ">
             <span className="carousel-header">{props.header} </span>
@@ -218,6 +287,9 @@ export  function CarouselMain(props) {
                         {/*}*/}
                         {
                             props.type==="preModal"?  <PreModal {...item} {...props} index={key} items={props.files}/>:""
+                        }
+                        {
+                            props.type==="courseMain"?  <CourseCarsMain {...item} {...props} index={key}  />:""
                         }
 
                     </div>
