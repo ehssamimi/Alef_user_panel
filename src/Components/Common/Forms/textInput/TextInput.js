@@ -25,7 +25,7 @@ export  function SelectedInput (props){
                 <span>{ (is_required||false?'(اجباری)':"") }</span>
                 <span className="red-color">{ (changeEdit||false?'(اجباری)':"") }</span>
              </Label>
-            <Input invalid={error.length > 0} placeHolder={placeholder} type={type} value={value} name={id} id={id} onChange={(e) => onChange(`${e.target.value}`, id)}  >
+            <Input invalid={error.length > 0} placeholder={placeholder} type={type} value={value} name={id} id={id} onChange={(e) => onChange(`${e.target.value}`, id)}  >
                 {options.map((item, index) => {
                     return (<option key={index}>{item}</option>)
                 })}

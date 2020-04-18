@@ -14,6 +14,8 @@ export default function IntroducingCourse (props){
     const [isLoder, setisLoder] = useState(true);
 
     useEffect(() => {
+        const {match: {params}} =  props;
+        console.log(params.id);
         // Update the document title using the browser API
 
         // async function  getData(){
@@ -40,10 +42,12 @@ export default function IntroducingCourse (props){
 
     }, courses );
 
+    const {match: {params}} =  props;
+
     return (
         <HeaderTop>
             <div className="w-100">
-                <CourseIntroducing/>
+                <CourseIntroducing id={params.id}/>
             </div>
 
 

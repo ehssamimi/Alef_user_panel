@@ -30,7 +30,7 @@ export const success_Notification=(Response)=>{
     );
 };
 
-// *****show all product***
+// *****Courses ***
 export const seprateEachCourseData=(courses)=>{
 
     console.log(courses)
@@ -64,41 +64,6 @@ export const seprateEachCourseData=(courses)=>{
 
 
 
-//
-//     lessons: Array(1)
-//     0:
-//     name: "ریاضی"
-//     image: "https://stream.kelidiha.com/public/lesson/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/image.png"
-//     price: 120000
-//     chapter_count: 10
-//     teachers: Array(1)
-//     0:
-//     name: "بخشنده"
-//     image: "https://stream.kelidiha.com/public/teacher/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/image.png"
-//     total_videos_time: 54
-//     demo_video_cover: "https://stream.kelidiha.com/public/teacher/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/demo-video/image.png"
-//   demo_video: "https://stream.kelidiha.com/public/teachers/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/stream/index.m3u8"
-// chapters: Array(1)
-// 0:
-// image: "https://stream.kelidiha.com/public/chapter/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/image.png"
-// name: "انتگرال"
-// total_video_times: 4
-// demo_video_cover: "https://stream.kelidiha.com/public/chapter/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/demo-video/image.png"
-// demo_video: "https://stream.kelidiha.com/public/chapter/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/stream/index.m3u8"
-// price: 36000
-// items: Array(1)
-// 0:
-// video: "https://stream.kelidiha.com/item/video/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/index.m3u8"
-// video_cover: "https://stream.kelidiha.com/public/item/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/video_cover/image.png"
-// audio: "https://stream.kelidiha.com/item/item_audio/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/audio.mp3"
-// description: "string"
-// name: "مفاهیم اولیه"
-// downloadable_content: "https://stream.kelidiha.com/item/item_downloadable_content/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/pdf.pdf"
-// time_to_done: 3
-// is_free: false
-// is_locked: false
-// is_seen: false
-// ز
     let Teachers=[];
 let Lesson=[];
     course.lessons.map((each, index) => {
@@ -121,15 +86,6 @@ let Lesson=[];
         });
     });
 
-
-
-
-
-
-
-
-
-
      let Result={ Top,Teachers,  Lesson,
          "main":off_percent};
 
@@ -151,6 +107,30 @@ export const getOff=(off)=>{
     }
     return ({"off_percent":off_percent,"hourse":off['public_off']} )
 }
+
+// **********User-panel*******
+export const getProfileValue=(data)=>{
+    let{profile,personal_info,education,parent,address}=data;
+
+
+    return ({
+        "name": personal_info.name,
+        "profile_img":profile.image_id,
+        "phoneNumber":personal_info.phone_number,
+        "ID": personal_info.ssn,
+        "class":  education.grade,
+        "fields": education.field,
+        "average_num": education.gpa,
+        "schoolName": education.school_name,
+        "Schoolkind":education.school_type,
+        "country": address.city,
+        "city": address.province,
+        "parent_name": parent.name,
+        "parent_num": parent.phone_number
+
+    } )
+}
+
 
 export function categoryDetails (categories) {
     let CategoryOption=[];let Subs={};

@@ -51,7 +51,7 @@ function App() {
                           <Route path="/" exact={true} component={Home}/>
                           <Route path="/about" component={MainAbout}/>
                           <Route path="/courses" component={MainCourses}/>
-                          <Route path="/course/:id" component={IntroducingCourse}/>
+                          <Route path="/course/:id"   component={IntroducingCourse}/>
 
                       <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={UserInfo}  />
 

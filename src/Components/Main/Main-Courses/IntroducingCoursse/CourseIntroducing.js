@@ -36,7 +36,7 @@ const CourseIntroducing = (props) => {
     // const [Data, setData] = useState({top:{},main:{}});
 
     const toggle = (type,value) => {
-        console.log(type,value)
+
         setIsOpenModal(!isOpenModal)
         if (type==="main"){
             setVideos({type,video:value});
@@ -48,9 +48,11 @@ const CourseIntroducing = (props) => {
 
     useEffect(() => {
         // Update the document title using the browser API
-
+        // console.log("props.id")
+        // console.log(props.id)
         async function  getData(){
-           const{state,Description}= await LoadCourse("5e96169a01d73623037c281d");
+           // const{state,Description}= await LoadCourse("5e96169a01d73623037c281d");
+           const{state,Description}= await LoadCourse(props.id);
 
             if (state===200 ) {
                 let{Top,Teachers,Lesson}=seprateEachCourseData(Description);

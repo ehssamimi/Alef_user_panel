@@ -33,7 +33,7 @@ export default function RightMenu (props){
     }
 
     return (
-        <div className="d-flex     " dir='rtl'>
+        <div className="d-flex  w-100   " dir='rtl'>
 
             <div className="rightMenu h-min-45em  position-fixed">
                 <div className="green-rightMenu  h-100   align-items-center">

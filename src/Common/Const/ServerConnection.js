@@ -146,7 +146,7 @@ export async  function  Verify(type,phoneNumber,code){
     return resp;
 }
 
-export async  function  GetUserProfile(phoneNumber){
+export async  function  GetUserProfile(){
 
     let headers = {
 

@@ -33,20 +33,23 @@ import 'react-notifications-component/dist/theme.css'
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
+import {getProfileValue} from "../../functions/componentHelpFunction";
 
 export default function UserInfo(props) {
     const [isLoder, setisLoder] = useState(true);
     const [error, seterro] = useState({"name": ""});
     const [values, setvalues] = useState({
         "name": "احسان صمیمی راد",
-        "class": "یازدهم",
-        "fields": "ریاضی و فیزیک",
-        "country": "",
-        "city": "",
+        "profile_img":profile ,
+        "phoneNumber":"",
+        "ID": "",
+        "class": "",
+        "fields": "",
+        "average_num": "",
         "schoolName": "",
         "Schoolkind": "",
-        "ID": "",
-        "average_num": "",
+        "country": "",
+        "city": "",
         "parent_name": "",
         "parent_num": ""
     });
@@ -54,18 +57,22 @@ export default function UserInfo(props) {
         "school_type": [], "field_type": [], "grade_type": []
     });
     const [DefaultValue, setDefaultValue] = useState({
-        "name": "احسان صمیمی راد",
-        "class": "یازدهم",
-        "fields": "علوم تجربی",
+        "name": "",
+        "profile_img":profile ,
+        "phoneNumber":"",
+        "ID": "",
+        "class": "",
+        "fields": "",
+        "average_num": "",
+        "schoolName": "",
+        "Schoolkind": "",
         "country": "",
         "city": "",
-        "schoolName": "",
-        "Schoolkind": "نیمه دولتی",
-        "ID": "",
-        "average_num": "7/5",
         "parent_name": "",
         "parent_num": ""
     });
+
+
 
     const [citys, setcitys] = useState(Ardebil);
     useEffect(  () => {
@@ -74,7 +81,7 @@ export default function UserInfo(props) {
 
             const {state, Description}=await GetUserDropDown();
             if (state===200 ) {
-                setisLoder(false)
+                // setisLoder(false)
                 const option={
                     "school_type":Description.school_type, "field_type":Description.field_type, "grade_type":Description.grade_type
                 };
@@ -82,18 +89,22 @@ export default function UserInfo(props) {
 
             } else {
                 NotificationManager.success(state, Description);
-                setisLoder(false);
+                // setisLoder(false);
                 // error_Notification(state,Description)
             }
             // console.log(UserDropDown)
 
         }
-        async function getUserInfo(user_id) {
+        async function getUserInfo(token) {
 
             const {state, Description}=await GetUserProfile();
             if (state===200 ) {
                 setisLoder(false);
                 console.log(Description);
+
+                let values=getProfileValue(Description);
+                setvalues(values);
+                setDefaultValue(values);
 
             } else {
                 NotificationManager.success(state, Description);
@@ -105,9 +116,10 @@ export default function UserInfo(props) {
         }
         setisLoder(true);
         getUserDropDown();
+        getUserInfo();
 
 
-    },[]);
+    },values,DefaultValue);
     const onChange = (value, names) => {
 
         setvalues({...values, [names]: value});
@@ -148,7 +160,7 @@ export default function UserInfo(props) {
                                         <Col sm={12} md={5}
                                              className=" d-flex   flex-column justify-content-around ml-r-auto  ">
                                             <div className="w-100">
-                                                <img src={profile} alt={profile} className="img-self-fill"/>
+                                                <img src={values.profile_img} alt={profile} className="img-self-fill"/>
                                             </div>
                                             <div className="w-100">
                                                 <button
@@ -171,7 +183,7 @@ export default function UserInfo(props) {
                                                     <span className="red-color">{'( غیر قابل تغییر )'}</span>
                                                 </Label>
                                                 <InputGroup>
-                                                    <Input value={9112561701} type={'number'} name={'phoneNumber'}
+                                                    <Input value={values.phoneNumber} type={'number'} name={'phoneNumber'}
                                                            id={'phoneNumber'}/>
                                                     <InputGroupAddon addonType="append">
                                                         <InputGroupText><FaLock/></InputGroupText>
@@ -228,11 +240,17 @@ export default function UserInfo(props) {
                                                                type={"select"} is_required={false}
                                                                value={values.Schoolkind}
                                                                error={error.name} options={options.school_type}/>
+
                                                 <TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}
                                                            id={'average_num'}
-                                                           placeholder={"معدل"} type={"text"} is_required={false}
-                                                           value={values.average_num}
+                                                           placeholder={"معدل"} type={"text"}
+                                                           is_required={false} value={values.average_num}
                                                            error={error.name}/>
+                                                {/*<TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}*/}
+                                                           {/*id={'average_num'}*/}
+                                                           {/*placeholder={"معدل"} type={"text"} is_required={false}*/}
+                                                           {/*value={values.average_num}*/}
+                                                           {/*error={error.name}/>*/}
                                                 <TextInput onChange={onChange} label={'شماره پدر یا مادر'}
                                                            id={'parent_num'}
                                                            placeholder={"شماره تماس پدر یا مادر"} type={"number"}

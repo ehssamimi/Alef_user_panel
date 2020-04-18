@@ -5,14 +5,13 @@ import HeaderNavigation from "../../Common/HeaderNavigation/HeaderNavigation";
 import {Card, CardBody} from "reactstrap";
 import profile from './../../../Common/img/Profile Picture.png'
 import { TiPencil } from "react-icons/ti";
-import {Link} from "react-router-dom";
+
 import {getprofile, LoadCourse} from "../../../Common/Const/ServerConnection";
 import {seprateEachCourseData} from "../../functions/componentHelpFunction";
 import {NotificationManager} from "react-notifications";
 import Loader from "../../Common/Loader/Loader";
 
 export default function UserProfile (props){
-    const[error,seterro]=useState({"name":""});
     const [isLoder, setisLoder] = useState(true);
     const[profileData,setprofileData]=useState({"name":null,"grade":"پایه یازدهم","class":"ریاضی و فیزیک","phoneNUmber":"09112561701","country":"مازندران","city":"ساری",});
     useEffect(() => {
@@ -38,7 +37,9 @@ export default function UserProfile (props){
 
 
 
-
+        // function handleClick() {
+        //     history.push("/home");
+        // }
 
     return(
         <div className="w-100  ">
@@ -60,13 +61,12 @@ export default function UserProfile (props){
                                     <Card className="br20px box-shadow-custom  ">
                                         <CardBody className=" h-today position-relative ">
 
-
                                             <div className="row  w-100 mt-4 justify-content-start" dir="rtl">
-                                                <div className="edit-profile-icon d-flex second-color">
-                                                    <Link to="/user-info" className="d-flex second-color">
-                                                        <span>ویرایش پروفایل</span>
-                                                        <span className="ml-2"><TiPencil/></span>
-                                                    </Link>
+                                                <div className="edit-profile-icon d-flex second-color zIndex-3" >
+                                                    <a href="/user-info"   className="d-flex second-color">
+                                r                       <span>ویرایش پروفایل</span>
+                                                    </a>
+                                                    <span className="ml-2"><TiPencil/></span>
                                                 </div>
                                                 <div className="col-sm-12 col-md-4">
                                                     <div className='profile-pic br-g br-r50  p-05'>
@@ -79,38 +79,36 @@ export default function UserProfile (props){
                                                         {profileData.personal_info.name}
                                                     </div>
                                                     <div className="green-them">
-                                                        {profileData.education.grade}    {profileData.education.field?"  |  "+profileData.education.field:""}
+
+                                                        {profileData.education.grade?profileData.education.grade:"---"}
+                                                           {profileData.education.field?"  |  "+profileData.education.field:"---"}
                                                     </div>
                                                     <div className="green-them">
                                                         {profileData.personal_info.phone_number}
                                                         {
-                                                            profileData.country?
+                                                            profileData.address.province?
                                                                 <span>
-                                                            <span className="pl-2 pr-2"> |</span> {profileData.country}
+                                                            <span className="pl-2 pr-2"> |</span> {profileData.address.province?profileData.address.province:"---"}
                                                         </span>:""
 
                                                         }
                                                         {
-                                                            profileData.city?
+                                                            profileData.address.city?
                                                                 <span>
-                                                            <span className="pl-2 pr-2"> |</span> {profileData.city}
+                                                            <span className="pl-2 pr-2"> |</span>{profileData.address.city?profileData.address.city:"---"}
                                                         </span>:""
 
                                                         }
-
-
 
                                                     </div>
 
                                                 </div>
 
-
-
                                             </div>
                                             <div>
                                                 <div className="d-flex justify-content-start mt-2">
                                                     <span className="second-color">شماره ملی : </span>
-                                                    <span className="header-color ml-2">profileData.personal_info.ssn</span>
+                                                    <span className="header-color ml-2">{profileData.personal_info.ssn?profileData.personal_info.ssn:"---"}  </span>
                                                 </div>
                                             </div>
                                             <div>
@@ -120,20 +118,15 @@ export default function UserProfile (props){
                                                         </span>
 
                                                     <span className="ml-2 mr-2 header-color ">
-                                                          profileData.education.school_name  <span className="pl-2 pr-2"> |</span>profileData.education.school_type
+                                                          {profileData.education.school_name?profileData.education.school_name:"---"}   <span className="pl-2 pr-2"> |</span>  {profileData.education.school_type?profileData.education.school_type:"---"}
                                                         </span>
                                                 </div>
                                             </div>
-                                            {/*// profile: {image_id: "https://5e7df4522174ce0011232b00.liara.space/user-…2087e83741839003316af92faee643045b03270f1e1c516c6"}*/}
-                                            {/*// personal_info: {phone_number: "09119518867", name: "javid", ssn: null}*/}
-                                            {/*// email: {email: null, is_active: false}*/}
-                                            {/*// education: {grade: "فارغ التحصیل", field: "هنر", gpa: null, school_name: null, school_type: "دولتی"}*/}
-                                            {/*// parent: {code: null, name: null, phone_number: null}*/}
 
                                             <div>
                                                 <div className="d-flex justify-content-start mt-2">
                                                     <span className="second-color">معدل سال تحصیلی قبل : </span>
-                                                    <span className="header-color ml-2"> profileData.education.gpa </span>
+                                                    <span className="header-color ml-2">  {profileData.education.gpa?profileData.education.gpa:"---"}  </span>
                                                 </div>
                                             </div>
                                             <div>
@@ -142,7 +135,7 @@ export default function UserProfile (props){
                                                          اطلاعات پدر یا مادر :                                                         </span>
 
                                                     <span className="ml-2 mr-2 header-color ">
-                                                          profileData.parent.name  <span className="pl-2 pr-2"> |</span>profileData.parent.phone_number
+                                                        {profileData.parent.name?profileData.parent.name:"---"}  <span className="pl-2 pr-2"> |</span>{profileData.parent.phone_number?profileData.parent.phone_number:"---"}
                                                         </span>
                                                 </div>
                                             </div>
