@@ -10,9 +10,9 @@ const TodayText = (props) => {
             <h3 className="text-left mb-2">سخن امروز</h3>
             <Card className="br20px box-shadow-custom  ">
                 <CardBody className="d-flex flex-column justify-content-around align-items-center h-today ">
-                    <div className="text-left">
-                        <p className="header-color font-weight-bold">{props.header}:</p>
-                        <p className="text-break second-color pl-4 pr-2">{props.content}</p>
+                    <div className="text-left w-100">
+                        <p className="header-color font-weight-bold">{props.name}:</p>
+                        <p className="text-break second-color pl-4 pr-2">{props.text}</p>
                     </div>
 
                 </CardBody>

@@ -53,7 +53,6 @@ export function getCity(ostan) {
     switch(ostan) {
         case "اصفهان":
             return city.Esfahan;
-            // code block
             break;
         case "البرز":
             return city.Alborz;
@@ -70,10 +69,80 @@ export function getCity(ostan) {
         case "بوشهر":
             return city.Boshehr;
             break;
-
-
+            case "تهران":
+            return city.Tehran;
+            break;
+        case "چهارمحال وبختياري":
+            return city.Charmahal;
+            break;
+        case "خراسان جنوبي":
+            return city.KhorasanJonobi;
+            break;
+        case "خراسان رضوي":
+            return city.KhorasanRazavi;
+            break;
+        case "خراسان شمالي":
+            return city.KhorasanShomali;
+            break;
+        case "خوزستان":
+            return city.Khozestan;
+            break;
+            case "زنجان":
+            return city.zanjab;
+            break;
+        case "سمنان":
+            return city.semnan;
+            break;
+        case "سيستان وبلوچستان":
+            return city.Sistan;
+            break;
+        case "فارس":
+            return city.Fars;
+            break;
+        case "قزوين":
+            return city.ghazvin;
+            break;
+        case "قم":
+            return city.Qom;
+            break;
+            case "كردستان":
+            return city.Kordestan;
+            break;
+        case "كرمان":
+            return city.Kerman;
+            break;
+            case "كرمانشاه":
+            return city.Kermanshah;
+            break;
+        case "كهگيلويه وبويراحمد":
+            return city.Kohkiloye;
+            break;
+        case "گلستان":
+            return city.Golestan;
+            break;
+        case "گيلان":
+            return city.Gilan;
+            break;
+        case "لرستان":
+            return city.Lorestan;
+            break;
+        case "مازندران":
+            return city.Mazandaran;
+            break;
+    case "مركزي":
+            return city.Markazi;
+            break;
+        case "هرمزگان":
+            return city.Hormozgan;
+            break;
+            case "همدان":
+            return city.Hamedan;
+            break;
+        case "يزد":
+            return city.Yazd;
+            break;
         default:
-            return city.Boshehr;
+            return city.Mazandaran;
         // code block
     };
 

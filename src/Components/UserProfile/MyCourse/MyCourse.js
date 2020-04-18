@@ -13,6 +13,9 @@ import CardActionArea from "@material-ui/core/CardActionArea/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia/CardMedia";
 import CardContent from "@material-ui/core/CardContent/CardContent";
 import Button from "@material-ui/core/Button/Button";
+import Loader from "../../Common/Loader/Loader";
+import {GetMyCourse, GetUserschedule} from "../../../Common/Const/ServerConnection";
+import {NotificationManager} from "react-notifications";
 const Video_src='https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
 
 
@@ -35,25 +38,55 @@ export default  function MyCourse(props) {
         course: "ریاضی و فیزیک",
         "button":"مشاهده فصل"
     } ]);
+    const [isLoder, setisLoder] = useState(true);
+    useEffect(  () => {
+
+        async function getMyCourse() {
+            const {state, Description}=await GetMyCourse();
+            setisLoder(false);
+            if (state===200 ) {
+
+
+            } else {
+
+                NotificationManager.success(state, Description);
+                // setisLoder(false);
+                // error_Notification(state,Description)
+            }
+            // console.log(UserDropDown)
+
+        }
+
+        setisLoder(true);
+        getMyCourse();
+    },[]);
 
     return(
         <div className="w-100  ">
             <RightMenu>
                 <MainHeader>
-                    <div className="mt-5 col-12 ml-auto mr-auto">
-                        <HeaderNavigation content={{"main":"اطلاعات کاربری","branch":"ویرایش پروفایل"}}/>
-                        <div dir='ltr'>
-                            <div className="w-100 mt-3 mb-5 justify-content-end ">
-                                <CarouselMain files={files} header={"دوره های من " } type="Course" />
+                    {
+                        isLoder ?   // *******checking for submit form or get category Option is then loader start then loader close**********
+                            <div className='d-flex justify-content-center align-items-center'>
+                                <div className='col-6'>
+                                    <Loader/>
+                                </div>
+                            </div> :
+                            <div className="mt-5 col-12 ml-auto mr-auto">
+                                <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
+                                <div dir='ltr'>
+                                    <div className="w-100 mt-3 mb-5 justify-content-end ">
+                                        <CarouselMain files={files} header={"دوره های من "} type="Course"/>
+                                    </div>
+                                    <div className="w-100 mt-13rem  justify-content-end ">
+                                        <CarouselMain files={Class} header={"دوره های من "} type="Course"/>
+                                    </div>
+                                    <div className="w-100 mt-13rem  justify-content-end ">
+                                        <CarouselMain files={session} header={"فصل من "} type="Course"/>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="w-100 mt-13rem  justify-content-end ">
-                                <CarouselMain files={Class} header={"دوره های من " } type="Course"  />
-                            </div>
-                            <div className="w-100 mt-13rem  justify-content-end ">
-                                <CarouselMain files={session} header={"فصل من " } type="Course"  />
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </MainHeader>
             </RightMenu>
         </div>

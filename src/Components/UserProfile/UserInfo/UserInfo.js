@@ -15,7 +15,7 @@ import {
     InputGroupAddon,
     InputGroupText
 } from 'reactstrap';
-import {country, Ardebil} from './../../../Common/Const/cityAndCountery'
+import {country, Mazandaran} from './../../../Common/Const/cityAndCountery'
 
 import {FaLock} from "react-icons/fa";
 
@@ -24,7 +24,7 @@ import HeaderNavigation from "../../Common/HeaderNavigation/HeaderNavigation";
 import {SelectedInput, TextInput} from "../../Common/Forms/textInput/TextInput";
 import {getCity} from "../../../Common/JS-Function/Js-common-function";
 import profile from './../../../Common/img/Profile Picture.png'
-import {GetUserDropDown, GetUserProfile} from "../../../Common/Const/ServerConnection";
+import {GetUserDropDown, GetUserProfile, UpdateProfile, UploadProfileImg} from "../../../Common/Const/ServerConnection";
 
 import Loader from "../../Common/Loader/Loader";
 import 'react-notifications/lib/notifications.css';
@@ -35,46 +35,37 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
 import {getProfileValue} from "../../functions/componentHelpFunction";
 
+const DefaultUser={
+
+    "name": "",
+    "profile_img":"" ,
+    "phoneNumber":"",
+    "ID": "",
+    "class": "",
+    "fields": "",
+    "average_num": 0,
+    "schoolName": "",
+    "Schoolkind": "",
+    "country": "",
+    "city": "",
+    "parent_name": "",
+    "parent_num": ""
+}
+
 export default function UserInfo(props) {
     const [isLoder, setisLoder] = useState(true);
     const [error, seterro] = useState({"name": ""});
-    const [values, setvalues] = useState({
-        "name": "احسان صمیمی راد",
-        "profile_img":profile ,
-        "phoneNumber":"",
-        "ID": "",
-        "class": "",
-        "fields": "",
-        "average_num": "",
-        "schoolName": "",
-        "Schoolkind": "",
-        "country": "",
-        "city": "",
-        "parent_name": "",
-        "parent_num": ""
-    });
+    const [values, setvalues] = useState(DefaultUser);
     const [options, setOptions] = useState({
         "school_type": [], "field_type": [], "grade_type": []
     });
-    const [DefaultValue, setDefaultValue] = useState({
-        "name": "",
-        "profile_img":profile ,
-        "phoneNumber":"",
-        "ID": "",
-        "class": "",
-        "fields": "",
-        "average_num": "",
-        "schoolName": "",
-        "Schoolkind": "",
-        "country": "",
-        "city": "",
-        "parent_name": "",
-        "parent_num": ""
-    });
+    const [DefaultValue, setDefaultValue] = useState(DefaultUser);
+    const [ImgValue, setImgValue] = useState({data:null,file:null});
 
 
 
-    const [citys, setcitys] = useState(Ardebil);
+
+    const [citys, setcitys] = useState(Mazandaran);
     useEffect(  () => {
 
         async function getUserDropDown(user_id) {
@@ -103,9 +94,13 @@ export default function UserInfo(props) {
                 console.log(Description);
 
                 let values=getProfileValue(Description);
+                let city = getCity(values.country);
+                setcitys(city)
+
+                console.log(values);
                 setvalues(values);
                 setDefaultValue(values);
-
+                setImgValue({data:values.profile_img,file:null});
             } else {
                 NotificationManager.success(state, Description);
                 setisLoder(false);
@@ -119,7 +114,7 @@ export default function UserInfo(props) {
         getUserInfo();
 
 
-    },values,DefaultValue);
+    },[]);
     const onChange = (value, names) => {
 
         setvalues({...values, [names]: value});
@@ -131,16 +126,66 @@ export default function UserInfo(props) {
         // console.log(values);
         // console.log(names);
     };
-    const handelSubmit = (e) => {
+    const HandelImg=(e)=>{
+        let file=e.target.files;
+        let DATA=file[0];
+        if (file && file.length > 0) {
+            const reader = new FileReader();
+            reader.addEventListener("load", () =>
+                setImgValue({data:reader.result,file:DATA})
+            );
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    };
+    const handelSubmit = async (e) => {
         e.preventDefault();
-        console.log('values');
-        console.log(values)
+        console.log(values);
+        setisLoder(true);
+         if (ImgValue.file!==null) {
+             console.log("img-profile");
+             let {state, Description}=await UploadProfileImg(JSON.stringify({"file":ImgValue.file}));
+             if (state!==200){
+                 setisLoder(false);
+                 NotificationManager.error(state, Description);
+             }
+         }
+        let Data={
+            "personal_info": {
+                "name": values.name,
+                "ssn": values.ID
+            },
+            "education": {
+                "grade": values.class,
+                "field": values.fields,
+                "gpa": values.average_num,
+                "school_name": values.schoolName,
+                "school_type": values.Schoolkind
+            },
+            "parent": {
+                "name": values.parent_name,
+                "phone_number": values.parent_num
+            },
+            "address": {
+                "province": values.country,
+                "city": values.city
+            }
+        };
+         // console.log(JSON.stringify(Data))
+
+
+        let {state, Description}=await UpdateProfile(JSON.stringify(Data));
+        setisLoder(false);
+
+        if (state===200 ) {
+            NotificationManager.success("تبریک!!", "اطلاعات کاربری با موفقیت ثبت شد ");
+        } else {
+            NotificationManager.error(state, Description);
+        }
+
     };
     const handelDiscard = () => {
         setvalues(DefaultValue)
     };
-
-
     return (
         <HeaderTopWithRightMenu>
 
@@ -159,14 +204,16 @@ export default function UserInfo(props) {
                                     <div className="row m-0  w-100">
                                         <Col sm={12} md={5}
                                              className=" d-flex   flex-column justify-content-around ml-r-auto  ">
-                                            <div className="w-100">
-                                                <img src={values.profile_img} alt={profile} className="img-self-fill"/>
+                                            <div className="w-100  ">
+                                                <img src={ImgValue.data?ImgValue.data:profile} alt={profile} className="img-self-fill"/>
+                                                {/*<img src={profile} alt={profile} className="img-self-fill"/>*/}
                                             </div>
                                             <div className="w-100">
-                                                <button
-                                                    className="btn green-background  br10px text-white col-6 offset-3">آپلود
+                                                <label
+                                                    className="btn green-background  br10px text-white col-6 offset-3" htmlFor="upload_img">آپلود
                                                     عکس
-                                                </button>
+                                                </label>
+                                                <input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />
                                             </div>
                                         </Col>
                                         <Col sm={12} md={5}
@@ -183,7 +230,7 @@ export default function UserInfo(props) {
                                                     <span className="red-color">{'( غیر قابل تغییر )'}</span>
                                                 </Label>
                                                 <InputGroup>
-                                                    <Input value={values.phoneNumber} type={'number'} name={'phoneNumber'}
+                                                    <Input value={values.phoneNumber} type={'text'} name={'phoneNumber'}
                                                            id={'phoneNumber'}/>
                                                     <InputGroupAddon addonType="append">
                                                         <InputGroupText><FaLock/></InputGroupText>

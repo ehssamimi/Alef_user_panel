@@ -249,6 +249,163 @@ export async  function  getprofile( ){
     });
     return resp;
 }
+export async  function  UploadProfileImg(Data){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'multipart/form-data',
+        'accept': 'application/json',
+
+    };
+    console.log(Data);
+
+
+    var resp ="";
+    await axios.put(`${Const.user}profile/update`, Data, {headers: headers}).then(function (response) {
+        console.log(response );
+        let {Description}=response.data;
+        // let {Items} = response.data;
+        resp={state:200,Description:Description};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        }else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  UpdateProfile(Data){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+
+    };
+    console.log(Data);
+
+
+    var resp ="";
+    await axios.put(`${Const.user}profile/update`, Data, {headers: headers}).then(function (response) {
+        console.log(response );
+        let {Description}=response.data;
+        // let {Items} = response.data;
+        resp={state:200,Description:Description};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        }else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  GetUserschedule(Data){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+
+    };
+    console.log(Data);
+
+
+    var resp ="";
+    await axios.get(`${Const.user}personal_schedule/page` , {headers: headers}).then(function (response) {
+        console.log(response );
+
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        }else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  RequestUserschedule( ){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+
+    };
+
+    var resp ="";
+    await axios.get(`${Const.user}personal_schedule/request` , {headers: headers}).then(function (response) {
+        console.log(response );
+
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        }else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  GetMyCourse( ){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+
+    };
+
+    var resp ="";
+    await axios.get(`${Const.ResourceUser}course/my-course` , {headers: headers}).then(function (response) {
+        console.log(response );
+
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        } else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        }else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+
 
 
 

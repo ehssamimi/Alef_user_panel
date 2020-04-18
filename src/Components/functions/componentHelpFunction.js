@@ -112,7 +112,6 @@ export const getOff=(off)=>{
 export const getProfileValue=(data)=>{
     let{profile,personal_info,education,parent,address}=data;
 
-
     return ({
         "name": personal_info.name,
         "profile_img":profile.image_id,
@@ -123,11 +122,10 @@ export const getProfileValue=(data)=>{
         "average_num": education.gpa,
         "schoolName": education.school_name,
         "Schoolkind":education.school_type,
-        "country": address.city,
-        "city": address.province,
+        "country": address.province,
+        "city": address.city,
         "parent_name": parent.name,
         "parent_num": parent.phone_number
-
     } )
 }
 
