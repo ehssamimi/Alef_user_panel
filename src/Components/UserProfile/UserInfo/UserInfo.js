@@ -34,6 +34,8 @@ import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
 import {getProfileValue} from "../../functions/componentHelpFunction";
+import ModalCustomVideo from "../../Common/Modal/ModalCustom";
+import ValidateParentForm from "./ValidateParentForm";
 
 const DefaultUser={
 
@@ -49,7 +51,8 @@ const DefaultUser={
     "country": "",
     "city": "",
     "parent_name": "",
-    "parent_num": ""
+    "parent_num": "",
+    "parent_verify":true
 }
 
 export default function UserInfo(props) {
@@ -61,6 +64,8 @@ export default function UserInfo(props) {
     });
     const [DefaultValue, setDefaultValue] = useState(DefaultUser);
     const [ImgValue, setImgValue] = useState({data:null,file:null});
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const [count, setcount] = useState(0);
 
 
 
@@ -143,7 +148,7 @@ export default function UserInfo(props) {
         setisLoder(true);
          if (ImgValue.file!==null) {
              console.log("img-profile");
-             let {state, Description}=await UploadProfileImg(JSON.stringify({"file":ImgValue.file}));
+             let {state, Description}=await UploadProfileImg(ImgValue.file);
              if (state!==200){
                  setisLoder(false);
                  NotificationManager.error(state, Description);
@@ -174,6 +179,13 @@ export default function UserInfo(props) {
 
 
         let {state, Description}=await UpdateProfile(JSON.stringify(Data));
+        console.log(Description);
+        if (Description.message==="parent_phone_changed"){
+            setcount(10);
+            setIsOpenModal(true)
+        }
+
+
         setisLoder(false);
 
         if (state===200 ) {
@@ -187,7 +199,7 @@ export default function UserInfo(props) {
         setvalues(DefaultValue)
     };
     return (
-        <HeaderTopWithRightMenu>
+        <HeaderTopWithRightMenu  {...props}>
 
             <div className="mt-5 col-12 ml-auto mr-auto">
                 <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
@@ -230,8 +242,9 @@ export default function UserInfo(props) {
                                                     <span className="red-color">{'( غیر قابل تغییر )'}</span>
                                                 </Label>
                                                 <InputGroup>
-                                                    <Input value={values.phoneNumber} type={'text'} name={'phoneNumber'}
-                                                           id={'phoneNumber'}/>
+                                                    <span className="form-control d-flex align-items-center">{values.phoneNumber}</span>
+                                                    {/*<Input value={values.phoneNumber} type={'text'} name={'phoneNumber'}*/}
+                                                           {/*id={'phoneNumber'} />*/}
                                                     <InputGroupAddon addonType="append">
                                                         <InputGroupText><FaLock/></InputGroupText>
                                                     </InputGroupAddon>
@@ -303,6 +316,9 @@ export default function UserInfo(props) {
                                                            placeholder={"شماره تماس پدر یا مادر"} type={"number"}
                                                            is_required={false} value={values.parent_num}
                                                            error={error.name}/>
+                                                {
+                                                    values.parent_verify?<span className="green-color">شماره اعتبار سنجی شده است</span>:<span className="red-color cursor-pointer" onClick={()=>{setIsOpenModal(!isOpenModal)}} >شماره والد باید اعتبار سنجی شود</span>
+                                                }
                                             </Col>
                                         </div>
                                         <div className="col-12 row mt-4">
@@ -337,6 +353,10 @@ export default function UserInfo(props) {
 
 
             </div>
+            <ModalCustomVideo isOpen={isOpenModal} toggle={()=>{setIsOpenModal(!isOpenModal)}} size="sm">
+                <ValidateParentForm toggle={()=>{setIsOpenModal(!isOpenModal)}} phoneNumber={values.phoneNumber} count={count}/>
+
+            </ModalCustomVideo>
             <NotificationContainer />
         </HeaderTopWithRightMenu>
 

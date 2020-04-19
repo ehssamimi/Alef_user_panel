@@ -14,10 +14,12 @@ import {
 import {NotificationManager} from "react-notifications";
 import RequestSchedule from "./subs/RequestSchedule";
 import Loader from "../../Common/Loader/Loader";
-import {CardBody} from "reactstrap";
+import WatingForPdf from "./subs/WatingForPdf";
+
 
 export default  function MySchedule(props) {
     const [isLoder, setisLoder] = useState(true);
+    const [message, setmessage] = useState(null);
     const [content, setContent] = useState({"grade":"پایه یازدهم","field":"ریاضی و فیزیک","button":"دانلود Pdf","url":""});
     const [Today, setToday] = useState({"name":"آلبرت انیشتین","text":"هنگامی که مردی برای یک ساعت کنار دختری زیبا می نشیند، زمان بسیار سریع می گذرد و ۱ ساعت تنها یک دقیقه به نظر می رسد. اما اگر او را ۱ دقیقه بر روی اجاق داغ قرار دهید، این میزان به اندازه تمام ساعت ها خواهد گذشت. به این موضوع نسبیت می گویند."});
     useEffect(  () => {
@@ -28,6 +30,9 @@ export default  function MySchedule(props) {
                 setisLoder(false);
                 setContent(Description.schedule);
                 setToday(Description.quote);
+                setmessage(Description.message);
+
+
 
             } else {
                 setisLoder(false);
@@ -46,6 +51,7 @@ export default  function MySchedule(props) {
     const handelSubmitRequest=async ()=>{
         setisLoder(true);
         const {state, Description}=await RequestUserschedule();
+
         if (state===200 ) {
             setisLoder(false);
             NotificationManager.success("تبریک", "درخواست شما ارسال گردید");
@@ -59,7 +65,7 @@ export default  function MySchedule(props) {
     return(
 
 
-            <HeaderTopWithRightMenu>
+            <HeaderTopWithRightMenu  {...props}>
                 <div className="mt-3 col-12 ml-auto mr-auto">
                     <HeaderNavigation content={{"main":"اطلاعات کاربری","branch":"برنامه مطالعاتی"}}/>
                     {
@@ -72,7 +78,9 @@ export default  function MySchedule(props) {
                             <div className="w-100">
                                 <div className="col-sm-12 col-md-4 mt-5">
                                     {
-                                        content !== null ? <DownloadPdf  {...content}/> : <RequestSchedule handelSubmitRequest={handelSubmitRequest}/>
+                                        content !== null ?
+                                            <DownloadPdf  {...content}/>
+                                          :  message==="requested"?<WatingForPdf/>:<RequestSchedule handelSubmitRequest={handelSubmitRequest}/>
                                     }
 
                                 </div>
@@ -80,9 +88,7 @@ export default  function MySchedule(props) {
                                     <TodayText {...Today}/>
                                 </div>
                             </div>
-
                     }
-
 
                 </div>
 

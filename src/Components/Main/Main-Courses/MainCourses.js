@@ -62,7 +62,7 @@ export default function MainCourses (props){
     // image: "https://stream.kelidiha.com/public/course/2LTbjNmF24w=/image.png"
     // __proto__: Object
     return (
-        <HeaderTop>
+        <HeaderTop {...props}>
             <HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>
             {
                 isLoder ? <div className='d-flex justify-content-center align-items-center'>

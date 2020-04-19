@@ -145,7 +145,6 @@ export async  function  Verify(type,phoneNumber,code){
     });
     return resp;
 }
-
 export async  function  GetUserProfile(){
 
     let headers = {
@@ -170,7 +169,6 @@ export async  function  GetUserProfile(){
     });
     return resp;
 }
-
 export async  function  loadMainCourse( ){
 
     let headers = {
@@ -249,27 +247,20 @@ export async  function  getprofile( ){
     });
     return resp;
 }
-export async  function  UploadProfileImg(Data){
-
+export async  function  UploadProfileImg(file){
+    let formData = new FormData();
+    formData.append("file", file);
     let headers = {
-        'Token': Const.Token,
-        'Content-Type': 'multipart/form-data',
+        'token':Const.Token,
         'accept': 'application/json',
-
+        'Content-Type': 'application/json'
     };
-    console.log(Data);
+    var resp='';
 
-
-    var resp ="";
-    await axios.put(`${Const.user}profile/update`, Data, {headers: headers}).then(function (response) {
-        console.log(response );
-        let {Description}=response.data;
-        // let {Items} = response.data;
-        resp={state:200,Description:Description};
-
+    await axios.put(`${Const.user}profile/profile_pic`, formData, {headers: headers}).then(function (response) {
+        console.log(response);
+        resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
         let {response}=error;
         if (response===undefined){
             resp={state: 400,Description: error.message}
@@ -279,8 +270,9 @@ export async  function  UploadProfileImg(Data){
             resp={state:response.status||400,Description:response.data.detail||error.message}
         }
     });
-    return resp;
+    return resp
 }
+
 export async  function  UpdateProfile(Data){
 
     let headers = {
@@ -295,9 +287,10 @@ export async  function  UpdateProfile(Data){
     var resp ="";
     await axios.put(`${Const.user}profile/update`, Data, {headers: headers}).then(function (response) {
         console.log(response );
-        let {Description}=response.data;
+
         // let {Items} = response.data;
-        resp={state:200,Description:Description};
+
+        resp={state:200,Description:response.data};
 
     }).catch(function (error) {
         console.log(error.response);
@@ -405,6 +398,83 @@ export async  function  GetMyCourse( ){
     });
     return resp;
 }
+export async  function  VerifyParentCode( code){
+
+    let headers = {
+        'Token': Const.Token,
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.user}parent/verify?code=${code}`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        }else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+};
+export async  function  GetVerifyParentCode( phoneNumber){
+
+    let headers = {
+
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.admin_route}parent/activation-code?phone_number=${phoneNumber}`, {headers: headers}).then(function (response) {
+        // console.log(response );
+        console.log(response.data.code );
+        // console.log(response.data.code );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        }else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+export async  function  ResendParentCode(){
+
+    let headers = {
+        'Token': Const.Token,
+        'accept': 'application/json'
+    };
+
+    var resp ="";
+    await axios.get(`${Const.user}sms/parent/resent`, {headers: headers}).then(function (response) {
+        console.log(response );
+        resp={state:200,Description:response.data};
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        }else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+};
 
 
 

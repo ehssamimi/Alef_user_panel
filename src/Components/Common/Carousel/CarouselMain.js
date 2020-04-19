@@ -16,6 +16,7 @@ import  Play from'./../../../Common/img/play_on_video.png'
 import  lock from'./../../../Common/img/lock_on_video.png'
 import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
 import {Link} from "react-router-dom";
+import ax1 from "../../../Common/img/arno-smit-sKJ7zSylUao-unsplash.jpg";
 
 
 const useStyles = makeStyles({
@@ -74,26 +75,30 @@ const CourseCard = (props) => {
 
     return (
         <Card  className="m-2 br20px">
-            <CardActionArea>
+
                 <CardMedia
                     className="hpx200 "
-                    image={props.img}
+                    image={props.image}
                     title="Course Section"
                 />
                 <CardContent>
-                    <p>{props.title}</p>
-                    <div>
-                        {props.course}  {props.class? "|"+ props.class:""}
+                    <p className="header-color">{props.name}</p>
+                    <div className="second-color">
+                        {props.lesson_name?props.lesson_name+" | ":""}  {props.grade}  {props.field? " | "+ props.field:""}
                     </div>
-                    <div>
-
-                    </div>
-
 
                 </CardContent>
-            </CardActionArea>
-            <CardActions className="w-100 d-flex justify-content-center">
-                <Button className="btn green-background text-white col-6 fontFamily-Sans ">{props.button}</Button>
+
+            <CardActions className="w-100 d-flex justify-content-center mb-2">
+                <a href={`/course/${props.id}`} className="w-100 text-center ">
+                    <Button className="btn green-background text-white col-6 fontFamily-Sans br10px">
+                        {props.kind==="course"?"مشاهده دوره ":""}
+                        {props.kind==="chapter"?"مشاهده قسمت ":""}
+                        {props.kind==="lesson"?"مشاهده درس ":""}
+                    </Button>
+
+                </a>
+
 
             </CardActions>
         </Card>
@@ -279,7 +284,7 @@ export  function CarouselMain(props) {
                     <div key={key} id={key} className=""  >
 
                         {
-                            props.type==="Course"?  <CourseCard {...item}/>: ""
+                            props.type==="Course"?  <CourseCard {...item} kind={props.kind}/>: ""
                         }
 
                         {/*{*/}

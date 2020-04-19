@@ -16,6 +16,7 @@ import {UserContext} from "./Components/Common/Context/UserProvider";
 import SignUp from "./Components/LogIn/SignUp";
 import CourseIntroducing from "./Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing";
 import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse/IntroducingCourse";
+import UrlProvider from "./Components/Common/Context/UrlProvider";
 
 
 
@@ -39,8 +40,7 @@ const AuthRoute = ({ component: Component, authUser, ...rest }) => (
 
 function App() {
     const User=useContext(UserContext);
-    console.log("is _LOGIN??");
-    console.log(User.isLogIn);
+
 
   return (
       <div className="w-100 h-100">
@@ -66,8 +66,6 @@ function App() {
                       {/*</MainHeader>*/}
                   </Switch>
 
-          </div>
-          <div>
 
           </div>
 

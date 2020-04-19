@@ -16,28 +16,25 @@ const VerificationState = (props) => {
     const [values, setvalues] = useState({"verificationCode": "" });
 
     const [error, seterror] = useState({"verificationCode":"" });
-    const [count, setCount] = useState( 5  );
+    const [count, setCount] = useState( 60  );
 
     useEffect(  () => {
 
         countFunction()
 
-    },[ ]);
+    },[]);
 
 
     const countFunction=()=>{
         setInterval(function () {
             setCount(preCount=>preCount-1)
         },1000)
-
-    }
+    };
 
 
     const onChange = (value, names) => {
 
         setvalues({...values, [names]: value});
-
-
 
     };
 
@@ -56,6 +53,7 @@ const VerificationState = (props) => {
     };
 
 
+
     const handelSubmit = async (e) => {
         e.preventDefault();
         validateForm(async (validate)=>{
@@ -72,7 +70,7 @@ const VerificationState = (props) => {
                 console.log(state ,Description)
                  if (state===200 ) {
                     localStorage.setItem("token",Description.token);
-                    User.HandelLogin()
+                    User.HandelLogin();
                     setTimeout(function(){
                         loading(0, 1);
                     }, 1000);

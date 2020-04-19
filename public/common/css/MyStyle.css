@@ -10,6 +10,14 @@
     /*max-height: 200px;*/
     /*width: unset;*/
 }
+.img-width-fill {
+    width: 100%;
+    object-fit: fill;
+}
+.active-bj-back{
+    position: absolute;
+    top: -2vw;
+}
 .img-self-cover {
     /*border-radius: calc(0.25rem - 1px);*/
     height: 100%;
@@ -95,10 +103,16 @@
 .profile-pic-in-top {
     width: 3em;
     height: 3em;
-
+}
+.logo-in-top {
+     height: 2.2em;
+    width: 3.2em;
 }
 .p-05 {
     padding: .12rem!important;
+}
+.activeHeaderMenu {
+    border-bottom: solid green 3px ;
 }
 
 .header-top{
@@ -350,7 +364,9 @@ select option:hover {
 }
 
 
-
+.h-5rem{
+    height: 5vw;
+}
 
 
 

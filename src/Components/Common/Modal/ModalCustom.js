@@ -11,7 +11,7 @@ const ModalCustomVideo = (props) => {
     return (
         <div>
 
-            <Modal isOpen={isOpen} toggle={()=>{toggle('toggle')}} className="br20px" size={'lg'}>
+            <Modal isOpen={isOpen} toggle={()=>{toggle('toggle')}} className="br20px" size={props.size|| 'lg' }>
                 <ModalBody className="p-0 br20px">
                     {props.children}
                 </ModalBody>

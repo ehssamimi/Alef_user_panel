@@ -3,57 +3,36 @@ import RightMenu from "../RightMenu/RightMenu";
 import MainHeader from "../../Main/Main-Header/MainHeader";
 import HeaderNavigation from "../../Common/HeaderNavigation/HeaderNavigation";
 import {CarouselMain} from "../../Common/Carousel/CarouselMain";
-import ExtendedDiv from "../../Common/ExtendedDiv/ExtendedDiv";
-import ax1 from "../../../Common/img/arno-smit-sKJ7zSylUao-unsplash.jpg";
-import ax2 from "../../../Common/img/brooke-lark-pXEsx3kRuNc-unsplash.jpg";
-import ax3 from "../../../Common/img/kwang-mathurosemontri-fY1ECB1RCd0-unsplash.jpg";
-import Carousel from "react-multi-carousel";
-import Card from "@material-ui/core/Card/Card";
-import CardActionArea from "@material-ui/core/CardActionArea/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia/CardMedia";
-import CardContent from "@material-ui/core/CardContent/CardContent";
-import Button from "@material-ui/core/Button/Button";
 import Loader from "../../Common/Loader/Loader";
-import {GetMyCourse, GetUserschedule} from "../../../Common/Const/ServerConnection";
+import {GetMyCourse} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
-const Video_src='https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
+import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
 
 
 export default  function MyCourse(props) {
-    const [files, setfile] = useState([{
-        "title": 'حسابان',
-        img: ax1,
-        course: "ریاضی و فیزیک",
-        "button":"مشاهده دوره"
-    }, {"title": 'فیزیک', img: ax2, course: "نور و انعکاس", "class": "پایه نهم", "button":"مشاهده دوره"}]);
-    const [Class, setClass] = useState([{
-        "title": 'حسابان',
-        img: ax1,
-        course: "ریاضی و فیزیک",
-        "button":"مشاهده درس"
-    }, {"title": 'انگلیسی', img: ax2, course: "پایه نهم", "button":"مشاهده درس"}, {"title": 'انگلیسی', img: ax2, course: "پایه نهم", "button":"مشاهده درس"}]);
-    const [session, setsession] = useState([{
-        "title": 'مثلثات',
-        img: ax1,
-        course: "ریاضی و فیزیک",
-        "button":"مشاهده فصل"
-    } ]);
+    const [Courses, setCourses] = useState([]);
+    const [Lessons, setLessons] = useState([]);
+    const [chapters, setChapters] = useState([]);
     const [isLoder, setisLoder] = useState(true);
     useEffect(  () => {
 
+
         async function getMyCourse() {
             const {state, Description}=await GetMyCourse();
+            let{courses,lessons,chapters}=Description;
+            console.log(Description);
             setisLoder(false);
             if (state===200 ) {
-
+                setChapters(chapters);
+                setLessons(lessons);
+                setCourses(courses);
 
             } else {
 
                 NotificationManager.success(state, Description);
-                // setisLoder(false);
-                // error_Notification(state,Description)
+
             }
-            // console.log(UserDropDown)
+
 
         }
 
@@ -63,8 +42,7 @@ export default  function MyCourse(props) {
 
     return(
         <div className="w-100  ">
-            <RightMenu>
-                <MainHeader>
+            <HeaderTopWithRightMenu  {...props}>
                     {
                         isLoder ?   // *******checking for submit form or get category Option is then loader start then loader close**********
                             <div className='d-flex justify-content-center align-items-center'>
@@ -76,19 +54,25 @@ export default  function MyCourse(props) {
                                 <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
                                 <div dir='ltr'>
                                     <div className="w-100 mt-3 mb-5 justify-content-end ">
-                                        <CarouselMain files={files} header={"دوره های من "} type="Course"/>
+                                        {
+                                            Courses.length>0?  <CarouselMain files={Courses} header={"دوره های من "} type="Course" kind="course"/>:""
+                                        }
+                                    </div>
+
+                                    <div className="w-100 mt-13rem  justify-content-end ">
+                                        {
+                                            Lessons.length>0?<CarouselMain files={Lessons} header={"درس های من "} type="Course" kind={"lesson"}/>:""
+                                        }
                                     </div>
                                     <div className="w-100 mt-13rem  justify-content-end ">
-                                        <CarouselMain files={Class} header={"دوره های من "} type="Course"/>
-                                    </div>
-                                    <div className="w-100 mt-13rem  justify-content-end ">
-                                        <CarouselMain files={session} header={"فصل من "} type="Course"/>
-                                    </div>
+                                        {
+                                            chapters.length>0?<CarouselMain files={chapters} header={"فصل های من "} type="Course" kind={"chapter"}/>:""
+                                        }
+                                     </div>
                                 </div>
                             </div>
                     }
-                </MainHeader>
-            </RightMenu>
+            </HeaderTopWithRightMenu>
         </div>
     )
 }

@@ -1,26 +1,43 @@
-import React, {Component} from 'react';
-import MainHeader from "../Main-Header/MainHeader";
-import {UserContext} from './../../Common/Context/UserProvider'
+
+import React, {useState, useEffect} from 'react';
+import HeaderTop from "../../Common/Header-top/HeaderTop";
+
+const MainAbout = (props) => {
+    // const [count, setCount] = useState(1);
+    // useEffect(() => {
+    //     // Update the document title using the browser API
+    //     document.title = `You clicked ${count} times`;
+    // });
+
+    return (
+        <HeaderTop {...props}>
+            this is about
+        </HeaderTop>
+    );
+};
+
+// class MainAbout extends Component {
+//     render() {
+//         return (
+//             <MainHeader>
+//                 <UserContext.Consumer>
+//                     {user=> user.isLogIn?<LogIn_s HandelLogOu={user.HandelLogOut}/>:<LogOut/>}
+//                 </UserContext.Consumer>
+//
+//
+//
+//
+//             </MainHeader>
+//         );
+//     }
+// }
+//
+// export default MainAbout;
 
 
-class MainAbout extends Component {
-    render() {
-        return (
-            <MainHeader>
-                <UserContext.Consumer>
-                    {user=> user.isLogIn?<LogIn_s HandelLogOu={user.HandelLogOut}/>:<LogOut/>}
-                </UserContext.Consumer>
 
-
-
-
-            </MainHeader>
-        );
-    }
-}
 
 export default MainAbout;
-
 
 
 

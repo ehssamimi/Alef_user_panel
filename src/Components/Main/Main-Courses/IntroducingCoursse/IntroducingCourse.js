@@ -45,7 +45,7 @@ export default function IntroducingCourse (props){
     const {match: {params}} =  props;
 
     return (
-        <HeaderTop>
+        <HeaderTop {...props}>
             <div className="w-100">
                 <CourseIntroducing id={params.id}/>
             </div>

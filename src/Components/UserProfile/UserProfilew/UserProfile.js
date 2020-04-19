@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import MainHeader from "../../Main/Main-Header/MainHeader";
 import RightMenu from "../RightMenu/RightMenu";
 import HeaderNavigation from "../../Common/HeaderNavigation/HeaderNavigation";
-import {Card, CardBody} from "reactstrap";
+import {Card, CardBody, Col, Form} from "reactstrap";
 import profile from './../../../Common/img/Profile Picture.png'
 import { TiPencil } from "react-icons/ti";
 
@@ -10,6 +10,11 @@ import {getprofile, LoadCourse} from "../../../Common/Const/ServerConnection";
 import {seprateEachCourseData} from "../../functions/componentHelpFunction";
 import {NotificationManager} from "react-notifications";
 import Loader from "../../Common/Loader/Loader";
+import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
+import ModalCustomVideo from "../../Common/Modal/ModalCustom";
+import VideoModalDemo from "../../Common/VideoPlayerComponents/VideoModal/VideoModalDemo";
+import VideoModal from "../../Common/VideoPlayerComponents/VideoModal/VideoModal";
+import {TextInput} from "../../Common/Forms/textInput/TextInput";
 
 export default function UserProfile (props){
     const [isLoder, setisLoder] = useState(true);
@@ -19,12 +24,17 @@ export default function UserProfile (props){
 
         async function  getData(){
             const{state,Description}= await getprofile();
-            console.log(Description)
+
 
             if (state===200 ) {
                 // let{Top,Teachers,Lesson}=seprateEachCourseData(Description);
                 //
+                console.log(Description)
                 setprofileData(Description)
+
+                // let ItemValue={"image":Description.profile.image_id,"grade":Description.education.grade,"name":Description.personal_info.name };
+                let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
+                localStorage.setItem("user_alef",ItemValue);
 
             } else {
                 NotificationManager.error(state, Description);
@@ -33,7 +43,7 @@ export default function UserProfile (props){
         }
         getData()
 
-    }, profileData );
+    },  [] );
 
 
 
@@ -42,10 +52,7 @@ export default function UserProfile (props){
         // }
 
     return(
-        <div className="w-100  ">
-            <RightMenu>
-
-                <MainHeader>
+        <HeaderTopWithRightMenu  {...props}>
                     {
                         isLoder ? <div className='d-flex justify-content-center align-items-center'>
                             <div className='col-6'>
@@ -64,7 +71,7 @@ export default function UserProfile (props){
                                             <div className="row  w-100 mt-4 justify-content-start" dir="rtl">
                                                 <div className="edit-profile-icon d-flex second-color zIndex-3" >
                                                     <a href="/user-info"   className="d-flex second-color">
-                                r                       <span>ویرایش پروفایل</span>
+                                                    <span>ویرایش پروفایل</span>
                                                     </a>
                                                     <span className="ml-2"><TiPencil/></span>
                                                 </div>
@@ -153,12 +160,7 @@ export default function UserProfile (props){
 
 
 
-
-                </MainHeader>
-
-            </RightMenu>
-
-        </div>
+        </HeaderTopWithRightMenu>
 
     )
 };

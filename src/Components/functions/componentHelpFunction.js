@@ -125,7 +125,8 @@ export const getProfileValue=(data)=>{
         "country": address.province,
         "city": address.city,
         "parent_name": parent.name,
-        "parent_num": parent.phone_number
+        "parent_num": parent.phone_number,
+        "parent_verify":parent['verify']
     } )
 }
 
