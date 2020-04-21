@@ -17,6 +17,8 @@ import SignUp from "./Components/LogIn/SignUp";
 import CourseIntroducing from "./Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing";
 import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse/IntroducingCourse";
 import UrlProvider from "./Components/Common/Context/UrlProvider";
+import cookie from 'react-cookies'
+import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
 
 
 
@@ -40,7 +42,7 @@ const AuthRoute = ({ component: Component, authUser, ...rest }) => (
 
 function App() {
     const User=useContext(UserContext);
-
+    cookie.save('basket', {}, { path: '/' });
 
   return (
       <div className="w-100 h-100">
@@ -50,8 +52,8 @@ function App() {
 
                           <Route path="/" exact={true} component={Home}/>
                           <Route path="/about" component={MainAbout}/>
-                          <Route path="/courses" component={MainCourses}/>
-                          <Route path="/course/:id"   component={IntroducingCourse}/>
+                          <Route path="/courses" component={ShowAllCourse}/>
+                          <Route path="/course/:id"   component={MainCourses}/>
 
                       <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={UserInfo}  />
 

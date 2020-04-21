@@ -32,8 +32,6 @@ export default  function MySchedule(props) {
                 setToday(Description.quote);
                 setmessage(Description.message);
 
-
-
             } else {
                 setisLoder(false);
                 NotificationManager.success(state, Description);

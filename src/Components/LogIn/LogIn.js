@@ -1,11 +1,9 @@
-import React, {useState, useEffect,useContext,useRef} from 'react';
+import React, {useState ,useRef} from 'react';
 import logo from './../../Common/img/Logo.png'
-import {TextInput} from "../Common/Forms/textInput/TextInput";
-import {Power4, TweenMax} from "gsap/TweenMax";
+
+import { TweenMax} from "gsap/TweenMax";
 import  { Link } from 'react-router-dom'
-import {Col} from "reactstrap";
-import {getCity} from "../../Common/JS-Function/Js-common-function";
-import {UserContext} from "../Common/Context/UserProvider";
+
 import FormLogin from "./FormLogin";
 import UserInfo from "../UserProfile/UserInfo/UserInfo";
 import FormSignUp from "./FormSignUp";
@@ -47,8 +45,7 @@ const Login = (props) => {
 
         // Redirect.current.click();
     }
-console.log("formType")
-console.log(formType)
+
     return (
         <div className="row w-100 h-100 overflow-hidden justify-content-end">
             <div className="  h-100 bg-login d-flex justify-content-center align-items-center    "

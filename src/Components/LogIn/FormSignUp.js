@@ -169,9 +169,17 @@ const FormSignUp = (props) => {
                                     className="btn green-background  br10px text-white col-5 h-input-s col-md-6 col-sm-12 sendButton-shadow mt-3"
                                     type="submit">{btn_txt}
                                 </button>
+
                                 {
-                                    handelChangeForm===undefined?"":<p  onClick={()=>{handelChangeForm("login")}}>همین الان ثبت نام کنید</p>
+                                    handelChangeForm === undefined ? "" :
+                                        <p className="mt-2">ثبت نام کرده اید ؟<span onClick={() => {
+                                            handelChangeForm("login")
+                                        }} className="mt-2 cursor-pointer font-weight-bold">وارد شوید</span></p>
                                 }
+
+                                {/*{*/}
+                                    {/*handelChangeForm===undefined?"":<p  onClick={()=>{handelChangeForm("login")}}>همین الان ثبت نام کنید</p>*/}
+                                {/*}*/}
                             </Form>
 
                         </Col>

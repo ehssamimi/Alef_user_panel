@@ -24,10 +24,22 @@ const FormLogin = (props) => {
 
         let formValidate=true;
 
+        function validatephoneNumber(phonenumber) {
+            var re = /^(\+98|0)?9\d{9}$/;
+            return re.test(phonenumber);
+        }
+
+
         if (validator.isEmpty(values.phoneNumber)) {
             formValidate = false;
             errors['phoneNumber']="شماره تلفن همراه خود را وارد کنید  ";
+        }else if (!validatephoneNumber(values.phoneNumber)) {
+            formValidate = false;
+            errors['phoneNumber']="شماره ای که وارد کرده اید غیر مجاز است !  ";
         }
+
+
+
 
         seterror(errors);
         return callback(formValidate)
@@ -39,11 +51,11 @@ const FormLogin = (props) => {
         validateForm(async (validate)=>{
 
             if (validate){
-                console.log("send");
+
 
                 loading(100, 1);
                 let {state ,Description} = await GetLogin(values.phoneNumber);
-                console.log(state ,Description)
+                // console.log(state ,Description)
                 setTimeout(function(){
                     loading(50, 1);
                 }, 1000);
@@ -52,7 +64,7 @@ const FormLogin = (props) => {
                     localStorage.setItem("phoneNumber_K",values.phoneNumber)
                     let {state  ,Description } = await GetVerifycationCode(values.phoneNumber);
                     if (state ===200){
-                        console.log(Description )
+                        // console.log(Description )
                         handelType("login")
                         handelChangeForm("validate");
                     } else {
@@ -66,8 +78,8 @@ const FormLogin = (props) => {
 
 
             }else {
-                console.log( 'error' )
-                console.log( error )
+                // console.log( 'error' )
+                // console.log( error )
             }
         })
 
@@ -77,13 +89,13 @@ const FormLogin = (props) => {
     return (
         <div className="w-50 h-100  overflow-hidden "     dir="rtl" >
             <div className="w-100 h-100  d-flex justify-content-center overflow-hidden">
-                <div className="main-login-field col-8">
+                <div className="  col-8" style={{marginTop:'4.5rem'}}>
                     <p className="header-color" style={{fontSize:"1.5rem"}}>{header}  </p>
                     <p className="header-color font-weight-bold  mb-2 mt-2" style={{fontSize:"3rem"}}>{subHeader} </p>
                     <div className="row m-0  w-100">
 
-                        <Col sm={12} className="d-flex   flex-column justify-content-between   ml-r-auto   ">
-                            <Form onSubmit={handelSubmit}>
+                        <Col sm={12} className="d-flex   flex-column justify-content-between   ml-r-auto mt-5  ">
+                            <Form onSubmit={handelSubmit} className="mt-5">
 
                                 <TextInput onChange={onChange} label={'شماره تلفن همراه'} id={'phoneNumber'}
                                            placeholder={"********09"} type={"number"}
@@ -92,11 +104,14 @@ const FormLogin = (props) => {
 
 
                                 <button
-                                    className="btn green-background  br10px text-white col-5 h-input-s col-md-6 col-sm-12 sendButton-shadow mt-3"
+                                    className="btn green-background  br10px text-white  h-input-s col-sm-12 col-md-8 col-5 sendButton-shadow mt-3"
                                     type="submit">{btn_txt}
                                 </button>
                                 {
-                                    handelChangeForm===undefined?"":<p  onClick={()=>{handelChangeForm("signUp")}}>همین الان ثبت نام کنید</p>
+                                    handelChangeForm === undefined ? "" :
+                                        <p className="mt-2">ثبت نام نکرده اید ؟<span onClick={() => {
+                                            handelChangeForm("signUp")
+                                        }} className="mt-2 cursor-pointer font-weight-bold">همین حالا ثبت نام کنید</span></p>
                                 }
                             </Form>
 

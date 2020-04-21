@@ -6,10 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 import UserProvider from "./Components/Common/Context/UserProvider";
+import BuyProvider from "./Components/Common/Context/BuyProvider";
+import UrlProvider from "./Components/Common/Context/UrlProvider";
  render(
     <BrowserRouter>
         <UserProvider>
+            <BuyProvider  >
             <App />
+            </BuyProvider>
         </UserProvider>
 
 

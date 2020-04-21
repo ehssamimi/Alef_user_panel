@@ -9,7 +9,11 @@ export default function MainHeader (props){
     const Url_context=useContext(UrlContext);
     const [isUser, setUser] = useState(false);
     const [active, setactive] = useState("home");
-    const UserSumery=localStorage.getItem("user_alef").split(",");
+    let UserSumery="";
+    if (localStorage.getItem("user_alef")) {
+       UserSumery=localStorage.getItem("user_alef").split(",")
+    }
+
 
     useEffect(()=>{
         switch (Url_context) {

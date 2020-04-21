@@ -37,9 +37,11 @@ export const seprateEachCourseData=(courses)=>{
 
     let{off,course}=courses;
     let off_percent=0;
-    if (off['hours_to_end']!==null){
-        off_percent=off['hours_to_end']
-    } else if(off['special_students']!==null){
+    // if (off['hours_to_end']!==null){
+    //     off_percent=off['hours_to_end']
+    // } else
+
+        if(off['special_students']!==null){
         off_percent=off['special_students']
     }else if (off['institute_students']!==null) {
         off_percent=off['institute_students']
@@ -59,35 +61,37 @@ export const seprateEachCourseData=(courses)=>{
         "name":course.name,
         "description":course.description,
     };
+    // console.log("off_percent");
+    // console.log(off_percent);
 
 
 
 
 
     let Teachers=[];
-let Lesson=[];
+// let Lesson=[];
     course.lessons.map((each, index) => {
-        console.log(each)
+        // console.log(each)
         each.teachers.map((item,index2)=>{
             Teachers.push({name:item.name,img:item.image,"course":each.name})
-            Lesson.push({
-                name: each.name,
-                cost: each.price,
-                sellcost: off_percent * each.price,
-                teacher_name: item.name,
-                Teache_time: item.total_videos_time,
-                teacher_V_img: item.demo_video_cover,
-                teacher_V: item.demo_video,
-                chapter_count: each.chapter_count,
-                chapters: item.chapters,
-                off:off_percent
-            })
+            // Lesson.push({
+            //     name: each.name,
+            //     cost: each.price,
+            //     sellcost: off_percent * each.price,
+            //     teacher_name: item.name,
+            //     Teache_time: item.total_videos_time,
+            //     teacher_V_img: item.demo_video_cover,
+            //     teacher_V: item.demo_video,
+            //     chapter_count: each.chapter_count,
+            //     chapters: item.chapters,
+            //     off:off_percent
+            // })
 
         });
     });
 
-     let Result={ Top,Teachers,  Lesson,
-         "main":off_percent};
+     let Result={ Top,Teachers,  Lesson:course.lessons,
+         "off":off_percent};
 
     return Result;
 };

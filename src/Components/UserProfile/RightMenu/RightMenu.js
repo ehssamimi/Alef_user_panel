@@ -6,6 +6,10 @@ import { AiOutlineUser } from "react-icons/ai";
 import { MdExitToApp } from "react-icons/md";
 import {Link} from "react-router-dom";
 import {UrlContext} from "../../Common/Context/UrlProvider";
+import {LogOut} from "../../../Common/Const/ServerConnection";
+import {NotificationManager} from "react-notifications";
+import { Redirect } from "react-router-dom";
+import cookie from 'react-cookies'
 
 
 
@@ -13,7 +17,12 @@ import {UrlContext} from "../../Common/Context/UrlProvider";
 export default function RightMenu (props){
     const Url_context=useContext(UrlContext);
      const [selected, setselected] = useState("my-course");
-     const UserSumery=localStorage.getItem("user_alef").split(",");
+    let UserSumery="";
+    if (localStorage.getItem("user_alef")) {
+        UserSumery=localStorage.getItem("user_alef").split(",")
+    }
+
+
 
 
      useEffect(()=>{
@@ -39,6 +48,26 @@ export default function RightMenu (props){
              }
 
      });
+     const handelExit=async ()=>{
+         setselected("exit");
+         let {state ,Description}=await LogOut();
+         if (state===200 ) {
+             console.log("we are out !!!!!!!!!!");
+             cookie.remove('basket', { path: '/' });
+             localStorage.clear();
+
+             NotificationManager.success(state, Description);
+                 return <Redirect to={'/'} />
+
+         } else {
+
+             NotificationManager.error(state, Description);
+
+             // setisLoder(false);
+             // error_Notification(state,Description)
+         }
+
+     }
 
 
     return (
@@ -49,12 +78,12 @@ export default function RightMenu (props){
                     <div className="  w-100 h-30 h-min-12em d-flex justify-content-center align-items-center flex-column">
                         <div className=" ">
                             <div className='profile-pic br-w br-r50  p-05'>
-                                <img src={UserSumery[1]}  alt="profile" className="img-self-cover br-r50 br-y"/>
+                                <img src={UserSumery[1]||profile}  alt="profile" className="img-self-cover br-r50 br-y"/>
                             </div>
                         </div>
                         <div className="d-flex justify-content-center align-items-center flex-column" >
-                            <p className="text-white fs80 m-0 pt-3 ">{UserSumery[0]} </p>
-                            <p className="text-white fs70 m-0 pt-2 font-weight-light">{UserSumery[2]}</p>
+                            <p className="text-white fs80 m-0 pt-3 ">{UserSumery[0]||"name"} </p>
+                            <p className="text-white fs70 m-0 pt-2 font-weight-light">{UserSumery[2]||"grade"}</p>
                         </div>
                     </div>
 
@@ -139,15 +168,15 @@ export default function RightMenu (props){
 
                                 {
                                     selected==="exit"?
-                                        <li className="list-unstyled  fs13vw fw200 position-relative  ">
+                                        <li className="list-unstyled  fs13vw fw200 position-relative cursor-pointer ">
                                             <img src={active}  alt="active" className="  img-self-fill zIndex-2"/>
                                             <span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
                                         </li>:
-                                        <li className="list-unstyled text-white fs13vw fw200   pl-2 position-relative h-List-item "
-                                            onClick={() =>setselected("exit")}><span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
+                                        <li className="list-unstyled text-white fs13vw fw200   pl-2 position-relative h-List-item cursor-pointer "
+                                            onClick={handelExit}><span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
                                         </li>
                                 }
-
+                                {/*() =>setselected("exit")*/}
 
 
                             </ul>

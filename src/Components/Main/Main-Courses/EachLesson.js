@@ -2,46 +2,71 @@ import React, {useContext} from 'react';
 import HeaderCourse from "../../Common/HeaderCourse/HeaderCourse";
 import ExtendedDiv from "../../Common/ExtendedDiv/ExtendedDiv";
 import {CarouselMain} from "../../Common/Carousel/CarouselMain";
+import TopEachTeacher from "./Teachers/TopEachTeacher";
+import TopLessons from "./TopLessons/TopLessons";
 // import {BuyContext} from "../../Common/Context/BuyProvider";
 // let Buy=useContext(BuyContext);
 const EachLesson = (props) => {
-    let{toggle, teacher_V_img,teacher_V ,chapters,off}=props;
+    let{toggle ,off,course}=props;
 
     return (
         <div className="w-100 mb-5">
-            <HeaderCourse      {...props} >
+            <TopLessons  {...props}  >
+                {
+                    props.teachers.map((teacher, lessonIndex) =>
+                        <TopEachTeacher  {...teacher} toggle={props.toggle} key={lessonIndex} >
 
-                {chapters.map((each,index)=>
-                    <ExtendedDiv key={index} toggle={toggle} {...each} videos={[each.demo_video_cover,each.demo_video]} off={off} index={index}>
-                        <CarouselMain files={each.items} header={"aaaa"} type="preModal" toggle={toggle}/>
-                    </ExtendedDiv>
-                )}
+                            {teacher.chapters.map((each, index) =>
+                                <ExtendedDiv key={index} toggle={toggle} {...each} isCheck={props.isCheck}
+                                             buyData={{
+                                                 "lesson_name": props.name,
+                                                 "course_name":  course.course_name,
+                                                 course_id:course.course_id,
+                                                 "teacher_name": teacher.name,"grade": course.grade,
+                                                 "chapter_name": each.name,"field":course.field,'type':"chapter",
+                                                 price: off !== 0 ? (each.price - (each.price * off)) : each.price
+                                             }}
+                                             videos={[each.demo_video_cover, each.demo_video]} off={off} index={index}>
+
+                                    <CarouselMain files={each.items} type="preModal" toggle={toggle}/>
+
+                                </ExtendedDiv>
+                            )}
+                        </TopEachTeacher>
+                    )
+                }
 
 
-            </HeaderCourse>
+            </TopLessons>
+
+            {/*<TopEachTeacher  {...props}>*/}
+            {/*/!*<HeaderCourse    {...props}   >*!/*/}
+
+                {/*{chapters.map((each,index)=>*/}
+                    {/*<ExtendedDiv key={index} toggle={toggle} {...each} videos={[each.demo_video_cover,each.demo_video]} off={off} index={index}>*/}
+                        {/*<CarouselMain files={each.items} header={"aaaa"} type="preModal" toggle={toggle}/>*/}
+                    {/*</ExtendedDiv>*/}
+                {/*)}*/}
+            {/*</TopEachTeacher>*/}
+
+
+            {/*</HeaderCourse>*/}
         </div>
     );
 };
 
 export default EachLesson;
 
-// chapters: Array(1)
+// lessons: Array(1)
 // 0:
-// image: "https://stream.kelidiha.com/public/chapter/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/image.png"
-// name: "انتگرال"
-// total_video_times: 4
-// demo_video_cover: "https://stream.kelidiha.com/public/chapter/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/demo-video/image.png"
-// demo_video: "https://stream.kelidiha.com/public/chapter/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/stream/index.m3u8"
-// price: 36000
-// items: Array(1)
+// name: "ریاضی"
+// image: "https://stream.kelidiha.com/public/lesson/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/image.png"
+// price: 120000
+// chapter_count: 10
+// teachers: Array(1)
 // 0:
-// video: "https://stream.kelidiha.com/item/video/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/index.m3u8"
-// video_cover: "https://stream.kelidiha.com/public/item/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/video_cover/image.png"
-// audio: "https://stream.kelidiha.com/item/item_audio/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/audio.mp3"
-// description: "string"
-// name: "مفاهیم اولیه"
-// downloadable_content: "https://stream.kelidiha.com/item/item_downloadable_content/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWU4MmE0MjJkYzVkODdjZWFkM2JhYjQyIiwib3RoZXJzIjp7fSwic2VlZCI6OTE4NjN9.sXUiLnLmHQq1NsXJIMB4TGhgcnEcZMoMG-N1yaLatHw/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/2KfZhtiq2q-Ysdin2YQ=/2YXZgdin2YfbjNmFINin2YjZhNuM2Yc=/pdf.pdf"
-// time_to_done: 3
-// is_free: false
-// is_locked: false
-// is_seen: false
+// name: "بخشنده"
+// image: "https://stream.kelidiha.com/public/teacher/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/image.png"
+// total_videos_time: 54
+// demo_video_cover: "https://stream.kelidiha.com/public/teacher/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/demo-video/image.png"
+// demo_video: "https://stream.kelidiha.com/public/teachers/5e96169a01d73623037c281d/2LHbjNin2LbbjA==/2KjYrti02YbYr9mH/stream/index.m3u8"

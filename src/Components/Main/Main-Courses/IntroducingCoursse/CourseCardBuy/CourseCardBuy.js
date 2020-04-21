@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions/CardActions";
 import Button from "@material-ui/core/Button/Button";
 import {formatNumber} from "../../../../../Common/JS-Function/Js-common-function";
 import {Link} from "react-router-dom"
+import cookie from "react-cookies";
 
 
 
@@ -20,11 +21,15 @@ const CourseCarsBuy = (props) => {
 
         document.title = `You clicked ${count} times`;
     });
-console.log("sssssssssss");
-console.log(sellCost);
+    const handelAddCourse=()=>{
+
+      console.log("we bought this course")
+    };
+
     return (
 
             <Card  className= "m-2 br20px h-100 h-min-24vw  box-shadow-custom" >
+
 
                     <CardMedia
                         className={props.class}
@@ -54,7 +59,9 @@ console.log(sellCost);
                     </CardContent>
 
                 <CardActions className="w-100 d-flex justify-content-center">
-                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow">{button}</Button>
+                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow" onClick={handelAddCourse}>
+                        {button}
+                        </Button>
                 </CardActions>
                 <div className="d-flex justify-content-center">
                     {

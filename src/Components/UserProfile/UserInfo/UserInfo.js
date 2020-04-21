@@ -360,8 +360,5 @@ export default function UserInfo(props) {
             <NotificationContainer />
         </HeaderTopWithRightMenu>
 
-
-
-
     )
 };

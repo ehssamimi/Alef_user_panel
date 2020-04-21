@@ -145,8 +145,8 @@ const CourseCarsMain = (props) => {
 
     // let{img,title,course,grade,button,cost,sellCost,sub_text,id}=props;
     let{name,grade,field,price,image,off,course_id,sub_text }=props;
-    console.log("image")
-    console.log(image)
+    // console.log("image")
+    // console.log(image)
 
     const [count, setCount] = useState(1);
     useEffect(() => {
@@ -219,7 +219,7 @@ const ButtonGroup = ({ next, previous, goToSlide , ...rest }) => {
 
 
 export  function CarouselMain(props) {
-    console.log(props)
+    // console.log(props)
 
 
 

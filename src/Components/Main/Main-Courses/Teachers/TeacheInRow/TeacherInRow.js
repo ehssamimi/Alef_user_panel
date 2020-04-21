@@ -3,8 +3,7 @@ import React, { useState,useEffect } from 'react';
 
 export default function TeacherInRow (props){
     const [collapse, setcollapse] = useState(false);
-    console.log("props");
-    console.log(props);
+
 
 
     // let number=1321546463;

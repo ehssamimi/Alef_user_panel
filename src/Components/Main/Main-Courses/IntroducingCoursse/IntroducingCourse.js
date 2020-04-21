@@ -50,9 +50,6 @@ export default function IntroducingCourse (props){
                 <CourseIntroducing id={params.id}/>
             </div>
 
-
-
-
         </HeaderTop>
     )
 }

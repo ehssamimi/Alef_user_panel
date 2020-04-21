@@ -1,20 +1,61 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
 import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
 import {Collapse, Form} from "reactstrap";
 import {FaMinus, FaPlus} from "react-icons/fa";
+import {Power4, TweenMax} from "gsap/TweenMax";
+ import {BuyContext} from "../Context/BuyProvider";
+
+
+
+
+
 
 
 const BuyFooter = (props) => {
+    const Buy=useContext(BuyContext);
     const [collapse, setcollapse,] = useState(false);
-    let{price,off}=props
+    const [products, setProducts] = useState( );
+    // const [product , setProduct ] = useState( );
 
-    let grad="پایه یازدهم"
-    let field="ریاضی و فیزیک"
-    let chapter="فصل 5:استوکیومتری "
-    let course="شیمی "
+    // setProduct(Object.values(Buy.buy.content));
+    // console.log(Buy);
+    let{price,off}=props;
+
+    useEffect(() => {
+        if (Buy.buy.content.length>0){
+
+            const $el = document.getElementById(`footer`);
+            const duration = 2;
+            const from = { minHeight: "4rem",height: 'auto'};
+            TweenMax.to($el, duration, from);
+        } else {
+            const $el = document.getElementById(`footer`);
+            const duration = 2;
+            const from = { height: 0,minHeight: 0};
+            TweenMax.to($el, duration, from);
+        }
+    });
+
+
+
+    const handleChange = (e) => {
+ e.preventDefault();
+
+        // console.log("basket")
+        // console.log(cookie.load('basket'))
+
+
+    };
+
+
+    console.log("BUUUUYYYYYYYYYYYYYYY");
+
+    let product =Buy.buy.content
+    console.log(product);
+
     return (
-        <div className="buy-footer   " dir="rtl">
+        <div className="buy-footer " style={{minHeight:0}} dir="rtl" id="footer">
             <div className="HomePage ml-r-auto">
                 <div className='  w-100' >
                     <div className='d-flex justify-content-start align-items-center ' onClick={()=>{setcollapse(!collapse)}} >
@@ -23,7 +64,7 @@ const BuyFooter = (props) => {
 
                                <span className="d-flex">
                                    <span className= ' border-Carousel p-2 mr-3' ><FaMinus/></span>
-                                   <span className='  fs-lesion '>خرید های شما  </span>
+                                   <span className='  fs-lesion '>خرید های شما   </span>
                                </span>
 
                                 :
@@ -32,11 +73,9 @@ const BuyFooter = (props) => {
                                     <span className=' border-Carousel p-2 mr-3'> <FaPlus/></span>
                                     <span className='  fs-lesion '>خرید های شما  </span>
                                 </span>
-                                    <span className="d-flex ml-5"><span className="mr-2">3</span><span> دسته بندی انتخاب شده است </span></span>
+                                    <span className="d-flex ml-5"><span className="mr-2">{Buy.buy.content.length}</span><span> دسته بندی انتخاب شده است </span></span>
 
                                 </div>
-
-
 
                         }
 
@@ -47,7 +86,7 @@ const BuyFooter = (props) => {
 
                                 <button
                                     className="btn green-background  br10px text-white   h-input-s   pl-2 pr-2 mt-1 mb-1   sendButton-shadow  "
-                                    type="submit">
+                                    type="submit" onClick={handleChange}>
                                     <span>تاییید و پرداخت </span>
                                     <span className="ml-5">{formatNumber(price)} <span className="ml-1">تومن</span> </span>
 
@@ -60,7 +99,7 @@ const BuyFooter = (props) => {
 
 
                         </div>
-                        
+
 
 
 
@@ -70,13 +109,20 @@ const BuyFooter = (props) => {
                 </div>
                 <Collapse isOpen={ collapse}>
                     <div   className='w-100' dir="rtl">
-                        <div className="d-flex">
-                            {<span className="second-color">{course}</span>}
-                            {grad?<span className="second-color"><span className="second-color ml-2"> | </span>{grad}</span>:""}
-                            {field?<span className="second-color"><span className="second-color ml-2"> | </span>{field}</span>:""}
-                            {chapter?<span className="second-color"><span className="second-color ml-2"> | </span>{chapter}</span>:""}
+                        {
+                            product.map((item,index)=>
 
-                        </div>
+                                <div className="d-flex" key={index}>
+                                    {<span className="second-color">{item.course_name}</span>}
+                                    {item.grade?<span className="second-color"><span className="second-color ml-2"> | </span>{item.grade}</span>:""}
+                                    {item.field?<span className="second-color"><span className="second-color ml-2"> | </span>{item.field}</span>:""}
+                                    {/*{chapter?<span className="second-color"><span className="second-color ml-2"> | </span>{chapter}</span>:""}*/}
+
+                                </div>
+
+                            )
+                        }
+
 
                     </div>
                 </Collapse>
@@ -90,3 +136,5 @@ const BuyFooter = (props) => {
 };
 
 export default BuyFooter;
+
+

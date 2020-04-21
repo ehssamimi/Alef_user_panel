@@ -13,10 +13,10 @@ export default function ExtendedDiv (props){
 
     return (
 
-        <div className='mt-3 w-100 brt-s ' dir='rtl' >
+        <div className={["mt-3 w-100  pl-4 pr-4",index!==0?"brt-s":'pt-2'].join(" ")} dir='rtl' id={props.id} >
 
 
-                    <div className='mt-4 w-100' >
+                    <div className='mt-4 w-100  ' >
                         <div className='d-flex justify-content-start align-items-center ' onClick={()=>{setcollapse(!collapse)}} >
                             {
                                collapse?
@@ -60,7 +60,8 @@ export default function ExtendedDiv (props){
                             </div>
 
                             <div className='fs-lesion  d-flex ml-auto ' >
-                                <CheckBoxCustom/>
+                                <CheckBoxCustom data={ props.buyData} isCheck={props.isCheck}/>
+
                             </div>
                         </div>
                     </div>

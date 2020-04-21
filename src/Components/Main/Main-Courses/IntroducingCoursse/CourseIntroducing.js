@@ -28,12 +28,16 @@ const Video_src='https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f
 const CourseIntroducing = (props) => {
 
     const [teachers, setteachers] = useState([  {"img":profile,"name":"کیهان یعقوبیان","course":"پرورشی"},{"img":profile,"name":"سهند میرزایی ","course":"طراحی"}, {"img":profile,"name":"احسان تقوی ","course":"فیزیک"}, {"img":profile,"name":"احسان صمیمی راد ","course":"ریاضی"}]);
-    const [files,steFiles]=useState([  {"src":Video_src,img:ax1,type:"play"}, {"src":Video_src,img:ax2,type:"lock"}, {"src":Video_src,img:ax3,type:"lock"}]);
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [isLoder, setisLoder] = useState(true);
-    const [Data, setData] = useState({Top:{},Teachers:[],Lesson:[]});
+    const [totalCheck, setTotalCheck] = useState(false);
+
+    const [Data, setData] = useState({Top:{},Teachers:[],Lesson:[],off:0});
     const[videos,setVideos]=useState({type:"",video:[]});
     // const [Data, setData] = useState({top:{},main:{}});
+
+
+
 
     const toggle = (type,value) => {
 
@@ -55,9 +59,10 @@ const CourseIntroducing = (props) => {
            const{state,Description}= await LoadCourse(props.id);
 
             if (state===200 ) {
-                let{Top,Teachers,Lesson}=seprateEachCourseData(Description);
+                let{Top,Teachers,Lesson,off}=seprateEachCourseData(Description);
 
-                setData({...Data, Top,Teachers,Lesson})
+                setData({...Data, Top,Teachers,Lesson,off})
+
 
             } else {
                 NotificationManager.error(state, Description);
@@ -66,8 +71,8 @@ const CourseIntroducing = (props) => {
         }
         getData()
 
-    }, Data );
-// console.log(Data.Lesson)
+    }, [] );
+
 
      return (
          <div className={"w-100"}>
@@ -79,13 +84,21 @@ const CourseIntroducing = (props) => {
                 </div> :
 
                 <div className="w-100">
-                    <TopCourseDetail {...Data.Top} />
+                    <TopCourseDetail {...Data.Top}   />
 
 
                     <TeachersInCourseDetails header="اساتید این دوره" teachers={Data.Teachers}/>
 
                     {
-                        Data.Lesson.map((each, index) => <EachLesson key={index} {...each} toggle={toggle} files={files}/>)
+                        Data.Lesson.map((each, index) => <EachLesson key={index} off={Data.off} {...each}
+                            toggle={toggle}
+                            course={{course_id: props.id,
+                            course_name: Data.Top.name,
+                            "field": Data.Top.field,
+                            "grade": Data.Top.grade,
+                            'type': "lesson",itemIndex:index,
+                            price: Data.off !== 0 ? (each.price - (each.price * Data.off)) : each.price
+                        }}/>)
 
                     }
 
