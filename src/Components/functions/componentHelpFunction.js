@@ -194,40 +194,7 @@ export const RemoveItem=(id)=>{
     }, 2000)
 };
 // *************permission option******
-export const PermissionOptions=(sub)=>{
-    let SubCat=[];
-    sub.map((each,index)=>{
-        // let subRow= { value: each , label: each  };
-        let subRow= {permission_name: each, description: each };
-        SubCat.push(subRow);
-    });
-    return SubCat;
-}
-export const permissionOptionReverse=(sub)=>{
-    let SubCat=[];
-    sub.map((each,index)=>{
-        // let subRow= { value: each , label: each  };
-        let subRow= each.permission_name;
-        SubCat.push(subRow);
-    });
-    return SubCat;
-}
-// *************Role option******
-export const RoleOptions=(sub)=>{
-    let SubCat=[];
-    sub.map((each,index)=>{
-        // let subRow= { value: each , label: each  };
-        let subRow= {role_name: each, description: each };
-        SubCat.push(subRow);
-    });
-    return SubCat;
-}
-export const roleOptionReverse=(sub)=>{
-    let SubCat=[];
-    sub.map((each,index)=>{
-        // let subRow= { value: each , label: each  };
-        let subRow= each.role_name;
-        SubCat.push(subRow);
-    });
-    return SubCat;
+ export const   validatephoneNumber=(phonenumber) =>{
+    var re = /^(\+98|0)?9\d{9}$/;
+    return re.test(phonenumber);
 }

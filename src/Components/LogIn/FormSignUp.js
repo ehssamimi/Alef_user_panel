@@ -4,6 +4,7 @@ import {Col, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText
 import validator from "validator";
 import {GetUserDropDown, GetVerifycationCode, Regestry} from "../../Common/Const/ServerConnection";
 import {NotificationContainer, NotificationManager} from "react-notifications";
+import {validatephoneNumber} from "../functions/componentHelpFunction";
 const FormSignUp = (props) => {
 
     let{header,subHeader ,btn_txt,handelType,handelChangeForm,loading}=props;
@@ -56,6 +57,9 @@ const FormSignUp = (props) => {
         if (validator.isEmpty(values.phoneNumber)) {
             formValidate = false;
             errors['phoneNumber']="شماره تلفن همراه خود را وارد کنید  ";
+        }else if (!validatephoneNumber(values.phoneNumber)) {
+            formValidate = false;
+            errors['phoneNumber']="شماره ای که وارد کرده اید غیر مجاز است !  ";
         }
         if (validator.isEmpty(values.class)) {
             formValidate = false;
@@ -103,7 +107,7 @@ const FormSignUp = (props) => {
                     loading(50, 1);
                     }, 1000);
                 if (state===200 ) {
-                    NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
+                    // NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
                     localStorage.setItem("phoneNumber_K",values.phoneNumber)
                     let {state  ,Description } = await GetVerifycationCode(values.phoneNumber);
                     if (state ===200){

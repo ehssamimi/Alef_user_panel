@@ -72,7 +72,7 @@ export default function UserInfo(props) {
 
     const [citys, setcitys] = useState(Mazandaran);
     useEffect(  () => {
-
+        console.log(localStorage.getItem("token"));
         async function getUserDropDown(user_id) {
 
             const {state, Description}=await GetUserDropDown();
@@ -97,6 +97,8 @@ export default function UserInfo(props) {
             if (state===200 ) {
                 setisLoder(false);
                 console.log(Description);
+                let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
+                localStorage.setItem("user_alef",ItemValue);
 
                 let values=getProfileValue(Description);
                 let city = getCity(values.country);
@@ -109,7 +111,6 @@ export default function UserInfo(props) {
             } else {
                 NotificationManager.success(state, Description);
                 setisLoder(false);
-                // error_Notification(state,Description)
             }
             // console.log(UserDropDown)
 

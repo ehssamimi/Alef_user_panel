@@ -35,12 +35,15 @@ export default function UserProfile (props){
                 // let ItemValue={"image":Description.profile.image_id,"grade":Description.education.grade,"name":Description.personal_info.name };
                 let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
                 localStorage.setItem("user_alef",ItemValue);
-
+                setisLoder(false);
             } else {
+                console.log("errorrrrrrrrrrrrr");
+                console.log(state, Description);
                 NotificationManager.error(state, Description);
             }
-            setisLoder(false);
+
         }
+        setisLoder(true);
         getData()
 
     },  [] );
@@ -77,7 +80,7 @@ export default function UserProfile (props){
                                                 </div>
                                                 <div className="col-sm-12 col-md-4">
                                                     <div className='profile-pic br-g br-r50  p-05'>
-                                                        <img src={profileData.profile.image_id} alt="profile" className="img-self-cover br-r50 br-y"/>
+                                                        <img src={profileData.profile.image_id || profile} alt="profile" className="img-self-cover br-r50 br-y"/>
                                                     </div>
                                                 </div>
 

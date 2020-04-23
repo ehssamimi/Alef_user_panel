@@ -55,9 +55,11 @@ export default function RightMenu (props){
              console.log("we are out !!!!!!!!!!");
              cookie.remove('basket', { path: '/' });
              localStorage.clear();
-
-             NotificationManager.success(state, Description);
-                 return <Redirect to={'/'} />
+             // NotificationManager.success(state, Description);
+            let home= document.getElementById("gohome");
+             home.click()
+             // props.history.push('/');
+                 // return <Redirect to={'/'} />
 
          } else {
 
@@ -103,7 +105,7 @@ export default function RightMenu (props){
                                             <div className="w-100 h-100 position-relative "
                                                  onClick={() => setselected("my-course")}>
                                                 <Link to="/my-course"><span
-                                                    className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>دور ه های من</span></Link>
+                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><GiGraduateCap/>دور ه های من</span></Link>
                                             </div>
 
                                     }
@@ -128,10 +130,10 @@ export default function RightMenu (props){
                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span>
                                             </div> :
-                                            <div className="w-100 h-100 position-relative "
+                                            <div className="w-100 h-100 position-relative   "
                                                  onClick={() => setselected("my-schedule")}>
                                                 <Link to="/my-schedule"><span
-                                                    className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span></Link>
+                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><GiGraduateCap/>برنامه مطالعاتی</span></Link>
                                             </div>
 
                                     }
@@ -156,10 +158,10 @@ export default function RightMenu (props){
                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2"><AiOutlineUser/> پروفایل کاربری</span>
                                             </div> :
-                                            <div className="w-100 h-100 position-relative "
+                                            <div className="w-100 h-100 position-relative text-white "
                                                  onClick={() => setselected("user-profile")}>
                                                 <Link to="/user-profile"><span
-                                                    className="zIndex-3 list-user-profile w-100 pl-2"><AiOutlineUser/> پروفایل کاربری</span></Link>
+                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><AiOutlineUser/> پروفایل کاربری</span></Link>
                                             </div>
 
                                     }
@@ -201,8 +203,7 @@ export default function RightMenu (props){
 
 
 
-
-
+<a className="d-none" id="gohome" href="/">home</a>
         </div>
     );
 };

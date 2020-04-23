@@ -60,7 +60,7 @@ export default function ExtendedDiv (props){
                             </div>
 
                             <div className='fs-lesion  d-flex ml-auto ' >
-                                <CheckBoxCustom data={ props.buyData} isCheck={props.isCheck}/>
+                                <CheckBoxCustom data={ props.buyData} id={props.id} row_id={props.index+1} isCheck={props.isCheck}  />
 
                             </div>
                         </div>

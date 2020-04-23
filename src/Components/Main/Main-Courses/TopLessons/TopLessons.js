@@ -18,7 +18,7 @@ export default function TopLessons (props){
     };
 
     const childrenWithProps = React.Children.map( props.children, child =>
-        React.cloneElement(child, { id: props.course.itemIndex,isCheck:totalCheck })
+        React.cloneElement(child, { id: props.id,isCheck:totalCheck })
     );
 
 
@@ -53,7 +53,7 @@ export default function TopLessons (props){
                     </div>
 
                     <div className='fs-lesion  d-flex ml-auto ' >
-                        <CheckBoxCustom  data={props.course}   totalCheck={changeTotalCheck} />
+                        <CheckBoxCustom  data={props.course} id={props.id} row_id={0} totalCheck={changeTotalCheck}   />
                     </div>
                 </div>
             </div>

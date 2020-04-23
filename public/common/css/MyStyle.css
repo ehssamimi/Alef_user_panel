@@ -311,7 +311,7 @@ select option:hover {
             url("./../../bg-login.png");
       background-size: cover;
     overflow: hidden;
-    height: 100vh!important;
+    /*height: 100vh!important;*/
     position: absolute;
     top:0;
     left: 0;
@@ -367,9 +367,33 @@ select option:hover {
 .h-5rem{
     height: 5vw;
 }
+.wrapper-login {
+    position:relative;
+    overflow: hidden;
+    white-space:nowrap;
+    height:auto;
+}
 
 
+/*.col-container {*/
+    /*display: table; !* Make the container element behave like a table *!*/
+    /*width: 100%; !* Set full-width to expand the whole page *!*/
+/*}*/
 
+/*.col {*/
+    /*display: table-cell; !* Make elements inside the container behave like table cells *!*/
+/*}*/
 
+/*.col-container {*/
+    /*display: flex;*/
+    /*width: 100%;*/
+/*}*/
+/*.col {*/
+    /*flex: 1;*/
+    /*padding: 16px;*/
+/*}*/
 
+.min-h-100vh{
+    min-height: 100vh;
+}
 

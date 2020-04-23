@@ -39,10 +39,28 @@ const AuthRoute = ({ component: Component, authUser, ...rest }) => (
         }
     />
 );
+const AuthLogin = ({ component: Component, authUser, ...rest }) => (
+    <Route
+        {...rest}
+        render={props =>
+            authUser ? (
+                <Redirect
+                    to={{
+                        pathname: "/user-info",
+                        state: { from: props.location }
+                    }}
+                />
+            ) : (
+                <Component {...props} />
+
+            )
+        }
+    />
+);
 
 function App() {
     const User=useContext(UserContext);
-    cookie.save('basket', {}, { path: '/' });
+    cookie.save('basket', [], { path: '/' });
 
   return (
       <div className="w-100 h-100">
@@ -61,7 +79,8 @@ function App() {
                           <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={UserProfile}/>
                           <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>
                           <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>
-                          <Route path="/login" component={Login}/>
+                          <AuthLogin path="/login" authUser={ User.isLogIn} component={Login}/>
+                          {/*<Route path="/login" component={Login}/>*/}
                           <Route path="/sign-up" component={SignUp}/>
                           <Route  component={NoMatch}/>
 

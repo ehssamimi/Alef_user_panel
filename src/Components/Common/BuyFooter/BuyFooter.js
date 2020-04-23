@@ -1,10 +1,12 @@
-import React, {useState, useEffect, useRef, useContext} from 'react';
+import React, {useState, useEffect,   useContext} from 'react';
 import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
-import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
-import {Collapse, Form} from "reactstrap";
+
+import {Collapse } from "reactstrap";
 import {FaMinus, FaPlus} from "react-icons/fa";
-import {Power4, TweenMax} from "gsap/TweenMax";
+import {  TweenMax} from "gsap/TweenMax";
  import {BuyContext} from "../Context/BuyProvider";
+import {CourseBuy} from "../../../Common/Const/ServerConnection";
+import {NotificationManager} from "react-notifications";
 
 
 
@@ -15,15 +17,13 @@ import {Power4, TweenMax} from "gsap/TweenMax";
 const BuyFooter = (props) => {
     const Buy=useContext(BuyContext);
     const [collapse, setcollapse,] = useState(false);
-    const [products, setProducts] = useState( );
-    // const [product , setProduct ] = useState( );
 
-    // setProduct(Object.values(Buy.buy.content));
-    // console.log(Buy);
-    let{price,off}=props;
+
+
+
 
     useEffect(() => {
-        if (Buy.buy.content.length>0){
+        if (Buy.buy.length>0){
 
             const $el = document.getElementById(`footer`);
             const duration = 2;
@@ -39,20 +39,62 @@ const BuyFooter = (props) => {
 
 
 
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
  e.preventDefault();
+        let Lessons=[]; let row="";let ListBuy={};let chapters=[];
+        console.log(Buy.buy)
 
-        // console.log("basket")
-        // console.log(cookie.load('basket'))
+
+
+
+
+        Buy.buy.map((item,index)=>{
+            if (item.type==="lesson"){
+                row={"course_id":item.content.course_id,"lesson_name":item.content.lesson_name};
+                Lessons.push(row);
+            }else{
+                row={"course_id":item.content.course_id,"lesson_name":item.content.lesson_name,'teacher_name':item.content.teacher_name,"chapter_name":item.content.chapter_name};
+                chapters.push(row);
+            }
+        });
+        if (Lessons.length>0){
+            ListBuy["lessons"]=Lessons;
+        }
+        if (chapters.length>0){
+            ListBuy["chapters"]=chapters;
+        }
+
+
+
+        let {state, Description} = await CourseBuy(JSON.stringify(ListBuy));
+        if (state === 200) {
+            window.open(Description.gateway_url, '_blank');
+        }else {
+            NotificationManager.error(state, Description);
+        }
+
 
 
     };
 
 
-    console.log("BUUUUYYYYYYYYYYYYYYY");
+    let product =Buy.buy;let Price=0;
+    Buy.buy.map((item,index)=>{
+        if (item.content.off!==0){
 
-    let product =Buy.buy.content
-    console.log(product);
+            Price=Price+(item.content.price-(item.content.price*item.content.off))
+        } else {
+
+
+            Price=Price+(item.content.price )
+        }
+
+    });
+
+
+
+
+
 
     return (
         <div className="buy-footer " style={{minHeight:0}} dir="rtl" id="footer">
@@ -73,8 +115,7 @@ const BuyFooter = (props) => {
                                     <span className=' border-Carousel p-2 mr-3'> <FaPlus/></span>
                                     <span className='  fs-lesion '>خرید های شما  </span>
                                 </span>
-                                    <span className="d-flex ml-5"><span className="mr-2">{Buy.buy.content.length}</span><span> دسته بندی انتخاب شده است </span></span>
-
+                                    <span className="d-flex ml-5"><span className="mr-2">{product.length}</span><span> دسته بندی انتخاب شده است </span></span>
                                 </div>
 
                         }
@@ -88,7 +129,7 @@ const BuyFooter = (props) => {
                                     className="btn green-background  br10px text-white   h-input-s   pl-2 pr-2 mt-1 mb-1   sendButton-shadow  "
                                     type="submit" onClick={handleChange}>
                                     <span>تاییید و پرداخت </span>
-                                    <span className="ml-5">{formatNumber(price)} <span className="ml-1">تومن</span> </span>
+                                    <span className="ml-5">{formatNumber(Price)} <span className="ml-1">تومن</span> </span>
 
                                 </button>
                                 {/*<span className='red-color text-decoration-line-through  mr-2 fs15rem    '>{formatNumber(price)} تومن  </span>*/}
@@ -113,9 +154,9 @@ const BuyFooter = (props) => {
                             product.map((item,index)=>
 
                                 <div className="d-flex" key={index}>
-                                    {<span className="second-color">{item.course_name}</span>}
-                                    {item.grade?<span className="second-color"><span className="second-color ml-2"> | </span>{item.grade}</span>:""}
-                                    {item.field?<span className="second-color"><span className="second-color ml-2"> | </span>{item.field}</span>:""}
+                                    {<span className="second-color">{item.content.course_name}</span>}
+                                    {item.content.grade?<span className="second-color"><span className="second-color ml-2"> | </span>{item.content.grade}</span>:""}
+                                    {item.content.field?<span className="second-color"><span className="second-color ml-2"> | </span>{item.content.field}</span>:""}
                                     {/*{chapter?<span className="second-color"><span className="second-color ml-2"> | </span>{chapter}</span>:""}*/}
 
                                 </div>

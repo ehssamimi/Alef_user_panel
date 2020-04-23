@@ -38,30 +38,59 @@ function CheckBoxCustom(props) {
 
 
 
-    const handleChange = (event) => {
+    const
+        handleChange = (event) => {
         setChecked(event.target.checked);
-        let  products=cookie.load('basket');
-        let BuyType=Buy.buy.type;
-        console.log(BuyType);
+            let  products=cookie.load('basket');
 
-        if (event.target.checked===true){
-            products[JSON.stringify(props.data)]=props.data;
-            cookie.save('basket', products, { path: '/' });
-            Buy.SetBuy("lesson",products);
-            if (props.totalCheck){
-                props.totalCheck(true)
+            function addItems(products, rowbuy) {
+                products.push(rowbuy);
+                cookie.save('basket', products, {path: '/'});
+                Buy.SetBuy(products);
             }
-        }else {
-            delete products[JSON.stringify(props.data)];
-            cookie.save('basket', products, { path: '/' });
-            Buy.SetBuy("lesson",products);
-            if (props.totalCheck){
-                props.totalCheck(false)
-            };
-        }
+            ////id is same to lesson and chapter but row_id is specific
 
-        console.log("basket")
-        console.log(cookie.load('basket'))
+            let rowbuy={rowId:(`${props.id}+${props.row_id}`).toString(),id:props.id,type:props.data.type,content:props.data};
+
+            //check if lesson is active so if click on chapter do nothing!
+
+            if (props.isCheck){
+
+            }else {
+                if (event.target.checked === true) {
+
+                    if (props.totalCheck ){
+                        props.totalCheck(true)
+                    }
+
+
+                    //before add lesson check don't add chapter or deleted
+                    if (rowbuy.type==="lesson") {
+                        let indexItem=  products.findIndex(({ id }) => id === rowbuy.id);
+                        if (indexItem===-1) {
+                            addItems(products,rowbuy );
+                        }else {
+                            ////else if add chapter you can do it
+                            products.splice(indexItem,1);
+                            addItems(products,rowbuy );
+                        }
+                    }else {
+                        addItems(products,rowbuy );
+                    }
+
+
+                } else {
+                    if (props.totalCheck ){
+                        props.totalCheck(false)
+                    }
+                    let indexItem=products.findIndex(({ rowId }) => rowId === rowbuy.rowId);
+                    products.splice(indexItem,1);
+                    cookie.save('basket', products, {path: '/'});
+                    Buy.SetBuy(  products);
+
+                }
+            }
+
 
 
     };

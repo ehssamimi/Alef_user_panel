@@ -10,6 +10,7 @@ import {
 } from "../../Common/Const/ServerConnection";
 import {NotificationContainer, NotificationManager} from "react-notifications";
 import {UserContext} from "../Common/Context/UserProvider";
+import {useHistory} from "react-router-dom";
 const VerificationState = (props) => {
     let User=useContext(UserContext);
     let{header,subHeader ,btn_txt,type,handelChangeForm,loading}=props;
@@ -17,6 +18,7 @@ const VerificationState = (props) => {
 
     const [error, seterror] = useState({"verificationCode":"" });
     const [count, setCount] = useState( 60  );
+    const history = useHistory();
 
     useEffect(  () => {
 
@@ -67,18 +69,24 @@ const VerificationState = (props) => {
 
 
                 let {state ,Description} = await Verify(type,localStorage.getItem("phoneNumber_K"),values.verificationCode);
-                console.log(state ,Description)
+                console.log(state ,Description);
+
                  if (state===200 ) {
                     localStorage.setItem("token",Description.token);
-                    User.HandelLogin();
-                    setTimeout(function(){
-                        loading(0, 1);
-                    }, 1000);
-                    handelChangeForm("Profile");
+                     let home= document.getElementById("UserAccess");
+                     home.click();
+                     User.HandelLogin();
+
+                    //  history.push('/user-info');
+                    // handelChangeForm("Profile");
 
                 } else {
                     NotificationManager.error(state, Description)
-                }
+                     setTimeout(function(){
+                         loading(50, 1);
+
+                     }, 1000);
+                 }
 
             }else {
                 console.log( 'error' )
@@ -90,9 +98,10 @@ const VerificationState = (props) => {
     const HandelResend = async (e) => {
         e.preventDefault();
         let {state ,Description} = await ResendVerifycationCode(localStorage.getItem("phoneNumber_K"));
+        setCount(60);
         if (state===200 ) {
                 NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
-                console.log(Description)
+                console.log(Description);
         }else {
                 NotificationManager.error(Description, state);
         }
@@ -131,6 +140,7 @@ const VerificationState = (props) => {
 
                 </div>
             </div>
+            <a href="/user-info"  id="UserAccess" className="d-none">go user profile</a>
 
             <NotificationContainer />
         </div>

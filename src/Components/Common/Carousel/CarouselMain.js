@@ -17,7 +17,9 @@ import  lock from'./../../../Common/img/lock_on_video.png'
 import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
 import {Link} from "react-router-dom";
 import ax1 from "../../../Common/img/arno-smit-sKJ7zSylUao-unsplash.jpg";
-
+import {CourseBuy} from "../../../Common/Const/ServerConnection";
+import { useHistory } from 'react-router-dom';
+import {NotificationManager} from "react-notifications";
 
 const useStyles = makeStyles({
     root: {
@@ -142,7 +144,7 @@ const CourseCarsMain = (props) => {
 
 
 
-
+    const history = useHistory();
     // let{img,title,course,grade,button,cost,sellCost,sub_text,id}=props;
     let{name,grade,field,price,image,off,course_id,sub_text }=props;
     // console.log("image")
@@ -154,16 +156,51 @@ const CourseCarsMain = (props) => {
 
         document.title = `You clicked ${count} times`;
     });
+    const handelClick=async (e)=>{
+        e.preventDefault();
+        let data = {"courses": [{"course_id": course_id}]};
+
+
+
+
+
+       if(localStorage.getItem("token")===null){
+           history.push('/login');
+       }else {
+           let {state, Description} = await CourseBuy(JSON.stringify(data));
+
+
+           // data:
+           //     gateway_url: "https://idpay.ir/p/ws-sandbox/b6c3567bc7491cb0cd847896b3df05da"
+           // request_id: "5ea06a53f013eedf22dd7aaa"
+           if (state === 200) {
+               window.open(Description.gateway_url, '_blank');
+           }else {
+               NotificationManager.error(state, Description);
+           }
+
+
+       }
+
+    }
 
     return (
 
         <Card  className= "m-2 br20px h-100 h-min-24vw  box-shadow-custom" >
 
+            {/*<CardMedia*/}
+                {/*// className={props.class}*/}
+                {/*className={'this is courseeeeeeeeeeeeeeeeee'}*/}
+                {/*image={image}*/}
+                {/*title="Course Section"*/}
+            {/*/>*/}
             <CardMedia
-                className={props.class}
-                image={image}
+                className="hpx200 "
+                image={ image}
                 title="Course Section"
             />
+
+            {/*<img src={image} alt={image}/>*/}
             <CardContent>
                 <div className="row col-12 m-0">
                     <div className="d-inline-block  ">
@@ -183,14 +220,13 @@ const CourseCarsMain = (props) => {
                 </div>
             </CardContent>
 
-            <CardActions className="w-100 d-flex justify-content-center">
+            <CardActions className="w-100 d-flex justify-content-center" onClick={handelClick}>
                 <button className="btn green-background text-white col-8 fontFamily-Sans sendButton-shadow br10px h-input-buy"> خرید دوره </button>
             </CardActions>
             <div className="d-flex justify-content-center">
                 {
                     sub_text?  <Link to={`/course/${course_id}`}  className="pt-4"> {sub_text  } </Link>:""
                 }
-
             </div>
         </Card>
 

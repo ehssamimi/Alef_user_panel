@@ -5,6 +5,7 @@ import {Col, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText
 import validator from "validator";
 import {GetLogin, GetUserDropDown, GetVerifycationCode, Regestry} from "../../Common/Const/ServerConnection";
 import {NotificationContainer, NotificationManager} from "react-notifications";
+import {validatephoneNumber} from "../functions/componentHelpFunction";
 const FormLogin = (props) => {
 
     let{header,subHeader ,btn_txt,handelType,handelChangeForm,loading}=props;
@@ -24,10 +25,6 @@ const FormLogin = (props) => {
 
         let formValidate=true;
 
-        function validatephoneNumber(phonenumber) {
-            var re = /^(\+98|0)?9\d{9}$/;
-            return re.test(phonenumber);
-        }
 
 
         if (validator.isEmpty(values.phoneNumber)) {
@@ -60,7 +57,7 @@ const FormLogin = (props) => {
                     loading(50, 1);
                 }, 1000);
                 if (state===200 ) {
-                    NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
+                    // NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
                     localStorage.setItem("phoneNumber_K",values.phoneNumber)
                     let {state  ,Description } = await GetVerifycationCode(values.phoneNumber);
                     if (state ===200){

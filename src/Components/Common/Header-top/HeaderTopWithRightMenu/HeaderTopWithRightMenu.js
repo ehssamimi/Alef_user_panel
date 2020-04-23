@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MainHeader from "../../../Main/Main-Header/MainHeader";
 import RightMenu from "../../../UserProfile/RightMenu/RightMenu";
 import UrlProvider from "../../Context/UrlProvider";
+import {NotificationContainer} from "react-notifications";
 
 const HeaderTopWithRightMenu = (props) => {
     const [count, setCount] = useState(1);
@@ -16,11 +17,12 @@ const HeaderTopWithRightMenu = (props) => {
             <div className="header-top">
 
             </div>
-            <RightMenu   >
+            <RightMenu  {...props} >
             <MainHeader   >
                 {props.children }
             </MainHeader>
             </RightMenu>
+            <NotificationContainer />
         </div>
         </UrlProvider>
     );

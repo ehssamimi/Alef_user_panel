@@ -47,7 +47,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className="row w-100 h-100 overflow-hidden justify-content-end">
+        <div className="row w-100   overflow-hidden justify-content-end wrapper-login min-h-100vh ">
             <div className="  h-100 bg-login d-flex justify-content-center align-items-center    "
                 style={{width:'50%', overFlow:"hidden"}} id="img-bg-login">
 
@@ -75,7 +75,7 @@ const Login = (props) => {
                                                                        btn_txt={"ورود"} loading={ActiveLoader}  handelChangeForm={handelChangeForm}/>:""}
 
 
-                          {formType==="Profile"? <UserInfo/>:""}
+                          {/*{formType==="Profile"? <UserInfo {...props}/>:""}*/}
 
                         {/*token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkI…k0Mn0.uDebJhqeqzVLiGktJLMtv4IstHz9yUz3Aj2kdJcZSXE"*/}
                     </div>

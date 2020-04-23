@@ -3,16 +3,16 @@ import React, {useState, useEffect} from 'react';
 import cookie from "react-cookies";
 export const BuyContext=React.createContext() ;
 const BuyProvider = ( props) => {
-    const [Buy, setBuy] = useState({type:"",content:[]});
+    const [Buy, setBuy] = useState([]);
 
-    const handelBuyContent=(type,content)=>{
-        setBuy({type:"lesson-course",content:Object.values(content)  })
-    }
+    const handelBuyContent=( content)=>{
+        setBuy(content)
+    };
 
     useEffect(() => {
         let products=cookie.load('basket');
-        if (products!=={}){
-            handelBuyContent("lesson",cookie.load('basket'))
+        if (products!==[]){
+            handelBuyContent( cookie.load('basket'))
         }
         // Update the document title using the browser API
 

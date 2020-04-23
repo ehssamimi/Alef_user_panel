@@ -96,9 +96,9 @@ const CourseIntroducing = (props) => {
                             course_name: Data.Top.name,
                             "field": Data.Top.field,
                             "grade": Data.Top.grade,
-                            'type': "lesson",itemIndex:index,
-                            price: Data.off !== 0 ? (each.price - (each.price * Data.off)) : each.price
-                        }}/>)
+                            'type': "lesson" ,
+                            price: each.price, off:Data.off,lesson_name:each.name
+                        }}  id={index}/>)
 
                     }
 

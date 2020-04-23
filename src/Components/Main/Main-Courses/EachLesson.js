@@ -24,7 +24,7 @@ const EachLesson = (props) => {
                                                  course_id:course.course_id,
                                                  "teacher_name": teacher.name,"grade": course.grade,
                                                  "chapter_name": each.name,"field":course.field,'type':"chapter",
-                                                 price: off !== 0 ? (each.price - (each.price * off)) : each.price
+                                                 price: each.price,off:off
                                              }}
                                              videos={[each.demo_video_cover, each.demo_video]} off={off} index={index}>
 
