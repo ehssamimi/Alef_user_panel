@@ -89,7 +89,7 @@ export default function MainHeader (props){
                                             :""
                                         :
 
-                                        <li className="nav-item br-over-g d-flex align-items-center br10px  ">
+                                        <li className="nav-item br-over-g d-flex align-items-center br10px      ">
                                             <a className="nav-link header-color font-weight-bold" href="/login">ثبت نام / ورود </a>
                                         </li>
 
@@ -97,16 +97,16 @@ export default function MainHeader (props){
 
                                 <li className={active === "home" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"}
                                     onClick={() => setactive("home")}>
-                                    <Link className="nav-link" to="/">
+                                    <Link className="nav-link" to="/home">
                                         خانه
                                     </Link>
-                                    {/*<a className="nav-link" href="/"> </a>*/}
-                                </li>
-                                <li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("about")}>
+                                 </li>
+                                <li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" :
+                                    "nav-item  d-flex align-items-center  second-color"}
+                                    onClick={() => setactive("about")}>
                                     <Link className="nav-link" to="/about">
                                         درباره ما
                                     </Link>
-                                    {/*<a className="nav-link" href="/about"> </a>*/}
                                 </li>
                                 <li className={active === "courses" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
                                     <Link className="nav-link" to="/courses">

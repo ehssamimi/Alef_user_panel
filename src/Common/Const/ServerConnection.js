@@ -24,7 +24,7 @@ export async  function  GetUserDropDown( ){
     });
     return resp;
 }
-export async function Regestry(Data){
+export async  function  Regestry(Data){
 
     let headers = {
         'Content-Type': 'application/json',
@@ -272,7 +272,6 @@ export async  function  UploadProfileImg(file){
     });
     return resp
 }
-
 export async  function  UpdateProfile(Data){
 
     let headers = {
@@ -500,7 +499,6 @@ export async  function  LogOut(){
     });
     return resp;
 };
-
 export async  function  CourseBuy(Data){
 
     let headers = {

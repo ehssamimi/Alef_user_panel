@@ -194,7 +194,7 @@ export const RemoveItem=(id)=>{
     }, 2000)
 };
 // *************permission option******
- export const   validatephoneNumber=(phonenumber) =>{
+export const   validatephoneNumber=(phonenumber) =>{
     var re = /^(\+98|0)?9\d{9}$/;
     return re.test(phonenumber);
 }

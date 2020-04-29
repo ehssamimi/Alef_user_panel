@@ -10,6 +10,11 @@
 .green-background {
   background: #215831 !important; }
 
+.activeHeaderMenu {
+  border-bottom: solid #215831 3px;
+  color: #215831 !important;
+  font-weight: bold; }
+
 .green-rightMenu {
   width: 75%;
   background-color: #215831; }

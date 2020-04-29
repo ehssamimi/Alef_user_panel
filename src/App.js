@@ -19,6 +19,7 @@ import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse
 import UrlProvider from "./Components/Common/Context/UrlProvider";
 import cookie from 'react-cookies'
 import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
+import MainRoute from "./Components/Common/MainRoute";
 
 
 
@@ -68,7 +69,13 @@ function App() {
                   <Switch>
                       {/*<MainHeader>*/}
 
-                          <Route path="/" exact={true} component={Home}/>
+                      <Route
+                          path="/"
+                          exact
+                          render={props => <MainRoute {...props} />}
+                      />
+
+                          <Route path="/home" exact={true} component={Home}/>
                           <Route path="/about" component={MainAbout}/>
                           <Route path="/courses" component={ShowAllCourse}/>
                           <Route path="/course/:id"   component={MainCourses}/>

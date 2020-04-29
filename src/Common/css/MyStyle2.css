@@ -46,14 +46,14 @@
 .hpx150{
     height: 150px;
 }.hpx200{
-    height: 200px;
-}.hpx250{
-    height: 250px;
-}
+     height: 200px;
+ }.hpx250{
+      height: 250px;
+  }
 
- .h-today{
-     min-height: 150px;
- }
+.h-today{
+    min-height: 150px;
+}
 .hpx300{
     height: 300px;
 }
@@ -105,18 +105,16 @@
     height: 3em;
 }
 .logo-in-top {
-     height: 2.2em;
+    height: 2.2em;
     width: 3.2em;
 }
 .p-05 {
     padding: .12rem!important;
 }
-.activeHeaderMenu {
-    border-bottom: solid green 3px ;
-}
+
 
 .header-top{
- width: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
     height:3.8rem ;
@@ -157,11 +155,11 @@
 .fs60{
     font-size: 60%;
 }.fs70{
-    font-size: 70%;
-}
- .h-min-12em{
-     min-height: 12em!important;
+     font-size: 70%;
  }
+.h-min-12em{
+    min-height: 12em!important;
+}
 .h-min-img-card{
 
 
@@ -171,32 +169,32 @@
 
 
 
-/*height: 15vw;*/
+    /*height: 15vw;*/
     /*min-height: 10rem;*/
 }
- .h-min-20em{
-     min-height: 20em;
- }
+.h-min-20em{
+    min-height: 20em;
+}
 .h-min-24vw{
-       min-height: 24vw;
-   }
- .h-min-45em{
-     min-height: 45em;
- }
- .fs13vw{
-     font-size: 1.3vw;
- }
- .fw200{
-     font-weight: 200;
- }
- .zIndex-3{
-     z-index: 3;
- } .zIndex-2{
-     z-index: 2;
- }
-   .profile-user-list{
-       padding-right: 2vw!important;
-   }
+    min-height: 24vw;
+}
+.h-min-45em{
+    min-height: 45em;
+}
+.fs13vw{
+    font-size: 1.3vw;
+}
+.fw200{
+    font-weight: 200;
+}
+.zIndex-3{
+    z-index: 3;
+} .zIndex-2{
+      z-index: 2;
+  }
+.profile-user-list{
+    padding-right: 2vw!important;
+}
 
 .list-user-profile {
     position: absolute;
@@ -205,7 +203,7 @@
 }
 .pt10rem{
     padding-top:10rem ;
- }
+}
 .h-List-item{
     height: 8rem;
 }
@@ -236,15 +234,15 @@
 }.form-control:focus{
      border: 1.4px solid #a7b2aa !important;
 
-      outline: 0;
+     outline: 0;
      /*-webkit-box-shadow:0 0 8px #687a6d;*/
 
      box-shadow: 0 0 0 rgba(211, 247, 221, 0.52) inset, 0 0 0 rgba(226, 241, 230, 0.57);
-}
- .ml-r-auto{
-     margin-right: auto;
-     margin-left: auto;
  }
+.ml-r-auto{
+    margin-right: auto;
+    margin-left: auto;
+}
 .input-group-text {
 
     color: #495057!important;
@@ -301,34 +299,28 @@ select option:hover {
     left: 3rem;
     top:3.5rem;
 }
-/*.bg-login{*/
-    /*!*background-image: url("./../../../src/Common/img/alex-simpson-8DaRtnotCoQ-unsplash.png");*!*/
-    /*background-image:*/
-            /*linear-gradient(*/
-            /*rgba(4, 52, 14, 0.77),*/
-            /*rgba(4, 52, 14, 0.77)*/
-            /*),*/
-            /*url("./../../../public/bg-login.png");*/
-      /*background-size: cover;*/
-    /*overflow: hidden;*/
+.bg-login{
+    /*background-image: url("./../../../src/Common/img/alex-simpson-8DaRtnotCoQ-unsplash.png");*/
+    background-image:
+            linear-gradient(
+                    rgba(4, 52, 14, 0.77),
+                    rgba(4, 52, 14, 0.77)
+            ),
+            url("./../../../src/Common/img/alex-simpson-8DaRtnotCoQ-unsplash.png");
+    background-size: cover;
+    overflow: hidden;
     /*height: 100vh!important;*/
-    /*position: absolute;*/
-    /*top:0;*/
-    /*left: 0;*/
-    /*z-index: 4;*/
-    /*!*-webkit-filter: grayscale(1);*!*/
-    /*!*filter: grayscale(1);*!*/
-    /*!*-webkit-filter: sepia(100%) hue-rotate(104deg) saturate(400%)  brightness(0.4)  ;*!*/
-    /*!*filter: sepia(100%) hue-rotate(104deg) saturate(400%)  brightness(0.4)  ;*!*/
- /*}*/
-.logo-login{
-    width: 70%;
-    height: 70%;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 4;
+    /*-webkit-filter: grayscale(1);*/
+    /*filter: grayscale(1);*/
+    /*-webkit-filter: sepia(100%) hue-rotate(104deg) saturate(400%)  brightness(0.4)  ;*/
+    /*filter: sepia(100%) hue-rotate(104deg) saturate(400%)  brightness(0.4)  ;*/
 }
-.main-login-field{
-    margin-top: 1.5rem;
-    /*margin-right: 4rem;*/
-}
+
+
 .text-ex span{
     color: #67796c !important;;
 }
@@ -367,9 +359,33 @@ select option:hover {
 .h-5rem{
     height: 5vw;
 }
+.wrapper-login {
+    position:relative;
+    overflow: hidden;
+    white-space:nowrap;
+    height:auto;
+}
 
 
+/*.col-container {*/
+/*display: table; !* Make the container element behave like a table *!*/
+/*width: 100%; !* Set full-width to expand the whole page *!*/
+/*}*/
 
+/*.col {*/
+/*display: table-cell; !* Make elements inside the container behave like table cells *!*/
+/*}*/
 
+/*.col-container {*/
+/*display: flex;*/
+/*width: 100%;*/
+/*}*/
+/*.col {*/
+/*flex: 1;*/
+/*padding: 16px;*/
+/*}*/
 
+.min-h-100vh{
+    min-height: 100vh;
+}
 

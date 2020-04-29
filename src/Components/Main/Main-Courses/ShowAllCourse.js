@@ -16,10 +16,7 @@ import Loader from "../../Common/Loader/Loader";
 
 export default function ShowAllCourse (props){
     // const[file,setFile]=useState([{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"}])
-    const[file,setFile]=useState([{image:ax1,name:"کنکور",price:200,off:0.3,sub_text:"خرید دروه",field:"ریاضی و فیزیک",grade:"پای هشتم ","class":"h-min-img-card"},{image:ax1,name:"کنکور",price:200,off:0.3,sub_text:"خرید دروه",field:"ریاضی و فیزیک",grade:"پای هشتم ","class":"h-min-img-card"},{image:ax1,name:"کنکور",price:200,off:0.3,sub_text:"خرید دروه",field:"ریاضی و فیزیک",grade:"پای هشتم ","class":"h-min-img-card"} ])
-
     let{name,grade,field,price,image,off,id, }=props;
-
     const [courses,setCourses]=useState({"data":[],off:[]});
     const [isLoder, setisLoder] = useState(true);
 
