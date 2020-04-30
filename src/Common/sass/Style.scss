@@ -2,6 +2,7 @@ $green: #215831 !default;
 $yellow: #fbca01 !default;
 $darkGreen: #364539 !default;
 $LightGreen: #687a6d !default;
+$placeHolderColor:#a8b3ab !important;
 $white-border: white !default;
 $border-r-Video:20px !default;
 
@@ -260,6 +261,40 @@ body{
   border-radius: 20px!important;
 }
 
+
+.bgInput{
+  input[type="text"], textarea,input[type="number"],select {
+
+    background-color : $background-color;
+
+  }
+}
+
+
+
+.color-placeHolder{
+  color:$placeHolderColor;
+}
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:  $placeHolderColor!important;
+  //font-size: Calc(0.5vw + 0.5rem) !important;
+  //opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $placeHolderColor !important;
+  //font-size: Calc(0.5vw + 0.5rem) !important;
+  //opacity: 0.7; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color:  $placeHolderColor!important;
+  //font-size: Calc(0.5vw + 0.5rem) !important;
+  //opacity: 0.7; /* Firefox */
+}
 
 
 

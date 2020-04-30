@@ -137,4 +137,22 @@ body {
   outline: 0;
   border-radius: 20px !important; }
 
+.bgInput input[type="text"], .bgInput textarea, .bgInput input[type="number"], .bgInput select {
+  background-color: #f7faf8 !important; }
+
+.color-placeHolder {
+  color: #a8b3ab !important; }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #a8b3ab !important !important; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #a8b3ab !important !important; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #a8b3ab !important !important; }
+
 /*# sourceMappingURL=Style.css.map */

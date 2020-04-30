@@ -101,8 +101,6 @@ const Login = (props) => {
                                                           btn_txt={"ورود"} loading={ActiveLoader}  handelChangeForm={handelChangeForm}/>:""}
 
 
-
-
                           {/*{formType==="Profile"? <UserInfo {...props}/>:""}*/}
 
                         {/*token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkI…k0Mn0.uDebJhqeqzVLiGktJLMtv4IstHz9yUz3Aj2kdJcZSXE"*/}

@@ -86,27 +86,27 @@ const FormLogin = (props) => {
     return (
         <div className="col-sm-12 col-md-6 h-100  overflow-hidden  p-0"     dir="rtl" >
             <div className="w-100 h-100  d-flex justify-content-center overflow-hidden">
-                <div className="   col-10 col-xl-8   " style={{marginTop:'4.5rem'}}>
+                <div className="   col-10 col-xl-8   " style={{marginTop:'5.5rem'}}>
                     <p className="header-color FsHeaderLogin1 mb-0"  >{header}  </p>
                     <p className="header-color font-weight-bold  mb-2 mt-2 FsHeaderLogin2  " style={{ whiteSpace: "break-spaces"}}>{subHeader} </p>
                     <div className="row m-0  w-100">
 
                         <Col sm={12} className="d-flex   flex-column justify-content-between   ml-r-auto  p-0  ">
-                            <Form onSubmit={handelSubmit} className="mt-login-form">
+                            <Form onSubmit={handelSubmit} className="mt-login-form col-10 p-0 bgInput">
 
                                 <TextInput onChange={onChange} label={'شماره تلفن همراه'} id={'phoneNumber'}
                                            placeholder={"****-***-**09"} type={"number"}
-                                           is_required={true} value={values.phoneNumber}
+                                           is_required={false} value={values.phoneNumber}
                                            error={error.phoneNumber}/>
 
 
                                 <button
-                                    className="btn green-background  br10px text-white  h-input-s col-8 col-md-8 col-lg-5  sendButton-shadow mt-3"
+                                    className="btn green-background  br10px text-white  h-input-s col-9 col-md-9 col-lg-6  sendButton-shadow mt-3 text-bold"
                                     type="submit">{btn_txt}
                                 </button>
                                 {
                                     handelChangeForm === undefined ? "" :
-                                        <p className="mt-2">ثبت نام نکرده اید ؟<span onClick={() => {
+                                        <p className="mt-3 FsFooterLogin">ثبت نام نکرده اید ؟<span onClick={() => {
                                             handelChangeForm("signUp")
                                         }} className="mt-2 cursor-pointer font-weight-bold">همین حالا ثبت نام کنید</span></p>
                                 }

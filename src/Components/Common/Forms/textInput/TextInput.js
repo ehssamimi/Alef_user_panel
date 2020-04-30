@@ -2,12 +2,12 @@ import React, { useState,useEffect } from 'react';
 import {Col, FormFeedback, FormGroup, Input, Label} from "reactstrap";
 import TeacherInRow from "../../../Main/Main-Courses/Teachers/TeacheInRow/TeacherInRow";
 export  function TextInput (props){
-    let{id,placeholder,type,error,label,is_required,changeEdit ,onChange,value}=props;
+    let{id,placeholder,type,error,label,is_required,changeEdit ,onChange,value,className}=props;
 
-    return <div className=" ">
-        <FormGroup>
-            <Label for={id}>
-                <span>{label +':'  }</span>
+    return <div className={className}>
+        <FormGroup className="FsFooterLogin">
+            <Label className="FsFooterLogin font-weight-bold" for={id}>
+                <span>{label }</span>
                 <span>{ (is_required||false?'(اجباری)':"") }</span>
                 <span className="red-color">{ (changeEdit||false?'(اجباری)':"") }</span>
              </Label>
@@ -18,10 +18,10 @@ export  function TextInput (props){
 };
 export  function SelectedInput (props){
     let{id,placeholder,type,error,label,is_required,changeEdit ,onChange,options,value,class_input}=props;
-    return <div>
+    return <div className="FsFooterLogin">
         <FormGroup className={class_input}>
-            <Label for={id}  >
-                <span>{label +':'  }</span>
+            <Label for={id} className="FsFooterLogin font-weight-bold"  >
+                <span>{label    }</span>
                 <span>{ (is_required||false?'(اجباری)':"") }</span>
                 <span className="red-color">{ (changeEdit||false?'(اجباری)':"") }</span>
              </Label>

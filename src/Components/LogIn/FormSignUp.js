@@ -34,9 +34,15 @@ const FormSignUp = (props) => {
     const onChange = (value, names) => {
 
         setvalues({...values, [names]: value});
- 
+        // دهم"
+        // 5: "یازدهم"
+        // 6: "دوازدهم"
+        // 7: "طرح"
+        // 8: "طرح انسانی"
+        // 9: "کنکوری (دوازدهم)"
+        // 10: "فارغ التحصیل"
         if (names === "class") {
-            if (value === "دهم" || value === "یازدهم" || value === "فارغ التحصیل" || value === "دوازدهم (کنکوری)") {
+            if (value === "دهم" || value === "یازدهم" || value === "دوازدهم" || value === "طرح"|| value === "طرح انسانی"  || value === "فارغ التحصیل" || value === "دوازدهم (کنکوری)") {
                 setNessesery(true);
             }else {
                 setNessesery(false);
@@ -136,35 +142,35 @@ const FormSignUp = (props) => {
     return (
         <div className="col-sm-12 col-md-6  h-100  overflow-hidden p-0 mt-sign-form"    dir="rtl" >
             <div className="w-100 h-100  d-flex justify-content-center overflow-hidden">
-                <div className="main-login-field col-10 col-xl-8  ">
+                <div className=" col-10 col-xl-8  " style={{marginTop:'5.5rem'}}>
                     <p className="header-color FsHeaderLogin1 mb-0"  >{header}  </p>
                     <p className="header-color font-weight-bold  mb-2 mt-2 FsHeaderLogin2  " style={{ whiteSpace: "break-spaces"}}>{subHeader} </p>
                     <div className="row m-0  w-100">
 
                         <Col sm={12} className="d-flex   flex-column justify-content-between   ml-r-auto  p-0 ">
-                            <Form onSubmit={handelSubmit}>
+                            <Form onSubmit={handelSubmit} className="  col-10 p-0 bgInput" style={{marginTop:'2rem'}}>
 
                                 <TextInput onChange={onChange} label={'شماره تلفن همراه'} id={'phoneNumber'}
                                            placeholder={"********09"} type={"number"}
-                                           is_required={true} value={values.phoneNumber}
+                                           is_required={false} value={values.phoneNumber}
                                            error={error.phoneNumber}/>
 
                                 <TextInput onChange={onChange} label={'نام و نام خانوادگی'} id={'name'}
-                                           placeholder={"نام و نام خانوادگی"} type={"text"}
-                                           is_required={true} value={values.name}
+                                           placeholder={"نام و نام خانوادگی"} type={"text"}  className={"mt-4"}
+                                           is_required={false} value={values.name}
                                            error={error.name}/>
 
                                 <SelectedInput onChange={onChange} label={'پایه تحصیلی'} id={'class'}
-                                               type={"select"}
-                                               is_required={true} value={values.class} options={options.grade_type}
+                                               type={"select"}  class_input={"mt-4"}
+                                               is_required={false} value={values.class} options={options.grade_type}
                                                error={error.class}/>
 
 
                                 {
                                     nessesery?
                                         <SelectedInput onChange={onChange} label={'رشته تحصیلی'} id={'fields'}
-                                                       type={"select"}
-                                                       is_required={true} value={values.fields} options={options.field_type}
+                                                       type={"select"} className={"mt-4"}
+                                                       is_required={false} value={values.fields} options={options.field_type}
                                                        error={error.fields}/>:""
                                 }
 
@@ -176,7 +182,7 @@ const FormSignUp = (props) => {
 
                                 {
                                     handelChangeForm === undefined ? "" :
-                                        <p className="mt-2">ثبت نام کرده اید ؟<span onClick={() => {
+                                        <p className="mt-3 FsFooterLogin">ثبت نام کرده اید ؟<span onClick={() => {
                                             handelChangeForm("login")
                                         }} className="mt-2 cursor-pointer font-weight-bold">وارد شوید</span></p>
                                 }

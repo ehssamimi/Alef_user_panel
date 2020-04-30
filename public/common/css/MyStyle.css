@@ -226,18 +226,19 @@
 }
 
 .form-control{
-    height: calc(3.25rem + 2px);!important;
+    height:  calc(2.2rem + 1vw);!important;
     border: 1.4px solid rgba(189, 201, 192, 0.64);!important;
 
     color: #687a6d;!important;
     border-radius: 10px!important;
 }.form-control:focus{
-     border: 1.4px solid #a7b2aa;!important;
+     border: 1.4px solid #a7b2aa !important;
+
 
       outline: 0;
-     /*-webkit-box-shadow:0 0 8px #687a6d;*/
+     -webkit-box-shadow:0 0 8px #687a6d;
 
-     box-shadow: 0 0 0 rgba(211, 247, 221, 0.52) inset, 0 0 0 rgba(226, 241, 230, 0.57);
+     box-shadow: inset 0 0 8px rgba(211, 247, 221, 0.52)  , 0 0 8px rgba(226, 241, 230, 0.57) !important;
 }
  .ml-r-auto{
      margin-right: auto;
@@ -256,7 +257,7 @@
     min-height: 25em;
 }
 .h-input-s{
-    height: calc(3.25rem + 2px);!important;
+    height: calc(2.75rem + 2px);!important;
 }
 .h-input-buy{
     height: calc(2.7rem + 2px);!important;
@@ -280,6 +281,7 @@ select option:hover {
     border: 0!important;
 }
 .sendButton-shadow{
+    font-weight: 700!important;
     -webkit-box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
     -moz-box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
     box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
@@ -369,33 +371,45 @@ select option:hover {
     height:auto;
 }
 .FsHeaderLogin1{
-    font-size: Calc(1vw + 1rem);;
+    font-size: Calc(1vw + 0.7rem);;
 }
 .FsHeaderLogin2{
     font-size: Calc(1.9vw + 1.5rem);;
 }
+.FsFooterLogin {
+    font-size: Calc(0.5vw + 0.5rem);;
+}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-/*.col-container {*/
-    /*display: table; !* Make the container element behave like a table *!*/
-    /*width: 100%; !* Set full-width to expand the whole page *!*/
-/*}*/
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
 
-/*.col {*/
-    /*display: table-cell; !* Make elements inside the container behave like table cells *!*/
-/*}*/
-
-/*.col-container {*/
-    /*display: flex;*/
-    /*width: 100%;*/
-/*}*/
-/*.col {*/
-    /*flex: 1;*/
-    /*padding: 16px;*/
-/*}*/
-
+.font-weight-button-send{
+    font-weight: 700!important;
+}
 .min-h-100vh{
     min-height: 100vh;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+ font-size: Calc(0.5vw + 0.5rem) !important;
+
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: Calc(0.5vw + 0.5rem) !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    font-size: Calc(0.5vw + 0.5rem) !important;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -436,7 +450,7 @@ select option:hover {
         width: 50%;
     }
     .mt-login-form{
-        margin-top: 10vw;
+        margin-top: 4vw;
     }
     .mt-sign-form{
         margin-top: 35vw;
@@ -523,18 +537,54 @@ select option:hover {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .log-color{
+    .loaderLogInM{
         /*color: #364539 !important;*/
-        color: orange !important;
+        display: none;
+
     }
+    .loaderLogInL{
+        display: flex;
+    }
+    .logo-login{
+        width: 70%;
+        height: 70%;
+    }
+    .mt-login-form{
+        margin-top: 5vw;
+    }
+    .mt-sign-form{
+        margin-top: 0;
+    }
+    .marginFormLogin{
+        margin-top: 1%;
+    }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    .log-color{
+    .loaderLogInM{
         /*color: #364539 !important;*/
-        color: deeppink !important;
+        display: none;
+
     }
+    .loaderLogInL{
+        display: flex;
+    }
+    .logo-login{
+        width: 70%;
+        height: 70%;
+    }
+    .mt-login-form{
+        margin-top: 5vw;
+    }
+    .mt-sign-form{
+        margin-top: 0;
+    }
+    .marginFormLogin{
+        margin-top: 1%;
+    }
+
 }
 
 

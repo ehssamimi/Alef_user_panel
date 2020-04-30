@@ -226,7 +226,7 @@
 }
 
 .form-control{
-    height: calc(3.25rem + 2px) !important;
+    height:  calc(2.2rem + 1vw)!important;
     border: 1.4px solid rgba(189, 201, 192, 0.64) !important;
 
     color: #687a6d !important;
@@ -234,10 +234,11 @@
 }.form-control:focus{
      border: 1.4px solid #a7b2aa !important;
 
-     outline: 0;
-     /*-webkit-box-shadow:0 0 8px #687a6d;*/
 
-     box-shadow: 0 0 0 rgba(211, 247, 221, 0.52) inset, 0 0 0 rgba(226, 241, 230, 0.57);
+     outline: 0;
+     -webkit-box-shadow:0 0 8px #687a6d;
+
+     box-shadow: inset 0 0 0 rgba(211, 247, 221, 0.52)  , 0 0 0 rgba(226, 241, 230, 0.57);
  }
 .ml-r-auto{
     margin-right: auto;
@@ -255,9 +256,7 @@
     height: 75vh;
     min-height: 25em;
 }
-.h-input-s{
-    height: calc(3.25rem + 2px) !important;
-}
+
 .h-input-buy{
     height: calc(2.7rem + 2px) !important;
 }
@@ -280,6 +279,7 @@ select option:hover {
     border: 0!important;
 }
 .sendButton-shadow{
+    font-weight: 700!important;
     -webkit-box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
     -moz-box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
     box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);

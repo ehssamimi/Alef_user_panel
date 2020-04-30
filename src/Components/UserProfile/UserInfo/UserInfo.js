@@ -15,7 +15,7 @@ import {
     InputGroupAddon,
     InputGroupText
 } from 'reactstrap';
-import {country, Mazandaran} from './../../../Common/Const/cityAndCountery'
+import {country, Ardebil} from './../../../Common/Const/cityAndCountery'
 
 import {FaLock} from "react-icons/fa";
 
@@ -70,7 +70,7 @@ export default function UserInfo(props) {
 
 
 
-    const [citys, setcitys] = useState(Mazandaran);
+    const [citys, setcitys] = useState(Ardebil);
     useEffect(  () => {
         console.log(localStorage.getItem("token"));
         async function getUserDropDown(user_id) {
@@ -202,9 +202,9 @@ export default function UserInfo(props) {
     return (
         <HeaderTopWithRightMenu  {...props}>
 
-            <div className="mt-5 col-12 ml-auto mr-auto">
+            <div className="mt-5 col-12 ml-auto mr-auto p-0">
                 <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
-                <Card className="mb-4">
+                <Card className="mb-4 box-shadow-custom border-0 br20px mt-4">
                     <CardBody>
                         {
                             isLoder?   // *******checking for submit form or get category Option is then loader start then loader close**********
@@ -213,15 +213,15 @@ export default function UserInfo(props) {
                                         <Loader/>
                                     </div>
                                 </div>
-                                :<Form onSubmit={handelSubmit}>
+                                :<Form onSubmit={handelSubmit} className="formUpdateUser">
                                     <div className="row m-0  w-100">
                                         <Col sm={12} md={5}
                                              className=" d-flex   flex-column justify-content-around ml-r-auto  ">
                                             <div className="w-100  ">
-                                                <img src={ImgValue.data?ImgValue.data:profile} alt={profile} className="img-self-fill"/>
+                                                <img src={ImgValue.data?ImgValue.data:profile} alt={profile} className="img-self-fill br20px"/>
                                                 {/*<img src={profile} alt={profile} className="img-self-fill"/>*/}
                                             </div>
-                                            <div className="w-100">
+                                            <div className="w-100 mt-3 mb-3">
                                                 <label
                                                     className="btn green-background  br10px text-white col-6 offset-3" htmlFor="upload_img">آپلود
                                                     عکس
@@ -265,7 +265,7 @@ export default function UserInfo(props) {
                                         </Col>
                                     </div>
 
-                                    <div className="w-100 ">
+                                    <div className="w-100 mt-5 ">
                                         <div className="row m-0 w-100">
                                             <Col sm={12} md={5}
                                                  className="d-flex   flex-column justify-content-between   ml-r-auto   ">
