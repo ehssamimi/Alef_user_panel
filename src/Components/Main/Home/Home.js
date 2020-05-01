@@ -10,7 +10,7 @@ const Home = (props) => {
     // });
 
     return (
-        <HeaderTop {...props}>
+        <HeaderTop {...props} isBuy={false}>
             this is header
         </HeaderTop>
     );

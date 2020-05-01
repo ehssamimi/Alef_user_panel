@@ -85,21 +85,24 @@ const ValidateParentForm = (props) => {
             <p className="header-color font-weight-bold  mb-2 mt-2   " style={{fontSize:"1.2rem"}}>اعتبار سنجی شماره تلفن والد </p>
             <div className="row m-0  w-100">
 
-                <Col sm={12} className="d-flex   flex-column justify-content-between   ml-r-auto   ">
+                <Col sm={12} className="d-flex   flex-column justify-content-between   ml-r-auto mt-2  ">
                     <Form onSubmit={handelSubmitValidate}>
 
                         <TextInput onChange={onChange } label={"کد فعال سازی"} id={'verificationCode'}
-                                   placeholder={"****"} type={"number"}
-                                   is_required={true} value={values}
+                                   placeholder={"کد چهار رقمی"} type={"number"}
+                                   is_required={false} value={values}
                                    error={error.verificationCode}/>
+                        {
+                            count<0?<p onClick={HandelResend} className="cursor-pointer">ارسال دوباره کد </p>:<p className="FsFooterLogin mt-2 color-placeHolder">ارسال مجدد کد فعال سازی تا {count} ثانیه </p>
+                        }
 
                         <button
-                            className="btn green-background  br10px text-white col-5 text-center h-input-s col-md-6 col-sm-12 sendButton-shadow mt-2"
+                            className="btn green-background  br10px text-white col-5 text-center h-input-s col-md-6 col-sm-12 sendButton-shadow mt-2 mb-2"
                             type="submit">{"اسال کد"}
                         </button>
-                        {
-                            count<0?<p onClick={HandelResend}>ارسال دوباره کد </p>:<p>ارسال دوباره کد در {count} ثانیه </p>
-                        }
+                        {/*{*/}
+                            {/*count<0?<p onClick={HandelResend}>ارسال دوباره کد </p>:<p>ارسال دوباره کد در {count} ثانیه </p>*/}
+                        {/*}*/}
 
                     </Form>
 

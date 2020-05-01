@@ -51,8 +51,7 @@ export default  function MyCourse(props) {
                                 </div>
                             </div> :
                             <div className="mt-5 col-12 ml-auto mr-auto">
-                                <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
-                                <div dir='ltr'>
+                                 <div dir='ltr'>
                                     <div className="w-100 mt-3 mb-5 justify-content-end ">
                                         {
                                             Courses.length>0?  <CarouselMain files={Courses} header={"دوره های من "} type="Course" kind="course"/>:""

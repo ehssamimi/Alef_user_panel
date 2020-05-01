@@ -4,12 +4,14 @@ import active from './../../../Common/img/white_selector.png'
 import { GiGraduateCap } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdExitToApp } from "react-icons/md";
+import { FiCalendar ,FiLogOut} from "react-icons/fi";
 import {Link} from "react-router-dom";
 import {UrlContext} from "../../Common/Context/UrlProvider";
 import {LogOut} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
 import { Redirect } from "react-router-dom";
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
+
 
 
 
@@ -77,15 +79,15 @@ export default function RightMenu (props){
 
             <div className="rightMenu h-min-45em  position-fixed">
                 <div className="green-rightMenu  h-100   align-items-center">
-                    <div className="  w-100 h-30 h-min-12em d-flex justify-content-center align-items-center flex-column">
+                    <div className="  w-100   h-min-profile d-flex justify-content-center align-items-center flex-column">
                         <div className=" ">
                             <div className='profile-pic br-w br-r50  p-05'>
                                 <img src={UserSumery[1]||profile}  alt="profile" className="img-self-cover br-r50 br-y"/>
                             </div>
                         </div>
-                        <div className="d-flex justify-content-center align-items-center flex-column" >
-                            <p className="text-white fs80 m-0 pt-3 ">{UserSumery[0]||"name"} </p>
-                            <p className="text-white fs70 m-0 pt-2 font-weight-light">{UserSumery[2]||"grade"}</p>
+                        <div className="d-flex justify-content-center align-items-center flex-column text-center" >
+                            <p className="text-white FsFooterLogin  m-0 pt-3 ">{UserSumery[0]||"name"} </p>
+                            <p className="text-white  FsFooterLogin m-0 pt-2 font-weight-light">{UserSumery[2]||"grade"}</p>
                         </div>
                     </div>
 
@@ -100,55 +102,35 @@ export default function RightMenu (props){
                                         selected === "my-course" ?
                                             <div className="w-100 h-100 position-relative">
                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
-                                                <span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>دور ه های من</span>
+                                                <span className="zIndex-3 list-user-profile w-100 pl-2 green-them "><span className="mr-2"><GiGraduateCap/> </span> دور ه های من</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative "
                                                  onClick={() => setselected("my-course")}>
                                                 <Link to="/my-course"><span
-                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><GiGraduateCap/>دور ه های من</span></Link>
+                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><GiGraduateCap/> </span>دور ه های من</span></Link>
                                             </div>
 
                                     }
                                 </li>
 
-                                {/*{*/}
-                                    {/*selected==="my-course"?*/}
-                                        {/*<li className="list-unstyled  fs13vw fw200 position-relative h-List-item ">*/}
-                                            {/*<img src={active}  alt="active" className="  img-self-fill zIndex-2"/>*/}
-                                            {/*<span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>دور ه های من</span>*/}
-                                        {/*</li>:*/}
-                                        {/*<li className="list-unstyled text-white fs13vw fw200   pl-2 position-relative h-List-item d-flex align-items-center pt-3 "*/}
-                                            {/*onClick={() =>setselected("my-course")}>*/}
-                                            {/*<Link to="/my-course"><span className="zIndex-3 list-user-profile w-100 pl-2"> <GiGraduateCap/>دور ه های من</span></Link></li>*/}
-
-                                {/*}*/}
 
                                 <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem ">
                                     {
                                         selected === "my-schedule" ?
                                             <div className="w-100 h-100 position-relative">
                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
-                                                <span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span>
+                                                <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><FiCalendar/> </span>برنامه مطالعاتی</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative   "
                                                  onClick={() => setselected("my-schedule")}>
                                                 <Link to="/my-schedule"><span
-                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><GiGraduateCap/>برنامه مطالعاتی</span></Link>
+                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><FiCalendar/> </span>برنامه مطالعاتی</span></Link>
                                             </div>
 
                                     }
                                 </li>
 
-                                {/*{*/}
-                                    {/*selected==="my-schedule"?*/}
-                                        {/*<li className="list-unstyled  fs13vw fw200 position-relative  ">*/}
-                                            {/*<img src={active}  alt="active" className="  img-self-fill zIndex-2"/>*/}
-                                            {/*<span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span>*/}
-                                        {/*</li>:*/}
-                                        {/*<li className="list-unstyled text-white fs13vw fw200     position-relative h-List-item      "*/}
-                                            {/*onClick={() =>setselected("my-schedule")}><Link to="/my-schedule"><span className="zIndex-3 list-user-profile w-100 pl-2"><GiGraduateCap/>برنامه مطالعاتی</span></Link>*/}
-                                        {/*</li>*/}
-                                {/*}*/}
+
 
 
                                 <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem ">
@@ -156,29 +138,38 @@ export default function RightMenu (props){
                                         selected === "user-profile" ?
                                             <div className="w-100 h-100 position-relative">
                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
-                                                <span className="zIndex-3 list-user-profile w-100 pl-2"><AiOutlineUser/> پروفایل کاربری</span>
+                                                <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><AiOutlineUser /> </span>پروفایل کاربری</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative text-white "
                                                  onClick={() => setselected("user-profile")}>
-                                                <Link to="/user-profile"><span
-                                                    className="zIndex-3 list-user-profile w-100 pl-2 text-white"><AiOutlineUser/> پروفایل کاربری</span></Link>
+                                                <Link to="/user-profile">
+                                                    <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><AiOutlineUser /> </span>پروفایل کاربری</span>
+                                                </Link>
+                                            </div>
+
+                                    }
+                                </li>
+
+                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem " onClick={handelExit}>
+                                    {
+                                        selected === "exit" ?
+                                            <div className="w-100 h-100 position-relative"  >
+                                                <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
+                                                <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><FiLogOut /> </span>خروج</span>
+                                            </div> :
+                                            <div className="w-100 h-100 position-relative text-white "
+                                                 onClick={() => setselected("user-profile")}>
+                                                <Link to="/user-profile">
+                                                    <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><FiLogOut /> </span>خروج</span>
+                                                </Link>
                                             </div>
 
                                     }
                                 </li>
 
 
-                                {
-                                    selected==="exit"?
-                                        <li className="list-unstyled  fs13vw fw200 position-relative cursor-pointer ">
-                                            <img src={active}  alt="active" className="  img-self-fill zIndex-2"/>
-                                            <span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
-                                        </li>:
-                                        <li className="list-unstyled text-white fs13vw fw200   pl-2 position-relative h-List-item cursor-pointer "
-                                            onClick={handelExit}><span className="zIndex-3 list-user-profile w-100 pl-2"><MdExitToApp/> خروج</span>
-                                        </li>
-                                }
-                                {/*() =>setselected("exit")*/}
+
+
 
 
                             </ul>

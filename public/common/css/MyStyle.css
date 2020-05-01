@@ -95,10 +95,13 @@
 }
 
 .profile-pic {
-    width: 5em;
-    height: 5em;
-    /*object-fit: cover;*/
-    /*border:3px solid #fbca01;*/
+
+    width: calc(2rem + 3.5vw);
+    height: calc(2rem + 3.5vw);
+
+    min-width: 3rem;
+    min-height: 3rem;
+
 }
 .profile-pic-in-top {
     width: 3em;
@@ -157,9 +160,7 @@
 }.fs70{
     font-size: 70%;
 }
- .h-min-12em{
-     min-height: 12em!important;
- }
+
 .h-min-img-card{
 
 
@@ -175,9 +176,9 @@
  .h-min-20em{
      min-height: 20em;
  }
-.h-min-24vw{
-       min-height: 24vw;
-   }
+/*.h-min-24vw{*/
+       /*min-height: 24vw;*/
+   /*}*/
  .h-min-45em{
      min-height: 45em;
  }
@@ -356,9 +357,7 @@ select option:hover {
     -moz-box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
     box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
 }
-.mt-14{
-    margin-top: 14rem;
-}
+
 
 
 .h-5rem{
@@ -371,13 +370,16 @@ select option:hover {
     height:auto;
 }
 .FsHeaderLogin1{
-    font-size: Calc(1vw + 0.7rem);;
+    font-size: Calc(1vw + 0.7rem);
 }
 .FsHeaderLogin2{
-    font-size: Calc(1.9vw + 1.5rem);;
+    font-size: Calc(1.9vw + 1.5rem);
 }
 .FsFooterLogin {
-    font-size: Calc(0.5vw + 0.5rem);;
+    font-size: Calc(0.5vw + 0.5rem) !important;
+}
+.FssubmitLogin {
+    font-size: Calc(0.7vw + 0.5rem) !important;
 }
 
 input::-webkit-outer-spin-button,
@@ -411,6 +413,48 @@ input[type=number] {
 ::-ms-input-placeholder { /* Microsoft Edge */
     font-size: Calc(0.5vw + 0.5rem) !important;
 }
+
+
+/*.invisibelArrow select {*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*-o-appearance: none;*/
+    /*background: transparent;*/
+    /*background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position-x: 100%;*/
+    /*background-position-y: 5px;*/
+    /*border: 1px solid #dfdfdf;*/
+    /*border-radius: 2px;*/
+    /*margin-right: 2rem;*/
+    /*!*padding: 1rem;*!*/
+    /*!*padding-right: 2rem;*!*/
+
+
+
+    /*!*-webkit-appearance: none;*!*/
+    /*!*-moz-appearance: none;*!*/
+    /*!*-o-appearance: none;*!*/
+    /*!* no standardized syntax available, no ie-friendly solution available *!*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+.h-min-12em{
+    min-height: 12em!important;
+}
+
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -458,6 +502,32 @@ input[type=number] {
     .marginFormLogin{
         margin-top: 50%;
     }
+    .buttons-Group-signIn{
+        width: 100%;
+
+    }
+    .h-min-profile{
+        min-height: 5em!important;
+    }
+    .rowInProfileUser{
+        width: 100%;
+        display: flex;
+        /*text-align: center;*/
+        /*justify-content: center;*/
+        -ms-flex-direction:column!important;flex-direction:column!important;
+        justify-content: start;
+        /*text-align: center;*/
+    }
+    .MainCardCourseHeight{
+        height: 15rem;
+    }
+   .min-h-mainCourse{
+        height: 6rem;
+    }
+    .mt-14{
+        margin-top: 12rem;
+    }
+
 
 
 }
@@ -503,6 +573,28 @@ input[type=number] {
     .marginFormLogin{
         margin-top: 50%;
     }
+    .buttons-Group-signIn{
+        width: 100%;
+
+    }
+    .h-min-profile{
+        min-height: 5em!important;
+    }
+    .rowInProfileUser{
+        /*display: flex;*/
+        /*justify-content: start;*/
+        text-align: center;
+    }
+    .MainCardCourseHeight{
+        height: 15rem;
+    }
+    .min-h-mainCourse{
+        height: 6rem;
+    }
+    .mt-14{
+        margin-top: 12rem;
+    }
+
 
 
 }
@@ -529,6 +621,28 @@ input[type=number] {
     }
     .marginFormLogin{
         margin-top: 1%;
+    }
+    .buttons-Group-signIn{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .h-min-profile{
+        min-height: 5em!important;
+    }
+    .rowInProfileUser{
+        display: flex;
+        justify-content: start;
+        /*text-align: center;*/
+    }
+    .MainCardCourseHeight{
+        height: 15rem;
+    }
+    .min-h-mainCourse{
+        height: 6rem;
+    }
+    .mt-14{
+        margin-top: 12rem;
     }
 
 
@@ -558,6 +672,28 @@ input[type=number] {
     .marginFormLogin{
         margin-top: 1%;
     }
+    .buttons-Group-signIn{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .h-min-profile{
+        min-height: 12em!important;
+    }
+    .rowInProfileUser{
+        display: flex;
+        justify-content: start;
+        /*text-align: center;*/
+    }
+    .MainCardCourseHeight{
+        height: 15rem;
+    }
+    .min-h-mainCourse{
+        height: 6rem;
+    }
+    .mt-14{
+        margin-top: 12rem;
+    }
 
 }
 
@@ -583,6 +719,28 @@ input[type=number] {
     }
     .marginFormLogin{
         margin-top: 1%;
+    }
+    .buttons-Group-signIn{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .h-min-profile{
+        min-height: 12em!important;
+    }
+    .rowInProfileUser{
+        display: flex;
+        justify-content: start;
+        /*text-align: center;*/
+    }
+    .MainCardCourseHeight{
+        height: 20rem;
+    }
+    .min-h-mainCourse{
+        height: 9rem;
+    }
+    .mt-14{
+        margin-top: 16rem;
     }
 
 }

@@ -28,7 +28,7 @@ const CourseCarsBuy = (props) => {
 
     return (
 
-            <Card  className= "m-2 br20px h-100 h-min-24vw  box-shadow-custom" >
+            <Card  className= "m-2 br20px h-100 MainCardCourseHeight  box-shadow-custom FsFooterLogin" >
 
 
                     <CardMedia
@@ -36,14 +36,20 @@ const CourseCarsBuy = (props) => {
                         image={img}
                         title="Course Section"
                     />
-                    <CardContent>
-                        <div className="row col-12">
+                    <CardContent className={"min-h-mainCourse FsFooterLogin "}>
+                        <div className="row col-12 m-0">
                             <span className="header-color">{ title}</span>
                             <div className="d-inline-block ml-auto ">
-                                <div className="d-flex flex-column">
-                                    <span className="header-color">{ formatNumber((cost))}</span>
-                                    <span className="  red-color  text-decoration-line-through">{ formatNumber(sellCost ) }</span>
+                                <div className="d-flex flex-column text-end " dir="rtl">
+                                    <span className="header-color " > {parseInt(sellCost)!==0 ?  sellCost!==0?formatNumber(cost ) + " "+ "تومان" :formatNumber(sellCost) + " "+ "تومان" :"رایگان "  }     </span>
+                                    {
+                                        parseInt(sellCost)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(sellCost) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>
+                                    }
                                 </div>
+                                {/*<div className="d-flex flex-column">*/}
+                                    {/*<span className="header-color">{ formatNumber((cost))}</span>*/}
+                                    {/*<span className="  red-color  text-decoration-line-through">{ formatNumber(sellCost ) }</span>*/}
+                                {/*</div>*/}
 
                             </div>
 

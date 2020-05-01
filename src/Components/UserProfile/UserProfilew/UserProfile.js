@@ -66,10 +66,10 @@ export default function UserProfile (props){
                             <div className="mt-5 col-12 ml-auto mr-auto">
                                 <span className="txt-content-branch"> اطلاعات کاربری </span>
 
-                                <div className="mt-4">
+                                <div className="mt-4 FsFooterLogin">
 
                                     <Card className="br20px box-shadow-custom  ">
-                                        <CardBody className=" h-today position-relative ">
+                                        <CardBody className=" h-today position-relative  ">
 
                                             <div className="row  w-100 mt-4 justify-content-start" dir="rtl">
                                                 <div className="edit-profile-icon d-flex second-color zIndex-3" >
@@ -116,13 +116,13 @@ export default function UserProfile (props){
 
                                             </div>
                                             <div>
-                                                <div className="d-flex justify-content-start mt-2">
+                                                <div className="rowInProfileUser mt-2">
                                                     <span className="second-color">شماره ملی : </span>
                                                     <span className="header-color ml-2">{profileData.personal_info.ssn?profileData.personal_info.ssn:"---"}  </span>
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="d-flex justify-content-start mt-2">
+                                                <div className="rowInProfileUser mt-2 flex-column">
                                              <span className="second-color">
                                                           نام مدرسه  <span className="pl-2 pr-2"> |</span> نوع مدرسه:
                                                         </span>
@@ -134,13 +134,13 @@ export default function UserProfile (props){
                                             </div>
 
                                             <div>
-                                                <div className="d-flex justify-content-start mt-2">
+                                                <div className="rowInProfileUser mt-2">
                                                     <span className="second-color">معدل سال تحصیلی قبل : </span>
                                                     <span className="header-color ml-2">  {profileData.education.gpa?profileData.education.gpa:"---"}  </span>
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="d-flex justify-content-start mt-2">
+                                                <div className="rowInProfileUser mt-2">
                                              <span className="second-color">
                                                          اطلاعات پدر یا مادر :                                                         </span>
 

@@ -183,10 +183,13 @@ const CourseCarsMain = (props) => {
        }
 
     }
+    // console.log(price);
+
+
 
     return (
 
-        <Card  className= "m-2 br20px h-100 h-min-24vw  box-shadow-custom" >
+        <Card  className= "m-2 br20px h-100 MainCardCourseHeight  box-shadow-custom FsFooterLogin  " >
 
             {/*<CardMedia*/}
                 {/*// className={props.class}*/}
@@ -194,22 +197,27 @@ const CourseCarsMain = (props) => {
                 {/*image={image}*/}
                 {/*title="Course Section"*/}
             {/*/>*/}
+            <Link to={`/course/${course_id}`}>
             <CardMedia
                 className="hpx200 "
                 image={ image}
                 title="Course Section"
             />
+            </Link>
+
 
             {/*<img src={image} alt={image}/>*/}
-            <CardContent>
-                <div className="row col-12 m-0">
+            <CardContent className={"min-h-mainCourse "}>
+                <div className="row col-12 m-0 ">
                     <div className="d-inline-block  ">
-                        <div className="d-flex flex-column" dir="rtl">
-                            <span className="header-color " > {  off!==0?formatNumber(price-(price*off)):formatNumber(price)}  تومان </span>
-                            <span className="  red-color  text-decoration-line-through">{ formatNumber(price) } تومان</span>
+                        <div className="d-flex flex-column text-end " dir="rtl">
+                            <span className="header-color " > {parseInt(price)!==0 ?  off!==0?formatNumber(price-(price*off)) + " "+ "تومان" :formatNumber(price) + " "+ "تومان" :"رایگان "  }     </span>
+                             {
+                                 parseInt(price)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(price) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>
+                            }
                         </div>
                     </div>
-                    <span className="header-color mr-auto  ">{ name}</span>
+                    <span className="header-color mr-auto  ">{name}</span>
 
                 </div>
 
@@ -220,12 +228,12 @@ const CourseCarsMain = (props) => {
                 </div>
             </CardContent>
 
-            <CardActions className="w-100 d-flex justify-content-center" onClick={handelClick}>
-                <button className="btn green-background text-white col-8 fontFamily-Sans sendButton-shadow br10px h-input-buy"> خرید دوره </button>
+            <CardActions className="w-100 d-flex justify-content-center h-50" onClick={handelClick}>
+                <button className="btn green-background text-white col-8 fontFamily-Sans sendButton-shadow br10px h-input-buy FssubmitLogin"> خرید دوره </button>
             </CardActions>
             <div className="d-flex justify-content-center">
                 {
-                    sub_text?  <Link to={`/course/${course_id}`}  className="pt-4"> {sub_text  } </Link>:""
+                    sub_text?  <Link to={`/course/${course_id}`}  className="pt-3 green-them font-weight-bolder"> {sub_text  } </Link>:""
                 }
             </div>
         </Card>

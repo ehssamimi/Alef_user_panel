@@ -10,7 +10,7 @@ const MainAbout = (props) => {
     // });
 
     return (
-        <HeaderTop {...props}>
+        <HeaderTop {...props} isBuy={false}>
             this is about
         </HeaderTop>
     );

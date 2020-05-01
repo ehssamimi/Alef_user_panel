@@ -59,8 +59,8 @@ export default function ShowAllCourse (props){
     // image: "https://stream.kelidiha.com/public/course/2LTbjNmF24w=/image.png"
     // __proto__: Object
     return (
-        <HeaderTop {...props}>
-            <HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>
+        <HeaderTop {...props} isBuy={true}>
+            {/*<HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>*/}
             {
                 isLoder ? <div className='d-flex justify-content-center align-items-center'>
                         <div className='col-6'>

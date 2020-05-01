@@ -94,12 +94,7 @@
     border-radius: 50%;
 }
 
-.profile-pic {
-    width: 5em;
-    height: 5em;
-    /*object-fit: cover;*/
-    /*border:3px solid #fbca01;*/
-}
+
 .profile-pic-in-top {
     width: 3em;
     height: 3em;
@@ -157,9 +152,7 @@
 }.fs70{
      font-size: 70%;
  }
-.h-min-12em{
-    min-height: 12em!important;
-}
+
 .h-min-img-card{
 
 
@@ -223,6 +216,9 @@
 }
 .text-decoration-line-through{
     text-decoration: line-through;
+}
+.text-end{
+    text-align: end!important;
 }
 
 .form-control{
@@ -351,9 +347,7 @@ select option:hover {
     -moz-box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
     box-shadow: -25px 0  14px 6px   rgba(234, 225, 234, 0.91) !important;
 }
-.mt-14{
-    margin-top: 14rem;
-}
+
 
 
 .h-5rem{

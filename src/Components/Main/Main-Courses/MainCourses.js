@@ -14,7 +14,7 @@ export default function MainCourses (props){
         <HeaderTop {...props}>
             <HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>
 
-            <div className="w-100">
+            <div className="w-100" dir="rtl">
                 <CourseIntroducing id={params.id}/>
             </div>
 

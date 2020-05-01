@@ -9,6 +9,7 @@ import cookie from "react-cookies";
 
 
 const HeaderTop = (props) => {
+    let{isBuy}=props;
 
 
     return (
@@ -21,7 +22,10 @@ const HeaderTop = (props) => {
             <MainHeader {...props}>
                 {props.children }
             </MainHeader>
-             <BuyFooter price={2000} off={0.3} data={cookie.load('basket')}/>
+            {
+                isBuy?<BuyFooter price={2000} off={0.3} data={cookie.load('basket')}/>:""
+            }
+
             <NotificationContainer />
 
         </div>

@@ -196,7 +196,8 @@ export default function UserInfo(props) {
         }
 
     };
-    const handelDiscard = () => {
+    const handelDiscard = (e) => {
+        e.preventDefault();
         setvalues(DefaultValue)
     };
     return (
@@ -223,7 +224,7 @@ export default function UserInfo(props) {
                                             </div>
                                             <div className="w-100 mt-3 mb-3">
                                                 <label
-                                                    className="btn green-background  br10px text-white col-6 offset-3" htmlFor="upload_img">آپلود
+                                                    className="btn green-background  br10px text-white  col-md-6 col-sm-12 offset-md-3 sendButton-shadow" htmlFor="upload_img">آپلود
                                                     عکس
                                                 </label>
                                                 <input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />
@@ -238,9 +239,9 @@ export default function UserInfo(props) {
                                                        error={error.name}/>
 
                                             <FormGroup className=" ">
-                                                <Label for={'phoneNumber'}>
-                                                    <span>{'شماره تلفن' + ':'}</span>
-                                                    <span className="red-color">{'( غیر قابل تغییر )'}</span>
+                                                <Label for={'phoneNumber'} className="FsFooterLogin">
+                                                    <span>{'شماره تلفن'}</span>
+                                                    <span className="red-color">{'(غیر قابل تغییر)'}</span>
                                                 </Label>
                                                 <InputGroup>
                                                     <span className="form-control d-flex align-items-center">{values.phoneNumber}</span>
@@ -313,28 +314,28 @@ export default function UserInfo(props) {
                                                            {/*value={values.average_num}*/}
                                                            {/*error={error.name}/>*/}
                                                 <TextInput onChange={onChange} label={'شماره پدر یا مادر'}
-                                                           id={'parent_num'}
-                                                           placeholder={"شماره تماس پدر یا مادر"} type={"number"}
-                                                           is_required={false} value={values.parent_num}
+                                                           id={'parent_num'} changeEdit={true}  nessaryLabel={'شماره والد باید اعتبار سنجی شود'} red={!values.parent_verify}
+                                                           placeholder={values.parent_verify? "شماره اعتبار سنجی شده است" : "شماره والد باید اعتبار سنجی شود"} type={"number"}
+                                                           is_required={false} value={values.parent_num}  validate={ ()=>{setIsOpenModal(!isOpenModal)}}
                                                            error={error.name}/>
-                                                {
-                                                    values.parent_verify?<span className="green-color">شماره اعتبار سنجی شده است</span>:<span className="red-color cursor-pointer" onClick={()=>{setIsOpenModal(!isOpenModal)}} >شماره والد باید اعتبار سنجی شود</span>
-                                                }
+                                                {/*{*/}
+                                                    {/*values.parent_verify?<span className="green-color">شماره اعتبار سنجی شده است</span>:<span className="red-color cursor-pointer" onClick={()=>{setIsOpenModal(!isOpenModal)}} >شماره والد باید اعتبار سنجی شود</span>*/}
+                                                {/*}*/}
                                             </Col>
                                         </div>
-                                        <div className="col-12 row mt-4">
+                                        <div className="col-12 row ">
 
 
-                                            <div className='col-md-6 col-sm-12'>
+                                            <div className='col-md-7 col-sm-12'>
 
                                             </div>
-                                            <div className='col-md-6 col-sm-12  d-flex justify-content-between'>
+                                            <div className='  col-md-5 col-sm-12  buttons-Group-signIn'>
                                                 <button
-                                                    className="btn green-background  br10px text-white col-5  h-input-s"
+                                                    className="btn backgroundLight  br10px text-white col-md-5 col-sm-12 p-0 h-input-s mt-4 FssubmitLogin sendButton-shadow"
                                                     onClick={handelDiscard}>لغو تغییرات
                                                 </button>
                                                 <button
-                                                    className="btn green-background  br10px text-white col-5 h-input-s "
+                                                    className="btn green-background  br10px text-white col-md-5 col-sm-12 p-0 h-input-s mt-4 FssubmitLogin sendButton-shadow"
                                                     type="submit">ثبت تغییرات
                                                 </button>
                                             </div>

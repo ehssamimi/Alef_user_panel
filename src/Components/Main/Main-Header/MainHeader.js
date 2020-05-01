@@ -4,11 +4,29 @@ import ax from "../../../Common/img/Profile Picture.png";
 import logo from "../../../Common/img/Logo-base.png";
 import {Link} from "react-router-dom";
 import {UrlContext} from "../../Common/Context/UrlProvider";
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    NavbarText
+} from 'reactstrap';
+
 export default function MainHeader (props){
     const User=useContext(UserContext);
     const Url_context=useContext(UrlContext);
     const [isUser, setUser] = useState(false);
     const [active, setactive] = useState("home");
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
     let UserSumery="";
     if (localStorage.getItem("user_alef")) {
        UserSumery=localStorage.getItem("user_alef").split(",")
@@ -37,7 +55,7 @@ export default function MainHeader (props){
                 setactive("user");
                 setUser(true);
                 break;
-            case '':
+            case 'home':
                 setactive("home");
                 setUser(false);
                 break;
@@ -58,20 +76,19 @@ export default function MainHeader (props){
 
 
     return (
-            <div className="HomePage " dir="rtl">
-                <div className="w-100 navbar-light bg-light">
-                    <nav className="navbar navbar-expand-lg   ">
-                        <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div className="collapse navbar-collapse w-100" id="navbarSupportedContent">
-                            <ul className="navbar-nav  col-8 justify-content-between ">
-                                {
-                                    User.isLogIn?
-                                        !isUser?
+            <div className="HomePage " dir="ltr">
+                <Navbar   light expand="md">
+                    <NavbarBrand href="/">
+                        <div className="logo-in-top">
+                            <img src={logo} alt="logo" className="img-self-fill"/>
+                        </div>
+                    </NavbarBrand>
+                    <NavbarToggler onClick={toggle} />
+                    <Collapse isOpen={isOpen} navbar>
+                        <Nav className="mr-auto col-sm-9 col-md-11 col-lg-7 col-xl-6 justify-content-between" navbar dir="rtl">
+                            {
+                                User.isLogIn?
+                                    !isUser?
                                         <li className="nav-item   d-flex      ">
                                             <a className="w-100 d-flex text-decoration-none" href="/user-profile">
                                                 <div className='profile-pic-in-top br-g br-r50  p-05'>
@@ -86,48 +103,117 @@ export default function MainHeader (props){
 
 
                                         </li>
-                                            :""
-                                        :
+                                        :""
+                                    :
 
-                                        <li className="nav-item br-over-g d-flex align-items-center br10px      ">
-                                            <a className="nav-link header-color font-weight-bold" href="/login">ثبت نام / ورود </a>
-                                        </li>
+                                    <li className="nav-item br-over-g d-flex align-items-center br10px      ">
+                                        <a className="nav-link header-color font-weight-bold" href="/login">ثبت نام / ورود </a>
+                                    </li>
 
-                                }
+                            }
 
-                                <li className={active === "home" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"}
-                                    onClick={() => setactive("home")}>
-                                    <Link className="nav-link" to="/home">
-                                        خانه
-                                    </Link>
-                                 </li>
-                                <li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" :
-                                    "nav-item  d-flex align-items-center  second-color"}
-                                    onClick={() => setactive("about")}>
-                                    <Link className="nav-link" to="/about">
-                                        درباره ما
-                                    </Link>
-                                </li>
-                                <li className={active === "courses" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
-                                    <Link className="nav-link" to="/courses">
-                                        دوره
-                                    </Link>
-                                 </li>
+                            <li className={active === "home" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
+                                onClick={() => setactive("home")}>
+                                <Link className="nav-link" to="/home">
+                                    خانه
+                                </Link>
+                            </li>
+                            <li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" :
+                                "nav-item  d-flex align-items-center  second-color"}
+                                onClick={() => setactive("about")}>
+                                <Link className="nav-link" to="/about">
+                                    درباره ما
+                                </Link>
+                            </li>
+                            <li className={active === "courses" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                <Link className="nav-link" to="/courses">
+                                    دوره
+                                </Link>
+                            </li>
+                        </Nav>
+
+                    </Collapse>
+                </Navbar>
 
 
 
-                            </ul>
-                            <span className=" ml-auto"  >
-                            <div className="logo-in-top">
-                                <img src={logo} alt="logo" className="img-self-fill"/>
-                            </div>
 
-                        </span>
 
-                        </div>
 
-                    </nav>
-                </div>
+
+
+
+                {/*<div className="w-100 navbar-light bg-light">*/}
+                    {/*<nav className="navbar navbar-expand-lg   ">*/}
+                        {/*<button className="navbar-toggler" type="button" data-toggle="collapse"*/}
+                                {/*data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"*/}
+                                {/*aria-expanded="false" aria-label="Toggle navigation">*/}
+                            {/*<span className="navbar-toggler-icon"></span>*/}
+                        {/*</button>*/}
+
+                        {/*<div className="collapse navbar-collapse w-100"    id="navbarSupportedContent">*/}
+                            {/*<ul className="navbar-nav  col-5 justify-content-between ">*/}
+                                {/*{*/}
+                                    {/*User.isLogIn?*/}
+                                        {/*!isUser?*/}
+                                        {/*<li className="nav-item   d-flex      ">*/}
+                                            {/*<a className="w-100 d-flex text-decoration-none" href="/user-profile">*/}
+                                                {/*<div className='profile-pic-in-top br-g br-r50  p-05'>*/}
+                                                    {/*<img src={UserSumery[1]} alt="profile" className="img-self-cover br-r50 br-y"/>*/}
+                                                {/*</div>*/}
+                                                {/*<div className="d-flex flex-column">*/}
+                                                    {/*<span className="second-color">{UserSumery[0]} </span>*/}
+                                                    {/*<span  className="second-color">{UserSumery[2]} </span>*/}
+                                                {/*</div>*/}
+
+                                            {/*</a>*/}
+
+
+                                        {/*</li>*/}
+                                            {/*:""*/}
+                                        {/*:*/}
+
+                                        {/*<li className="nav-item br-over-g d-flex align-items-center br10px      ">*/}
+                                            {/*<a className="nav-link header-color font-weight-bold" href="/login">ثبت نام / ورود </a>*/}
+                                        {/*</li>*/}
+
+                                {/*}*/}
+
+                                {/*<li className={active === "home" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"}*/}
+                                    {/*onClick={() => setactive("home")}>*/}
+                                    {/*<Link className="nav-link" to="/home">*/}
+                                        {/*خانه*/}
+                                    {/*</Link>*/}
+                                 {/*</li>*/}
+                                {/*<li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" :*/}
+                                    {/*"nav-item  d-flex align-items-center  second-color"}*/}
+                                    {/*onClick={() => setactive("about")}>*/}
+                                    {/*<Link className="nav-link" to="/about">*/}
+                                        {/*درباره ما*/}
+                                    {/*</Link>*/}
+                                {/*</li>*/}
+                                {/*<li className={active === "courses" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>*/}
+                                    {/*<Link className="nav-link" to="/courses">*/}
+                                        {/*دوره*/}
+                                    {/*</Link>*/}
+                                 {/*</li>*/}
+
+
+
+                            {/*</ul>*/}
+                            {/*<span className=" ml-auto"  >*/}
+                            {/*<div className="logo-in-top">*/}
+                                {/*<img src={logo} alt="logo" className="img-self-fill"/>*/}
+                            {/*</div>*/}
+
+                        {/*</span>*/}
+
+                        {/*</div>*/}
+
+                    {/*</nav>*/}
+                {/*</div>*/}
+
+
                 <div className=" w-100 pl-4 pr-4 mt-3">
                     { props.children}
                 </div>

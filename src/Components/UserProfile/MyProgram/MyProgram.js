@@ -74,7 +74,7 @@ export default  function MySchedule(props) {
                                 </div>
                             </div> :
                             <div className="w-100">
-                                <div className="col-sm-12 col-md-4 mt-5">
+                                <div className="col-sm-12  col-md-6 col-lg-4 mt-5">
                                     {
                                         content !== null ?
                                             <DownloadPdf  {...content}/>

@@ -19,9 +19,27 @@ $border-r-Video:20px !default;
   background:$green !important;
 }
 .activeHeaderMenu {
-  border-bottom: solid $green 3px ;
+  //border-bottom: solid $green 3px ;
   color:$green!important;
+  //color: #215831;
   font-weight: bold;
+  ::after
+  {
+    //bottom: 6px;
+    //content: "";
+    //display: inline-block;
+    //height: 1px;
+    //left: 100%;
+    position: absolute;
+    content: '';
+    border-bottom: 3px solid $green;
+    top: 80%;
+    right: 20%;
+    width: 40%;
+   }
+}
+.backgroundLight{
+  background: $placeHolderColor;
 }
 
 .green-rightMenu {
