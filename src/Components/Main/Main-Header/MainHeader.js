@@ -25,6 +25,7 @@ export default function MainHeader (props){
     const [isUser, setUser] = useState(false);
     const [active, setactive] = useState("home");
     const [isOpen, setIsOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
     let UserSumery="";
@@ -37,22 +38,22 @@ export default function MainHeader (props){
         switch (Url_context) {
             case  'user-profile' :
 
-                setactive("user");
+                setactive("user-profile");
                 setUser(true);
                 break;
             case   'user-info'  :
 
-                setactive("user");
+                setactive("user-profile");
                 setUser(true);
                 break;
             case  'my-course' :
 
-                setactive("user");
+                setactive("my-course");
                 setUser(true);
                 break;
             case 'my-schedule' :
 
-                setactive("user");
+                setactive("my-schedule");
                 setUser(true);
                 break;
             case 'home':
@@ -72,6 +73,16 @@ export default function MainHeader (props){
                 setactive("courses");
                 setUser(false);
         }
+        const Width=window.outerWidth;
+
+        if(Width<766){
+            setUser(true);
+            setIsMobile(true);
+        }else {
+            // setUser(true);
+            setIsMobile(false);
+        }
+
     });
 
 
@@ -94,7 +105,7 @@ export default function MainHeader (props){
                                                 <div className='profile-pic-in-top br-g br-r50  p-05'>
                                                     <img src={UserSumery[1]} alt="profile" className="img-self-cover br-r50 br-y"/>
                                                 </div>
-                                                <div className="d-flex flex-column">
+                                                <div className="d-flex flex-column ml-2">
                                                     <span className="second-color">{UserSumery[0]} </span>
                                                     <span  className="second-color">{UserSumery[2]} </span>
                                                 </div>
@@ -130,6 +141,54 @@ export default function MainHeader (props){
                                     دوره
                                 </Link>
                             </li>
+                            {
+                                User.isLogIn?
+                                    isMobile?
+                                        <UncontrolledDropdown nav inNavbar  >
+                                            <DropdownToggle nav caret>
+                                                پنل کاربری
+                                            </DropdownToggle>
+                                            <DropdownMenu right>
+                                                <DropdownItem>
+                                                    <li className={active === "my-course" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                                        <Link className="nav-link" to="/my-course">
+                                                            دوره های من
+                                                        </Link>
+                                                    </li>
+
+                                                </DropdownItem>
+                                                <DropdownItem divider />
+                                                <DropdownItem>
+                                                    <li className={active === "my-schedule" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                                        <Link className="nav-link" to="/my-schedule">
+                                                            برنامه های من
+                                                        </Link>
+                                                    </li>
+
+                                                </DropdownItem>
+                                                <DropdownItem divider />
+                                                <DropdownItem>
+
+                                                    <li className={active === "user-profile" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                                        <Link className="nav-link  " to="/user-profile">
+                                                            پروفایل کاربری
+                                                        </Link>
+                                                    </li>
+
+                                                </DropdownItem>
+                                            </DropdownMenu>
+                                        </UncontrolledDropdown>
+
+                                        :"" :""
+
+                            }
+
+
+
+
+
+
+
                         </Nav>
 
                     </Collapse>

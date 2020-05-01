@@ -16,7 +16,7 @@ export default function TeacherInRow (props){
                 </div>
 
             </div>
-            <div className="  d-flex align-items-start justify-content-center flex-column p-0  mr-3">
+            <div className="  d-flex align-items-start justify-content-center flex-column p-0  ml-2">
                 <div className="Green-dark-color  FssubmitLogin">
                     {props.name}
                 </div>

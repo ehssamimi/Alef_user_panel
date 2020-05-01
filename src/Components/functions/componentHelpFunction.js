@@ -60,9 +60,11 @@ export const seprateEachCourseData=(courses)=>{
         "field": course.field,
         "name":course.name,
         "description":course.description,
+        "schedule":course.schedule,
     };
     // console.log("off_percent");
     // console.log(off_percent);
+
 
 
 

@@ -122,15 +122,9 @@
 
 }
 
-.HomePage {
-    width: 70%;
-}
 
 
-.rightMenu {
-    width: 20%;
-    height: 100vh;
-}
+
 .h-header-slider{
     min-height: 2.5rem;
     height: 3vw;
@@ -362,18 +356,7 @@ select option:hover {
     white-space:nowrap;
     height:auto;
 }
-.FsHeaderLogin1{
-    font-size: Calc(1vw + 0.7rem);
-}
-.FsHeaderLogin2{
-    font-size: Calc(1.9vw + 1.5rem);
-}
-.FsFooterLogin {
-    font-size: Calc(0.5vw + 0.5rem) !important;
-}
-.FssubmitLogin {
-    font-size: Calc(0.7vw + 0.5rem) !important;
-}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

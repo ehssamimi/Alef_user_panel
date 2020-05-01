@@ -28,7 +28,7 @@ const CourseCarsBuy = (props) => {
 
     return (
 
-            <Card  className= "m-2 br20px h-100 MainCardCourseHeight  box-shadow-custom FsFooterLogin" >
+            <Card  className= "mt-0 ml-2 mr-2 br20px h-100   box-shadow-custom FsFooterLogin" >
 
 
                     <CardMedia
@@ -36,8 +36,8 @@ const CourseCarsBuy = (props) => {
                         image={img}
                         title="Course Section"
                     />
-                    <CardContent className={"min-h-mainCourse FsFooterLogin "}>
-                        <div className="row col-12 m-0">
+                    <CardContent className={"  FsFooterLogin "}>
+                        <div className="row col-12 m-0 FsFooterLogin">
                             <span className="header-color">{ title}</span>
                             <div className="d-inline-block ml-auto ">
                                 <div className="d-flex flex-column text-end " dir="rtl">
@@ -65,7 +65,7 @@ const CourseCarsBuy = (props) => {
                     </CardContent>
 
                 <CardActions className="w-100 d-flex justify-content-center">
-                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow" onClick={handelAddCourse}>
+                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow FsFooterLogin" onClick={handelAddCourse}>
                         {button}
                         </Button>
                 </CardActions>

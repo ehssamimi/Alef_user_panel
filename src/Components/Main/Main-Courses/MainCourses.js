@@ -11,8 +11,8 @@ export default function MainCourses (props){
     const {match: {params}} =  props;
 
     return (
-        <HeaderTop {...props}>
-            <HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>
+        <HeaderTop {...props} isBuy={true}>
+
 
             <div className="w-100" dir="rtl">
                 <CourseIntroducing id={params.id}/>

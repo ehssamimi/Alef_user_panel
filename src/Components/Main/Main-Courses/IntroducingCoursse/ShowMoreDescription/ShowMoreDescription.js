@@ -5,9 +5,9 @@ const ShowMoreDescription = (props) => {
 
 
     return (
-        <div className="w-100  text-ex" dir="rtl">
-            <h3 className="header-color">{props.header}</h3>
-            <div className={props.class}>
+        <div className="w-100  text-ex mt-3" dir="rtl">
+
+             <div className={props.class}>
                 <ShowMoreText
                     /* Default options */
                     lines={3}

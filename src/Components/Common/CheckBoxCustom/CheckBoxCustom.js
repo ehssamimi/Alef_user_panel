@@ -15,7 +15,8 @@ const styles = {
         },
     },
     label: {
-        fontFamily:"IRANSans"
+        fontFamily:"IRANSans",
+        fontSize:"Calc(0.7vw + 0.5rem) "
 
     },
     root:{
@@ -32,9 +33,9 @@ function CheckBoxCustom(props) {
 
     const { classes } = props;
     const [checked, setChecked] = React.useState( false);
-
-    console.log('checked');
-    console.log(checked);
+    //
+    // console.log('checked');
+    // console.log(checked);
 
 
 
@@ -96,7 +97,7 @@ function CheckBoxCustom(props) {
     };
 
     return (
-        <div className="d-inline-block" dir='ltr'>
+        <div className="d-inline-block FssubmitLogin" dir='ltr'>
             {
                 // props.check?
                     <FormControlLabel

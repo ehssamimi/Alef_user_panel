@@ -10,17 +10,6 @@
 .green-background {
   background: #215831 !important; }
 
-.activeHeaderMenu {
-  color: #215831 !important;
-  font-weight: bold; }
-  .activeHeaderMenu ::after {
-    position: absolute;
-    content: '';
-    border-bottom: 3px solid #215831;
-    top: 80%;
-    right: 20%;
-    width: 40%; }
-
 .backgroundLight {
   background: #a8b3ab !important; }
 

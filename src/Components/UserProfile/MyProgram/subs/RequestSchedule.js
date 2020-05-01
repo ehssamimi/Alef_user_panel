@@ -16,7 +16,7 @@ const RequestSchedule = (props) => {
                         <p className="text-break  second-color">شما می توانید با کلیک بر روی دکمه زیر برنامه شخصی خود را از اساتید ما دریافت کنید </p>
                     </div>
                     <div className="w-100  mt-3 d-flex justify-content-center" onClick={props.handelSubmitRequest}>
-                        <Button className="btn green-background text-white col-8   br10px fontFamily-Sans h-input-s"> درخواست برنامه</Button>
+                        <Button className="btn green-background text-white col-8 FssubmitLogin  br10px fontFamily-Sans h-input-s"> درخواست برنامه</Button>
                     </div>
                 </CardBody>
             </Card>

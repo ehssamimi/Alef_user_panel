@@ -82,7 +82,7 @@ export default function RightMenu (props){
                     <div className="  w-100   h-min-profile d-flex justify-content-center align-items-center flex-column">
                         <div className=" ">
                             <div className='profile-pic br-w br-r50  p-05'>
-                                <img src={UserSumery[1]||profile}  alt="profile" className="img-self-cover br-r50 br-y"/>
+                                <img src={UserSumery[1]||profile}  alt="profile" className="img-self-cover br-r50 br-y  d-none d-md-block"/>
                             </div>
                         </div>
                         <div className="d-flex justify-content-center align-items-center flex-column text-center" >

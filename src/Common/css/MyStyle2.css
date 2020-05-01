@@ -121,15 +121,9 @@
 
 }
 
-.HomePage {
-    width: 70%;
-}
 
 
-.rightMenu {
-    width: 20%;
-    height: 100vh;
-}
+
 .h-header-slider{
     min-height: 2.5rem;
     height: 3vw;
@@ -376,6 +370,22 @@ select option:hover {
     min-height: 12em!important;
 }
 
+.FsFooterLogin {
+    font-size: Calc(0.5vw + 0.5rem) !important;
+}
+.FsHeaderLogin1{
+    font-size: Calc(1vw + 0.7rem);
+}
+.FsHeaderLogin2{
+    font-size: Calc(1.9vw + 1.5rem);
+}
+
+.FssubmitLogin {
+    font-size: Calc(0.7vw + 0.5rem) !important;
+}
+.FsHeader-courseDetail {
+    font-size: Calc(1vw + 1rem) !important;
+}
 
 
 
@@ -450,6 +460,41 @@ select option:hover {
     .mt-14{
         margin-top: 12rem;
     }
+    .rightMenu {
+        width: 0;
+        height: 100vh;
+    }
+    .HomePage {
+        /*width: 70%;*/
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
+
+
+    .activeHeaderMenu {
+        color:#215831!important;
+        font-weight: bold;}
+    .activeHeaderMenu ::after
+    {
+
+        position: absolute;
+        content: '';
+        border-bottom: 3px solid #215831;
+        top: 85%;
+        right: 0%;
+        width: 10%;
+    }
+    .hidden-sm{
+            ;
+    }
+
+
+
+
+
+
 
 
 
@@ -517,7 +562,31 @@ select option:hover {
     .mt-14{
         margin-top: 12rem;
     }
+    .rightMenu {
+        width: 0;
+        height: 100vh;
+    }
+    .HomePage {
+        /*width: 70%;*/
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
 
+    .activeHeaderMenu {
+        color:#215831!important;
+        font-weight: bold;}
+    .activeHeaderMenu ::after
+    {
+
+        position: absolute;
+        content: '';
+        border-bottom: 3px solid #215831;
+        top: 80%;
+        right: 20%;
+        width: 40%;
+    }
 
 
 }
@@ -566,6 +635,26 @@ select option:hover {
     }
     .mt-14{
         margin-top: 12rem;
+    }
+    .rightMenu {
+        width: 20%;
+        height: 100vh;
+    }
+    .HomePage {
+        width: 70%;
+    }
+    .activeHeaderMenu {
+        color:#215831!important;
+        font-weight: bold;}
+    .activeHeaderMenu ::after
+    {
+
+        position: absolute;
+        content: '';
+        border-bottom: 3px solid #215831;
+        top: 80%;
+        right: 20%;
+        width: 40%;
     }
 
 
@@ -617,6 +706,26 @@ select option:hover {
     .mt-14{
         margin-top: 12rem;
     }
+    .rightMenu {
+        width: 20%;
+        height: 100vh;
+    }
+    .HomePage {
+        width: 70%;
+    }
+    .activeHeaderMenu {
+        color:#215831!important;
+        font-weight: bold;}
+    .activeHeaderMenu ::after
+    {
+
+        position: absolute;
+        content: '';
+        border-bottom: 3px solid #215831;
+        top: 80%;
+        right: 20%;
+        width: 40%;
+    }
 
 }
 
@@ -664,6 +773,27 @@ select option:hover {
     }
     .mt-14{
         margin-top: 16rem;
+    }
+    .rightMenu {
+        width: 20%;
+        height: 100vh;
+    }
+    .HomePage {
+        width: 70%;
+    }
+
+    .activeHeaderMenu {
+        color:#215831!important;
+        font-weight: bold;}
+    .activeHeaderMenu ::after
+    {
+
+        position: absolute;
+        content: '';
+        border-bottom: 3px solid #215831;
+        top: 80%;
+        right: 20%;
+        width: 40%;
     }
 
 }

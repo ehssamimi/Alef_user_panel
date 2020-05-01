@@ -51,19 +51,25 @@ const PreModal=(props)=>{
 
     // {"src":Video_src,img:ax2,type:"lock"}
     return(
+        <div className="w-100 ">
+            <div className="w-100 hpx200 position-relative pl-3 " >
+                {
+                    !is_locked ?
+                        <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer" onClick={() => {
+                            toggle('main', main)
+                        }}/> : <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer"/>
+                }
 
-        <div className="w-100 hpx200 position-relative pl-3 " >
-            {
-                !is_locked ?
-                    <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer" onClick={() => {
-                        toggle('main', main)
-                    }}/> : <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer"/>
-            }
+                {
+                    !is_locked? <img src={Play} alt="play" className="img-cover-preLoader cursor-pointer"/>:<img src={lock} alt="lock" className="img-cover-preLoader"/>
+                }
 
-            {
-                !is_locked? <img src={Play} alt="play" className="img-cover-preLoader cursor-pointer"/>:<img src={lock} alt="lock" className="img-cover-preLoader"/>
-            }
-            <p className="pt-2 pb-0 second-color">درس {index+1} {name}</p>
+            </div>
+            <div className=" d-flex justify-content-center">
+                <p className="pt-2 pb-0 second-color ">بخش {index+1} {name}</p>
+            </div>
+
+
         </div>
 
     )

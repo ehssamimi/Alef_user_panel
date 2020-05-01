@@ -20,7 +20,7 @@ const DownloadPdf = (props) => {
                         <p className="text-break  second-color">{props.field}</p>
                     </div>
                     <div className="w-100  mt-3">
-                        <a href={props.url} target="_blank" download  className="w-100 d-flex justify-content-center" ><Button className="btn green-background text-white col-8   br10px fontFamily-Sans h-input-s">دانلود pdf</Button></a>
+                        <a href={props.url} target="_blank" download  className="w-100 d-flex justify-content-center" ><Button className="btn green-background text-white col-8   br10px fontFamily-Sans h-input-s FssubmitLogin">دانلود pdf</Button></a>
                     </div>
                 </CardBody>
             </Card>

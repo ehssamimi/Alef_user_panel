@@ -28,18 +28,18 @@ export default function TopEachTeacher (props){
 
         <div className='mt-3 w-100  brt-s' dir='rtl' >
 
-            <div className='d-flex justify-content-start align-items-center  mt-4 w-100' onClick={()=>{setcollapse(!collapse)}} >
+            <div className='d-flex justify-content-start align-items-start align-items-sm-center FssubmitLogin mt-4 w-100 ' onClick={()=>{setcollapse(!collapse)}} >
                 {
                     collapse?
 
-                        <span className= ' border-Carousel p-2 mr-3' ><FaMinus/></span>
+                        <span className= ' border-Carousel  p-1 p-sm-2 mr-3' ><FaMinus/></span>
 
                         :
-                        <span className= ' border-Carousel p-2 mr-3' > <FaPlus/></span>
+                        <span className= ' border-Carousel  p-1 p-sm-2 mr-3' > <FaPlus/></span>
 
                 }
 
-                <div className=" d-flex align-items-center">
+                <div className=" d-flex align-items-start align-items-sm-center">
                     <div className="mr-3 green-them">
                         <span className= ' ' ><FaUserTie/></span>
                         <span className= ' mr-2' > {name}  </span>

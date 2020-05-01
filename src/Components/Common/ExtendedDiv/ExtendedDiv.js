@@ -13,27 +13,31 @@ export default function ExtendedDiv (props){
 
     return (
 
-        <div className={["mt-3 w-100  pl-4 pr-4",index!==0?"brt-s":'pt-2'].join(" ")} dir='rtl' id={props.id} >
+        <div className={["mt-3 w-100  pl-sm-4 pr-sm-4",index!==0?"brt-s":'pt-2'].join(" ")} dir='rtl' id={props.id} >
 
 
                     <div className='mt-4 w-100  ' >
-                        <div className='d-flex justify-content-start align-items-center ' onClick={()=>{setcollapse(!collapse)}} >
+                        <div className='d-flex justify-content-start align-items-center  FssubmitLogin ' onClick={()=>{setcollapse(!collapse)}} >
                             {
                                collapse?
 
-                                   <span className= ' border-Carousel p-2 mr-3' ><FaMinus/></span>
+                                   <span className= ' border-Carousel p-1 p-sm-2 mr-1 mr-sm-3' ><FaMinus/></span>
 
                                     :
-                                   <span className= ' border-Carousel p-2 mr-3' > <FaPlus/></span>
+                                   <span className= ' border-Carousel p-1 p-sm-2 mr-1 mr-sm-3' > <FaPlus/></span>
 
                             }
 
-                            <div className="d-flex w-100 ">
+                            <div className="d-flex w-100 FssubmitLogin align-items-center">
 
-                                    <div className='  fs-lesion '>درس {index+1}: {name} </div>
-                                <div className="ml-auto row">
-                                    <span className='red-color text-decoration-line-through  mr-2 fs15rem    '>{formatNumber(price)} تومن  </span>
-                                    {off!==0?<span className='header-color   fs15rem   '>{formatNumber(price-(price*off))} تومن  </span>:""}
+                                    <div className='mr-1 col-7 p-0'>
+                                        {/*درس*/}
+                                        {/*{index+1}: */}
+                                        {name}
+                                        </div>
+                                <div className="ml-auto row justify-content-end">
+                                    <span className='red-color text-decoration-line-through  mr-2     '>{formatNumber(price)} تومن  </span>
+                                    {off!==0?<span className='header-color      '>{formatNumber(price-(price*off))} تومن  </span>:""}
                                 </div>
 
 
@@ -44,8 +48,8 @@ export default function ExtendedDiv (props){
 
 
                         </div>
-                        <div className="col-12 pl-5 pr-0 pt-2 pb-2 d-flex  "  >
-                            <div className=" d-flex align-items-center">
+                        <div className="col-12 pl-sm-5 pr-sm-0 pt-2 pb-2 d-flex  "  >
+                            <div className=" d-flex align-items-start align-items-sm-center FssubmitLogin">
                                 <div className="mr-3 green-them">
                                     <span className= ' ' ><GiStopwatch/></span>
                                     <span className= ' mr-2' > {total_video_times} </span>
