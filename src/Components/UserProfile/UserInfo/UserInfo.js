@@ -237,6 +237,27 @@ export default function UserInfo(props) {
                     }
                 }
 
+            //     ID: "2092204971"
+            //     Schoolkind: null
+            //     average_num: null
+            //     city: null
+            // class: "ششم (تیزهوشان)"
+            //     country: null
+            //     fields: null
+            //     name: "مهدیه"
+            //     parent_name: null
+            //     parent_num: null
+            //     parent_verify: false
+            //     phoneNumber: "09111581421"
+            //     profile_img: "http
+
+
+
+
+
+
+
+
 
                 let Data={
                     "personal_info": {
@@ -408,13 +429,16 @@ export default function UserInfo(props) {
                                             <SelectedInput onChange={onChange} label={'پایه تحصیلی'} id={'class'}
                                                            type={"select"}
                                                            is_required={true} value={values.class} options={options.grade_type}
-                                                           error={error.name}/>
+                                                           error={""}/>
                                             {
                                                 (values.class === "دهم" || values.class === "یازدهم" || values.class === "دوازدهم" || values.class === "طرح"|| values.class === "طرح انسانی"  || values.class === "فارغ التحصیل" || values.class === "دوازدهم (کنکوری)")?
                                                     <SelectedInput onChange={onChange} label={'رشته تحصیلی'} id={'fields'}
                                                                    type={"select"}
                                                                    is_required={true} value={values.fields} options={options.field_type}
-                                                                   error={error.name}/>:''
+                                                                   error={""}
+
+
+                                                    />:''
 
                                             }
 
@@ -436,7 +460,7 @@ export default function UserInfo(props) {
                                                 <TextInput onChange={onChange} label={'نام مدرسه'} id={'schoolName'}
                                                            placeholder={"نام مدرسه"} type={"text"} is_required={false}
                                                            value={values.schoolName}
-                                                           error={error.name}/>
+                                                           error={""}/>
                                                 <TextInput onChange={onChange} label={'شماره ملی'} id={'ID'}
                                                            placeholder={"شماره ملی"} type={"number"} is_required={false}
                                                            value={values.ID}
@@ -445,7 +469,7 @@ export default function UserInfo(props) {
                                                            id={'parent_name'}
                                                            placeholder={"نام پدر یا مادر"} type={"text"}
                                                            is_required={false} value={values.parent_name}
-                                                           error={error.parent_name}/>
+                                                           error={""}/>
 
 
                                             </Col>
@@ -458,13 +482,13 @@ export default function UserInfo(props) {
                                                                id={'Schoolkind'}
                                                                type={"select"} is_required={false}
                                                                value={values.Schoolkind}
-                                                               error={error.name} options={options.school_type}/>
+                                                               error={""} options={options.school_type}/>
 
                                                 <TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}
                                                            id={'average_num'}
                                                            placeholder={"معدل"} type={"text"}
                                                            is_required={false} value={values.average_num}
-                                                           error={error.name}/>
+                                                           error={""}/>
                                                 {/*<TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}*/}
                                                            {/*id={'average_num'}*/}
                                                            {/*placeholder={"معدل"} type={"text"} is_required={false}*/}
