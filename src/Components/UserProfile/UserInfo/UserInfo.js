@@ -104,7 +104,7 @@ export default function UserInfo(props) {
 
                 let values=getProfileValue(Description);
                 let city = getCity(values.country);
-                setcitys(city)
+                setcitys(city);
 
                 console.log(values);
                 setvalues(values);
@@ -126,6 +126,9 @@ export default function UserInfo(props) {
     const validateForm=(callback)=> {
         let errors={"name": "","ID":"","country":"","city":"","parent_num":"","parent_name":""};
 
+        console.log("values")
+        console.log(values)
+
         let formValidate=true;
         
 
@@ -140,7 +143,7 @@ export default function UserInfo(props) {
             formValidate = false;
             errors['country']="استان مورد نظر را انخاب کنید ";
         }
-        if (values.city!=="" && values.city!==null && values.city!=="انتخاب شهر"){
+        if (values.country!=="" && values.country!==null && values.city==="انتخاب شهر"){
             formValidate = false;
             errors['city']="شهر مورد نظر را انخاب کنید ";
         }

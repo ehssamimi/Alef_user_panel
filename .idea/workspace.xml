@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,7 +87,7 @@
         <counts>
           <entry key="css" value="3837" />
           <entry key="html" value="185" />
-          <entry key="js" value="44236" />
+          <entry key="js" value="44259" />
           <entry key="scss" value="998" />
         </counts>
       </usages-collector>
@@ -96,7 +95,7 @@
         <counts>
           <entry key="CSS" value="3837" />
           <entry key="HTML" value="185" />
-          <entry key="JavaScript" value="44236" />
+          <entry key="JavaScript" value="44259" />
           <entry key="SCSS" value="998" />
         </counts>
       </usages-collector>
@@ -149,15 +148,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3151">
-              <caret line="60" column="110" selection-start-line="60" selection-start-column="110" selection-end-line="60" selection-end-column="110" />
+            <state relative-caret-position="76">
+              <caret line="128" column="27" lean-forward="true" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
                 <element signature="e#1561#1846#0" expanded="true" />
                 <element signature="e#2476#4169#0" expanded="true" />
                 <element signature="e#2743#2894#0" expanded="true" />
                 <element signature="e#3222#4085#0" expanded="true" />
-                <element signature="e#4332#6904#0" expanded="true" />
                 <element signature="e#7297#12109#0" expanded="true" />
                 <element signature="e#7368#12072#0" expanded="true" />
                 <element signature="e#7494#7724#0" expanded="true" />
@@ -260,7 +258,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>o</find>
       <find>رش</find>
       <find>color</find>
       <find>label</find>
@@ -290,6 +287,7 @@
       <find>ardebil</find>
       <find>checkMelliCode</find>
       <find>schoolName</find>
+      <find>error.name</find>
     </findStrings>
     <replaceStrings>
       <replace>h-List-item</replace>
@@ -524,12 +522,12 @@
       <workItem from="1588323627724" duration="26040000" />
       <workItem from="1588396295849" duration="605000" />
       <workItem from="1588551084485" duration="4705000" />
-      <workItem from="1588579756148" duration="9797000" />
+      <workItem from="1588579756148" duration="10604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593024000" />
+    <option name="totallyTimeSpent" value="593831000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1034,15 +1032,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3151">
-          <caret line="60" column="110" selection-start-line="60" selection-start-column="110" selection-end-line="60" selection-end-column="110" />
+        <state relative-caret-position="76">
+          <caret line="128" column="27" lean-forward="true" selection-start-line="128" selection-start-column="27" selection-end-line="128" selection-end-column="27" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
             <element signature="e#1561#1846#0" expanded="true" />
             <element signature="e#2476#4169#0" expanded="true" />
             <element signature="e#2743#2894#0" expanded="true" />
             <element signature="e#3222#4085#0" expanded="true" />
-            <element signature="e#4332#6904#0" expanded="true" />
             <element signature="e#7297#12109#0" expanded="true" />
             <element signature="e#7368#12072#0" expanded="true" />
             <element signature="e#7494#7724#0" expanded="true" />
