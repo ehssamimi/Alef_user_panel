@@ -9,6 +9,8 @@ import {  TweenMax} from "gsap/TweenMax";
 import {CourseBuy} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
 import {Link} from "react-router-dom";
+import RestricBuyModal from "../RestricBuyModal/RestricBuyModal";
+import Card from "@material-ui/core/Card/Card";
 
 
 
@@ -20,6 +22,7 @@ const BuyFooter = (props) => {
     const Buy=useContext(BuyContext);
     const User=useContext(UserContext);
     const [collapse, setcollapse,] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
 
 
@@ -130,7 +133,10 @@ const BuyFooter = (props) => {
 
                                 <button
                                     className="btn green-background  br10px text-white FsFooterLogin  h-input-s   pl-2 pr-2 mt-1 mb-1 d-flex flex-column   sendButton-shadow  "
-                                    type="submit" onClick={handleChange}>
+                                    type="submit"
+                                    // onClick={handleChange}
+                                    onClick={()=>{setIsOpen(!isOpen)}}
+                                >
                                     <span>تاییید و پرداخت </span>
                                     <span className=" ">{formatNumber(Price)} <span className="ml-1">تومن</span> </span>
 
@@ -177,7 +183,7 @@ const BuyFooter = (props) => {
                     go to login
 
                 </Link>
-
+                <RestricBuyModal  isOpen={isOpen } toggle={()=>{setIsOpen(!isOpen)}}/>
             </div>
         </div>
     );

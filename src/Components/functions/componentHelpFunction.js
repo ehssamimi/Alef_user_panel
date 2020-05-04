@@ -202,3 +202,7 @@ export const   validatephoneNumber=(phonenumber) =>{
     var re = /^(\+98|0)?9\d{9}$/;
     return re.test(phonenumber);
 }
+export const   chackingPersian=(phonenumber) =>{
+    var re = /^(\+98|0)?9\d{9}$/;
+    return re.test(phonenumber);
+}

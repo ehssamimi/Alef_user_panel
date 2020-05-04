@@ -396,6 +396,9 @@ select option:hover {
 .FsHeader-courseDetail {
     font-size: Calc(1vw + 1rem) !important;
 }
+.fs10vw{
+    font-size: 10vw;
+}
 
 
 

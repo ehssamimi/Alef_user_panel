@@ -6,6 +6,7 @@ import validator from "validator";
 import {GetLogin, GetUserDropDown, GetVerifycationCode, Regestry} from "../../Common/Const/ServerConnection";
 import {NotificationContainer, NotificationManager} from "react-notifications";
 import {validatephoneNumber} from "../functions/componentHelpFunction";
+String.prototype.toEnglishDigit = function() { var find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']; var replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; var replaceString = this; var regex; for (var i = 0; i < find.length; i++) { regex = new RegExp(find[i], "g"); replaceString = replaceString.replace(regex, replace[i]); } return replaceString; };
 const FormLogin = (props) => {
 
     let{header,subHeader ,btn_txt,handelType,handelChangeForm,loading}=props;
@@ -38,9 +39,12 @@ const FormLogin = (props) => {
 
 
 
+
+
         seterror(errors);
         return callback(formValidate)
-    };
+        return callback(false)
+     };
 
 
     const handelSubmit = async (e) => {
@@ -48,21 +52,28 @@ const FormLogin = (props) => {
         validateForm(async (validate)=>{
 
             if (validate){
+                let englishNumber=values.phoneNumber.toString().toEnglishDigit() ;
+
+                // let englishNumber=Number( englisghString.toString());
+                // console.log("englishNumber")
+                // console.log(englisghString.toString())
+                // console.log(englisghString)
+
 
 
                 loading(100, 1);
-                let {state ,Description} = await GetLogin(values.phoneNumber);
+                let {state ,Description} = await GetLogin(englishNumber);
                 // console.log(state ,Description)
                 setTimeout(function(){
                     loading(50, 1);
                 }, 1000);
                 if (state===200 ) {
                     // NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
-                    localStorage.setItem("phoneNumber_K",values.phoneNumber)
-                    let {state  ,Description } = await GetVerifycationCode(values.phoneNumber);
+                    localStorage.setItem("phoneNumber_K",englishNumber);
+                    let {state  ,Description } = await GetVerifycationCode(englishNumber);
                     if (state ===200){
                         // console.log(Description )
-                        handelType("login")
+                        handelType("login");
                         handelChangeForm("validate");
                     } else {
                         console.log("not validate Code");

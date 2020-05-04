@@ -294,11 +294,12 @@ export async  function  UpdateProfile(Data){
     }).catch(function (error) {
         console.log(error.response);
         console.log(error);
+        console.log(error.message);
         let {response}=error;
         if (response===undefined){
             resp={state: 400,Description: error.message}
         } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
+            resp={state:422,Description:error.response.data.detail[0].msg}
         }else{
             resp={state:response.status||400,Description:response.data.detail||error.message}
         }

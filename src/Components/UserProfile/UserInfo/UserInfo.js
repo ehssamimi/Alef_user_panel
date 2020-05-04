@@ -170,34 +170,6 @@ export default function UserInfo(props) {
             }
 
         };
-
-
-        // values.ID!=="" && values.ID!==null
-
-
-        // if (validator.isEmpty(values.name)) {
-        //     formValidate = false;
-        //     errors['name']="نام خود را وارد کنید ";
-        // }
-        // if (validator.isEmpty(values.phoneNumber)) {
-        //     formValidate = false;
-        //     errors['phoneNumber']="شماره تلفن همراه خود را وارد کنید  ";
-        // }else if (!validatephoneNumber(values.phoneNumber)) {
-        //     formValidate = false;
-        //     errors['phoneNumber']="شماره ای که وارد کرده اید غیر مجاز است !  ";
-        // }
-        // if (validator.isEmpty(values.class)) {
-        //     formValidate = false;
-        //     errors['class']="پایه تحصیلی خود را انتخاب کنید";
-        // }
-        // if (nessesery){
-        //     if (validator.isEmpty(values.fields)) {
-        //         formValidate = false;
-        //         errors['fields']="پایه تحصیلی خود را انتخاب کنید";
-        //     }
-        // }
-
-
         seterror(errors);
         return callback(formValidate)
     };
@@ -239,28 +211,6 @@ export default function UserInfo(props) {
                         NotificationManager.error(state, Description);
                     }
                 }
-
-            //     ID: "2092204971"
-            //     Schoolkind: null
-            //     average_num: null
-            //     city: null
-            // class: "ششم (تیزهوشان)"
-            //     country: null
-            //     fields: null
-            //     name: "مهدیه"
-            //     parent_name: null
-            //     parent_num: null
-            //     parent_verify: false
-            //     phoneNumber: "09111581421"
-            //     profile_img: "http
-
-
-
-
-
-
-
-
 
                 let Data={
                     "personal_info": {
@@ -308,38 +258,6 @@ export default function UserInfo(props) {
                         Data["address"]["city"]=values.city;
                     }
                 }
-
-
-
-
-
-
-
-                //
-                // let Data={
-                //     "personal_info": {
-                //         "name": values.name,
-                //         "ssn": values.ID
-                //     },
-                //     "education": {
-
-                //         "school_name": values.schoolName,
-                //         "school_type": values.Schoolkind
-                //     },
-                //     "parent": {
-                //         "name": values.parent_name,
-                //         "phone_number": values.parent_num
-                //     },
-                //     "address": {
-                //         "province": values.country,
-                //         "city": values.city
-                //     }
-                // };
-                 // console.log(JSON.stringify(Data));
-
-
-
-
                 console.log(Data);
 
 
@@ -489,7 +407,7 @@ export default function UserInfo(props) {
 
                                                     <TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}
                                                                id={'average_num'}
-                                                               placeholder={"معدل"} type={"text"}
+                                                               placeholder={"معدل"} type={"number"}
                                                                is_required={false} value={values.average_num}
                                                                error={""}/>
                                                     {/*<TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}*/}

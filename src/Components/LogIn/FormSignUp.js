@@ -87,13 +87,15 @@ const FormSignUp = (props) => {
     const handelSubmit = async (e) => {
         e.preventDefault();
         validateForm(async (validate)=>{
-
+            let englishNumber= values.phoneNumber.toString().toEnglishDigit();
+            // console.log(englisghString);
+            // let englishNumber=Number(englisghString);
             if (validate){
                 console.log("send");
                 loading(100,1);
                 let Data= {
                     "personal_info": {
-                    "phone_number":values.phoneNumber.toString() ,
+                    "phone_number":englishNumber.toString() ,
                         "name": values.name,
                         "ssn": ""
                 },
@@ -114,8 +116,8 @@ const FormSignUp = (props) => {
                     }, 1000);
                 if (state===200 ) {
                     // NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "موفق شدید ");
-                    localStorage.setItem("phoneNumber_K",values.phoneNumber)
-                    let {state  ,Description } = await GetVerifycationCode(values.phoneNumber);
+                    localStorage.setItem("phoneNumber_K",englishNumber)
+                    let {state  ,Description } = await GetVerifycationCode(englishNumber);
                     if (state ===200){
                         console.log(Description )
                         handelType("register")

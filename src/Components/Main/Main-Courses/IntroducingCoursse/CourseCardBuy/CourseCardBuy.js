@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button/Button";
 import {formatNumber} from "../../../../../Common/JS-Function/Js-common-function";
 import {Link} from "react-router-dom"
 import cookie from "react-cookies";
+import RestricBuyModal from "../../../../Common/RestricBuyModal/RestricBuyModal";
 
 
 
@@ -16,6 +17,7 @@ const CourseCarsBuy = (props) => {
     let{img,title,course,grade,button,cost,sellCost,sub_text,id,off,price}=props;
     console.log(img);
     const [count, setCount] = useState(1);
+    const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         // Update the document title using the browser API
 
@@ -71,7 +73,12 @@ const CourseCarsBuy = (props) => {
                     </CardContent>
 
                 <CardActions className="w-100 d-flex justify-content-center">
-                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow FsFooterLogin" onClick={handelAddCourse}>
+                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow FsFooterLogin"
+
+                            // onClick={handelAddCourse}
+                            onClick={()=>{setIsOpen(!isOpen)}}
+
+                    >
                         {button}
                         </Button>
                 </CardActions>
@@ -81,6 +88,7 @@ const CourseCarsBuy = (props) => {
                     }
 
                 </div>
+                <RestricBuyModal  isOpen={isOpen } toggle={()=>{setIsOpen(!isOpen)}}/>
             </Card>
 
     );

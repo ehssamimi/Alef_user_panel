@@ -20,6 +20,8 @@ import ax1 from "../../../Common/img/arno-smit-sKJ7zSylUao-unsplash.jpg";
 import {CourseBuy} from "../../../Common/Const/ServerConnection";
 import { useHistory } from 'react-router-dom';
 import {NotificationManager} from "react-notifications";
+import RestricBuyModal from "../RestricBuyModal/RestricBuyModal";
+import ModalCustomVideo from "../Modal/ModalCustom";
 
 const useStyles = makeStyles({
     root: {
@@ -146,12 +148,8 @@ const CourseCarsMain = (props) => {
     // console.log("image")
     // console.log(image)
 
-    const [count, setCount] = useState(1);
-    useEffect(() => {
-        // Update the document title using the browser API
+    const [isOpen, setIsOpen] = useState(false);
 
-        document.title = `You clicked ${count} times`;
-    });
     const handelClick=async (e)=>{
         e.preventDefault();
         let data = {"courses": [{"course_id": course_id}]};
@@ -165,10 +163,6 @@ const CourseCarsMain = (props) => {
        }else {
            let {state, Description} = await CourseBuy(JSON.stringify(data));
 
-
-           // data:
-           //     gateway_url: "https://idpay.ir/p/ws-sandbox/b6c3567bc7491cb0cd847896b3df05da"
-           // request_id: "5ea06a53f013eedf22dd7aaa"
            if (state === 200) {
                window.open(Description.gateway_url, '_blank');
            }else {
@@ -208,7 +202,7 @@ const CourseCarsMain = (props) => {
 
             {/*<img src={image} alt={image}/>*/}
             <CardContent className={"min-h-mainCourse "}>
-                <div className="row col-12 m-0 ">
+                 <div className="row col-12 m-0 ">
                     <div className="d-inline-block  ">
                         <div className="d-flex flex-column text-end " dir="rtl">
                             <span className="header-color " > {parseInt(price)!==0 ?  off!==0?formatNumber(price-(price*off)) + " "+ "تومان" :formatNumber(price) + " "+ "تومان" :"رایگان "  }     </span>
@@ -228,14 +222,28 @@ const CourseCarsMain = (props) => {
                 </div>
             </CardContent>
 
-            <CardActions className="w-100 d-flex justify-content-center h-50" onClick={handelClick}>
-                <button className="btn green-background text-white col-8 fontFamily-Sans sendButton-shadow br10px h-input-buy FssubmitLogin"> خرید دوره </button>
+            <CardActions className="w-100 d-flex justify-content-center h-50"
+                         onClick={()=>{setIsOpen(true)}}
+                         // onClick={handelClick}
+
+            >
+                <button className="btn green-background text-white col-8 fontFamily-Sans sendButton-shadow br10px h-input-buy FssubmitLogin" onClick={()=>{setIsOpen(true)}}> خرید دوره </button>
             </CardActions>
             <div className="d-flex justify-content-center">
                 {
                     sub_text?  <Link to={`/course/${course_id}`}  className="pt-3 green-them font-weight-bolder"> {sub_text  } </Link>:""
                 }
             </div>
+
+
+            <RestricBuyModal  isOpen={isOpen } toggle={()=>{setIsOpen(!isOpen)}}/>
+
+
+
+
+
+
+
         </Card>
 
     );

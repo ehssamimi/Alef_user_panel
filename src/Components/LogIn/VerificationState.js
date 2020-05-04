@@ -61,14 +61,19 @@ const VerificationState = (props) => {
         validateForm(async (validate)=>{
 
             if (validate){
+                let VerificationCode=values.verificationCode.toString().toEnglishDigit();
+                // let VerificationCode=Number(VerificationCodeString);
+
+
+
                 console.log("کد فعال سازی");
                 console.log( "type : "+type);
                 console.log( "phoneNumber : "+localStorage.getItem("phoneNumber_K"));
-                console.log( "cooe : "+values.verificationCode);
+                console.log( "cooe : "+VerificationCode);
                 loading(100,1);
 
 
-                let {state ,Description} = await Verify(type,localStorage.getItem("phoneNumber_K"),values.verificationCode);
+                let {state ,Description} = await Verify(type,localStorage.getItem("phoneNumber_K"),VerificationCode);
                 console.log(state ,Description);
 
                  if (state===200 ) {
