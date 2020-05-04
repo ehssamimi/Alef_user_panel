@@ -56,11 +56,13 @@ export const seprateEachCourseData=(courses)=>{
         "course_img": course.image,
         "grade": course.grade,
         "cost": course.price,
+        "price": course.price,
         "sellCost": off_percent * course.price,
         "field": course.field,
         "name":course.name,
         "description":course.description,
         "schedule":course.schedule,
+        "off":off_percent
     };
     // console.log("off_percent");
     // console.log(off_percent);

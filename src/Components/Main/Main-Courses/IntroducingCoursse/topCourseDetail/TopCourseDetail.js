@@ -9,7 +9,7 @@ import HeaderCourse from "../../HeaderCourse/HeaderCourse";
 import HeaderTop from "../../../../Common/Header-top/HeaderTop";
 
 const TopCourseDetail = (props) => {
-let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,schedule}=props
+let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,schedule,off,price}=props
 
     return (
         <div className="w-100 row   ">
@@ -33,8 +33,8 @@ let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,sc
                 </div>
                 <div className="col-md-4 col-sm-12     ">
                     <CourseCarsBuy img={course_img} title={name} cost={formatNumber(sellCost-cost) + "ت"}
-                                   sellCost={formatNumber( sellCost) + "ت"} course={field} button={"خرید دروه"}
-                                   class={"h-min-img-card"}/>
+                                   sellCost={formatNumber( sellCost) + "ت"} course={field} button={"خرید دروه"} price={price}
+                                   class={"h-min-img-card"} off={off}/>
                 </div>
             </div>
 

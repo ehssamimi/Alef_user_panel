@@ -8,8 +8,9 @@ import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
 
 export default function ExtendedDiv (props){
     const [collapse, setcollapse,] = useState(false);
-    let{name,index,off,price,total_video_times,videos,toggle}=props
-
+    let{name,index,off,price,total_video_times,videos,toggle,owned}=props
+    console.log("owned");
+    console.log(owned);
 
     return (
 
@@ -35,10 +36,16 @@ export default function ExtendedDiv (props){
                                         {/*{index+1}: */}
                                         {name}
                                         </div>
-                                <div className="ml-auto row justify-content-end">
-                                    <span className='red-color text-decoration-line-through  mr-2     '>{formatNumber(price)} تومن  </span>
-                                    {off!==0?<span className='header-color      '>{formatNumber(price-(price*off))} تومن  </span>:""}
-                                </div>
+                                {
+                                    !owned?  <div className="ml-auto row justify-content-end">
+
+                                        {off!==0? <span className='red-color text-decoration-line-through  mr-2     '>{formatNumber(price)} تومن  </span>: <span className='header-color    mr-2     '>{formatNumber(price)} تومن  </span>}
+
+
+                                        {off!==0?<span className='header-color      '>{formatNumber(price-(price*off))} تومن  </span>:""}
+                                    </div>:""
+                                }
+
 
 
 
@@ -64,7 +71,11 @@ export default function ExtendedDiv (props){
                             </div>
 
                             <div className='fs-lesion  d-flex ml-auto ' >
-                                <CheckBoxCustom data={ props.buyData} id={props.id} row_id={props.index+1} isCheck={props.isCheck}  />
+
+                                {
+                                !owned?<CheckBoxCustom data={ props.buyData} id={props.id} row_id={props.index+1} isCheck={props.isCheck}  />:""
+                            }
+
 
                             </div>
                         </div>

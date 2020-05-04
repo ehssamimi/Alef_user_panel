@@ -13,12 +13,14 @@ import { loadMainCourse} from "../../../Common/Const/ServerConnection";
 import {getOff, seprateEachCourseData} from "../../functions/componentHelpFunction";
 import {NotificationManager} from "react-notifications";
 import Loader from "../../Common/Loader/Loader";
+import ModalCustomVideo from "../../Common/Modal/ModalCustom";
 
 export default function ShowAllCourse (props){
     // const[file,setFile]=useState([{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"}])
     let{name,grade,field,price,image,off,id, }=props;
     const [courses,setCourses]=useState({"data":[],off:[]});
     const [isLoder, setisLoder] = useState(true);
+    const [isOpenModal, setIsOpenModal] = useState(true);
 
     useEffect(() => {
         // Update the document title using the browser API
@@ -88,6 +90,27 @@ export default function ShowAllCourse (props){
             {/*<div>*/}
                 {/*<CourseIntroducing id="5e96169a01d73623037c281d"/>*/}
             {/*</div>*/}
+            <ModalCustomVideo isOpen={isOpenModal} toggle={() => setIsOpenModal(!isOpenModal)}>
+                <div className=" d-flex flex-column justify-content-center  align-items-center FsHeaderLogin1 text-left p-4 " style={{minHeight:"250px"}}>
+                    <p>سلام دانش آموز کلیدی</p>
+
+                    ما شبانه روز این دوماه رو دویدیم
+                    حجم کار خیلی بالا بود و هست
+                    ممکنه امروز اطلاعات سایت رو تکمیل در اختیار نداشته باشی‌
+                    فیلم ها در حال اپلود هستن
+                    تو همین چند ساعت آینده ذره ذره در اختیارت خواهند بود
+
+                    <p><span>🌻</span>  از بابت تاخیر عذرخواهیم</p>
+
+                </div>
+                <div className="w-100 text-center  d-flex justify-content-center">
+                    <button className="btn green-background FssubmitLogin col-3 m-3 text-white br20px" onClick={() => setIsOpenModal(!isOpenModal)}>ورود</button>
+                </div>
+
+
+
+            </ModalCustomVideo>
+
 
         </HeaderTop>
     )

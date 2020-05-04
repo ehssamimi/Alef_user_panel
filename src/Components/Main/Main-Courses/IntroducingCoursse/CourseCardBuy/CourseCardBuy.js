@@ -13,7 +13,7 @@ import cookie from "react-cookies";
 
 const CourseCarsBuy = (props) => {
 
-    let{img,title,course,grade,button,cost,sellCost,sub_text,id}=props;
+    let{img,title,course,grade,button,cost,sellCost,sub_text,id,off,price}=props;
     console.log(img);
     const [count, setCount] = useState(1);
     useEffect(() => {
@@ -41,11 +41,17 @@ const CourseCarsBuy = (props) => {
                             <span className="header-color">{ title}</span>
                             <div className="d-inline-block ml-auto ">
                                 <div className="d-flex flex-column text-end " dir="rtl">
-                                    <span className="header-color " > {parseInt(sellCost)!==0 ?  sellCost!==0?formatNumber(cost ) + " "+ "تومان" :formatNumber(sellCost) + " "+ "تومان" :"رایگان "  }     </span>
+                                    <span className="header-color " > {parseInt(price)!==0 ?  off!==0?formatNumber(price-(price*off)) + " "+ "تومان" :formatNumber(price) + " "+ "تومان" :"رایگان "  }     </span>
                                     {
-                                        parseInt(sellCost)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(sellCost) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>
+                                        parseInt(price)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(price) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>
                                     }
                                 </div>
+                                {/*<div className="d-flex flex-column text-end " dir="rtl">*/}
+                                    {/*<span className="header-color " > {parseInt(sellCost)!==0 ?  sellCost!==0?formatNumber(cost ) + " "+ "تومان" :formatNumber(sellCost) + " "+ "تومان" :"رایگان "  }     </span>*/}
+                                    {/*{*/}
+                                        {/*parseInt(sellCost)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(sellCost) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>*/}
+                                    {/*}*/}
+                                {/*</div>*/}
                                 {/*<div className="d-flex flex-column">*/}
                                     {/*<span className="header-color">{ formatNumber((cost))}</span>*/}
                                     {/*<span className="  red-color  text-decoration-line-through">{ formatNumber(sellCost ) }</span>*/}

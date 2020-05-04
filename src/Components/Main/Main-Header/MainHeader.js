@@ -123,22 +123,22 @@ export default function MainHeader (props){
 
                             }
 
-                            <li className={active === "home" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
-                                onClick={() => setactive("home")}>
-                                <Link className="nav-link" to="/home">
-                                    خانه
-                                </Link>
-                            </li>
-                            <li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" :
-                                "nav-item  d-flex align-items-center  second-color"}
-                                onClick={() => setactive("about")}>
-                                <Link className="nav-link" to="/about">
-                                    درباره ما
-                                </Link>
-                            </li>
+                            {/*<li className={active === "home" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}*/}
+                                {/*onClick={() => setactive("home")}>*/}
+                                {/*<Link className="nav-link" to="/home">*/}
+                                    {/*خانه*/}
+                                {/*</Link>*/}
+                            {/*</li>*/}
+                            {/*<li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" :*/}
+                                {/*"nav-item  d-flex align-items-center  second-color"}*/}
+                                {/*onClick={() => setactive("about")}>*/}
+                                {/*<Link className="nav-link" to="/about">*/}
+                                    {/*درباره ما*/}
+                                {/*</Link>*/}
+                            {/*</li>*/}
                             <li className={active === "courses" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
                                 <Link className="nav-link" to="/courses">
-                                    دوره
+                                    دوره ها
                                 </Link>
                             </li>
                             {

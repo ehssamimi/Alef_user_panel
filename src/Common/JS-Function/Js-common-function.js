@@ -49,6 +49,19 @@ export function gregorian_to_jalali(g_y, g_m, g_d) {
 export function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
+
+export function separate(Number)
+{
+    Number+= '';
+    Number= Number.replace(',', '');
+    let x = Number.split('.');
+    let y = x[0];
+    let z= x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(y))
+        y= y.replace(rgx, '$1' + ',' + '$2');
+    return y+ z;
+}
 export function getCity(ostan) {
     switch(ostan) {
         case "اصفهان":
