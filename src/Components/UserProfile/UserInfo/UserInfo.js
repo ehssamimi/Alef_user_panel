@@ -377,174 +377,177 @@ export default function UserInfo(props) {
         setvalues(DefaultValue)
     };
     return (
-        <HeaderTopWithRightMenu  {...props}>
-
-            <div className="mt-5 col-12 ml-auto mr-auto p-0">
-                <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
-                <Card className="mb-4 box-shadow-custom border-0 br20px mt-4">
-                    <CardBody>
-                        {
-                            isLoder?   // *******checking for submit form or get category Option is then loader start then loader close**********
-                                <div className='d-flex justify-content-center align-items-center'>
-                                    <div className='col-6'>
-                                        <Loader/>
+        //<HeaderTopWithRightMenu  {...props}>
+            <div className="w-100">
+                <div className="mt-5 col-12 ml-auto mr-auto p-0">
+                    <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
+                    <Card className="mb-4 box-shadow-custom border-0 br20px mt-4">
+                        <CardBody>
+                            {
+                                isLoder?   // *******checking for submit form or get category Option is then loader start then loader close**********
+                                    <div className='d-flex justify-content-center align-items-center'>
+                                        <div className='col-6'>
+                                            <Loader/>
+                                        </div>
                                     </div>
-                                </div>
-                                :<Form onSubmit={handelSubmit} className="formUpdateUser">
-                                    <div className="row m-0  w-100">
-                                        <Col sm={12} md={5}
-                                             className=" d-flex   flex-column justify-content-around ml-r-auto  ">
-                                            <div className="w-100  ">
-                                                <img src={ImgValue.data?ImgValue.data:profile} alt={profile} className="img-self-fill br20px"/>
-                                                {/*<img src={profile} alt={profile} className="img-self-fill"/>*/}
-                                            </div>
-                                            <div className="w-100 mt-3 mb-3">
-                                                <label
-                                                    className="btn green-background  br10px text-white  col-md-6 col-sm-12 offset-md-3 sendButton-shadow" htmlFor="upload_img">آپلود
-                                                    عکس
-                                                </label>
-                                                <input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />
-                                            </div>
-                                        </Col>
-                                        <Col sm={12} md={5}
-                                             className="d-flex   flex-column justify-content-between   ml-r-auto   ">
-
-                                            <TextInput onChange={onChange} label={'نام و نام خانوادگی'} id={'name'}
-                                                       placeholder={"نام و نام خانوادگی"} type={"text"}
-                                                       is_required={true} value={values.name}
-                                                       error={error.name}/>
-
-                                            <FormGroup className=" ">
-                                                <Label for={'phoneNumber'} className="FsFooterLogin">
-                                                    <span>{'شماره تلفن'}</span>
-                                                    <span className="red-color">{'(غیر قابل تغییر)'}</span>
-                                                </Label>
-                                                <InputGroup>
-                                                    <span className="form-control d-flex align-items-center">{values.phoneNumber}</span>
-                                                    {/*<Input value={values.phoneNumber} type={'text'} name={'phoneNumber'}*/}
-                                                           {/*id={'phoneNumber'} />*/}
-                                                    <InputGroupAddon addonType="append">
-                                                        <InputGroupText><FaLock/></InputGroupText>
-                                                    </InputGroupAddon>
-                                                </InputGroup>
-                                            </FormGroup>
-
-                                            <SelectedInput onChange={onChange} label={'پایه تحصیلی'} id={'class'}
-                                                           type={"select"}
-                                                           is_required={true} value={values.class} options={options.grade_type}
-                                                           error={""}/>
-                                            {
-                                                (values.class === "دهم" || values.class === "یازدهم" || values.class === "دوازدهم" || values.class === "طرح"|| values.class === "طرح انسانی"  || values.class === "فارغ التحصیل" || values.class === "دوازدهم (کنکوری)")?
-                                                    <SelectedInput onChange={onChange} label={'رشته تحصیلی'} id={'fields'}
-                                                                   type={"select"}
-                                                                   is_required={true} value={values.fields} options={options.field_type}
-                                                                   error={""}
-
-
-                                                    />:''
-
-                                            }
-
-
-
-                                        </Col>
-                                    </div>
-
-                                    <div className="w-100 mt-5 ">
-                                        <div className="row m-0 w-100">
+                                    :<Form onSubmit={handelSubmit} className="formUpdateUser">
+                                        <div className="row m-0  w-100">
                                             <Col sm={12} md={5}
-                                                 className="d-flex   flex-column justify-content-between   ml-r-auto   ">
-
-                                                <SelectedInput onChange={onChange} label={'استان'} id={'country'}
-                                                               type={"select"} is_required={false}
-                                                               value={values.country}
-                                                               error={error.country} options={country}/>
-
-                                                <TextInput onChange={onChange} label={'نام مدرسه'} id={'schoolName'}
-                                                           placeholder={"نام مدرسه"} type={"text"} is_required={false}
-                                                           value={values.schoolName}
-                                                           error={""}/>
-                                                <TextInput onChange={onChange} label={'شماره ملی'} id={'ID'}
-                                                           placeholder={"شماره ملی"} type={"number"} is_required={false}
-                                                           value={values.ID}
-                                                           error={error.ID}/>
-                                                <TextInput onChange={onChange} label={'نام پدر یا مادر'}
-                                                           id={'parent_name'}
-                                                           placeholder={"نام پدر یا مادر"} type={"text"}
-                                                           is_required={false} value={values.parent_name}
-                                                           error={""}/>
-
-
+                                                 className=" d-flex   flex-column justify-content-around ml-r-auto  ">
+                                                <div className="w-100  ">
+                                                    <img src={ImgValue.data?ImgValue.data:profile} alt={profile} className="img-self-fill br20px"/>
+                                                    {/*<img src={profile} alt={profile} className="img-self-fill"/>*/}
+                                                </div>
+                                                <div className="w-100 mt-3 mb-3">
+                                                    <label
+                                                        className="btn green-background  br10px text-white  col-md-6 col-sm-12 offset-md-3 sendButton-shadow" htmlFor="upload_img">آپلود
+                                                        عکس
+                                                    </label>
+                                                    <input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />
+                                                </div>
                                             </Col>
                                             <Col sm={12} md={5}
                                                  className="d-flex   flex-column justify-content-between   ml-r-auto   ">
-                                                <SelectedInput onChange={onChange} label={'شهر'} id={'city'}
-                                                               type={"select"} is_required={false} value={values.city}
-                                                               error={error.city} options={citys} disable={values.country === null}/>
-                                                <SelectedInput onChange={onChange} label={'نوع مدرسه '}
-                                                               id={'Schoolkind'}
-                                                               type={"select"} is_required={false}
-                                                               value={values.Schoolkind}
-                                                               error={""} options={options.school_type}/>
 
-                                                <TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}
-                                                           id={'average_num'}
-                                                           placeholder={"معدل"} type={"text"}
-                                                           is_required={false} value={values.average_num}
-                                                           error={""}/>
-                                                {/*<TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}*/}
-                                                           {/*id={'average_num'}*/}
-                                                           {/*placeholder={"معدل"} type={"text"} is_required={false}*/}
-                                                           {/*value={values.average_num}*/}
-                                                           {/*error={error.name}/>*/}
-                                                <TextInput onChange={onChange} label={'شماره پدر یا مادر'}
-                                                           id={'parent_num'} changeEdit={true}  nessaryLabel={'شماره والد باید اعتبار سنجی شود'} red={!values.parent_verify}
-                                                           placeholder={values.parent_verify? "شماره اعتبار سنجی شده است" : "شماره والد باید اعتبار سنجی شود"} type={"number"}
-                                                           is_required={false} value={values.parent_num}  validate={ ()=>{setIsOpenModal(!isOpenModal)}}
-                                                           error={error.parent_num}/>
-                                                {/*{*/}
+                                                <TextInput onChange={onChange} label={'نام و نام خانوادگی'} id={'name'}
+                                                           placeholder={"نام و نام خانوادگی"} type={"text"}
+                                                           is_required={true} value={values.name}
+                                                           error={error.name}/>
+
+                                                <FormGroup className=" ">
+                                                    <Label for={'phoneNumber'} className="FsFooterLogin">
+                                                        <span>{'شماره تلفن'}</span>
+                                                        <span className="red-color">{'(غیر قابل تغییر)'}</span>
+                                                    </Label>
+                                                    <InputGroup>
+                                                        <span className="form-control d-flex align-items-center">{values.phoneNumber}</span>
+                                                        {/*<Input value={values.phoneNumber} type={'text'} name={'phoneNumber'}*/}
+                                                        {/*id={'phoneNumber'} />*/}
+                                                        <InputGroupAddon addonType="append">
+                                                            <InputGroupText><FaLock/></InputGroupText>
+                                                        </InputGroupAddon>
+                                                    </InputGroup>
+                                                </FormGroup>
+
+                                                <SelectedInput onChange={onChange} label={'پایه تحصیلی'} id={'class'}
+                                                               type={"select"}
+                                                               is_required={true} value={values.class} options={options.grade_type}
+                                                               error={""}/>
+                                                {
+                                                    (values.class === "دهم" || values.class === "یازدهم" || values.class === "دوازدهم" || values.class === "طرح"|| values.class === "طرح انسانی"  || values.class === "فارغ التحصیل" || values.class === "دوازدهم (کنکوری)")?
+                                                        <SelectedInput onChange={onChange} label={'رشته تحصیلی'} id={'fields'}
+                                                                       type={"select"}
+                                                                       is_required={true} value={values.fields} options={options.field_type}
+                                                                       error={""}
+
+
+                                                        />:''
+
+                                                }
+
+
+
+                                            </Col>
+                                        </div>
+
+                                        <div className="w-100 mt-5 ">
+                                            <div className="row m-0 w-100">
+                                                <Col sm={12} md={5}
+                                                     className="d-flex   flex-column justify-content-between   ml-r-auto   ">
+
+                                                    <SelectedInput onChange={onChange} label={'استان'} id={'country'}
+                                                                   type={"select"} is_required={false}
+                                                                   value={values.country}
+                                                                   error={error.country} options={country}/>
+
+                                                    <TextInput onChange={onChange} label={'نام مدرسه'} id={'schoolName'}
+                                                               placeholder={"نام مدرسه"} type={"text"} is_required={false}
+                                                               value={values.schoolName}
+                                                               error={""}/>
+                                                    <TextInput onChange={onChange} label={'شماره ملی'} id={'ID'}
+                                                               placeholder={"شماره ملی"} type={"number"} is_required={false}
+                                                               value={values.ID}
+                                                               error={error.ID}/>
+                                                    <TextInput onChange={onChange} label={'نام پدر یا مادر'}
+                                                               id={'parent_name'}
+                                                               placeholder={"نام پدر یا مادر"} type={"text"}
+                                                               is_required={false} value={values.parent_name}
+                                                               error={""}/>
+
+
+                                                </Col>
+                                                <Col sm={12} md={5}
+                                                     className="d-flex   flex-column justify-content-between   ml-r-auto   ">
+                                                    <SelectedInput onChange={onChange} label={'شهر'} id={'city'}
+                                                                   type={"select"} is_required={false} value={values.city}
+                                                                   error={error.city} options={citys} disable={values.country === null}/>
+                                                    <SelectedInput onChange={onChange} label={'نوع مدرسه '}
+                                                                   id={'Schoolkind'}
+                                                                   type={"select"} is_required={false}
+                                                                   value={values.Schoolkind}
+                                                                   error={""} options={options.school_type}/>
+
+                                                    <TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}
+                                                               id={'average_num'}
+                                                               placeholder={"معدل"} type={"text"}
+                                                               is_required={false} value={values.average_num}
+                                                               error={""}/>
+                                                    {/*<TextInput onChange={onChange} label={'معدل سال تحصیلی قبل'}*/}
+                                                    {/*id={'average_num'}*/}
+                                                    {/*placeholder={"معدل"} type={"text"} is_required={false}*/}
+                                                    {/*value={values.average_num}*/}
+                                                    {/*error={error.name}/>*/}
+                                                    <TextInput onChange={onChange} label={'شماره پدر یا مادر'}
+                                                               id={'parent_num'} changeEdit={true}  nessaryLabel={'شماره والد باید اعتبار سنجی شود'} red={!values.parent_verify}
+                                                               placeholder={values.parent_verify? "شماره اعتبار سنجی شده است" : "شماره والد باید اعتبار سنجی شود"} type={"number"}
+                                                               is_required={false} value={values.parent_num}  validate={ ()=>{setIsOpenModal(!isOpenModal)}}
+                                                               error={error.parent_num}/>
+                                                    {/*{*/}
                                                     {/*values.parent_verify?<span className="green-color">شماره اعتبار سنجی شده است</span>:<span className="red-color cursor-pointer" onClick={()=>{setIsOpenModal(!isOpenModal)}} >شماره والد باید اعتبار سنجی شود</span>*/}
-                                                {/*}*/}
-                                            </Col>
-                                        </div>
-                                        <div className="col-12 row ">
+                                                    {/*}*/}
+                                                </Col>
+                                            </div>
+                                            <div className="col-12 row ">
 
 
-                                            <div className='col-md-7 col-sm-12'>
+                                                <div className='col-md-7 col-sm-12'>
+
+                                                </div>
+                                                <div className='  col-md-5 col-sm-12  buttons-Group-signIn'>
+                                                    <button
+                                                        className="btn backgroundLight  br10px text-white col-md-5 col-sm-12 p-0 h-input-s mt-4 FssubmitLogin sendButton-shadow"
+                                                        onClick={handelDiscard}>لغو تغییرات
+                                                    </button>
+                                                    <button
+                                                        className="btn green-background  br10px text-white col-md-5 col-sm-12 p-0 h-input-s mt-4 FssubmitLogin sendButton-shadow"
+                                                        type="submit">ثبت تغییرات
+                                                    </button>
+                                                </div>
 
                                             </div>
-                                            <div className='  col-md-5 col-sm-12  buttons-Group-signIn'>
-                                                <button
-                                                    className="btn backgroundLight  br10px text-white col-md-5 col-sm-12 p-0 h-input-s mt-4 FssubmitLogin sendButton-shadow"
-                                                    onClick={handelDiscard}>لغو تغییرات
-                                                </button>
-                                                <button
-                                                    className="btn green-background  br10px text-white col-md-5 col-sm-12 p-0 h-input-s mt-4 FssubmitLogin sendButton-shadow"
-                                                    type="submit">ثبت تغییرات
-                                                </button>
-                                            </div>
 
                                         </div>
+                                    </Form>
 
-                                    </div>
-                                </Form>
-
-                        }
+                            }
 
 
 
 
-                    </CardBody>
-                </Card>
+                        </CardBody>
+                    </Card>
 
 
+                </div>
+                <ModalCustomVideo isOpen={isOpenModal} toggle={()=>{setIsOpenModal(!isOpenModal)}} size="sm">
+                    <ValidateParentForm toggle={()=>{setIsOpenModal(!isOpenModal)}} phoneNumber={values.phoneNumber} count={count}/>
+
+                </ModalCustomVideo>
+                <NotificationContainer />
             </div>
-            <ModalCustomVideo isOpen={isOpenModal} toggle={()=>{setIsOpenModal(!isOpenModal)}} size="sm">
-                <ValidateParentForm toggle={()=>{setIsOpenModal(!isOpenModal)}} phoneNumber={values.phoneNumber} count={count}/>
 
-            </ModalCustomVideo>
-            <NotificationContainer />
-        </HeaderTopWithRightMenu>
+
+       // </HeaderTopWithRightMenu>
 
     )
 };

@@ -30,8 +30,11 @@ export default function RightMenu (props){
      useEffect(()=>{
 
          console.log("user_alef")
+         // console.log(Url_context)
+         // console.log(props.match.path)
+         console.log(props.match.path.split("/"))
 
-             switch (Url_context) {
+             switch (props.match.path.split("/")[1]) {
                  case "my-course":
                      setselected("my-course");
                      break;
@@ -97,7 +100,7 @@ export default function RightMenu (props){
                             <ul className="profile-user-list mt-4">
 
 
-                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem ">
+                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem " >
                                     {
                                         selected === "my-course" ?
                                             <div className="w-100 h-100 position-relative">
@@ -105,8 +108,8 @@ export default function RightMenu (props){
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2 green-them "><span className="mr-2"><GiGraduateCap/> </span> دور ه های من</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative "
-                                                 onClick={() => setselected("my-course")}>
-                                                <Link to="/my-course"><span
+                                                 >
+                                                <Link to="/my-course" onClick={() => setselected("my-course")}><span
                                                     className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><GiGraduateCap/> </span>دور ه های من</span></Link>
                                             </div>
 
@@ -114,7 +117,7 @@ export default function RightMenu (props){
                                 </li>
 
 
-                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem ">
+                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem "  >
                                     {
                                         selected === "my-schedule" ?
                                             <div className="w-100 h-100 position-relative">
@@ -122,8 +125,8 @@ export default function RightMenu (props){
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><FiCalendar/> </span>برنامه مطالعاتی</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative   "
-                                                 onClick={() => setselected("my-schedule")}>
-                                                <Link to="/my-schedule"><span
+                                                >
+                                                <Link to="/my-schedule" onClick={() => setselected("my-schedule")}><span
                                                     className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><FiCalendar/> </span>برنامه مطالعاتی</span></Link>
                                             </div>
 
@@ -133,7 +136,7 @@ export default function RightMenu (props){
 
 
 
-                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem ">
+                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem " >
                                     {
                                         selected === "user-profile" ?
                                             <div className="w-100 h-100 position-relative">
@@ -141,8 +144,8 @@ export default function RightMenu (props){
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><AiOutlineUser /> </span>پروفایل کاربری</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative text-white "
-                                                 onClick={() => setselected("user-profile")}>
-                                                <Link to="/user-profile">
+                                                 >
+                                                <Link to="/user-profile" onClick={() => setselected("user-profile")}>
                                                     <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><AiOutlineUser /> </span>پروفایل کاربری</span>
                                                 </Link>
                                             </div>

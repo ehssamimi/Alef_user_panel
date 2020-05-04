@@ -7,6 +7,7 @@ import Loader from "../../Common/Loader/Loader";
 import {GetMyCourse} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
 import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
+import UrlProvider from "../../Common/Context/UrlProvider";
 
 
 export default  function MyCourse(props) {
@@ -42,8 +43,9 @@ export default  function MyCourse(props) {
 
     return(
         <div className="w-100  ">
-            <HeaderTopWithRightMenu  {...props}>
-                    {
+
+            {/*<HeaderTopWithRightMenu  {...props}>*/}
+                     {
                         isLoder ?   // *******checking for submit form or get category Option is then loader start then loader close**********
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div className='col-6'>
@@ -71,7 +73,8 @@ export default  function MyCourse(props) {
                                 </div>
                             </div>
                     }
-            </HeaderTopWithRightMenu>
+            {/*</HeaderTopWithRightMenu>*/}
+
         </div>
     )
 }

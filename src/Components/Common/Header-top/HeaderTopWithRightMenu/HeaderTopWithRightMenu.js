@@ -12,7 +12,7 @@ const HeaderTopWithRightMenu = (props) => {
     });
 
     return (
-        <UrlProvider {...props}>
+      <UrlProvider {...props}>
         <div className="w-100 d-flex justify-content-center">
             <div className="header-top">
 
@@ -24,7 +24,7 @@ const HeaderTopWithRightMenu = (props) => {
             </RightMenu>
             <NotificationContainer />
         </div>
-        </UrlProvider>
+       </UrlProvider>
     );
 };
 

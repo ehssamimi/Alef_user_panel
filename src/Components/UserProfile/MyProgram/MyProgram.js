@@ -15,6 +15,7 @@ import {NotificationManager} from "react-notifications";
 import RequestSchedule from "./subs/RequestSchedule";
 import Loader from "../../Common/Loader/Loader";
 import WatingForPdf from "./subs/WatingForPdf";
+import UrlProvider from "../../Common/Context/UrlProvider";
 
 
 export default  function MySchedule(props) {
@@ -63,8 +64,10 @@ export default  function MySchedule(props) {
     return(
 
 
-            <HeaderTopWithRightMenu  {...props}>
+           //*<HeaderTopWithRightMenu  {...props}>*/}
                 <div className="mt-3 col-12 ml-auto mr-auto">
+
+
                     <HeaderNavigation content={{"main":"اطلاعات کاربری","branch":"برنامه مطالعاتی"}}/>
                     {
                         isLoder ?   // *******checking for submit form or get category Option is then loader start then loader close**********
@@ -88,10 +91,11 @@ export default  function MySchedule(props) {
                             </div>
                     }
 
+
                 </div>
 
 
-            </HeaderTopWithRightMenu>
+            // </HeaderTopWithRightMenu>
 
 
     )

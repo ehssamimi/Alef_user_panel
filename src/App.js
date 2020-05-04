@@ -20,6 +20,7 @@ import UrlProvider from "./Components/Common/Context/UrlProvider";
 import cookie from 'react-cookies'
 import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
 import MainRoute from "./Components/Common/MainRoute";
+import MainUser from "./Components/UserProfile/MainUser/MainUser";
 
 
 
@@ -80,12 +81,17 @@ function App() {
                           <Route path="/courses" component={ShowAllCourse}/>
                           <Route path="/course/:id"   component={MainCourses}/>
 
-                      <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={UserInfo}  />
+                      <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={MainUser}  />
 
                           {/*<Route path="/user-info" component={UserInfo}/>*/}
-                          <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={UserProfile}/>
-                          <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>
-                          <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>
+
+                          {/*<AuthRoute path="/user-profile" authUser={ User.isLogIn} component={UserProfile}/>*/}
+                          <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={MainUser}/>
+
+                          {/*<AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>*/}
+                          <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MainUser}/>
+                          {/*<AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>*/}
+                          <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MainUser}/>
                           <AuthLogin path="/login" authUser={ User.isLogIn} component={Login}/>
                           {/*<Route path="/login" component={Login}/>*/}
                           <Route path="/sign-up" component={SignUp}/>
