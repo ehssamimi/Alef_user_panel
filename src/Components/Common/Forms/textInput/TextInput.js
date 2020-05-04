@@ -31,7 +31,7 @@ export  function TextInput (props){
 
                 {/*<span className="red-color">{ (changeEdit||false?`(${nessaryLabel})`:"") }</span>*/}
              </Label>
-            <Input invalid={error.length > 0}  value={value} type={type} name={id} id={id} placeholder={placeholder} onChange={(e) =>onChange(`${e.target.value}`,id)}/>
+            <Input invalid={error.length > 0}  value={value||""} type={type} name={id} id={id} placeholder={placeholder} onChange={(e) =>onChange(`${e.target.value}`,id)}/>
             <FormFeedback>{error}</FormFeedback>
         </FormGroup>
     </div>
@@ -45,9 +45,9 @@ export  function SelectedInput (props){
                 <span>{ (is_required||false?'(اجباری)':"") }</span>
                 <span className="red-color">{ (changeEdit||false?'(اجباری)':"") }</span>
              </Label>
-            <Input invalid={error.length > 0} placeholder={placeholder} type={type} value={value} name={id} id={id}
+            <Input invalid={error.length > 0} placeholder={placeholder} type={type} value={value||""} name={id} id={id} disabled={props.disable}
                    onChange={(e) => onChange(`${e.target.value}`, id)}>
-                <span className="red-color fs13vw iconArrow"><FaAngleDown/></span>
+                {/*<span className="red-color fs13vw iconArrow"><FaAngleDown/></span>*/}
                 {options.map((item, index) => {
                     return (<option key={index}>{item}</option>)
                 })}

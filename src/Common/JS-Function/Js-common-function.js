@@ -50,6 +50,22 @@ export function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+export function checkCodeMeli(code) {
+
+    var L=code.length;
+
+    if(L<8 || parseInt(code,10)==0) return false;
+    code=('0000'+code).substr(L+4-10);
+    if(parseInt(code.substr(3,6),10)==0) return false;
+    var c=parseInt(code.substr(9,1),10);
+    var s=0;
+    for(var i=0;i<9;i++)
+        s+=parseInt(code.substr(i,1),10)*(10-i);
+    s=s%11;
+    return (s<2 && c==s) || (s>=2 && c==(11-s));
+    return true;
+}
+
 export function separate(Number)
 {
     Number+= '';
@@ -64,7 +80,16 @@ export function separate(Number)
 }
 export function getCity(ostan) {
     switch(ostan) {
-        case "اصفهان":
+        case null:
+            return city.entekhab;
+            break;
+            case "انتخاب استان":
+            return city.entekhab;
+            break;
+            case "اردبيل":
+            return city.Ardebil;
+            break;
+            case "اصفهان":
             return city.Esfahan;
             break;
         case "البرز":

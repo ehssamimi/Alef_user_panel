@@ -1,4 +1,5 @@
-export const country = ["اردبيل",
+export const country = ["انتخاب استان",
+    "اردبيل",
     "اصفهان",
     "البرز",
     "ايلام",
@@ -30,7 +31,8 @@ export const country = ["اردبيل",
     "همدان",
     "يزد",
 ];
-export const Ardebil=[ "اردبيل",
+export const Ardebil=[ "انتخاب شهر",
+    "اردبيل",
     "اصلاندوز",
    " آبي بيگلو",
     "بيله سوار",
@@ -55,7 +57,7 @@ export const Ardebil=[ "اردبيل",
     "هشتجين",
     "هير",
 ];
-export const Esfahan=[
+export const Esfahan=[ "انتخاب شهر",
     "ابريشم",
     "ابوزيدآباد",
     "اردستان",
@@ -156,7 +158,7 @@ export const Esfahan=[
     "ونك",
     "هرند",
 ];
-export const Alborz=[
+export const Alborz=[ "انتخاب شهر",
     "اشتهارد",
     "آسارا",
     "تنكمان",
@@ -175,7 +177,7 @@ export const Alborz=[
     "نظرآباد",
     "هشتگرد",
 ];
-export const Ilam=[
+export const Ilam=[ "انتخاب شهر",
     "اركواز",
     "ايلام",
     "ايوان",
@@ -198,7 +200,7 @@ export const Ilam=[
     "مهران",
     "ميمه",
 ];
-export const AzarbayjanSharghi=[
+export const AzarbayjanSharghi=[ "انتخاب شهر",
     "اسكو",
     "اهر",
     "ايلخچي",
@@ -258,7 +260,7 @@ export const AzarbayjanSharghi=[
     "هوراند",
     "يامچي",
 ];
-export const Azarbayjangharbi=[
+export const Azarbayjangharbi=[ "انتخاب شهر",
     "اروميه",
     "اشنويه",
     "ايواوغلي",
@@ -299,7 +301,7 @@ export const Azarbayjangharbi=[
     "نقده",
     "نوشين",
 ];
-export const Boshehr=[
+export const Boshehr=[ "انتخاب شهر",
     "امام حسن",
     "انارستان",
     "اهرم",
@@ -333,7 +335,7 @@ export const Boshehr=[
    " نخل تقي",
     "وحدتيه",
 ]
-export const Tehran=[
+export const Tehran=[ "انتخاب شهر",
     "ارجمند",
     "اسلامشهر",
     "انديشه",
@@ -375,7 +377,7 @@ export const Tehran=[
     "وحيديه",
     "ورامين",
 ];
-export const Charmahal=[
+export const Charmahal=[ "انتخاب شهر",
     "اردل",
     "آلوني",
     "باباحيدر",
@@ -404,7 +406,7 @@ export const Charmahal=[
     "نقنه",
     "هفشجان",
 ];
-export const KhorasanJonobi=[
+export const KhorasanJonobi=[ "انتخاب شهر",
     "ارسك",
     "اسديه",
     "اسفدن",
@@ -431,7 +433,7 @@ export const KhorasanJonobi=[
     "نهبندان",
     "نيمبلوك",
 ];
-export const KhorasanRazavi=[
+export const KhorasanRazavi=[ "انتخاب شهر",
     "احمدآبادصولت",
     "انابد",
     "باجگيران",
@@ -505,9 +507,7 @@ export const KhorasanRazavi=[
     "همت آباد",
     "يونسي",
 ];
-export const KhorasanShomali= [
-
-
+export const KhorasanShomali= [ "انتخاب شهر",
     "اسفراين",
     "ايور",
     "آشخانه",
@@ -527,7 +527,7 @@ export const KhorasanShomali= [
     "گرمه",
     "لوجلي",
     ];
-export const Khozestan=[
+export const Khozestan=[ "انتخاب شهر",
     "اروندكنار",
     "الوان",
     "اميديه",
@@ -591,7 +591,7 @@ export const Khozestan=[
     "هنديجان",
     "هويزه",
 ];
-export const zanjab=[
+export const zanjab=[ "انتخاب شهر",
     "ابهر",
     "ارمغانخانه",
     "آب بر",
@@ -613,7 +613,7 @@ export const zanjab=[
     "هيدج",
 
 ];
-export const semnan=[
+export const semnan=[ "انتخاب شهر",
     "اميريه",
     "ايوانكي",
     "آرادان",
@@ -632,7 +632,7 @@ export const semnan=[
     "مهدي شهر",
     "ميامي",
 ];
-export const Sistan=[
+export const Sistan=[ "انتخاب شهر",
     "اديمي",
     "اسپكه",
     "ايرانشهر",
@@ -671,7 +671,7 @@ export const Sistan=[
     "نيك شهر",
     "هيدوج",
 ];
-export const Fars=[
+export const Fars=[ "انتخاب شهر",
     "اردكان",
     "ارسنجان",
     "استهبان",
@@ -766,7 +766,7 @@ export const Fars=[
     "وراوي",
     "هماشهر",
 ];
-export const ghazvin=[
+export const ghazvin=[ "انتخاب شهر",
     "ارداق",
     "اسفرورين",
     "اقباليه",
@@ -793,7 +793,7 @@ export const ghazvin=[
    " معلم كلايه",
     "نرجه",
 ];
-export const Qom=[
+export const Qom=[ "انتخاب شهر",
     "جعفريه",
     "دستجرد",
     "سلفچگان",
@@ -801,7 +801,7 @@ export const Qom=[
     "قنوات",
     "كهك",
 ];
-export const Kordestan=[
+export const Kordestan=[ "انتخاب شهر",
     "آرمرده",
     "بابارشاني",
     "بانه",
@@ -828,7 +828,7 @@ export const Kordestan=[
     "موچش",
     "ياسوكند",
 ];
-export const Kerman=[
+export const Kerman=[ "انتخاب شهر",
     "اختيارآباد",
     "ارزوئيه",
    " امين شهر",
@@ -894,7 +894,7 @@ export const Kerman=[
     "هماشهر",
     "يزدان شهر",
 ];
-export const Kermanshah=[
+export const Kermanshah=[ "انتخاب شهر",
     "ازگله",
     "اسلام آبادغرب",
     "باينگان",
@@ -925,7 +925,7 @@ export const Kermanshah=[
     "هرسين",
     "هلشي",
 ];
-export const Kohkiloye=[
+export const Kohkiloye=[ "انتخاب شهر",
     "باشت",
     "پاتاوه",
     "چرام",
@@ -943,7 +943,7 @@ export const Kohkiloye=[
     "مارگون",
     "ياسوج",
 ];
-export const Golestan=[
+export const Golestan=[ "انتخاب شهر",
     "انبارآلوم",
     "اينچه برون",
     "آزادشهر",
@@ -972,7 +972,7 @@ export const Golestan=[
 
 
 ];
-export const Gilan=[
+export const Gilan=[ "انتخاب شهر",
     "احمدسرگوراب",
     "اسالم",
     "اطاقور",
@@ -1025,7 +1025,7 @@ export const Gilan=[
     "واجارگاه",
     "هشتپر",
 ];
-export const Lorestan=[
+export const Lorestan=[ "انتخاب شهر",
     "ازنا",
     "اشترينان",
     "الشتر",
@@ -1052,7 +1052,7 @@ export const Lorestan=[
     "ويسيان",
     "هفت چشمه",
 ];
-export const Mazandaran=[
+export const Mazandaran=[ "انتخاب شهر",
     "اميركلا",
     "ايزدشهر",
     "آلاشت",
@@ -1106,7 +1106,7 @@ export const Mazandaran=[
     "نور",
     "نوشهر",
 ];
-export const Markazi=[
+export const Markazi=[ "انتخاب شهر",
     "اراك",
     "آستانه",
     "آشتيان",
@@ -1139,7 +1139,7 @@ export const Markazi=[
     "نيمور",
     "هندودر"
 ];
-export const Hormozgan=[
+export const Hormozgan=[ "انتخاب شهر",
     "ابوموسي",
     "بستك",
     "بندرجاسك",
@@ -1173,7 +1173,7 @@ export const Hormozgan=[
     "هرمز",
     "هشتبندي"
 ];
-export const Hamedan=-[
+export const Hamedan=-[ "انتخاب شهر",
     "ازندريان",
     "اسدآباد",
     "برزول",
@@ -1202,7 +1202,7 @@ export const Hamedan=-[
     "نهاوند",
     "همدان"
 ];
-export const Yazd=[
+export const Yazd=[ "انتخاب شهر",
     "ابركوه",
     "احمدآباد",
     "اردكان",
@@ -1227,6 +1227,10 @@ export const Yazd=[
     "نير",
     "هرات",
     "يزد",
+];
+export const entekhab=[
+    "انتخاب شهر",
+
 ];
 
 
