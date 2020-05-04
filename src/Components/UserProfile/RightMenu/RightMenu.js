@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import profile from './../../../Common/img/profile.jpg'
+import profile from './../../../Common/img/profile.png'
 import active from './../../../Common/img/white_selector.png'
 import { GiGraduateCap } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
@@ -153,16 +153,16 @@ export default function RightMenu (props){
                                     }
                                 </li>
 
-                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem " onClick={handelExit}>
+                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem "  onClick={handelExit} >
+
                                     {
                                         selected === "exit" ?
                                             <div className="w-100 h-100 position-relative"  >
                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><FiLogOut /> </span>خروج</span>
                                             </div> :
-                                            <div className="w-100 h-100 position-relative text-white "
-                                                 onClick={() => setselected("user-profile")}>
-                                                <Link to="/user-profile">
+                                            <div className="w-100 h-100 position-relative text-white ">
+                                                <Link to="/exit"   onClick={() => setselected("exit")}>
                                                     <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><FiLogOut /> </span>خروج</span>
                                                 </Link>
                                             </div>

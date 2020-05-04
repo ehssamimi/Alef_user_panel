@@ -4,6 +4,7 @@ import MyCourse from "../MyCourse/MyCourse";
 import MySchedule from "../MyProgram/MyProgram";
 import UserProfile from "../UserProfilew/UserProfile";
 import UserInfo from "../UserInfo/UserInfo";
+import Exit from "../Exit/Exit";
 
 const MainUser = (props) => {
     const {match: {params}} = props;
@@ -30,6 +31,9 @@ const MainUser = (props) => {
                      }
                      {
                         props.match.path==="/user-info"?<UserInfo {...props}/>:""
+                     }
+                     {
+                        props.match.path==="/exit"?<Exit {...props}/>:""
                      }
                 </div>
 

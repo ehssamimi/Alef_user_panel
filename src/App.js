@@ -21,6 +21,7 @@ import cookie from 'react-cookies'
 import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
 import MainRoute from "./Components/Common/MainRoute";
 import MainUser from "./Components/UserProfile/MainUser/MainUser";
+import Exit from "./Components/UserProfile/Exit/Exit";
 
 
 
@@ -92,6 +93,7 @@ function App() {
                           <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MainUser}/>
                           {/*<AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>*/}
                           <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MainUser}/>
+                          <AuthRoute path="/exit" authUser={ User.isLogIn} component={MainUser}/>
                           <AuthLogin path="/login" authUser={ User.isLogIn} component={Login}/>
                           {/*<Route path="/login" component={Login}/>*/}
                           <Route path="/sign-up" component={SignUp}/>
