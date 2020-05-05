@@ -6,11 +6,14 @@ import validator from "validator";
 import {GetLogin, GetUserDropDown, GetVerifycationCode, Regestry} from "../../Common/Const/ServerConnection";
 import {NotificationContainer, NotificationManager} from "react-notifications";
 import {validatephoneNumber} from "../functions/componentHelpFunction";
+import RestricSignUp from "../Common/RestricSignUp/RestricSignUp";
+import ModalCustomVideo from "../Common/Modal/ModalCustom";
 String.prototype.toEnglishDigit = function() { var find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']; var replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; var replaceString = this; var regex; for (var i = 0; i < find.length; i++) { regex = new RegExp(find[i], "g"); replaceString = replaceString.replace(regex, replace[i]); } return replaceString; };
 const FormLogin = (props) => {
-
+    const   [isOpen,setIsOpen]= useState(false);
     let{header,subHeader ,btn_txt,handelType,handelChangeForm,loading}=props;
     const [values, setvalues] = useState({ "phoneNumber":""});
+
 
     const [error, seterror] = useState({ "phoneNumber":""});
 
@@ -117,9 +120,12 @@ const FormLogin = (props) => {
                                 </button>
                                 {
                                     handelChangeForm === undefined ? "" :
-                                        <p className="mt-3 FsFooterLogin">ثبت نام نکرده اید ؟<span onClick={() => {
-                                            handelChangeForm("signUp")
-                                        }} className="mt-2 cursor-pointer font-weight-bold">همین حالا ثبت نام کنید</span></p>
+                                        <p className="mt-3 FsFooterLogin">ثبت نام نکرده اید ؟<span
+                                            // onClick={() => {handelChangeForm("signUp")}}
+                                            onClick={()=>setIsOpen(!isOpen)}
+
+
+                                            className="mt-2 cursor-pointer font-weight-bold">همین حالا ثبت نام کنید</span></p>
                                 }
                             </Form>
 
@@ -129,6 +135,8 @@ const FormLogin = (props) => {
                 </div>
             </div>
 
+            <RestricSignUp isOpen={isOpen} toggle={()=>setIsOpen(!isOpen)} text={"متاسفانه در حال حاظر امکان ثبت نام وجود ندارد لطفا با پشتیبانی تماس بگیرید "}/>
+            
             <NotificationContainer />
         </div>
     );
