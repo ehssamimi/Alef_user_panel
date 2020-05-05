@@ -121,8 +121,8 @@ const FormLogin = (props) => {
                                 {
                                     handelChangeForm === undefined ? "" :
                                         <p className="mt-3 FsFooterLogin">ثبت نام نکرده اید ؟<span
-                                            // onClick={() => {handelChangeForm("signUp")}}
-                                            onClick={()=>setIsOpen(!isOpen)}
+                                            onClick={() => {handelChangeForm("signUp")}}
+                                            // onClick={()=>setIsOpen(!isOpen)}
 
 
                                             className="mt-2 cursor-pointer font-weight-bold">همین حالا ثبت نام کنید</span></p>
@@ -136,7 +136,7 @@ const FormLogin = (props) => {
             </div>
 
             <RestricSignUp isOpen={isOpen} toggle={()=>setIsOpen(!isOpen)} text={"متاسفانه در حال حاظر امکان ثبت نام وجود ندارد لطفا با پشتیبانی تماس بگیرید "}/>
-            
+
             <NotificationContainer />
         </div>
     );

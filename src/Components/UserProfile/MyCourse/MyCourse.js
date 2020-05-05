@@ -8,6 +8,8 @@ import {GetMyCourse} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
 import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
 import UrlProvider from "../../Common/Context/UrlProvider";
+import ModalCustomVideo from "../../Common/Modal/ModalCustom";
+import { CardBody} from "reactstrap";
 
 
 export default  function MyCourse(props) {
@@ -70,6 +72,17 @@ export default  function MyCourse(props) {
                                             chapters.length>0?<CarouselMain files={chapters} header={"فصل های من "} type="Course" kind={"chapter"}/>:""
                                         }
                                      </div>
+
+                                     {
+                                         Courses.length===0&& Lessons.length===0&&chapters.length===0?
+                                             // box-shadow-custom
+                                             <CardBody className="w-100 shadow ">
+                                                 <div className=" d-flex flex-column justify-content-center  align-items-center FssubmitLogin text-left p-4 " style={{minHeight:"250px"}}>
+                                                   دروه ای در حال حاظر برای شما فعال نیست
+                                                 </div>
+                                             </CardBody>
+                                       :""
+                                     }
                                 </div>
                             </div>
                     }
