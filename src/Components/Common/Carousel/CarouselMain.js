@@ -22,6 +22,7 @@ import { useHistory } from 'react-router-dom';
 import {NotificationManager} from "react-notifications";
 import RestricBuyModal from "../RestricBuyModal/RestricBuyModal";
 import ModalCustomVideo from "../Modal/ModalCustom";
+import {TweenMax} from "gsap/TweenMax";
 
 const useStyles = makeStyles({
     root: {
@@ -174,9 +175,9 @@ const CourseCarsMain = (props) => {
 
     }
 
-    console.log( "price" );
-    console.log(parseInt(price));
-    console.log( price );
+    // console.log( "price" );
+    // console.log(parseInt(price));
+    // console.log( price );
 
 
 
@@ -271,7 +272,26 @@ const ButtonGroup = ({ next, previous, goToSlide , ...rest }) => {
 
 
 export  function CarouselMain(props) {
-    // console.log(props)
+    const [isMobile, SetIsMobile] = useState(true);
+
+    function windowsDimention(){
+        const Width = window.outerWidth;
+
+        if (Width <= 768) {
+            SetIsMobile(true)
+
+        } else {
+            SetIsMobile(false)
+        }
+    }
+
+    useEffect(() => {
+        windowsDimention();
+        window.addEventListener("resize",windowsDimention)
+        return ()=>window.removeEventListener("resize",windowsDimention)
+    }, []);
+
+
 
 
 
@@ -285,9 +305,10 @@ export  function CarouselMain(props) {
             additionalTransfrom={0}
              autoPlaySpeed={3000}
             centerMode={false}
-            className={['pt-5', props.files.length>2?"":"d-flex justify-content-end"  ].join(' ')}
+            className={['pt-5', (props.files.length>2 || isMobile)?"":"d-flex justify-content-end"  ].join(' ')}
+            // className={["pt-5   "  ]}
             containerClass="container-with-dots"
-            customButtonGroup={props.files.length>2?<ButtonGroup />:""}
+            customButtonGroup={(props.files.length>2 || isMobile)?<ButtonGroup />:""}
             // customDot={<CustomDot />}
             arrows={false}
             dotListClass=""
