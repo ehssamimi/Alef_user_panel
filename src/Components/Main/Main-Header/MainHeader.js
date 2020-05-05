@@ -18,6 +18,9 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap';
+import {LogOut} from "../../../Common/Const/ServerConnection";
+import cookie from "react-cookies";
+import {NotificationManager} from "react-notifications";
 
 export default function MainHeader (props){
     const User=useContext(UserContext);
@@ -32,11 +35,37 @@ export default function MainHeader (props){
     if (localStorage.getItem("user_alef")) {
        UserSumery=localStorage.getItem("user_alef").split(",")
     }
+    const handelExit=async ()=>{
+        setactive("course");
+        let {state ,Description}=await LogOut();
+        if (state===200 ) {
+             cookie.remove('basket', { path: '/' });
+            localStorage.clear();
+            // NotificationManager.success(state, Description);
+            let home= document.getElementById("gohome");
+            home.click()
+            // props.history.push('/');
+            // return <Redirect to={'/'} />
+
+        } else {
+
+            NotificationManager.error(state, Description);
+
+            // setisLoder(false);
+            // error_Notification(state,Description)
+        }
+
+    }
 
 
     useEffect(()=>{
         switch (Url_context) {
-            case  'user-profile' :
+            case  'exit' :
+
+                setactive("exit");
+                setUser(true);
+                break;
+                case  'user-profile' :
 
                 setactive("user-profile");
                 setUser(true);
@@ -150,28 +179,41 @@ export default function MainHeader (props){
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 <DropdownItem>
-                                                    <li className={active === "my-course" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                                    <li className={active === "my-course" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
+                                                        onClick={() => setactive("course")}>
                                                         <Link className="nav-link" to="/my-course">
                                                             دوره های من
                                                         </Link>
                                                     </li>
 
                                                 </DropdownItem>
-                                                <DropdownItem divider />
+                                                <DropdownItem divider/>
                                                 <DropdownItem>
-                                                    <li className={active === "my-schedule" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                                    <li className={active === "my-schedule" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
+                                                        onClick={() => setactive("course")}>
                                                         <Link className="nav-link" to="/my-schedule">
                                                             برنامه های من
                                                         </Link>
                                                     </li>
 
                                                 </DropdownItem>
-                                                <DropdownItem divider />
+                                                <DropdownItem divider/>
                                                 <DropdownItem>
 
-                                                    <li className={active === "user-profile" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"} onClick={()=>setactive("course")}>
+                                                    <li className={active === "user-profile" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
+                                                        onClick={() => setactive("course")}>
                                                         <Link className="nav-link  " to="/user-profile">
                                                             پروفایل کاربری
+                                                        </Link>
+                                                    </li>
+
+                                                </DropdownItem>
+                                                <DropdownItem>
+
+                                                    <li  onClick={handelExit} className={active === "user-profile" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
+                                                        >
+                                                        <Link className="nav-link  " to="/exit">
+                                                            خروج
                                                         </Link>
                                                     </li>
 
