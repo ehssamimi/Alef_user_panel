@@ -35,7 +35,7 @@ export default  function MySchedule(props) {
 
             } else {
                 setisLoder(false);
-                NotificationManager.success(state, Description);
+                NotificationManager.error(state, Description);
                 // setisLoder(false);
                 // error_Notification(state,Description)
             }

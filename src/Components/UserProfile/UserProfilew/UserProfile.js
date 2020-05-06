@@ -37,9 +37,7 @@ export default function UserProfile (props){
                 localStorage.setItem("user_alef",ItemValue);
                 setisLoder(false);
             } else {
-                console.log("errorrrrrrrrrrrrr");
-                console.log(state, Description);
-                NotificationManager.error(state, Description);
+                 NotificationManager.error(state, Description);
             }
 
         }

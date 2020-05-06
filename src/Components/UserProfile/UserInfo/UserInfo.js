@@ -86,7 +86,7 @@ export default function UserInfo(props) {
                 setOptions(option);
 
             } else {
-                NotificationManager.success(state, Description);
+                NotificationManager.error(state, Description);
                 // setisLoder(false);
                 // error_Notification(state,Description)
             }
@@ -111,7 +111,7 @@ export default function UserInfo(props) {
                 setDefaultValue(values);
                 setImgValue({data:values.profile_img,file:null});
             } else {
-                NotificationManager.success(state, Description);
+                NotificationManager.error(state, Description);
                 setisLoder(false);
             }
             // console.log(UserDropDown)

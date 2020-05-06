@@ -1,5 +1,6 @@
 import * as Const from "./ServerConst";
 import axios from "axios";
+import cookie from "react-cookies";
 
 export async  function  GetUserDropDown( ){
 
@@ -158,14 +159,7 @@ export async  function  GetUserProfile(){
         console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 }
@@ -234,16 +228,7 @@ export async  function  getprofile( ){
         // console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 }
@@ -261,14 +246,7 @@ export async  function  UploadProfileImg(file){
         console.log(response);
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp
 }
@@ -292,17 +270,7 @@ export async  function  UpdateProfile(Data){
         resp={state:200,Description:response.data};
 
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        console.log(error.message);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:error.response.data.detail[0].msg}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 }
@@ -325,16 +293,7 @@ export async  function  GetUserschedule(Data){
         resp={state:200,Description:response.data};
 
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 }
@@ -355,16 +314,7 @@ export async  function  RequestUserschedule( ){
         resp={state:200,Description:response.data};
 
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 }
@@ -385,16 +335,7 @@ export async  function  GetMyCourse( ){
         resp={state:200,Description:response.data};
 
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+          resp=Error(error)
     });
     return resp;
 }
@@ -410,16 +351,7 @@ export async  function  VerifyParentCode( code){
         console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        }else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        } else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 };
@@ -437,16 +369,7 @@ export async  function  GetVerifyParentCode( phoneNumber){
         // console.log(response.data.code );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        }else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        } else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 }
@@ -462,16 +385,7 @@ export async  function  ResendParentCode(){
         console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        }else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        } else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 };
@@ -487,16 +401,7 @@ export async  function  LogOut(){
         console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        }else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        } else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
     });
     return resp;
 };
@@ -520,22 +425,37 @@ export async  function  CourseBuy(Data){
         resp={state:200,Description:response.data};
 
     }).catch(function (error) {
-        console.log(error.response);
-        console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        } else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        }else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
+
     });
     return resp;
 }
 
 
+function Error(error) {
+    console.log(error.response);
 
+    console.log(error);
+    var resp ="";
+    if (error.response.status===400) {
+        resp={state: 400,Description: error.response.data.detail}
+        if (error.response.data.detail==="access denied") {
+            console.log("we are out !!!!!!!!!!");
+            cookie.remove('basket', { path: '/' });
+            localStorage.clear();
+            window.location.reload();
+        }
+
+    }else if (error.response===undefined){
+        resp={state: 400,Description: error.message}
+
+    } else if (error.response.status===422){
+        resp={state:422,Description:error.response.statusText}
+    }else{
+        resp={state:error.response.status||400,Description:error.response.data.detail||error.message}
+    }
+    return resp;
+}
 
 // export async  function  GetAllPermission(page_number){
 //

@@ -35,7 +35,7 @@ export default  function MyCourse(props) {
 
             } else {
 
-                NotificationManager.success(state, Description);
+                NotificationManager.error(state, Description);
 
             }
 
