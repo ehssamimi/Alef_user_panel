@@ -223,9 +223,10 @@ export default function UserInfo(props) {
                 if (values.ID!=="" && values.ID!==null){
                         Data["personal_info"]["ssn"]=values.ID;
                 }
-
+                console.log("values.fields")
+                console.log(values.fields)
                 if (values.fields!=="" && values.fields!==null){
-                        Data["education"]["fields"]=values.fields;
+                        Data["education"]["field"]=values.fields;
                 }
                 if (values.average_num!=="" && values.average_num!==null){
                         Data["education"]["gpa"]=values.average_num;
@@ -260,7 +261,7 @@ export default function UserInfo(props) {
                 }
                 console.log(Data);
 
-
+                //
                 let {state, Description}=await UpdateProfile(JSON.stringify(Data));
                 console.log(Description);
                 if (Description.message==="parent_phone_changed"){
