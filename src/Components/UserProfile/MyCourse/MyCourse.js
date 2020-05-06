@@ -90,7 +90,7 @@ export default  function MyCourse(props) {
                             </div>
                     }
             {/*</HeaderTopWithRightMenu>*/}
-            <RestricSignUp isOpen={isOpen} toggle={()=>setIsOpen(!isOpen)} text={local}/>
+            {/*<RestricSignUp isOpen={isOpen} toggle={()=>setIsOpen(!isOpen)} text={local}/>*/}
 
         </div>
     )
