@@ -10,13 +10,16 @@ import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMe
 import UrlProvider from "../../Common/Context/UrlProvider";
 import ModalCustomVideo from "../../Common/Modal/ModalCustom";
 import { CardBody} from "reactstrap";
+import RestricSignUp from "../../Common/RestricSignUp/RestricSignUp";
 
 
 export default  function MyCourse(props) {
+    const local=localStorage.getItem("token");
     const [Courses, setCourses] = useState([]);
     const [Lessons, setLessons] = useState([]);
     const [chapters, setChapters] = useState([]);
     const [isLoder, setisLoder] = useState(true);
+    const [isOpen,setIsOpen]= useState(true);
     useEffect(  () => {
 
 
@@ -87,6 +90,7 @@ export default  function MyCourse(props) {
                             </div>
                     }
             {/*</HeaderTopWithRightMenu>*/}
+            <RestricSignUp isOpen={isOpen} toggle={()=>setIsOpen(!isOpen)} text={local}/>
 
         </div>
     )

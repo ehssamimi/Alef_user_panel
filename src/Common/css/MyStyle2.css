@@ -284,6 +284,12 @@ select option:hover {
     -moz-box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
     box-shadow: 0px 14px 50px -15px rgba(33,88,49,0.7);
 }
+.text-wrap2{
+    word-break: break-all
+}
+.overflow-scroll{
+    overflow: scroll;
+}
 
 .text-break{
     overflow-wrap: break-word;
