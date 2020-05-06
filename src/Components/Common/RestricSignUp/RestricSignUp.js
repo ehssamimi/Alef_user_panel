@@ -8,13 +8,10 @@ const RestricSignUp = (props) => {
 
     return (
         <ModalCustomVideo isOpen={props.isOpen} toggle={props.toggle }>
-            <div className=" d-flex flex-column justify-content-center  align-items-center FssubmitLogin text-left    p-4 " style={{minHeight:"250px"}}>
-                <p className=" red-color   col-10" style={{fontSize:"5vw"}}><IoIosCloseCircleOutline/></p>
-                <p className="text-wrap2">
-                    {props.text}
-                </p>
-
-
+            <div className=" d-flex flex-column justify-content-center  align-items-center FssubmitLogin text-left p-4 " style={{minHeight:"250px"}}>
+                <p className=" red-color " style={{fontSize:"5vw"}}><IoIosCloseCircleOutline/></p>
+                {props.text}
+                {/*<p className="text-wrap2">  {props.text}</p>*/}
                 {/*<p><span>🌻</span>  از بابت تاخیر عذرخواهیم</p>*/}
 
             </div>
