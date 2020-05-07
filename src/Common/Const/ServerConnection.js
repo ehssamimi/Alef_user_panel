@@ -159,7 +159,28 @@ export async  function  GetUserProfile(){
         console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        resp=Error(error)
+        console.log(error.response);
+
+        console.log(error);
+
+        if (error.response.status===400) {
+            resp={state: 400,Description: error.response.data.detail}
+            // if (error.response.data.detail==="access denied") {
+            //     console.log("we are out !!!!!!!!!!");
+            //     cookie.remove('basket', { path: '/' });
+            //     localStorage.clear();
+            //     window.location.reload();
+            // }
+
+        }else if (error.response===undefined){
+            resp={state: 400,Description: error.message}
+
+        } else if (error.response.status===422){
+            resp={state:422,Description:error.response.statusText}
+        }else{
+            resp={state:error.response.status||400,Description:error.response.data.detail||error.message}
+        }
+
     });
     return resp;
 }
@@ -228,7 +249,27 @@ export async  function  getprofile( ){
         // console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
-        resp=Error(error)
+        console.log(error.response);
+
+        console.log(error);
+
+        if (error.response.status===400) {
+            resp={state: 400,Description: error.response.data.detail}
+            // if (error.response.data.detail==="access denied") {
+            //     console.log("we are out !!!!!!!!!!");
+            //     cookie.remove('basket', { path: '/' });
+            //     localStorage.clear();
+            //     window.location.reload();
+            // }
+
+        }else if (error.response===undefined){
+            resp={state: 400,Description: error.message}
+
+        } else if (error.response.status===422){
+            resp={state:422,Description:error.response.statusText}
+        }else{
+            resp={state:error.response.status||400,Description:error.response.data.detail||error.message}
+        }
     });
     return resp;
 }

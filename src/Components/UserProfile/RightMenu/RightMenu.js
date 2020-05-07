@@ -19,17 +19,32 @@ import cookie from 'react-cookies';
 export default function RightMenu (props){
     const Url_context=useContext(UrlContext);
      const [selected, setselected] = useState("my-course");
-    let UserSumery="";
-    if (localStorage.getItem("user_alef")) {
-        UserSumery=localStorage.getItem("user_alef").split(",")
-    }
+     const [UserSumery, setUserSumery] = useState("");
+
+
 
 
 
 
      useEffect(()=>{
+         if (localStorage.getItem("user_alef")) {
+             setUserSumery(localStorage.getItem("user_alef").split(","))
+         } else {
 
-         console.log("user_alef")
+             setTimeout(function () {
+                 if (localStorage.getItem("user_alef")) {
+                     setUserSumery(localStorage.getItem("user_alef").split(","))
+                 } else {
+
+                     setTimeout(function () {
+                         if (localStorage.getItem("user_alef")) {
+                             setUserSumery(localStorage.getItem("user_alef").split(","))
+                         }
+                     }, 2000);
+                 }
+             }, 2000);
+         }
+         console.log("user_alef");
          // console.log(Url_context)
          // console.log(props.match.path)
          console.log(props.match.path.split("/"))
@@ -52,7 +67,7 @@ export default function RightMenu (props){
 
              }
 
-     });
+     },[]);
      const handelExit=async ()=>{
          setselected("exit");
          let {state ,Description}=await LogOut();
@@ -89,8 +104,8 @@ export default function RightMenu (props){
                             </div>
                         </div>
                         <div className="d-flex justify-content-center align-items-center flex-column text-center" >
-                            <p className="text-white FsFooterLogin  m-0 pt-3 ">{UserSumery[0]||"name"} </p>
-                            <p className="text-white  FsFooterLogin m-0 pt-2 font-weight-light">{UserSumery[2]||"grade"}</p>
+                            <p className="text-white FsFooterLogin  m-0 pt-3 ">{UserSumery[0]||"نام"} </p>
+                            <p className="text-white  FsFooterLogin m-0 pt-2 font-weight-light">{UserSumery[2]||"پایه"}</p>
                         </div>
                     </div>
 
