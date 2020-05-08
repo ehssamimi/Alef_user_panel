@@ -59,7 +59,7 @@ const PreModal=(props)=>{
             </div>
             <div className=" d-flex justify-content-center">
                 {/*<p className="pt-2 pb-0 second-color ">بخش {index+1} {name}</p>*/}
-                <p className="pt-2 pb-0 second-color ">    <span className="pl-2">بخش</span>{ name}</p>
+                <p className="pt-2 pb-0 second-color ">    <span className="pr-2">بخش</span>{ name}</p>
             </div>
 
 
