@@ -5,8 +5,7 @@ import {formatNumber} from "../../../../../Common/JS-Function/Js-common-function
 import ShowMoreDescription from "../ShowMoreDescription/ShowMoreDescription";
 import {FiDownload} from "react-icons/fi";
 import HeaderCourse from "../../HeaderCourse/HeaderCourse";
-import voice from './../../../../../Common/img/Amir Tataloo - HaramSara (128).mp3'
-
+ 
 const TopCourseDetail = (props) => {
 let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,schedule,off,price}=props
 
