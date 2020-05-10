@@ -1,24 +1,20 @@
 import React, {useState, useContext, useEffect} from 'react';
-import {SelectedInput, TextInput} from "../Common/Forms/textInput/TextInput";
-import {Col, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText, Label} from "reactstrap";
+import {  TextInput} from "../Common/Forms/textInput/TextInput";
+import {Col, Form } from "reactstrap";
 import validator from "validator";
 import {
-    GetUserDropDown,
-    GetVerifycationCode,
-    Regestry,
     ResendVerifycationCode, Verify
 } from "../../Common/Const/ServerConnection";
 import {NotificationContainer, NotificationManager} from "react-notifications";
 import {UserContext} from "../Common/Context/UserProvider";
-import {useHistory} from "react-router-dom";
-const VerificationState = (props) => {
+ const VerificationState = (props) => {
     let User=useContext(UserContext);
-    let{header,subHeader ,btn_txt,type,handelChangeForm,loading}=props;
+    let{header,subHeader ,btn_txt,type,loading}=props;
     const [values, setvalues] = useState({"verificationCode": "" });
 
     const [error, seterror] = useState({"verificationCode":"" });
     const [count, setCount] = useState( 60  );
-    const history = useHistory();
+
 
     useEffect(  () => {
 
@@ -66,15 +62,15 @@ const VerificationState = (props) => {
 
 
 
-                console.log("کد فعال سازی");
-                console.log( "type : "+type);
-                console.log( "phoneNumber : "+localStorage.getItem("phoneNumber_K"));
-                console.log( "cooe : "+VerificationCode);
+                // console.log("کد فعال سازی");
+                // console.log( "type : "+type);
+                // console.log( "phoneNumber : "+localStorage.getItem("phoneNumber_K"));
+                // console.log( "cooe : "+VerificationCode);
                 loading(100,1);
 
 
                 let {state ,Description} = await Verify(type,localStorage.getItem("phoneNumber_K"),VerificationCode);
-                console.log(state ,Description);
+                // console.log(state ,Description);
 
                  if (state===200 ) {
                     localStorage.setItem("token",Description.token);
@@ -94,8 +90,8 @@ const VerificationState = (props) => {
                  }
 
             }else {
-                console.log( 'error' )
-                console.log( error )
+                // console.log( 'error' )
+                // console.log( error )
             }
         })
 

@@ -5,8 +5,7 @@ import { TweenMax} from "gsap/TweenMax";
 import  { Link } from 'react-router-dom'
 
 import FormLogin from "./FormLogin";
-import UserInfo from "../UserProfile/UserInfo/UserInfo";
-import FormSignUp from "./FormSignUp";
+ import FormSignUp from "./FormSignUp";
 
 import VerificationState from "./VerificationState";
 const Login = (props) => {

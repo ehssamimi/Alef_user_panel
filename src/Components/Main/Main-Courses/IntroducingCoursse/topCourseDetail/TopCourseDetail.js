@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import PlayVideo169 from "../../../../Common/VideoPlayerComponents/PlayVideo/PlayVideo";
-import profile from "../../../../../Common/img/profile.jpg";
-import CourseCarsBuy from "../CourseCardBuy/CourseCardBuy";
+ import CourseCarsBuy from "../CourseCardBuy/CourseCardBuy";
 import {formatNumber} from "../../../../../Common/JS-Function/Js-common-function";
 import ShowMoreDescription from "../ShowMoreDescription/ShowMoreDescription";
 import {FiDownload} from "react-icons/fi";
 import HeaderCourse from "../../HeaderCourse/HeaderCourse";
-import HeaderTop from "../../../../Common/Header-top/HeaderTop";
+import voice from './../../../../../Common/img/Amir Tataloo - HaramSara (128).mp3'
 
 const TopCourseDetail = (props) => {
 let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,schedule,off,price}=props

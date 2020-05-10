@@ -331,11 +331,7 @@ select option:hover {
     color: #67796c !important;;
 }
 
-.img-cover-preLoader{
-    position: absolute;
-    top: 25%;
-    right: 35%;
-}
+
 .filter-img-course{
     /*-webkit-filter: sepia(30%) hue-rotate(70deg) saturate(200%)  brightness(0.4)  ;*/
     /*filter: sepia(30%) hue-rotate(70deg) saturate(200%)  brightness(0.4)  ;*/
@@ -374,8 +370,8 @@ select option:hover {
 
     width: calc(2rem + 3.5vw) !important;
     height: calc(2rem + 3.5vw) !important;
-    min-width: 3rem!important;
-    min-height: 3rem!important;
+    min-width: calc(2rem + 3.5vw)!important;
+    min-height:  calc(2rem + 3.5vw)!important;
 
 }
 .min-h-100vh{
@@ -505,8 +501,10 @@ select option:hover {
         right: 0%;
         width: 10%;
     }
-    .hidden-sm{
-            ;
+    .img-cover-preLoader{
+        position: absolute;
+        top: 22%;
+        right: 27%;
     }
 
 
@@ -606,6 +604,11 @@ select option:hover {
         right: 20%;
         width: 40%;
     }
+    .img-cover-preLoader{
+        position: absolute;
+        top: 22%;
+        right: 27%;
+    }
 
 
 }
@@ -674,6 +677,11 @@ select option:hover {
         top: 80%;
         right: 20%;
         width: 40%;
+    }
+    .img-cover-preLoader{
+        position: absolute;
+        top: 22%;
+        right: 17%;
     }
 
 
@@ -745,6 +753,11 @@ select option:hover {
         right: 20%;
         width: 40%;
     }
+    .img-cover-preLoader{
+        position: absolute;
+        top: 25%;
+        right: 28%;
+    }
 
 }
 
@@ -813,6 +826,11 @@ select option:hover {
         top: 80%;
         right: 20%;
         width: 40%;
+    }
+    .img-cover-preLoader{
+        position: absolute;
+        top: 25%;
+        right: 30%;
     }
 
 }

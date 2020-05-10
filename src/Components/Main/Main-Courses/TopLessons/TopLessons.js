@@ -41,9 +41,9 @@ export default function TopLessons (props){
                                     }
                                     {
                                         off !== 0 ? <span
-                                                className='header-color       '>{formatNumber(price - (price * off))} تومن  </span> :
+                                                className='header-color   FssubmitLogin    '>{formatNumber(price - (price * off))} تومن  </span> :
                                             <span
-                                                className='header-color   fs15rem   '>{formatNumber(price)} تومن  </span>
+                                                className='header-color   FssubmitLogin   '>{formatNumber(price)} تومن  </span>
                                     }
 
 

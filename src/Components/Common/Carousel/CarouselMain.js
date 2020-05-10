@@ -4,25 +4,21 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import VideoPlayerMain from "../VideoPlayerComponents/VideoPlayerMain";
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
+ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import  Play from'./../../../Common/img/play_on_video.png'
 import  lock from'./../../../Common/img/lock_on_video.png'
-import {formatNumber, separate} from "../../../Common/JS-Function/Js-common-function";
+import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
 import {Link} from "react-router-dom";
-import ax1 from "../../../Common/img/arno-smit-sKJ7zSylUao-unsplash.jpg";
-import {CourseBuy} from "../../../Common/Const/ServerConnection";
+ import {CourseBuy} from "../../../Common/Const/ServerConnection";
 import { useHistory } from 'react-router-dom';
 import {NotificationManager} from "react-notifications";
 import RestricBuyModal from "../RestricBuyModal/RestricBuyModal";
-import ModalCustomVideo from "../Modal/ModalCustom";
-import {TweenMax} from "gsap/TweenMax";
+ import {TweenMax} from "gsap/TweenMax";
 
 const useStyles = makeStyles({
     root: {
@@ -34,7 +30,7 @@ const useStyles = makeStyles({
 });
 
 const PreModal=(props)=>{
-    let{img,is_locked,toggle,name,video,audio,video_cover,description ,index,items}=props;
+    let{is_locked,toggle,name,video_cover ,index,items}=props;
 
 
     let main={index:index,items:items};
@@ -59,7 +55,7 @@ const PreModal=(props)=>{
             </div>
             <div className=" d-flex justify-content-center">
                 {/*<p className="pt-2 pb-0 second-color ">بخش {index+1} {name}</p>*/}
-                <p className="pt-2 pb-0 second-color ">    <span className="pr-2">بخش</span>{ name}</p>
+                <p className="pt-2 pb-0 second-color " dir="rtl">   <p className="pr-2 d-inline-block">بخش</p>{ name}</p>
             </div>
 
 
@@ -216,10 +212,10 @@ const CourseCarsMain = (props) => {
 
                 </div>
 
-                <div >
+                <div className="col-12 mt-2">
                     {/*<span className="second-color">{grade} </span>*/}
                     {/*<span className="second-color"> {field? "|"+ field:""} </span>*/}
-                    <span className="second-color pl-2"> {field } </span>
+                    <span className="second-color "> {field } </span>
                 </div>
             </CardContent>
 
@@ -306,8 +302,7 @@ export  function CarouselMain(props) {
              autoPlaySpeed={3000}
             centerMode={false}
             className={['pt-5', (props.files.length>2 || isMobile)?"":"d-flex justify-content-end"  ].join(' ')}
-            // className={["pt-5   "  ]}
-            containerClass="container-with-dots"
+             containerClass="container-with-dots"
             customButtonGroup={(props.files.length>2 || isMobile)?<ButtonGroup />:""}
             // customDot={<CustomDot />}
             arrows={false}
@@ -360,9 +355,6 @@ export  function CarouselMain(props) {
                             props.type==="Course"?  <CourseCard {...item} kind={props.kind}/>: ""
                         }
 
-                        {/*{*/}
-                            {/*props.type==="Course"?  <CourseCard {...item}/>:<VideoCardItem {...item}  />*/}
-                        {/*}*/}
                         {
                             props.type==="preModal"?  <PreModal {...item} {...props} index={key} items={props.files}/>:""
                         }

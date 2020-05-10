@@ -1,23 +1,13 @@
 import React, { useEffect, useState} from 'react';
-import MainHeader from "../Main-Header/MainHeader";
-import {FaAngleLeft} from "react-icons/fa";
-import HeaderCourse from "./HeaderCourse/HeaderCourse";
- import CourseIntroducing from "./IntroducingCoursse/CourseIntroducing";
-import HeaderTop from "../../Common/Header-top/HeaderTop";
+ import HeaderTop from "../../Common/Header-top/HeaderTop";
 import {CarouselMain} from "../../Common/Carousel/CarouselMain";
-import ExtendedDiv from "../../Common/ExtendedDiv/ExtendedDiv";
-import CourseCarsBuy from "./IntroducingCoursse/CourseCardBuy/CourseCardBuy";
-import ax1 from "../../../Common/img/arno-smit-sKJ7zSylUao-unsplash.jpg";
-import {formatNumber} from "../../../Common/JS-Function/Js-common-function";
-import { loadMainCourse} from "../../../Common/Const/ServerConnection";
-import {getOff, seprateEachCourseData} from "../../functions/componentHelpFunction";
+ import { loadMainCourse} from "../../../Common/Const/ServerConnection";
+import {getOff} from "../../functions/componentHelpFunction";
 import {NotificationManager} from "react-notifications";
 import Loader from "../../Common/Loader/Loader";
 import ModalCustomVideo from "../../Common/Modal/ModalCustom";
-
 export default function ShowAllCourse (props){
-    // const[file,setFile]=useState([{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"},{img:ax1,title:"پایه هفتم",cost:200,sellCost:2100,button:"خرید دروه","class":"h-min-img-card"}])
-    let{name,grade,field,price,image,off,id, }=props;
+
     const [courses,setCourses]=useState({"data":[],off:[]});
     const [isLoder, setisLoder] = useState(true);
     const [isOpenModal, setIsOpenModal] = useState(true);
@@ -48,21 +38,10 @@ export default function ShowAllCourse (props){
         getData()
 
     }, [ ] );
-    // console.log("courses");
-    // console.log(courses);
 
-    // grade: "پایه های ششم تا نهم"
-    // courses: Array(1)
-    // 0:
-    // name: "شیمی"
-    // grade: "هفتم"
-    // field: "عمومی"
-    // price: "108000.0"
-    // image: "https://stream.kelidiha.com/public/course/2LTbjNmF24w=/image.png"
-    // __proto__: Object
     return (
         <HeaderTop {...props} isBuy={true}>
-            {/*<HeaderCourse main={"خانه"} sub={"پایه یازدهم"} branch={"ریاضی و فیزیک"}/>*/}
+
             {
                 isLoder ? <div className='d-flex justify-content-center align-items-center'>
                         <div className='col-6'>
@@ -87,9 +66,7 @@ export default function ShowAllCourse (props){
 
             }
 
-            {/*<div>*/}
-                {/*<CourseIntroducing id="5e96169a01d73623037c281d"/>*/}
-            {/*</div>*/}
+
             <ModalCustomVideo isOpen={isOpenModal} toggle={() => setIsOpenModal(!isOpenModal)}>
                 <div className=" d-flex flex-column justify-content-center  align-items-center FsHeaderLogin1 text-left p-4 " style={{minHeight:"250px"}}>
                     <p>سلام دانش آموز کلیدی</p>

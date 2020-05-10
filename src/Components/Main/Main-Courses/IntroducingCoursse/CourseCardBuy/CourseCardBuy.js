@@ -30,8 +30,8 @@ const CourseCarsBuy = (props) => {
 
     return (
 
-            <Card  className= "mt-0 ml-2 mr-2 br20px h-100   box-shadow-custom FsFooterLogin" >
-
+            <Card  className= "mt-0 ml-2 mr-2 br20px h-100 flex-column   box-shadow-custom FsFooterLogin" >
+                <div className="w-100 h-75">
 
                     <CardMedia
                         className={props.class}
@@ -45,25 +45,25 @@ const CourseCarsBuy = (props) => {
                                 <div className="d-flex flex-column text-end " dir="rtl">
                                     <span className="header-color " > {parseInt(price)!==0 ?  off!==0?formatNumber(price-(price*off)) + " "+ "تومان" :formatNumber(price) + " "+ "تومان" :"رایگان "  }     </span>
                                     {
-                                        parseInt(price)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(price) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>
+                                        parseInt(off)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(price) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>
                                     }
                                 </div>
                                 {/*<div className="d-flex flex-column text-end " dir="rtl">*/}
-                                    {/*<span className="header-color " > {parseInt(sellCost)!==0 ?  sellCost!==0?formatNumber(cost ) + " "+ "تومان" :formatNumber(sellCost) + " "+ "تومان" :"رایگان "  }     </span>*/}
-                                    {/*{*/}
-                                        {/*parseInt(sellCost)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(sellCost) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>*/}
-                                    {/*}*/}
+                                {/*<span className="header-color " > {parseInt(sellCost)!==0 ?  sellCost!==0?formatNumber(cost ) + " "+ "تومان" :formatNumber(sellCost) + " "+ "تومان" :"رایگان "  }     </span>*/}
+                                {/*{*/}
+                                {/*parseInt(sellCost)!==0 ?<span className="  red-color  text-decoration-line-through" style={{opacity:0.7}}>{ formatNumber(sellCost) } تومان</span>:<span className="  red-color  text-decoration-line-through "  > </span>*/}
+                                {/*}*/}
                                 {/*</div>*/}
                                 {/*<div className="d-flex flex-column">*/}
-                                    {/*<span className="header-color">{ formatNumber((cost))}</span>*/}
-                                    {/*<span className="  red-color  text-decoration-line-through">{ formatNumber(sellCost ) }</span>*/}
+                                {/*<span className="header-color">{ formatNumber((cost))}</span>*/}
+                                {/*<span className="  red-color  text-decoration-line-through">{ formatNumber(sellCost ) }</span>*/}
                                 {/*</div>*/}
 
                             </div>
 
                         </div>
 
-                        <div >
+                        <div className="col-12 mt-2">
                             <span className="second-color">{course} </span>
                             <span> {grade? "|"+ grade:""} </span>
 
@@ -71,23 +71,29 @@ const CourseCarsBuy = (props) => {
 
 
                     </CardContent>
+                </div>
+                <div className="w-100 d-flex mt-auto">
+                    <div className="w-100">
+                        <CardActions className="w-100 d-flex justify-content-center">
+                            <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow FsFooterLogin"
 
-                <CardActions className="w-100 d-flex justify-content-center">
-                    <Button className="btn green-background text-white col-6 fontFamily-Sans sendButton-shadow FsFooterLogin"
+                                // onClick={handelAddCourse}
+                                    onClick={()=>{setIsOpen(!isOpen)}}
 
-                            // onClick={handelAddCourse}
-                            onClick={()=>{setIsOpen(!isOpen)}}
+                            >
+                                {button}
+                            </Button>
+                        </CardActions>
+                        <div className="d-flex justify-content-center">
+                            {
+                                sub_text?  <Link to={`/courses/${id}`}  className="pt-4"> {sub_text } </Link>:""
+                            }
 
-                    >
-                        {button}
-                        </Button>
-                </CardActions>
-                <div className="d-flex justify-content-center">
-                    {
-                        sub_text?  <Link to={`/courses/${id}`}  className="pt-4"> {sub_text } </Link>:""
-                    }
+                        </div>
+                    </div>
 
                 </div>
+
                 <RestricBuyModal  isOpen={isOpen } toggle={()=>{setIsOpen(!isOpen)}}/>
             </Card>
 

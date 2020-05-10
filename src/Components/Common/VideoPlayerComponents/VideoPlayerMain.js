@@ -24,7 +24,7 @@ export default class VideoPlayerMain extends React.Component {
     render() {
         return (
             <div   data-vjs-player>
-                <video ref={node => (this.videoNode = node)} className="video-js vjs-fluid  playCustom  w-100 object-fit-cover " />
+                <video ref={node => (this.videoNode = node)} className="video-js vjs-fluid  playCustom    w-100 object-fit-cover  " />
             </div>
         );
     }

@@ -9,8 +9,7 @@ import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
 export default function ExtendedDiv (props){
     const [collapse, setcollapse,] = useState(false);
     let{name,index,off,price,total_video_times,videos,toggle,owned}=props
-    console.log("owned");
-    console.log(owned);
+
 
     return (
 

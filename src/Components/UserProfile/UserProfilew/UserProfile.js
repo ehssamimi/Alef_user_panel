@@ -33,8 +33,11 @@ export default function UserProfile (props){
                 setprofileData(Description)
 
                 // let ItemValue={"image":Description.profile.image_id,"grade":Description.education.grade,"name":Description.personal_info.name };
+                let prevItem=localStorage.getItem("user_alef").split(",");
                 let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
-                localStorage.setItem("user_alef",ItemValue);
+                if (prevItem!==ItemValue){
+                     localStorage.setItem("user_alef",ItemValue);
+                }
                 setisLoder(false);
             } else {
                  NotificationManager.error(state, Description);

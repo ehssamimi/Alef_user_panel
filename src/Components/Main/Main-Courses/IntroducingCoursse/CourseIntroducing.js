@@ -43,6 +43,7 @@ const CourseIntroducing = (props) => {
 
         setIsOpenModal(!isOpenModal)
         if (type==="main"){
+            console.log(value)
             setVideos({type,video:value});
         } else {
             setVideos({type,video:value});

@@ -61,7 +61,7 @@ export async  function  GetLogin(phoneNumber){
 
     var resp ="";
     await axios.get(`${Const.user}login?phone_number=${phoneNumber}`, {headers: headers}).then(function (response) {
-        console.log(response );
+        // console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
         console.log(error.response);
@@ -84,7 +84,7 @@ export async  function  GetVerifycationCode(phoneNumber){
 
     var resp ="";
     await axios.get(`${Const.admin_route}activation-code?phone_number=${phoneNumber}`, {headers: headers}).then(function (response) {
-        console.log(response );
+        // console.log(response );
         resp={state:200,Description:response.data};
     }).catch(function (error) {
         console.log(error.response);

@@ -10,7 +10,7 @@ const PlayVideo169 = (props) => {
         // width: 720,
         // height: 300,
         // poster:props.poster,
-        className:"br20px",
+        className:"brVideo",
         poster:props.img,
         enableLowInitialPlaylist:true,
         aspectRatio: '16:9',
@@ -27,7 +27,7 @@ const PlayVideo169 = (props) => {
     };
 
     return (
-        <div>
+        <div  >
             <VideoPlayerMain {...videoJsOptions} />
         </div>
     );

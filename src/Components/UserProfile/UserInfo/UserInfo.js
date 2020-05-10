@@ -1,14 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import MainHeader from "../../Main/Main-Header/MainHeader";
-import {
+ import {
     Col,
-    Row,
-    Button,
     Form,
     FormGroup,
     Label,
-    Input,
-    FormFeedback,
     Card,
     CardBody,
     InputGroup,
@@ -19,24 +14,20 @@ import {country, Ardebil} from './../../../Common/Const/cityAndCountery'
 
 import {FaLock} from "react-icons/fa";
 
-import RightMenu from "../RightMenu/RightMenu";
-import HeaderNavigation from "../../Common/HeaderNavigation/HeaderNavigation";
+ import HeaderNavigation from "../../Common/HeaderNavigation/HeaderNavigation";
 import {SelectedInput, TextInput} from "../../Common/Forms/textInput/TextInput";
-import {checkCodeMeli, getCity} from "../../../Common/JS-Function/Js-common-function";
+import {  getCity} from "../../../Common/JS-Function/Js-common-function";
 import profile from './../../../Common/img/Profile Picture.png'
 import {GetUserDropDown, GetUserProfile, UpdateProfile, UploadProfileImg} from "../../../Common/Const/ServerConnection";
 
 import Loader from "../../Common/Loader/Loader";
 import 'react-notifications/lib/notifications.css';
-import ReactNotification from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css'
+ import 'react-notifications-component/dist/theme.css'
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import HeaderTopWithRightMenu from "../../Common/Header-top/HeaderTopWithRightMenu/HeaderTopWithRightMenu";
-import {getProfileValue, validatephoneNumber} from "../../functions/componentHelpFunction";
+ import {getProfileValue} from "../../functions/componentHelpFunction";
 import ModalCustomVideo from "../../Common/Modal/ModalCustom";
 import ValidateParentForm from "./ValidateParentForm";
-import validator from "validator";
 
 const DefaultUser={
 
@@ -99,8 +90,11 @@ export default function UserInfo(props) {
             if (state===200 ) {
                 setisLoder(false);
                 console.log(Description);
+                let prevItem=localStorage.getItem("user_alef").split(",");
                 let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
-                localStorage.setItem("user_alef",ItemValue);
+                if (prevItem!==ItemValue){
+                     localStorage.setItem("user_alef",ItemValue);
+                }
 
                 let values=getProfileValue(Description);
                 let city = getCity(values.country);
@@ -118,8 +112,15 @@ export default function UserInfo(props) {
 
         }
         setisLoder(true);
-        getUserDropDown();
-        getUserInfo();
+        if (localStorage.getItem("token").length>8){
+            getUserDropDown();
+            getUserInfo();
+        }else {
+            setTimeout(function(){  getUserDropDown();
+                getUserInfo(); }, 2000);
+        }
+
+
 
 
     },[]);
