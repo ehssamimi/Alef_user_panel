@@ -305,7 +305,7 @@ export default function UserInfo(props) {
     return (
         //<HeaderTopWithRightMenu  {...props}>
             <div className="w-100">
-                <div className="mt-5 col-12 ml-auto mr-auto p-0">
+                <div className="mt-5 col-12 ml-auto mr-auto p-0  ">
                     <HeaderNavigation content={{"main": "اطلاعات کاربری", "branch": "ویرایش پروفایل"}}/>
                     <Card className="mb-4 box-shadow-custom border-0 br20px mt-4">
                         <CardBody>
