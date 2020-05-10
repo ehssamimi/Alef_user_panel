@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Common/sass/Style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/sass/Style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js" afterDir="false" />
-    </list>
+    <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
           <entry key="css" value="3997" />
           <entry key="html" value="318" />
           <entry key="js" value="47580" />
-          <entry key="scss" value="1056" />
+          <entry key="scss" value="1058" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -103,7 +100,7 @@
           <entry key="CSS" value="3997" />
           <entry key="HTML" value="318" />
           <entry key="JavaScript" value="47580" />
-          <entry key="SCSS" value="1056" />
+          <entry key="SCSS" value="1058" />
         </counts>
       </usages-collector>
     </session>
@@ -126,7 +123,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/Main/Main-Courses/IntroducingCoursse/topCourseDetail/TopCourseDetail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
@@ -164,7 +161,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/video.js/dist/video-js.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
+            <state relative-caret-position="54">
               <caret line="1118" column="1" selection-start-line="1118" selection-start-column="1" selection-end-line="1118" selection-end-column="1" />
             </state>
           </provider>
@@ -213,11 +210,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Common/sass/Style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="193" column="14" lean-forward="true" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
+            <state relative-caret-position="292">
+              <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
             </state>
           </provider>
         </entry>
@@ -252,7 +249,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>c2</find>
       <find>values.phoneNumber</find>
       <find>values.verificationCode</find>
       <find>average</find>
@@ -282,6 +278,7 @@
       <find>img-cover-preLoader</find>
       <find>top</find>
       <find>خروج</find>
+      <find>video-js</find>
     </findStrings>
     <replaceStrings>
       <replace>h-List-item</replace>
@@ -385,42 +382,6 @@
               <item name="Alef_user_panel" type="b2602c69:ProjectViewProjectNode" />
               <item name="Alef_user_panel" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Alef_user_panel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Alef_user_panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Alef_user_panel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Alef_user_panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Alef_user_panel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Alef_user_panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Main-Header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Alef_user_panel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Alef_user_panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="UserProfile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Alef_user_panel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Alef_user_panel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="UserProfile" type="462c0819:PsiDirectoryNode" />
-              <item name="UserProfilew" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -538,12 +499,12 @@
       <workItem from="1588840666710" duration="2445000" />
       <workItem from="1588915881557" duration="93000" />
       <workItem from="1588921663428" duration="11438000" />
-      <workItem from="1589085701460" duration="23594000" />
+      <workItem from="1589085701460" duration="24010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="668865000" />
+    <option name="totallyTimeSpent" value="669281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -556,7 +517,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5007194" side_tool="true" weight="0.2533512" />
       <window_info id="npm" order="1" sideWeight="0.5136691" side_tool="true" weight="0.17962466" />
@@ -1074,55 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="93" column="66" selection-start-line="93" selection-start-column="66" selection-end-line="93" selection-end-column="66" />
-          <folding>
-            <element signature="e#4180#4518#0" expanded="true" />
-            <element signature="e#4580#4984#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Main/Main-Courses/IntroducingCoursse/topCourseDetail/TopCourseDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#1238#1651#0" expanded="true" />
-            <element signature="e#1343#1539#0" expanded="true" />
-            <element signature="e#1720#2088#0" expanded="true" />
-            <element signature="e#1782#2065#0" expanded="true" />
-            <element signature="e#2121#2232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="307" column="65" selection-start-line="307" selection-start-column="65" selection-end-line="307" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#2220#4236#0" expanded="true" />
-            <element signature="e#2964#3967#0" expanded="true" />
-            <element signature="e#10557#22551#0" expanded="true" />
-            <element signature="e#10644#22523#0" expanded="true" />
-            <element signature="e#10871#11145#0" expanded="true" />
-            <element signature="e#22593#22856#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/video.js/dist/video-js.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="1118" column="1" selection-start-line="1118" selection-start-column="1" selection-end-line="1118" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/UserProfile/UserProfilew/UserProfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1149,10 +1060,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/UserProfile/UserInfo/UserInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="307" column="65" selection-start-line="307" selection-start-column="65" selection-end-line="307" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="e#2220#4236#0" expanded="true" />
+            <element signature="e#2964#3967#0" expanded="true" />
+            <element signature="e#10557#22551#0" expanded="true" />
+            <element signature="e#10644#22523#0" expanded="true" />
+            <element signature="e#10871#11145#0" expanded="true" />
+            <element signature="e#22593#22856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Common/sass/Style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="193" column="14" lean-forward="true" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
+        <state relative-caret-position="292">
+          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="93" column="66" selection-start-line="93" selection-start-column="66" selection-end-line="93" selection-end-column="66" />
+          <folding>
+            <element signature="e#4180#4518#0" expanded="true" />
+            <element signature="e#4580#4984#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/video.js/dist/video-js.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="1118" column="1" selection-start-line="1118" selection-start-column="1" selection-end-line="1118" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Main/Main-Courses/IntroducingCoursse/topCourseDetail/TopCourseDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#1238#1651#0" expanded="true" />
+            <element signature="e#1343#1539#0" expanded="true" />
+            <element signature="e#1720#2088#0" expanded="true" />
+            <element signature="e#1782#2065#0" expanded="true" />
+            <element signature="e#2121#2232#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
