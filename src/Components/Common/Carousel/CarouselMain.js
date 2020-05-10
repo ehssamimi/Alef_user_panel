@@ -40,8 +40,7 @@ const PreModal=(props)=>{
         <div className="w-100 ">
             <div className="w-100 hpx200 position-relative pl-3 " >
                 {
-                    !is_locked ?
-                        <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer" onClick={() => {
+                    !is_locked ? <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer" onClick={() => {
                             toggle('main', main)
                         }}/> : <img src={video_cover} alt="main img" className="img-self-cover br10px filter-img-course cursor-pointer"/>
                 }

@@ -90,7 +90,13 @@ export default function UserInfo(props) {
             if (state===200 ) {
                 setisLoder(false);
                 console.log(Description);
-                let prevItem=localStorage.getItem("user_alef").split(",");
+                let prevItem=""
+                if (localStorage.getItem("user_alef")) {
+                  prevItem=localStorage.getItem("user_alef").split(",");
+                }else {
+                    prevItem=""
+                }
+
                 let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
                 if (prevItem!==ItemValue){
                      localStorage.setItem("user_alef",ItemValue);

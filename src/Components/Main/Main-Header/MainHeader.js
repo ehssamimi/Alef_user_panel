@@ -210,7 +210,7 @@ export default function MainHeader (props){
                                                 </DropdownItem>
                                                 <DropdownItem>
 
-                                                    <li  onClick={handelExit} className={active === "user-profile" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
+                                                    <li  onClick={handelExit} className={active === "exit" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" : "nav-item  d-flex align-items-center  second-color"}
                                                         >
                                                         <Link className="nav-link  " to="/exit">
                                                             خروج

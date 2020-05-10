@@ -31,13 +31,17 @@ export default function UserProfile (props){
                 //
                 console.log(Description)
                 setprofileData(Description)
+                let prevItem=""
+                if (localStorage.getItem("user_alef")) {
+                    prevItem=localStorage.getItem("user_alef").split(",");
+                }
 
-                // let ItemValue={"image":Description.profile.image_id,"grade":Description.education.grade,"name":Description.personal_info.name };
-                let prevItem=localStorage.getItem("user_alef").split(",");
                 let ItemValue=[Description.personal_info.name,Description.profile.image_id,Description.education.grade]
                 if (prevItem!==ItemValue){
-                     localStorage.setItem("user_alef",ItemValue);
+                    localStorage.setItem("user_alef",ItemValue);
                 }
+                // let ItemValue={"image":Description.profile.image_id,"grade":Description.education.grade,"name":Description.personal_info.name };
+
                 setisLoder(false);
             } else {
                  NotificationManager.error(state, Description);
