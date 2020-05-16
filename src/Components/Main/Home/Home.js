@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import HeaderTop from "../../Common/Header-top/HeaderTop";
+import HomePageFirst from "./subs/HomePageFirst/HomePageFirst";
 
 const Home = (props) => {
     // const [count, setCount] = useState(1);
@@ -11,6 +12,7 @@ const Home = (props) => {
 
     return (
         <HeaderTop {...props} isBuy={false}>
+            <HomePageFirst/>
             this is header
         </HeaderTop>
     );

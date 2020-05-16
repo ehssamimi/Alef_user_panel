@@ -398,10 +398,45 @@ select option:hover {
 .FsHeader-courseDetail {
     font-size: Calc(1vw + 1rem) !important;
 }
+.FsHeader-HomePage {
+    font-size: Calc(1.3vw + 1.2rem) !important;
+}
 .fs10vw{
     font-size: 10vw;
 }
+.h-each-page{
+    height: 80vh;
+    min-height: 30rem;
+}
+.h-90{
+    height: 90% !important;
+}
+.h-85{
+    height: 85% !important;
+}
+.h-80{
+    height: 80% !important;
+}.h-60{
+    height: 60% !important;
+}
 
+.clip-circle {
+    clip-path: circle(125px at center);
+    /* OLD VALUE example: circle(245px, 140px, 50px); */
+    /* Yep, even the new clip-path has deprecated stuff. */
+}
+.divRight{
+    position: absolute;
+    left: 0!important;
+    width: 100%;
+
+}
+.backToCircule{
+    position: absolute;
+    top: 7%!important;
+    right: 2%;
+
+}
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -506,6 +541,10 @@ select option:hover {
         top: 22%;
         right: 27%;
     }
+    .mt-Video{
+        margin-top: 0;
+    }
+
 
 
 
@@ -609,6 +648,10 @@ select option:hover {
         top: 22%;
         right: 27%;
     }
+    .mt-Video{
+        margin-top: 0;
+    }
+
 
 
 }
@@ -682,6 +725,9 @@ select option:hover {
         position: absolute;
         top: 22%;
         right: 17%;
+    }
+    .mt-Video{
+        margin-top: 0;
     }
 
 
@@ -758,6 +804,9 @@ select option:hover {
         top: 25%;
         right: 28%;
     }
+    .mt-Video{
+        margin-top: 0;
+    }
 
 }
 
@@ -831,6 +880,9 @@ select option:hover {
         position: absolute;
         top: 25%;
         right: 30%;
+    }
+    .mt-Video{
+        margin-top: 6vw;
     }
 
 }

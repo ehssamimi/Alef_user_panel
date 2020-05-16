@@ -158,6 +158,8 @@ export default function MainHeader (props){
                                     {/*خانه*/}
                                 {/*</Link>*/}
                             {/*</li>*/}
+
+
                             {/*<li className={active === "about" ? "nav-item  d-flex align-items-center activeHeaderMenu header-color position-relative" :*/}
                                 {/*"nav-item  d-flex align-items-center  second-color"}*/}
                                 {/*onClick={() => setactive("about")}>*/}

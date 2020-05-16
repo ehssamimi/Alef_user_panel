@@ -13,7 +13,8 @@ const PlayVideo169 = (props) => {
         className:"brVideo",
         poster:props.img,
         enableLowInitialPlaylist:true,
-        aspectRatio: '16:9',
+        aspectRatio: props.aspect?props.aspect:'16:9',
+        // aspectRatio: '1:1',
         controls: true,
         nativeControlsForTouch:true,
         sources: [
