@@ -15,6 +15,7 @@ export function base64StringtoFile (base64String, filename, type) {
     return new File([u8arr], filename, {type: type})
 }
 
+
 // Download a Base64-encoded file
 
 export function downloadBase64File (base64Data, filename) {

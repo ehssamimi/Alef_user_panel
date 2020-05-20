@@ -25,39 +25,42 @@ export default  function MySchedule(props) {
     const [Today, setToday] = useState({"name":"آلبرت انیشتین","text":"هنگامی که مردی برای یک ساعت کنار دختری زیبا می نشیند، زمان بسیار سریع می گذرد و ۱ ساعت تنها یک دقیقه به نظر می رسد. اما اگر او را ۱ دقیقه بر روی اجاق داغ قرار دهید، این میزان به اندازه تمام ساعت ها خواهد گذشت. به این موضوع نسبیت می گویند."});
     useEffect(  () => {
 
-        async function getTodaySentence() {
-            const {state, Description}=await GetUserschedule();
-             if (state===200 ) {
-                setisLoder(false);
-                setContent(Description.schedule);
-                setToday(Description.quote);
-                setmessage(Description.message);
 
-            } else {
-                setisLoder(false);
-                NotificationManager.error(state, Description);
-                // setisLoder(false);
-                // error_Notification(state,Description)
-            }
-            // console.log(UserDropDown)
 
-        }
 
-        setisLoder(true);
         getTodaySentence();
     },[]);
+
+    async function getTodaySentence() {
+        setisLoder(true);
+        const {state, Description}=await GetUserschedule();
+        if (state===200 ) {
+            setisLoder(false);
+            setContent(Description.schedule);
+            setToday(Description.quote);
+            setmessage(Description.message);
+
+        } else {
+            setisLoder(false);
+            NotificationManager.error(state, Description);
+            // setisLoder(false);
+            // error_Notification(state,Description)
+        }
+        // console.log(UserDropDown)
+
+    }
 
     const handelSubmitRequest=async ()=>{
         setisLoder(true);
         const {state, Description}=await RequestUserschedule();
 
         if (state===200 ) {
-            setisLoder(false);
-            NotificationManager.success("تبریک", "درخواست شما ارسال گردید");
+             NotificationManager.success("تبریک", "درخواست شما ارسال گردید");
         } else {
-            setisLoder(false);
-            NotificationManager.error(state, Description);
+             NotificationManager.error(state, Description);
         }
+        getTodaySentence();
+
     };
 
 
@@ -81,7 +84,7 @@ export default  function MySchedule(props) {
                                     {
                                         content !== null ?
                                             <DownloadPdf  {...content}/>
-                                          :  message==="requested"?<WatingForPdf/>:<RequestSchedule handelSubmitRequest={handelSubmitRequest}/>
+                                          :  message==="requested"?<WatingForPdf  />:<RequestSchedule handelSubmitRequest={handelSubmitRequest} />
                                     }
 
                                 </div>

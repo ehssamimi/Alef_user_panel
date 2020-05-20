@@ -17,6 +17,8 @@ import {UserContext} from "../Common/Context/UserProvider";
 
 
     useEffect(  () => {
+        setTimeout(function(){    NotificationManager.success("کد احاز هویت با موفقیت برای شما ارسال شد ", "تلفن همراهتان را بررسی کنید!! "); }, 2000);
+
 
         countFunction()
 

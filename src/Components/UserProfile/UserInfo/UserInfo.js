@@ -28,6 +28,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
  import {getProfileValue} from "../../functions/componentHelpFunction";
 import ModalCustomVideo from "../../Common/Modal/ModalCustom";
 import ValidateParentForm from "./ValidateParentForm";
+import {ModalCropImage} from "../../Common/CropImg/ModalsCollection";
 
 const DefaultUser={
 
@@ -57,7 +58,9 @@ export default function UserInfo(props) {
     const [DefaultValue, setDefaultValue] = useState(DefaultUser);
     const [ImgValue, setImgValue] = useState({data:null,file:null});
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isOpenImg, setIsOpenImg] = useState(false);
     const [count, setcount] = useState(0);
+
  
 
 
@@ -191,16 +194,41 @@ export default function UserInfo(props) {
         // console.log(values);
         // console.log(names);
     };
-    const HandelImg=(e)=>{
-        let file=e.target.files;
-        let DATA=file[0];
-        if (file && file.length > 0) {
-            const reader = new FileReader();
-            reader.addEventListener("load", () =>
-                setImgValue({data:reader.result,file:DATA})
-            );
-            reader.readAsDataURL(e.target.files[0]);
-        }
+    // const HandelImg=(e)=>{
+    const HandelImg=(file,Destination , label ,base64)=>{
+        // let file=e.target.files;
+        // let DATA=file[0];
+        // if (file && file.length > 0) {
+        //     const reader = new FileReader();
+        //     reader.addEventListener("load", () =>
+        //         setImgValue({data:reader.result,file:DATA})
+        //     );
+        //     reader.readAsDataURL(e.target.files[0]);
+        // }
+
+        // GetImgFile(file,Destination , label ,base64){
+        console.log(file)
+        console.log(Destination)
+        console.log(label)
+        console.log(base64)
+
+
+        setImgValue({data:base64,file:file});
+            // this.setState({
+            //     ax1File:file ,ax1:base64
+            // });
+        setIsOpenImg(!isOpenImg);
+
+            // this.setState(prevState => ({
+            //     isOpen: !prevState.isOpen
+            // }));
+        // }
+
+
+
+
+
+
     };
     const handelSubmit = async (e) => {
         e.preventDefault();
@@ -325,11 +353,11 @@ export default function UserInfo(props) {
                                                     {/*<img src={profile} alt={profile} className="img-self-fill"/>*/}
                                                 </div>
                                                 <div className="w-100 mt-3 mb-3">
-                                                    <label
+                                                    <label onClick={()=>{setIsOpenImg(!isOpenImg)}}
                                                         className="btn green-background  br10px text-white  col-md-6 col-sm-12 offset-md-3 sendButton-shadow" htmlFor="upload_img">آپلود
                                                         عکس
                                                     </label>
-                                                    <input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />
+                                                    {/*<input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />*/}
                                                 </div>
                                             </Col>
                                             <Col sm={12} md={5}
@@ -465,6 +493,8 @@ export default function UserInfo(props) {
 
 
                 </div>
+                <ModalCropImage isOpen={isOpenImg} toggle={()=>{setIsOpenImg(!isOpenImg)}} label={'انتخاب عکس'} aspect={1/1} GetImgFile={HandelImg}  />
+
                 <ModalCustomVideo isOpen={isOpenModal} toggle={()=>{setIsOpenModal(!isOpenModal)}} size="sm">
                     <ValidateParentForm toggle={()=>{setIsOpenModal(!isOpenModal)}} phoneNumber={values.phoneNumber} count={count}/>
 
