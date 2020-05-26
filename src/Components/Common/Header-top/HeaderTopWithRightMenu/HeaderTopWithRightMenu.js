@@ -1,15 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React  from 'react';
 import MainHeader from "../../../Main/Main-Header/MainHeader";
 import RightMenu from "../../../UserProfile/RightMenu/RightMenu";
 import UrlProvider from "../../Context/UrlProvider";
 import {NotificationContainer} from "react-notifications";
 
 const HeaderTopWithRightMenu = (props) => {
-    const [count, setCount] = useState(1);
-    useEffect(() => {
-        // Update the document title using the browser API
-        document.title = `You clicked ${count} times`;
-    });
+
 
     return (
       <UrlProvider {...props}>

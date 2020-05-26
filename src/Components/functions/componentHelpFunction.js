@@ -3,7 +3,7 @@ import {TweenMax} from "gsap/TweenMax";
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 import React from "react";
-import profile from "../../Common/img/profile.jpg";
+// import profile from "../../Common/img/profile.jpg";
 
 
 export const Notifications_eee=(txt)=>{
@@ -74,10 +74,10 @@ export const seprateEachCourseData=(courses)=>{
 
     let Teachers=[];
 // let Lesson=[];
-    course.lessons.map((each, index) => {
+    course.lessons.map((each ) => {
         // console.log(each)
-        each.teachers.map((item,index2)=>{
-            Teachers.push({name:item.name,img:item.image,"course":each.name})
+        each.teachers.map((item )=>{
+           return Teachers.push({name:item.name,img:item.image,"course":each.name})
             // Lesson.push({
             //     name: each.name,
             //     cost: each.price,
@@ -181,7 +181,7 @@ export const GetData=(Data)=>{
 // ************ Label-Value-Option*********
 export const LabelValueOption=(sub)=>{
         let SubCat=[];
-        sub.map((each,index)=>{
+        sub.map((each )=>{
             let subRow= { value: each , label: each  };
             SubCat.push(subRow);
         });

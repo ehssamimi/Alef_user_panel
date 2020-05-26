@@ -14,7 +14,9 @@ let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,sc
             <div className="w-100 row wrapper-login">
                 <HeaderCourse main={"دوره ها "} sub={name} branch={grade} mainLink={"/courses"}/>
                 <div className="col-md-8 col-sm-12 br20px   p-0">
-                    <PlayVideo169 video={Video_src} img={video_img}/>
+                    <div className="w-100 br20px overflow-hidden">
+                        <PlayVideo169 video={Video_src} img={video_img}/>
+                    </div>
 
                     <div className="w-100 row m-0">
                         <h3 className="header-color FsHeader-courseDetail">{ name}</h3>

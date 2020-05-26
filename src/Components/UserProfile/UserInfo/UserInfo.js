@@ -207,10 +207,10 @@ export default function UserInfo(props) {
         // }
 
         // GetImgFile(file,Destination , label ,base64){
-        console.log(file)
-        console.log(Destination)
-        console.log(label)
-        console.log(base64)
+        // console.log(file)
+        // console.log(Destination)
+        // console.log(label)
+        // console.log(base64)
 
 
         setImgValue({data:base64,file:file});

@@ -5,23 +5,24 @@ import './App.css';
 import MainAbout from "./Components/Main/Main-About/MainAbout";
 import MainCourses from "./Components/Main/Main-Courses/MainCourses";
 import NoMatch from "./Components/NoMatch/NoMatch";
-import MainHeader from "./Components/Main/Main-Header/MainHeader";
+// import MainHeader from "./Components/Main/Main-Header/MainHeader";
+// import UserInfo from "./Components/UserProfile/UserInfo/UserInfo";
+// import UserProfile from "./Components/UserProfile/UserProfilew/UserProfile";
+// import MyCourse from "./Components/UserProfile/MyCourse/MyCourse";
+// import MySchedule from "./Components/UserProfile/MyProgram/MyProgram";
+// import CourseIntroducing from "./Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing";
+// import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse/IntroducingCourse";
+// import UrlProvider from "./Components/Common/Context/UrlProvider";
+// import Exit from "./Components/UserProfile/Exit/Exit";
+
 import Home from "./Components/Main/Home/Home";
-import UserInfo from "./Components/UserProfile/UserInfo/UserInfo";
-import UserProfile from "./Components/UserProfile/UserProfilew/UserProfile";
-import MyCourse from "./Components/UserProfile/MyCourse/MyCourse";
-import MySchedule from "./Components/UserProfile/MyProgram/MyProgram";
 import Login from "./Components/LogIn/LogIn";
 import {UserContext} from "./Components/Common/Context/UserProvider";
 import SignUp from "./Components/LogIn/SignUp";
-import CourseIntroducing from "./Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing";
-import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse/IntroducingCourse";
-import UrlProvider from "./Components/Common/Context/UrlProvider";
 import cookie from 'react-cookies'
 import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
 import MainRoute from "./Components/Common/MainRoute";
 import MainUser from "./Components/UserProfile/MainUser/MainUser";
-import Exit from "./Components/UserProfile/Exit/Exit";
 
 
 

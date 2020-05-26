@@ -498,7 +498,7 @@ select option:hover {
         /*text-align: center;*/
         /*justify-content: center;*/
         -ms-flex-direction:column!important;flex-direction:column!important;
-        justify-content: start;
+        justify-content: flex-start;
         /*text-align: center;*/
     }
     .MainCardCourseHeight{
@@ -689,7 +689,8 @@ select option:hover {
     }
     .rowInProfileUser{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
+
         /*text-align: center;*/
     }
     .MainCardCourseHeight{
@@ -767,7 +768,8 @@ select option:hover {
     }
     .rowInProfileUser{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
+
         /*text-align: center;*/
     }
     .MainCardCourseHeight{
@@ -843,7 +845,7 @@ select option:hover {
     }
     .rowInProfileUser{
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         /*text-align: center;*/
     }
     .MainCardCourseHeight{

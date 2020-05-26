@@ -4,6 +4,7 @@ import {NotificationContainer} from "react-notifications";
 import BuyFooter from "../BuyFooter/BuyFooter";
 import UrlProvider from "../Context/UrlProvider";
 import cookie from "react-cookies";
+import MetaTagsComponent from "../MetaTags/MetaTagsComponent";
 
 
 
@@ -14,6 +15,7 @@ const HeaderTop = (props) => {
 
     return (
         <UrlProvider {...props}>
+            <MetaTagsComponent/>
 
         <div className="w-100 d-flex justify-content-center">
             <div className="header-top">

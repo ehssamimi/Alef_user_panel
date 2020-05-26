@@ -5,7 +5,8 @@ import {base64StringtoFile
     // ,extractImageFileExtensionFromBase64
 } from './../../functions/Functions'
 import {CustomInput, FormGroup, InputGroup, Label } from "reactstrap";
-import imageCompression from 'browser-image-compression';
+import imageCompression from "browser-image-compression";
+// import imageCompression from 'browser-image-compression';
 
 class JustCropImg extends Component {
     constructor(props) {
@@ -52,11 +53,14 @@ class JustCropImg extends Component {
         if (typeof this.cropper.getCroppedCanvas() === 'undefined') {
             return;
         }
-        var validate=true; ; var error={'name':"",'DestinationString':''};
+        var validate=true;
+        var error={'name':"",'DestinationString':''};
         if (this.state.src==='') {
             validate=false;
             error['name']='لطفا عکس رو انتخاب کنید ';
-            // alertTxt+='src is not found ';
+         }else if (this.state.type!=="image/png" && this.state.type!=="image/jpeg") {
+            validate=false;
+            error['name']='فرمت عکس باید png و یا jpeg باشد ';
         }
         this.setState({
             error
@@ -76,41 +80,75 @@ class JustCropImg extends Component {
             console.log('file');
             console.log(file);
             console.log(file.name);
+
+            // *************compress file**********
             let options = {
                 maxSizeMB: 0.2,
                 maxWidthOrHeight: 1920,
                 useWebWorker: true
             };
-            // const compressedFile =  await imageCompression(file, options);
+            const compressedFile =  await imageCompression(file, options);
             // const compressedFile =  imageCompression( file, options)
-            const compressedFile =  file;
+            // const compressedFile =  file;
 
-             // console.log("new file");
-            // console.log( compressedFile );
-
-            this.setState(pre=>({
-                cropResult: this.cropper.getCroppedCanvas().toDataURL(),
-                clickButton:!pre.clickButton
-            }),()=>{
-
-                // console.log(this.cropper.getCroppedCanvas());
-                let file= base64StringtoFile(this.state.cropResult,this.state.name,this.state.type);
-
-                // ***this is file to set server*********
-                // console.log(file);
-                // this.props.GetImgFile(file,this.state.cropResult,this.props.label);
-
-                // this.props.GetImgFile(file,this.state.id,this.props.label ,this.state.cropResult);
+            console.log("new file");
+            console.log(compressedFile);
+            console.log("size");
+            console.log(compressedFile.size);
+            // lastModified: 1590522238005
+            // name: "page1.png"
+            // size: 325790
+            // type: "image/png"
 
 
-                if (this.state.clickButton===true){
 
-                    // this.props.GetImgFile(file, this.state.id, this.props.label, this.state.cropResult);
-                    this.props.GetImgFile(compressedFile, this.state.id, this.props.label, this.state.cropResult);
-                }
-                // console.log(this.state.id);
-                // extractImageFileExtensionFromBase64(this.cropper.getCroppedCanvas())
+            validate=true;
+            var error={'name':"",'DestinationString':''};
+            console.log( compressedFile.type);
+            if (compressedFile.type!=="image/png" && compressedFile.type!=="image/jpeg") {
+                console.log("this is compressive  type");
+                validate=false;
+                error['name']='قرمت عکس باید png و یا jpeg باشد ';
+            }else if (compressedFile.size > 32000) {
+                console.log("this is    size");
+                validate=false;
+                error['name']='حجم عکس باید کمتر از 400 کیلوبایت باشد ';
+            }
+            this.setState({
+                error
             });
+
+            if (validate){
+                console.log("we are validate");
+                this.setState(pre=>({
+                    cropResult: this.cropper.getCroppedCanvas().toDataURL(),
+                    clickButton:!pre.clickButton
+                }),()=>{
+
+                    // console.log(this.cropper.getCroppedCanvas());
+                    // let file= base64StringtoFile(this.state.cropResult,this.state.name,this.state.type);
+
+                    // ***this is file to set server*********
+                    // console.log(file);
+                    // this.props.GetImgFile(file,this.state.cropResult,this.props.label);
+
+                    // this.props.GetImgFile(file,this.state.id,this.props.label ,this.state.cropResult);
+
+
+                    if (this.state.clickButton===true){
+
+                        // this.props.GetImgFile(file, this.state.id, this.props.label, this.state.cropResult);
+                        this.props.GetImgFile(compressedFile, this.state.id, this.props.label, this.state.cropResult);
+                    }
+                    // console.log(this.state.id);
+                    // extractImageFileExtensionFromBase64(this.cropper.getCroppedCanvas())
+                });
+            }
+
+
+
+
+
         }else {
             console.log(error)
         }
@@ -166,6 +204,7 @@ class JustCropImg extends Component {
                             />
                          </InputGroup>
 
+
                     </FormGroup>
                     {
                         this.state.error['name'] !== '' ? <span
@@ -182,6 +221,7 @@ class JustCropImg extends Component {
                     src={this.state.src}
                     ref={cropper => { this.cropper = cropper; }}
                 />
+
                 {
                     this.state.clickButton?"":   <button onClick={this.cropImage}   className='btn btn-secondary mt-2 '>
                         انتخاب عکس

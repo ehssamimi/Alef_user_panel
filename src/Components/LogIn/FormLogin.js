@@ -7,7 +7,18 @@ import {GetLogin, GetVerifycationCode} from "../../Common/Const/ServerConnection
 import {NotificationContainer, NotificationManager} from "react-notifications";
 import {validatephoneNumber} from "../functions/componentHelpFunction";
 import RestricSignUp from "../Common/RestricSignUp/RestricSignUp";
- String.prototype.toEnglishDigit = function() { var find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']; var replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; var replaceString = this; var regex; for (var i = 0; i < find.length; i++) { regex = new RegExp(find[i], "g"); replaceString = replaceString.replace(regex, replace[i]); } return replaceString; };
+
+String.prototype.toEnglishDigit = function () {
+    var find = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    var replace = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    var replaceString = this;
+    var regex;
+    for (var i = 0; i < find.length; i++) {
+        regex = new RegExp(find[i], "g");
+        replaceString = replaceString.replace(regex, replace[i]);
+    }
+    return replaceString;
+};
 const FormLogin = (props) => {
     const   [isOpen,setIsOpen]= useState(false);
     let{header,subHeader ,btn_txt,handelType,handelChangeForm,loading}=props;
@@ -45,7 +56,7 @@ const FormLogin = (props) => {
 
         seterror(errors);
         return callback(formValidate)
-        return callback(false)
+        // return callback(false)
      };
 
 
