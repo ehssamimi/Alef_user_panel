@@ -10,7 +10,7 @@ export default function ShowAllCourse (props){
 
     const [courses,setCourses]=useState({"data":[],off:[]});
     const [isLoder, setisLoder] = useState(true);
-    const [isOpenModal, setIsOpenModal] = useState(true);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
     useEffect(() => {
         // Update the document title using the browser API

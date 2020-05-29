@@ -60,7 +60,7 @@ class JustCropImg extends Component {
             error['name']='لطفا عکس رو انتخاب کنید ';
          }else if (this.state.type!=="image/png" && this.state.type!=="image/jpeg") {
             validate=false;
-            error['name']='فرمت عکس باید png و یا jpeg باشد ';
+            error['name']='فرمت عکس باید png و یا jpg باشد ';
         }
         this.setState({
             error
@@ -109,10 +109,10 @@ class JustCropImg extends Component {
                 console.log("this is compressive  type");
                 validate=false;
                 error['name']='قرمت عکس باید png و یا jpeg باشد ';
-            }else if (compressedFile.size > 32000) {
+            }else if (compressedFile.size > 307200) {
                 console.log("this is    size");
                 validate=false;
-                error['name']='حجم عکس باید کمتر از 400 کیلوبایت باشد ';
+                error['name']='حجم عکس باید کمتر از 300 کیلوبایت باشد ';
             }
             this.setState({
                 error
@@ -207,8 +207,8 @@ class JustCropImg extends Component {
 
                     </FormGroup>
                     {
-                        this.state.error['name'] !== '' ? <span
-                            className='fs-08vw color-theme-1 mr-3 d-flex justify-content-end mb-5 text-center'>{this.state.error['name']}</span> : ''
+                        this.state.error['name'] !== '' ? <span dir="rtl"
+                            className='fs-08vw red-color mr-3 d-flex   mb-5  d-flex justify-content-start' style={{fontWeight:800}} >{this.state.error['name']}</span> : ''
                     }
                 </div>
 

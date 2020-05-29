@@ -59,6 +59,7 @@ export default function UserInfo(props) {
     const [ImgValue, setImgValue] = useState({data:null,file:null});
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [isOpenImg, setIsOpenImg] = useState(false);
+    const [fileName, setFileName] = useState(null);
     const [count, setcount] = useState(0);
 
  
@@ -218,6 +219,7 @@ export default function UserInfo(props) {
             //     ax1File:file ,ax1:base64
             // });
         setIsOpenImg(!isOpenImg);
+        setFileName(file.name)
 
             // this.setState(prevState => ({
             //     isOpen: !prevState.isOpen
@@ -354,8 +356,8 @@ export default function UserInfo(props) {
                                                 </div>
                                                 <div className="w-100 mt-3 mb-3">
                                                     <label onClick={()=>{setIsOpenImg(!isOpenImg)}}
-                                                        className="btn green-background  br10px text-white  col-md-6 col-sm-12 offset-md-3 sendButton-shadow" htmlFor="upload_img">آپلود
-                                                        عکس
+                                                        className="btn green-background  br10px text-white  col-md-6 col-sm-12 offset-md-3 sendButton-shadow" htmlFor="upload_img">
+                                                        {fileName||"آپلود عکس"}
                                                     </label>
                                                     {/*<input type="file" id="upload_img" className={"d-none"} onChange={HandelImg} />*/}
                                                 </div>
