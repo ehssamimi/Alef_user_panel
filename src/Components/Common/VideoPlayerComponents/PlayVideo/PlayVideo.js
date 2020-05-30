@@ -11,6 +11,8 @@ const PlayVideo169 = (props) => {
         // height: 300,
         // poster:props.poster,
         className:"brVideo",
+
+        // dataSetup='{"techorder" : ["flash"]}',
         poster:props.img,
         enableLowInitialPlaylist:true,
         aspectRatio: props.aspect?props.aspect:'16:9',

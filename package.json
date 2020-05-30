@@ -44,6 +44,7 @@
     "react-files": "^2.4.8",
     "react-glide": "^3.2.0",
     "react-google-maps": "^9.4.5",
+    "react-hls-player": "0.0.6",
     "react-icons": "^3.7.0",
     "react-iframe": "^1.8.0",
     "react-image-lightbox": "^5.1.1",
@@ -78,6 +79,7 @@
     "styled-components": "^4.4.1",
     "validator": "^13.0.0",
     "video.js": "^7.6.6",
+    "videojs-flash": "^2.2.1",
     "yup": "^0.27.0"
   },
   "scripts": {
