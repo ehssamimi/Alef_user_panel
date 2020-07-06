@@ -11,6 +11,7 @@ import {LogOut} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
 import { Redirect } from "react-router-dom";
 import cookie from 'react-cookies';
+import {Collapse} from "reactstrap";
 
 
 
@@ -20,6 +21,8 @@ export default function RightMenu (props){
     const Url_context=useContext(UrlContext);
      const [selected, setselected] = useState("my-course");
      const [UserSumery, setUserSumery] = useState("");
+     const [collapse, setCollapse] = useState(false);
+
 
 
 
@@ -55,6 +58,12 @@ export default function RightMenu (props){
                      break;
                  case "my-schedule":
                      setselected("my-schedule");
+                     break;
+                     case "current-online-class":
+                     setselected("current-online-class");
+                     break;
+                     case "online-scheduler":
+                     setselected("online-scheduler");
                      break;
                  case "user-profile" || "user-info":
                      setselected("user-profile");
@@ -92,6 +101,13 @@ export default function RightMenu (props){
      }
 
 
+
+    const toggle = () => {
+         console.log("click")
+        setCollapse(!collapse)
+    };
+
+
     return (
         <div className="d-flex  w-100   " dir='rtl'>
 
@@ -111,7 +127,7 @@ export default function RightMenu (props){
 
 
 
-                        <div className="w-100 h-70 h-min-20em  overflow-hidden mt-4">
+                        <div className="w-100 overFlow-y-scroll h-min-20em  overflow-hidden mt-4">
                             <ul className="profile-user-list mt-4">
 
 
@@ -130,6 +146,55 @@ export default function RightMenu (props){
 
                                     }
                                 </li>
+
+                                <li className="list-unstyled  fs13vw fw200 position-relative     " >
+
+                                    <div className="w-100 h-100 position-relative text-white list-user-profile ">
+                                        <Link to="#" onClick={toggle} className= "zIndex-4 cursor-pointer " >
+                                            <span className="zIndex-4  w-100 pl-2 text-white "><span className="mr-2"><AiOutlineUser /> </span> کلاس آنلاین</span>
+                                        </Link>
+
+                                        <Collapse isOpen={collapse}>
+                                            <div className="w-100   position-relative text-white ">
+                                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem " >
+                                                    {
+                                                        selected === "current-online-class" ?
+                                                            <div className="w-100 h-100 position-relative">
+                                                                <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
+                                                                <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><AiOutlineUser /> </span>کلاس  </span>
+                                                            </div> :
+                                                            <div className="w-100 h-100 position-relative text-white "
+                                                            >
+                                                                <Link to="/current-online-class" onClick={() => setselected("current-online-class")}>
+                                                                    <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><AiOutlineUser /> </span>کلاس  </span>
+                                                                </Link>
+                                                            </div>
+
+                                                    }
+                                                </li>
+                                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem " >
+                                                    {
+                                                        selected === "online-scheduler" ?
+                                                            <div className="w-100 h-100 position-relative">
+                                                                <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
+                                                                <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><AiOutlineUser /> </span>برنامه ریزی آنلاین</span>
+                                                            </div> :
+                                                            <div className="w-100 h-100 position-relative text-white "
+                                                            >
+                                                                <Link to="/online-scheduler" onClick={() => setselected("online-scheduler")}>
+                                                                    <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><AiOutlineUser /> </span>برنامه ریزی آنلاین</span>
+                                                                </Link>
+                                                            </div>
+
+                                                    }
+                                                </li>
+
+                                            </div>
+                                        </Collapse>
+                                    </div>
+
+                                </li>
+
 
 
                                 <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem "  >
@@ -168,7 +233,9 @@ export default function RightMenu (props){
                                     }
                                 </li>
 
-                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem "  onClick={handelExit} >
+
+                                <li className="list-unstyled  fs13vw fw200 position-relative  h-5rem "  >
+                                    {/*onClick={handelExit}*/}
 
                                     {
                                         selected === "exit" ?

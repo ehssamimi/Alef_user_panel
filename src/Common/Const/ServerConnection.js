@@ -498,6 +498,42 @@ function Error(error) {
     return resp;
 }
 
+// *************OnlineClass******
+export async  function  LoadSchedule(id){
+
+    let headers = {
+        // 'token': Const.Token,
+        'token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWVhNWQ3MmRlMWRjOWFjYThkYWRkNzhiIiwib3RoZXJzIjpudWxsLCJzZWVkIjoyMDM1Nn0.osgJ4O1Xd4Ub8BYfbxaCQA8mTIY_wyDTocx_XiwrHhE",
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+    };
+
+
+    var resp ="";
+    await axios.get(`${Const.kelidihaadmin}user/weekly-plan`,   {headers: headers}).then(function (response) {
+
+
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let {response}=error;
+        if (response===undefined){
+            resp={state: 400,Description: error.message}
+        }else if (response.status===422){
+            resp={state:422,Description:response.statusText}
+        } else{
+            resp={state:response.status||400,Description:response.data.detail||error.message}
+        }
+    });
+    return resp;
+}
+
+
+
+
 // export async  function  GetAllPermission(page_number){
 //
 //     let headers = {

@@ -5,6 +5,8 @@ import MySchedule from "../MyProgram/MyProgram";
 import UserProfile from "../UserProfilew/UserProfile";
 import UserInfo from "../UserInfo/UserInfo";
 import Exit from "../Exit/Exit";
+import OnlineScheduling from "../OnlineClasses/OnlineScheduling/OnlineScheduling";
+import CurrentOnlineClass from "../OnlineClasses/CurrentOnlineClass/CurrentOnlineClass";
 
 const MainUser = (props) => {
 
@@ -23,6 +25,13 @@ const MainUser = (props) => {
                      }
                      {
                         props.match.path==="/user-profile"?<UserProfile {...props}/>:""
+                     }
+
+                     {
+                        props.match.path==="/online-scheduler"?<OnlineScheduling {...props}/>:""
+                     }
+                     {
+                        props.match.path==="/current-online-class"?<CurrentOnlineClass {...props}/>:""
                      }
                      {
                         props.match.path==="/user-info"?<UserInfo {...props}/>:""

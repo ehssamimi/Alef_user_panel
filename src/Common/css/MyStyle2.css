@@ -184,9 +184,13 @@
 .fw200{
     font-weight: 200;
 }
+.zIndex-4{
+    z-index: 4!important;
+}
 .zIndex-3{
     z-index: 3;
-} .zIndex-2{
+}
+.zIndex-2{
       z-index: 2;
   }
 .profile-user-list{
@@ -381,6 +385,10 @@ select option:hover {
 .h-min-12em{
     min-height: 12em!important;
 }
+.h-min-5rem{
+    min-height: 5vw;
+    height: auto;
+}
 
 .FsFooterLogin {
     font-size: Calc(0.5vw + 0.5rem) !important;
@@ -400,6 +408,21 @@ select option:hover {
 }
 .FsHeader-HomePage {
     font-size: Calc(1.3vw + 1.2rem) !important;
+}
+.Fs-Table{
+    font-size: Calc(0.5vw + 0.5rem) !important;
+    padding: 0!important;
+    text-align: center;
+    vertical-align: center;
+    margin: 0!important;
+}
+.Fs-Table-h{
+    font-size: Calc(0.5vw + 0.5rem) !important;
+    padding: 0!important;
+    text-align: center;
+    vertical-align: center;
+    margin: 0!important;
+    line-height: 3;
 }
 .fs10vw{
     font-size: 10vw;
@@ -436,6 +459,31 @@ select option:hover {
     top: 7%!important;
     right: 2%;
 
+}
+.overFlow-y-scroll{
+    overflow-y: scroll;
+}
+.mt4vw{
+    margin-top: 4vw;
+}
+.bg-plum{
+    background: plum!important;
+}
+.bg-coral{
+    background: coral!important;
+}
+.bg-lightskyblue{
+    background: lightskyblue!important;
+}
+.log-indicator {
+    width: 13px;
+    height: 13px;
+    border: 2px solid #FF86367E;
+    border-radius: 14px;
+    display: inline-block;
+}
+.dashboard-logs {
+    height: 270px;
 }
 
 

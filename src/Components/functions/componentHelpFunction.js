@@ -206,3 +206,49 @@ export const   chackingPersian=(phonenumber) =>{
     var re = /^(\+98|0)?9\d{9}$/;
     return re.test(phonenumber);
 }
+
+
+// **********convert Days********
+
+export function bgClassroomConfige(item){
+    let bg;
+    if (item.class_type==="public"){
+        bg="bg-plum";
+    }else if (item.class_type==="special") {
+        bg="bg-coral";
+    }else {
+        bg="bg-lightskyblue";
+    }
+    return bg
+}
+export function convertshamcytomiladi(day){
+    let days=["شنبه","یکشنبه","دوشنبه","سهشنبه","چهارشنبه","پنجشنبه","جمعه"];
+    let milady=""
+    switch(day) {
+        case days[0]:
+            milady="saturday";
+            break;
+        case days[1]:
+            milady="sunday";
+            break;
+        case days[2]:
+            milady="monday";
+            break;
+        case days[3]:
+            milady="tuesday";
+            break;
+        case days[4]:
+            milady="wednesday";
+            break;
+        case days[5]:
+            milady="thursday";
+            break;
+        case days[6]:
+            milady="friday";
+            break;
+        default:
+            milady="saturday";
+    }
+
+    return milady
+}

@@ -92,6 +92,8 @@ function App() {
 
                           {/*<AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>*/}
                           <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MainUser}/>
+                          <AuthRoute path="/online-scheduler" authUser={ User.isLogIn} component={MainUser}/>
+                          <AuthRoute path="/current-online-class" authUser={ User.isLogIn} component={MainUser}/>
                           {/*<AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>*/}
                           <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MainUser}/>
                           <AuthRoute path="/exit" authUser={ User.isLogIn} component={MainUser}/>
