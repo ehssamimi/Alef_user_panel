@@ -18,3 +18,4 @@ export const user="https://user.kelidiha.com/users/";
 export const ResourceUser="https://resource.kelidiha.com/users/";
 export const admin_route="https://user.kelidiha.com/admin_route/";
 export const kelidihaadmin="https://kelidihaadmin.liara.run/";
+export const LiveKelid="http://live.kelidiha.com:3004/";

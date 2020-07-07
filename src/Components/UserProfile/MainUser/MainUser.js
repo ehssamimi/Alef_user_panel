@@ -7,6 +7,7 @@ import UserInfo from "../UserInfo/UserInfo";
 import Exit from "../Exit/Exit";
 import OnlineScheduling from "../OnlineClasses/OnlineScheduling/OnlineScheduling";
 import CurrentOnlineClass from "../OnlineClasses/CurrentOnlineClass/CurrentOnlineClass";
+import CurrentClass from "../OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass";
 
 const MainUser = (props) => {
 
@@ -32,6 +33,9 @@ const MainUser = (props) => {
                      }
                      {
                         props.match.path==="/current-online-class"?<CurrentOnlineClass {...props}/>:""
+                     }
+                     {
+                        props.match.path==="/online-class/:id"?<CurrentClass {...props}/>:""
                      }
                      {
                         props.match.path==="/user-info"?<UserInfo {...props}/>:""

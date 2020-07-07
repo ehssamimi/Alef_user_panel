@@ -486,6 +486,38 @@ select option:hover {
     height: 270px;
 }
 
+.fs10vw{
+    font-size: 10vw;
+}
+.lineHeight3 {
+    line-height:  Calc(0.5vw + 0.7rem) !important;
+}
+.width-chat-profile{
+    width: calc(4rem + 2vw);
+}
+.profile-pic {
+
+
+    width: calc(2rem + 3.5vw) !important;
+    height: calc(2rem + 3.5vw) !important;
+    min-width: calc(2rem + 3.5vw)!important;
+    min-height:  calc(2rem + 3.5vw)!important;
+
+}
+.profile-pic-chat {
+    width: calc(2rem + 2vw) !important;
+    height: calc(2rem + 2vw) !important;
+    min-width: calc(2rem + 2vw)!important;
+    min-height:  calc(2rem + 2vw)!important;
+}
+
+.padding-l-0{
+    padding-left: 0!important;
+}
+.padding-r-0{
+    padding-right: 0!important;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

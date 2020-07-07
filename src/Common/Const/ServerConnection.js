@@ -1,6 +1,7 @@
 import * as Const from "./ServerConst";
 import axios from "axios";
 import cookie from "react-cookies";
+import {error_Notification} from "../../Components/functions/componentHelpFunction";
 
 export async  function  GetUserDropDown( ){
 
@@ -527,6 +528,104 @@ export async  function  LoadSchedule(id){
         } else{
             resp={state:response.status||400,Description:response.data.detail||error.message}
         }
+    });
+    return resp;
+}
+
+export async  function  GetCurrentUserClassList(id){
+
+    let headers = {
+        'token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+    };
+    console.log(headers);
+
+
+    var resp ="";
+    await axios.get(`${Const.kelidihaadmin}user/class/current`,   {headers: headers}).then(function (response) {
+
+
+        // let {Items} = response.data;
+        // resp={state:200,Description:response.data};
+        resp=response.data;
+
+
+    }).catch(function (error) {
+        console.log(error.response);
+        console.log(error);
+        let{state ,Description}=Error(error);
+        error_Notification(state ,Description)
+    });
+    return resp;
+}
+
+
+// **************chat********
+export async  function  GetUserProfileImg(user_id){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+    };
+
+
+    var resp ="";
+    // await axios.get(`${Const.kelidihaadmin}users/profile/by_user_id/${user_id}` , {headers: headers}).then(function (response) {
+    await axios.get(`https://user.kelidiha.com/users/profile/by_user_id/${user_id}` , {headers: headers,responseType: 'blob'}).then(function (response) {
+        console.log(response)
+        let imgfile =new File([response.data], 'profileImg');
+        console.log("imgfile")
+        console.log(imgfile)
+        // let {Items} = response.data;
+        resp={state:200,Description:imgfile};
+
+    }).catch(function (error) {
+        let {state,Description}=Error(error);
+        error_Notification(state,Description);
+    });
+    return resp;
+}
+
+export async  function  GetHistoryChat(gp_id,page,token){
+
+    let headers = {
+        'Token': token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+    };
+
+
+    var resp ="";
+    await axios.get(`https://cors-anywhere.herokuapp.com/${Const.LiveKelid}group/admin/groups/history?group_id=${gp_id}&page=${page}` , {headers: headers}).then(function (response) {
+        console.log(response)
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        console.log(error)
+        // resp=Error(error);
+    });
+    return resp;
+}
+
+export async  function  GetClassroom(id){
+
+    let headers = {
+        'Token': Const.Token,
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+    };
+
+
+    var resp ="";
+    await axios.get(`${Const.kelidihaadmin}admin/classroom/load?class_id=${id}`,   {headers: headers}).then(function (response) {
+
+        resp=response.data;
+
+    }).catch(function (error) {
+    let{state ,Description}=Error(error)
     });
     return resp;
 }

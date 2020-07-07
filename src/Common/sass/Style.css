@@ -118,6 +118,9 @@ html {
   height: 100%;
   background: #f7faf8 !important; }
 
+.IranSans{
+  font-family: IRANSans !important;
+}
 body {
   font-family: IRANSans !important;
   background: #f7faf8 !important; }
@@ -143,14 +146,14 @@ body {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #a8b3ab !important !important; }
+  color: #a8b3ab !important   }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #a8b3ab !important !important; }
+  color: #a8b3ab !important  }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #a8b3ab !important !important; }
+  color: #a8b3ab !important   }
 
 /*# sourceMappingURL=Style.css.map */
