@@ -39,9 +39,12 @@ const CurrentOnlineClass = (props) => {
     return (
         <IsLoaderComponent isLoader={isLoader && ClassList.length===0}>
             {
-                ClassList.map((todo, index) =><ClassRoomCurrentRow {...todo} key={index} />)
+                ClassList.map((todo, index) => <ClassRoomCurrentRow {...todo} key={index} />
+
+
+                )
             }
-           
+
         </IsLoaderComponent>
 
     );

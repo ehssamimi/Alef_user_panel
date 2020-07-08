@@ -39,8 +39,8 @@ const CurrentClass = (props) => {
                         </div>
                         <div className="col-sm-12 col-md-4">
 
-                            <Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>
-                            {/*<Chats gid={Class.group_chat_id} classId={props.match.params.id}/>*/}
+                            {/*<Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>*/}
+                            <Chats gid={Class.group_chat_id} classId={props.match.params.id}/>
                         </div>
                     </div>:""
                 }

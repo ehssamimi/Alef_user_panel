@@ -479,7 +479,10 @@ function Error(error) {
 
     console.log(error);
     var resp ="";
-    if (error.response.status===400) {
+    if (error.response===undefined){
+        resp={state: 400,Description: error.message}
+
+    }else if (error.response.status===400) {
         resp={state: 400,Description: error.response.data.detail}
         if (error.response.data.detail==="access denied") {
             console.log("we are out !!!!!!!!!!");
@@ -487,9 +490,6 @@ function Error(error) {
             localStorage.clear();
             window.location.reload();
         }
-
-    }else if (error.response===undefined){
-        resp={state: 400,Description: error.message}
 
     } else if (error.response.status===422){
         resp={state:422,Description:error.response.statusText}
@@ -605,7 +605,7 @@ export async  function  GetHistoryChat(gp_id,page,token){
 
     }).catch(function (error) {
         console.log(error)
-        // resp=Error(error);
+        resp=Error(error);
     });
     return resp;
 }

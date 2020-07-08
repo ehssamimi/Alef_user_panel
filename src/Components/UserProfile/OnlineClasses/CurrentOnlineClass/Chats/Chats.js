@@ -6,6 +6,9 @@ import InputSendMessage from "./InputSendMessage/InputSendMessage";
 import {GetHistoryChat, GetUserProfileImg} from "../../../../../Common/Const/ServerConnection";
 import {error_Notification} from "../../../../functions/componentHelpFunction";
 import Loader from "../../../../Common/Loader/Loader";
+import *  as Const from '../../../../../Common/Const/ServerConst'
+import {Card} from 'reactstrap'
+import ChatLeftRight from "./ChatLeftRight/ChatLeftRight";
 
 //
 // const   socket = io.connect('http://live.kelidiha.com:3004/live_class', {
@@ -32,7 +35,7 @@ class Chats extends Component {
                 transportOptions: {
                     polling: {
                         extraHeaders: {
-                            'token': "5e82a422dc5d87cead3bab42",
+                            'token': Const.UserId,
                             "gpid": props.gid,
                             "classid": props.classId
                         }
@@ -53,7 +56,7 @@ class Chats extends Component {
             transportOptions: {
                 polling: {
                     extraHeaders: {
-                        'token': "5ea0132cd8cbe2eb0b7e2361",
+                        'token':  Const.UserId,
                         "gpid": this.props.gid,
                         "classid": this.props.classId
                     }
@@ -73,10 +76,19 @@ class Chats extends Component {
             // setMessage(prevMessages=>[...prevMessages,data])
             let{UsersIDImg}=this.state;
             if ( UsersIDImg["UsersId"].includes(data.sid)){
+                let MList = this.state.productSeparate;
+                console.log("MList")
+                console.log(MList)
+                MList.unshift(data);
+                console.log(MList)
+                this.setState({
+                    productSeparate:MList
+                })
 
-                this.setState(prevState => ({
-                    messages:[...prevState.messages,data]
-                }));
+
+                // this.setState(prevState => ({
+                //     messages:[...prevState.messages,data]
+                // }));
             }else {
                 let {state ,Description }=await GetUserProfileImg(data.sid);
                 console.log("Description")
@@ -85,10 +97,20 @@ class Chats extends Component {
                 let Use={"sid":data.sid,"profile":Description}
                 Ussers["UsersId"].push(data.sid);
                 Ussers["UsersIDImg"].push(Use);
-                this.setState(prevState => ({
-                    messages:[...prevState.messages,data],
+                let MList = this.state.productSeparate;
+                console.log("MList")
+                console.log(MList)
+                MList.unshift(data);
+                console.log(MList)
+                this.setState({
+                    productSeparate:MList,
                     UsersIDImg:Ussers
-                }));
+                })
+
+                // this.setState(prevState => ({
+                //     messages:[...prevState.messages,data],
+                //     UsersIDImg:Ussers
+                // }));
 
 
             }
@@ -154,7 +176,7 @@ class Chats extends Component {
 
 
         // let Response = await GetAllProduct(pageStart);
-        if (Response !== 'error') {
+        if (state === 200) {
             let {messages, page} = Description;
             // *** modify  products to our label value ***
             let productsSeparate =[];
@@ -255,36 +277,45 @@ class Chats extends Component {
         console.log(productSeparate);
         return (
             <div>
+                <Card className="card-shadow-default br20px br-0  ">
+                    <h4 className="  FsFooterLogin green-them font-weight-bold pl-3    header-chat-wide">
+                        گفت  و گو ها
+                    </h4>
+                    <InfiniteScrollReverse
+                        className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh "
+                        pageStart={0}
+                        loadMore={this.loadMore}
+                        hasMore={ hasMore}
+                        loadArea={10}
+                        loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
+                    >
+                        <div className='d-flex  w-100  flex-wrap align-content-end'>
+                            {productSeparate.length > 0 && Array.isArray(productSeparate) ?
+                                productSeparate.slice(0).reverse().map((todo, index) =>
+                                    <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                ) : ''
+                            }
+                        </div>
+                    </InfiniteScrollReverse>
+
+                    <InputSendMessage sendMessage={this.sendMessage}/>
+                </Card>
 
 
-                <InfiniteScrollReverse
-                    className="row rtl m-0 overFlow-y-scroll vh-100 pl-4 border-chat-left"
-                    pageStart={0}
-                    loadMore={this.loadMore}
-                    hasMore={ hasMore}
-                    loadArea={10}
-                    loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
-                >
-                    <div className='d-flex  w-100  flex-wrap'>
-                        {productSeparate.length > 0 && Array.isArray(productSeparate) ?
-                            productSeparate.slice(0).reverse().map((todo, index) =>
-                                <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                            ) : ''
-                        }
-                    </div>
-                </InfiniteScrollReverse>
 
 
-                {
-                    messages.length>0?
-                        messages.map((item,index)=>
-                                <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...item} UsersIDImg={UsersIDImg}/>
-                            // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...item}/>
-
-                        )
-                        :""
-                }
-                <InputSendMessage sendMessage={this.sendMessage}/>
+                {/*{*/}
+                {/*    messages.length>0?*/}
+                {/*        messages.map((item,index)=>*/}
+                {/*            item.sid===Const.UserId?*/}
+                {/*                <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...item} UsersIDImg={UsersIDImg}/>:<ChatLeftRight chatBg={"green-background border-chat-left"}  key={index} {...item} UsersIDImg={UsersIDImg}/>*/}
+                {/*            // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...item}/>*/}
+                {/*//         sid: "5ea0132cd8cbe2eb0b7e2361"*/}
+                {/*// sn: "احسان صمیمی راد"*/}
+                {/*// time: "15:46"*/}
+                {/*        )*/}
+                {/*        :""*/}
+                {/*}*/}
 
             </div>
         );

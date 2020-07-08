@@ -6,10 +6,10 @@ import  {Link} from 'react-router-dom'
 class ClassRoomCurrentRow extends Component {
 
 render() {
-    let{class_id, class_type,end,start,information:{grade,field,lesson_name}  }=this.props;
+     let{class_id, class_type,end,start,class_information:{grade,field,lesson_name}  }=this.props;
 
     return (
-            <Card className={`w-100 ${this.state.classList}`}  >
+            <Card className={`w-100 ${this.props.classList}`}  >
                 <CardBody className="w-100">
                     <Link to={`/online-class/${class_id}`}>
                         <div className="row m-0 w-100 cursor-pointer"   >

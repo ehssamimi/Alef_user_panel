@@ -12,10 +12,8 @@ function search(nameKey, myArray){
     const [profile, setProfile] = useState(profile1);
     useEffect(() => {
         let arr=search(props.sid,props.UsersIDImg["UsersIDImg"])
-        console.log(props.sid)
-        console.log(props.UsersIDImg["UsersIDImg"])
-        console.log(arr)
-        console.log(arr.profile)
+        console.log(props )
+
          const reader = new FileReader();
         reader.onload = () => {
 
@@ -32,14 +30,14 @@ function search(nameKey, myArray){
         <div className="col-12 row  mt-3 p-0">
             <div className="width-chat-profile position-relative">
                <div className="profile-pic-chat  br-r50  p-05 position-absolute br-g">
-                    <img src={  profile} alt="profile" className="img-self-cover br-r50 br-y "/>
+                    <img src={  profile} alt="profile" className="img-self-cover br-r50 br-y text-justify  "/>
                 </div>
             </div>
 
                 <div className={["talk-bubble tri-right round-top-right   right-top    ",`${props.chatBg}`].join(" ")}>
                 <div className="talktext">
                     <p className="chat-header  IranSans">{props.sn}</p>
-                    <p className={["lineHeight3 IranSans  ",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
+                    <p className={["  IranSans text-justify ",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
                     <div className="w-100 d-flex justify-content-end">
                         <span className= "chat-header  IranSans " >{props.time}</span>
                     </div>
