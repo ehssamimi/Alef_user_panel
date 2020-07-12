@@ -7,7 +7,7 @@ import IsLoaderComponent from "../../../../Common/Loader/IsLoaderComponent";
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
     const [IsLoader, setIsLoader] = useState(true);
-    useEffect(async () => {
+    useEffect(  () => {
     async function getClassDetail() {
         console.log(props.match.params.id);
         let Classroom=  await GetClassroom(props.match.params.id)
@@ -23,11 +23,12 @@ const CurrentClass = (props) => {
         // information: {grade: "کنکوری (دوازدهم)", field: "ریاضی فیزیک", lesson_name: "ریاضی"}
         // live_urls: {key: "konkor riazi", websocket: "ws://live.kelidiha.com:8000/live/konkor riazi.flv", hls: "http://live.kelidiha.com:8000/live/konkor riazi/index.m3u8", rtmp: "rtmp://live.kelidiha.com/live/konkor riazi", dash: "http://live.kelidiha.com:8000/live/konkor riazi/index.mpd", …}
         // payment: {price: 50000}
+        return ()=>{setClass("")}
      }
-      await getClassDetail()
+        getClassDetail()
 
 
-    }, [props]);
+    }, [props,IsLoader]);
 
     return (
         <div>

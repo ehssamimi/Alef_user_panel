@@ -39,7 +39,7 @@ function search(nameKey, myArray){
                     <p className="chat-header  IranSans">{props.sn}</p>
                     <p className={["  IranSans text-justify ",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
                     <div className="w-100 d-flex justify-content-end">
-                        <span className= "chat-header  IranSans " >{props.time}</span>
+                        <span className= "chat-header  IranSans  " >{props.time}</span>
                     </div>
                 </div>
             </div>

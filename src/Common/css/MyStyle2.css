@@ -1,7 +1,4 @@
-.arsenal{
-    background-color: red;
-    color: #dde2de;
-}
+
 .h-250px{
     height: 250px;
 }
@@ -219,9 +216,7 @@
 
     font-weight: 500;
 }
-.red-color{
-    color:red;
-}
+
 .text-decoration-line-through{
     text-decoration: line-through;
 }
@@ -393,12 +388,16 @@ select option:hover {
 .FsFooterLogin {
     font-size: Calc(0.5vw + 0.5rem) !important;
 }
+.FS0 {
+    font-size: Calc(0.5vw + 0.2rem) !important;
+}
 .FsHeaderLogin1{
     font-size: Calc(1vw + 0.7rem);
 }
 .FsHeaderLogin2{
     font-size: Calc(1.9vw + 1.5rem);
 }
+
 
 .FssubmitLogin {
     font-size: Calc(0.7vw + 0.5rem) !important;
@@ -544,8 +543,13 @@ select option:hover {
 
 
 
+
+
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
     .loaderLogInM{
 
         display: flex;
@@ -633,7 +637,6 @@ select option:hover {
         font-weight: bold;}
     .activeHeaderMenu ::after
     {
-
         position: absolute;
         content: '';
         border-bottom: 3px solid #215831;

@@ -64,6 +64,22 @@ class Chats extends Component {
             },
             path: '/ws/socket.io'
         });
+        console.log("grid"+" "+this.props.gid+"classid"+" "+this.props.classId)
+
+
+
+        socket.on('set_user_info', (data) => {
+            // console.log("set_user_info")
+            console.log("componentDidMountcomponentDidMount")
+            console.log(data)
+            this.setState({
+                InitialData:data
+            })
+            // document.getElementById("user_id").textContent = data.message.user_id;
+            // document.getElementById("name").textContent = data.message.name;
+            // document.getElementById('chat').disabled = false;
+            // document.getElementById('send').disabled = false;
+        })
 
         socket.on('gp_msg',async (data)=>{
             console.log("gp_msg")
@@ -128,18 +144,6 @@ class Chats extends Component {
 
 
 
-        socket.on('set_user_info', (data) => {
-            // console.log("set_user_info")
-            console.log("componentDidMountcomponentDidMount")
-            console.log(data)
-            this.setState({
-                InitialData:data
-            })
-            // document.getElementById("user_id").textContent = data.message.user_id;
-            // document.getElementById("name").textContent = data.message.name;
-            // document.getElementById('chat').disabled = false;
-            // document.getElementById('send').disabled = false;
-        })
         // async function getNewChat(){
         //
         //
@@ -282,20 +286,28 @@ class Chats extends Component {
                         گفت  و گو ها
                     </h4>
                     <InfiniteScrollReverse
-                        className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh "
+                        className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
                         pageStart={0}
                         loadMore={this.loadMore}
                         hasMore={ hasMore}
+                        isLoading={true }
                         loadArea={10}
-                        loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
+                         loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
                     >
-                        <div className='d-flex  w-100  flex-wrap align-content-end'>
+
                             {productSeparate.length > 0 && Array.isArray(productSeparate) ?
-                                productSeparate.slice(0).reverse().map((todo, index) =>
-                                    <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                ) : ''
+
+                                        productSeparate.slice(0).reverse().map((todo, index) =>
+                                            <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                        )
+
+                                : []
                             }
-                        </div>
+
+
+
+
+
                     </InfiniteScrollReverse>
 
                     <InputSendMessage sendMessage={this.sendMessage}/>

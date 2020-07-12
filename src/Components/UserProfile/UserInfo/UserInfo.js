@@ -94,6 +94,10 @@ export default function UserInfo(props) {
             if (state===200 ) {
                 setisLoder(false);
                 console.log(Description);
+                let images=Description.profile.image_id.split("/").reverse();
+                localStorage.setItem("user_id",images[0]);
+
+
                 let prevItem=""
                 if (localStorage.getItem("user_alef")) {
                   prevItem=localStorage.getItem("user_alef").split(",");

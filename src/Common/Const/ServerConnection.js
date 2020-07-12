@@ -500,11 +500,11 @@ function Error(error) {
 }
 
 // *************OnlineClass******
-export async  function  LoadSchedule(id){
+export async  function  LoadSchedule( ){
 
     let headers = {
-        // 'token': Const.Token,
-        'token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWVhNWQ3MmRlMWRjOWFjYThkYWRkNzhiIiwib3RoZXJzIjpudWxsLCJzZWVkIjoyMDM1Nn0.osgJ4O1Xd4Ub8BYfbxaCQA8mTIY_wyDTocx_XiwrHhE",
+        'token': Const.Token,
+        // 'token': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWVhNWQ3MmRlMWRjOWFjYThkYWRkNzhiIiwib3RoZXJzIjpudWxsLCJzZWVkIjoyMDM1Nn0.osgJ4O1Xd4Ub8BYfbxaCQA8mTIY_wyDTocx_XiwrHhE",
         'Content-Type': 'application/json',
         'accept': 'application/json'
     };
@@ -520,14 +520,10 @@ export async  function  LoadSchedule(id){
     }).catch(function (error) {
         console.log(error.response);
         console.log(error);
-        let {response}=error;
-        if (response===undefined){
-            resp={state: 400,Description: error.message}
-        }else if (response.status===422){
-            resp={state:422,Description:response.statusText}
-        } else{
-            resp={state:response.status||400,Description:response.data.detail||error.message}
-        }
+        resp=Error(error)
+        console.log(resp)
+        error_Notification(resp.state,resp.Description)
+
     });
     return resp;
 }

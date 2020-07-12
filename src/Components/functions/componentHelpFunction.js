@@ -29,6 +29,16 @@ export const success_Notification=(Response)=>{
         "success"
     );
 };
+export const warning_Notification=(state,Response)=>{
+    return NotificationManagerss.success(
+        state,
+        Response,
+        3000,
+        null,
+        null,
+        "warning"
+    );
+};
 
 // *****Courses ***
 export const seprateEachCourseData=(courses)=>{
@@ -211,15 +221,17 @@ export const   chackingPersian=(phonenumber) =>{
 // **********convert Days********
 
 export function bgClassroomConfige(item){
-    let bg;
+
+    // let bg;
+    let value={bg:"",border:"",mainColor:"",SecondColor:""};
     if (item.class_type==="public"){
-        bg="bg-plum";
+        value={bg:"bg-white",border:"border-main-green br-r-11",mainColor:"mainColor",SecondColor:"mainColor"};
     }else if (item.class_type==="special") {
-        bg="bg-coral";
+        value={bg:"bg-white",border:"border-table-red br-r-11",mainColor:"dark-red-color",SecondColor:"mainColor"};
     }else {
-        bg="bg-lightskyblue";
+        value={bg:" ",border:"br-r-11 bg-main border-primary-s",mainColor:"text-white",SecondColor:"text-white"};
     }
-    return bg
+    return value
 }
 export function convertshamcytomiladi(day){
     let days=["شنبه","یکشنبه","دوشنبه","سهشنبه","چهارشنبه","پنجشنبه","جمعه"];
@@ -251,4 +263,20 @@ export function convertshamcytomiladi(day){
     }
 
     return milady
+}
+export function changeTime(time){
+   let timeInArray= time.toString().split(".");
+  if (timeInArray.length===1){
+      if (timeInArray[0].length===1){
+          return 0+timeInArray[0]+":"+0+0
+      }else {
+          return  timeInArray[0]+":"+0+0
+      }
+  }else {
+      if (timeInArray[0].length===1){
+          return 0+timeInArray[0]+":"+3+0
+      }else {
+          return  timeInArray[0]+":"+3+0
+      }
+  }
 }
