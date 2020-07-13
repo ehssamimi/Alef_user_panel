@@ -271,7 +271,7 @@ export default function MainHeader (props){
 
 
 
-                <div className=" w-100 pl-4 pr-4 mt-3"  dir="rtl">
+                <div className={isMobile?"w-100":" w-100 pl-4 pr-4 mt-3"}  dir="rtl">
                     { props.children}
                 </div>
 

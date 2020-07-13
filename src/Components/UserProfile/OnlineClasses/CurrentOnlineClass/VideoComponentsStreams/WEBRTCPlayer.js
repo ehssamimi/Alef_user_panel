@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {parse_query_string, parse_rtmp_url, srs_init_rtc} from "../../../../functions/WEBRTC";
 import $ from 'jquery';
 import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
-import poster from "./../../../../../Common/img/default_pic@3x.png"
+import poster from "./../../../../../Common/img/default_pic-169 Cropped.png"
+import {Link} from "react-router-dom";
+import Button from "@material-ui/core/Button/Button";
 class WebrtcPlayer extends Component {
     constructor(props) {
         super(props);
@@ -110,13 +112,20 @@ class WebrtcPlayer extends Component {
             <div className="w-100">
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
 
+                <div className="video-container">
+                    <video id="rtc_media_player" controls autoPlay  className="video-element " poster={poster}/>
+                </div>
 
-                <video id="rtc_media_player" controls autoPlay  className="w-100" poster={poster}/>
+
+
                 <div className="form-inline">
                     {/*URL:*/}
                     <input type="text" id="txt_url" className="input-xxlarge d-none" value={this.props.url}/>
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
-                    <div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn '/></div>
+                    <div   className="btn green-background  br10px  input-s col-3 ml-r-auto justify-content-center mt-2 ">
+                        <Button className="text-white fontFamily-Sans FsFooterLogin" id="btn_play">مشاهده کلاس  </Button>
+                    </div>
+                    {/*<div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn '/></div>*/}
 
                 </div>
 

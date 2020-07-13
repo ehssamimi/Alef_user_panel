@@ -33,9 +33,12 @@ const InputSendMessage = (props) => {
 
 
     return (
-        <div className="w-100 position-relative ">
-            <form onSubmit={ onFormSubmit}>
-                <InputGroup className="position-relative    ">
+        <div className="w-100  ">
+            <div className="position-relative w-100">
+
+            </div>
+            <form onSubmit={ onFormSubmit} className="w-100">
+                <div className="position-relative  w-100  ">
 
                     <textarea placeholder="تایپ کنید ..." className="col-12 text-break inputSendChat form-control pt-2 " onChange={ onchange}  onKeyDown={ handleKeyDown} value={value} />
                     <button className="  button-send-Chat chat-header  Fs3  " style={{zIndex:99}} type="submit"><IoIosSend/></button>
@@ -44,7 +47,7 @@ const InputSendMessage = (props) => {
                             {error}
                         </div>
                     ) : null}
-                </InputGroup>
+                </div>
 
             </form>
         </div>

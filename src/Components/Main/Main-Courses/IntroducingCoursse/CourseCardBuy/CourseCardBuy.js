@@ -16,13 +16,8 @@ const CourseCarsBuy = (props) => {
 
     let{img,title,course,grade,button,cost,sellCost,sub_text,id,off,price}=props;
     console.log(img);
-    const [count, setCount] = useState(1);
-    const [isOpen, setIsOpen] = useState(false);
-    useEffect(() => {
-        // Update the document title using the browser API
+     const [isOpen, setIsOpen] = useState(false);
 
-        document.title = `You clicked ${count} times`;
-    });
     const handelAddCourse=()=>{
 
       console.log("we bought this course")

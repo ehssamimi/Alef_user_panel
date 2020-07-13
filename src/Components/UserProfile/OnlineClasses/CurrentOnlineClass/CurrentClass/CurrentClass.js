@@ -36,11 +36,11 @@ const CurrentClass = (props) => {
             <IsLoaderComponent isLoader={IsLoader}>
                 {
                     Class!==""? <div className="row m-0 ">
-                        <div className="col-sm-12    col-lg-8">
+                        <div className="col-sm-12    col-lg-8 p-0 pr-lg-1">
                             {/*<NewWebsocketPlayer url={Class["live_urls"].websocket}/>*/}
                             <WebrtcPlayer url={Class["live_urls"].web_rtc}  />
                         </div>
-                        <div className="col-sm-12  col-lg-4">
+                        <div className="col-sm-12  col-lg-4 p-0 pl-lg-5">
 
                             {/*<Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>*/}
                             <Chats gid={Class.group_chat_id} classId={props.match.params.id}/>

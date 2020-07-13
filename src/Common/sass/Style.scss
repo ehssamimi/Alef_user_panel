@@ -358,6 +358,7 @@ body{
 .h-min-75vh{
   min-height: 75vh;
 }
+
 .h-max-75vh{
   max-height: 75vh;
 }
@@ -595,12 +596,7 @@ body{
 
 
 /* talk bubble contents */
-.talktext{
-  padding:  0.3em 0.7rem 0.2rem 0.7rem;
-  text-align: left;
-  line-height: 1.4em;
-  min-height: 3rem;
-}
+
 .talktext p{
   /* remove webkit p margins */
   -webkit-margin-before: 0em;
@@ -615,6 +611,8 @@ $chat-header-name: rgb(195, 196, 189) !default;
   border-radius: 50%;
   position:absolute;
   left: 9%;top: -30%;
+  min-width: 2em;
+  min-height: 2em;
 }
 
 
@@ -780,6 +778,12 @@ table {
   font-weight: 100;
 
 }
+.talktext{
+  padding:  0.3em 0.7rem 0.2rem 0.7rem;
+  text-align: left;
+  line-height: 1.4em;
+  min-height: 3rem;
+}
 //.p-s-0::after {
 //  content: "-";
 //  color: $LightGreen;
@@ -795,6 +799,10 @@ table {
 //  color: $LightGreen;
 //
 //}
+.h-chatvh{
+  height: 40vh;
+  max-height: 75vh;
+}
 .width-chat-profile{
   width: calc(3.8rem);
 }
@@ -810,6 +818,13 @@ table {
     height: auto;
     line-height: 4!important;
 
+  }
+  .talktext{
+    line-height: 1em;
+  }
+  .h-chatvh{
+    height: 40vh;
+    max-height: 45vh;
   }
 
 }

@@ -528,7 +528,7 @@ select option:hover {
 }
 .inputSendChat{
     background:#e8ede9!important;
-    border-radius: 0 0 20px 20px!important;
+    border-radius: 0 0 0 0!important;
     height: calc(2.2rem + 1vw)!important;
     vertical-align: middle;
     line-height: 2rem!important;
@@ -546,7 +546,25 @@ select option:hover {
     line-height:  Calc(2vw + 0.7rem) !important;;
     vertical-align: middle!important;
 }
+.video-container{
+    width: 100%;
+    padding-top: 56.25%;
+    height: 0px;
+    position: relative;
 
+    /*padding-top: 56.25%; !* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) *!*/
+    /*padding-top: 75%; !* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) *!*/
+    /*padding-top: 66.66%; !* 3:2 Aspect Ratio (divide 2 by 3 = 0.6666)  *!*/
+    /*padding-top: 62.5%; !* 8:5 Aspect Ratio (divide 5 by 8 = 0.625) *!*/
+
+}
+.video-element{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 
 
@@ -633,7 +651,7 @@ select option:hover {
     }
     .HomePage {
         /*width: 70%;*/
-        width: 90%;
+        width: 100%;
         margin-right: auto;
         margin-left: auto;
         position: relative;
@@ -740,7 +758,7 @@ select option:hover {
     }
     .HomePage {
         /*width: 70%;*/
-        width: 90%;
+        width: 100%;
         margin-right: auto;
         margin-left: auto;
         position: relative;
@@ -823,7 +841,7 @@ select option:hover {
         height: 100vh;
     }
     .HomePage {
-        width: 70%;
+        width: 90%;
     }
     .activeHeaderMenu {
         color:#215831!important;
@@ -902,7 +920,7 @@ select option:hover {
         height: 100vh;
     }
     .HomePage {
-        width: 70%;
+        width: 90%;
     }
     .activeHeaderMenu {
         color:#215831!important;
@@ -978,7 +996,7 @@ select option:hover {
         height: 100vh;
     }
     .HomePage {
-        width: 70%;
+        width: 90%;
     }
 
     .activeHeaderMenu {

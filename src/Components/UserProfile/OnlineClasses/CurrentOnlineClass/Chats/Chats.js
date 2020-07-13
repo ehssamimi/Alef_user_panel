@@ -284,15 +284,15 @@ class Chats extends Component {
         let{messages,productSeparate,hasMore,UsersIDImg}=this.state
         console.log(productSeparate);
         return (
-            <div>
-                <Card className="card-shadow-default br20px br-0  ">
+            <div  >
+                <Card className="card-shadow-default  br-0  ">
                     <h4 className="  FsFooterLogin green-them font-weight-bold pl-3    header-chat-wide">
                         گفت  و گو ها
                     </h4>
                     <InfiniteScrollReverse
 
                         // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
-                        className=" row rtl m-0 overFlow-y-scroll h-max-75vh pl-4 d-flex  w-100  flex-wrap align-items-end pb-4 "
+                        className=" row rtl m-0 overFlow-y-scroll h-chatvh pl-4 d-flex  w-100  flex-wrap align-items-end pb-4 "
                         pageStart={0}
                         loadMore={this.loadMore}
                         hasMore={ hasMore}

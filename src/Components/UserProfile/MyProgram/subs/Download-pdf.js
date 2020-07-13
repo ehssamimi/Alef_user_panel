@@ -1,15 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React  from 'react';
 import {Card,CardBody} from 'reactstrap'
 import Button from "@material-ui/core/Button/Button";
-import {Link} from "react-router-dom";
 
 
 const DownloadPdf = (props) => {
-    const [count, setCount] = useState(1);
-    useEffect(() => {
-        // Update the document title using the browser API
-        document.title = `You clicked ${count} times`;
-    });
+
     return (
         <div className="mt-3">
             <h3 className="text-left">دانلود برنامه مطالعه</h3>
