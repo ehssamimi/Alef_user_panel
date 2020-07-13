@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Input, InputGroup} from "reactstrap";
 import {FaRegHandPaper}   from 'react-icons/fa';
+import {IoIosSend}   from 'react-icons/io';
 import $ from 'jquery'
 import io from "socket.io-client";
 
@@ -34,10 +35,10 @@ const InputSendMessage = (props) => {
     return (
         <div className="w-100 position-relative ">
             <form onSubmit={ onFormSubmit}>
-                <InputGroup className="position-relative   ">
+                <InputGroup className="position-relative    ">
 
-                    <textarea placeholder="تایپ کنید ..." className="col-12 text-break inputSendChat form-control " onChange={ onchange}  onKeyDown={ handleKeyDown} value={value} />
-                    <button className="  button-send-Chat text-white  FsHeaderLogin1  " style={{zIndex:99}} type="submit"><FaRegHandPaper/></button>
+                    <textarea placeholder="تایپ کنید ..." className="col-12 text-break inputSendChat form-control pt-2 " onChange={ onchange}  onKeyDown={ handleKeyDown} value={value} />
+                    <button className="  button-send-Chat chat-header  Fs3  " style={{zIndex:99}} type="submit"><IoIosSend/></button>
                     {error? (
                         <div className="invalid-feedback d-block">
                             {error}

@@ -148,17 +148,20 @@ class StudioInTable extends Component {
                         <p className="mainColor FsHeaderLogin1 font-weight-bold">برنامه کلاسی آنلاین </p>
                     </div>
                     <div className=" d-flex ml-auto  align-items-center">
-                        <div className="d-flex " >
-                            <span>کلاس عمومی</span>
-                            <div className="hollow-pointer-circle border-main-green  ml-1 mt-1"></div>
+                        <div className="d-flex  " >
+                            <div className="hollow-pointer-circle border-main-green  mr-2  mt-sm-1 "></div>
+                            <span className="FsFooterLogin">کلاس عمومی</span>
+
                         </div>
-                        <div className="d-flex ml-2" >
-                            <span>کلاس اختصاصی</span>
-                            <div className="hollow-pointer-circle  border-table-red  ml-1 mt-1"></div>
+                        <div className="d-flex ml-4  " >
+                            <div className="hollow-pointer-circle  border-table-red  mr-2  mt-sm-1 "></div>
+                            <span className="FsFooterLogin">کلاس اختصاصی</span>
+
                         </div>
-                        <div className="d-flex ml-2" >
-                            <span>کلاس خاص </span>
-                            <div className="pointer-circle   bg-main  ml-1 mt-1"></div>
+                        <div className="d-flex ml-4 " >
+                            <div className="pointer-circle   bg-main  mr-2 mt-sm-1 "></div>
+                            <span className="FsFooterLogin">کلاس خاص </span>
+
                         </div>
 
                     </div>

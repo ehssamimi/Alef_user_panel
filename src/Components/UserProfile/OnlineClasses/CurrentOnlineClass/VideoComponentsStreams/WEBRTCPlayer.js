@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {parse_query_string, parse_rtmp_url, srs_init_rtc} from "../../../../functions/WEBRTC";
 import $ from 'jquery';
 import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
-
+import poster from "./../../../../../Common/img/default_pic@3x.png"
 class WebrtcPlayer extends Component {
     constructor(props) {
         super(props);
@@ -54,15 +54,16 @@ class WebrtcPlayer extends Component {
                         api += '/';
                     }
 
-                    var url = schema + '//' + urlObject.server + ':' + port + api;
-                    for (var key in urlObject.user_query) {
-                        if (key != 'api' && key != 'play') {
-                            url += '&' + key + '=' + urlObject.user_query[key];
-                        }
-                    }
-                    // Replace /rtc/v1/play/&k=v to /rtc/v1/play/?k=v
-                    url = url.replace(api + '&', api + '?');
+                    // var url = schema + '//' + urlObject.server + ':' + port + api;
+                    // for (var key in urlObject.user_query) {
+                    //     if (key != 'api' && key != 'play') {
+                    //         url += '&' + key + '=' + urlObject.user_query[key];
+                    //     }
+                    // }
+                    // // Replace /rtc/v1/play/&k=v to /rtc/v1/play/?k=v
+                    // url = url.replace(api + '&', api + '?');
 
+                    var url ='https:'+'//'+urlObject.server+"/1985"+api;
                     // @see https://github.com/rtcdn/rtcdn-draft
                     var data = {
                         api: url, streamurl: urlObject.url, clientip: null, sdp: offer.sdp
@@ -110,12 +111,12 @@ class WebrtcPlayer extends Component {
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
 
 
-                <video id="rtc_media_player" controls autoPlay  className="w-100"/>
+                <video id="rtc_media_player" controls autoPlay  className="w-100" poster={poster}/>
                 <div className="form-inline">
                     {/*URL:*/}
                     <input type="text" id="txt_url" className="input-xxlarge d-none" value={this.props.url}/>
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
-                    <div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn  '/></div>
+                    <div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn '/></div>
 
                 </div>
 

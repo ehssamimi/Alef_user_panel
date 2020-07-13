@@ -292,7 +292,7 @@ class Chats extends Component {
                     <InfiniteScrollReverse
 
                         // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
-                        className=" row rtl m-0 overFlow-y-scroll h-max-75vh pl-4 d-flex  w-100  flex-wrap align-items-end "
+                        className=" row rtl m-0 overFlow-y-scroll h-max-75vh pl-4 d-flex  w-100  flex-wrap align-items-end pb-4 "
                         pageStart={0}
                         loadMore={this.loadMore}
                         hasMore={ hasMore}

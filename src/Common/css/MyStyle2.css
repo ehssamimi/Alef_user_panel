@@ -394,8 +394,14 @@ select option:hover {
 .FS01 {
     font-size: Calc(0.2vw + 0.5rem) !important;
 }
+.FS02 {
+    font-size: Calc(0.35vw + 0.5rem) !important;
+}
 .FsHeaderLogin1{
     font-size: Calc(1vw + 0.7rem);
+}
+.Fs3{
+    font-size: Calc(0.7vw + 0.7rem);
 }
 .FsHeaderLogin2{
     font-size: Calc(1.9vw + 1.5rem);
@@ -497,9 +503,7 @@ select option:hover {
 .lineHeight5 {
     line-height:  Calc(1vw + 0.7rem) !important;
 }
-.width-chat-profile{
-    width: calc(4rem + 2vw);
-}
+
 .profile-pic {
 
 
@@ -510,10 +514,10 @@ select option:hover {
 
 }
 .profile-pic-chat {
-    width: calc(2rem + 2vw) !important;
-    height: calc(2rem + 2vw) !important;
-    min-width: calc(2rem + 2vw)!important;
-    min-height:  calc(2rem + 2vw)!important;
+    width: calc(3rem) !important;
+    height: calc(3rem) !important;
+    /*min-width: calc(2rem + 2vw)!important;*/
+    /*min-height:  calc(2rem + 2vw)!important;*/
 }
 
 .padding-l-0{
@@ -527,6 +531,7 @@ select option:hover {
     border-radius: 0 0 20px 20px!important;
     height: calc(2.2rem + 1vw)!important;
     vertical-align: middle;
+    line-height: 2rem!important;
 }
 .inputSendChat:focus {
     border: 1.4px solid #a7b2aa !important;

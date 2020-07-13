@@ -36,10 +36,10 @@ function search(nameKey, myArray){
 
                 <div className={["talk-bubble tri-right round-top-right   right-top    ",`${props.chatBg}`].join(" ")}>
                 <div className="talktext">
-                    <p className="chat-header  IranSans mb-0">{props.sn}</p>
-                    <p className={["  IranSans text-justify mb-0 ",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
+                    <p className="chat-header  IranSans mb-0 text-left FS01">{props.sn}</p>
+                    <p className={["  IranSans text-justify mb-0 FS02 ",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
                     <div className="w-100 d-flex justify-content-end">
-                        <span className= "chat-header  IranSans  " >{props.time}</span>
+                        <span className= "chat-header  IranSans  FS01 " >{props.time}</span>
                     </div>
                 </div>
             </div>
