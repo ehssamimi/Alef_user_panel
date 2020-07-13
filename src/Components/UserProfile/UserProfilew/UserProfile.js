@@ -32,6 +32,7 @@ export default function UserProfile (props){
                 console.log(Description)
                 setprofileData(Description)
                 let images=Description.profile.image_id.split("/").reverse();
+
                 localStorage.setItem("user_id",images[0]);
 
                 let prevItem=""

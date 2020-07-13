@@ -31,7 +31,8 @@ class Chats extends Component {
         this.state={
             messages:[],InitialData:[],productSeparate:[],pageStart:1,hasMore:true,UsersIDImg:{UsersIDImg:[],UsersId:[]},gid:null,
 
-            socket : io.connect('http://live.kelidiha.com:3004/live_class', {
+            // socket : io.connect('http://live.kelidiha.com:3004/live_class', {
+               socket: io.connect(Const.LiveClass, {
                 transportOptions: {
                     polling: {
                         extraHeaders: {
@@ -53,7 +54,7 @@ class Chats extends Component {
         // let{socket}=this.state;
 
         // const   socket = io.connect('http://live.kelidiha.com:3004/live_class', {
-        const   socket = io.connect('https://websocket.kelidiha.com/live_class', {
+        const   socket = io.connect(Const.LiveClass, {
             transportOptions: {
                 polling: {
                     extraHeaders: {
