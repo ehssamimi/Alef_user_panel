@@ -4,7 +4,7 @@ export const Token=localStorage.getItem("token")  ;
 export const Kelidha_User="https://resource.kelidiha.com/users/";
 // export const User="https://useralef.liara.run/";
 export const ID="5d87e194549ae0267b5268cc";
-export const UserId="5ea0132cd8cbe2eb0b7e2361";
+export const UserId=localStorage.getItem("user_id")  ;
 // *****URL*******
 // export const Download_Server_URL="http://chichiapp.ir:3005/";
 // export const Download_Server_URL="https://api.chichiapp.ir/v1/mediaservice/";

@@ -172,7 +172,7 @@ class Chats extends Component {
         // ***get all product and current page ***
         // let {state, Description} = await GetAllUser(pageStart);
         let{UsersIDImg,pageStart}=this.state;
-        let {state, Description} = await GetHistoryChat(this.props.gid,pageStart,"5efa3bafcd52cdd9ea00ddc2");
+        let {state, Description} = await GetHistoryChat(this.props.gid,pageStart,Const.UserId);
         console.log("Description");
         console.log(Description);
         console.log("pageStart")
@@ -190,6 +190,7 @@ class Chats extends Component {
                 product["cn"]=item.content;
                 product["sid"]=item.sender_id;
                 product["time"]=item.create_at.slice(11, 16);
+                product["st"]=item.sender_type;
 
                 productsSeparate.push(product)
             })
@@ -264,7 +265,8 @@ class Chats extends Component {
             ct: "txt",
             gid: this.props.gid,
             sn: InitialData.message.name,
-            sid: InitialData.message.user_id
+            sid: InitialData.message.user_id,
+            st:"user"
         }
 
         console.log(message)
@@ -286,7 +288,9 @@ class Chats extends Component {
                         گفت  و گو ها
                     </h4>
                     <InfiniteScrollReverse
-                        className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
+
+                        // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
+                        className=" row rtl m-0 overFlow-y-scroll h-max-75vh pl-4 d-flex  w-100  flex-wrap align-items-end "
                         pageStart={0}
                         loadMore={this.loadMore}
                         hasMore={ hasMore}
@@ -298,7 +302,17 @@ class Chats extends Component {
                             {productSeparate.length > 0 && Array.isArray(productSeparate) ?
 
                                         productSeparate.slice(0).reverse().map((todo, index) =>
-                                            <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                                todo.st === "admin" ?
+                                                    <ChatLeftRight chatBg={"green-background border-chat-left"}
+                                                                   key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                                    : todo.sid === Const.UserId ?
+                                                    <ChatRightTop chatBg={"bg-chat-mySelf border-chat-mySelf"}
+                                                                  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                                    : <ChatLeftRight chatBg={"bg-chat-other border-chat-other"}
+                                                                     key={index} {...todo} UsersIDImg={UsersIDImg}/>
+
+
+                                            // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
                                         )
 
                                 : []

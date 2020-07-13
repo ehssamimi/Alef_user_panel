@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Chats from "../Chats/Chats";
-import NewWebsocketPlayer from "../WebSocketVideoPlayer";
+import NewWebsocketPlayer from "../VideoComponentsStreams/WebSocketVideoPlayer";
 import {GetClassroom} from "../../../../../Common/Const/ServerConnection";
 import IsLoaderComponent from "../../../../Common/Loader/IsLoaderComponent";
+import WebrtcPlayer from "../VideoComponentsStreams/WEBRTCPlayer";
 
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
@@ -36,7 +37,8 @@ const CurrentClass = (props) => {
                 {
                     Class!==""? <div className="row m-0 ">
                         <div className="col-sm-12 col-md-8">
-                            <NewWebsocketPlayer url={Class["live_urls"].websocket}/>
+                            {/*<NewWebsocketPlayer url={Class["live_urls"].websocket}/>*/}
+                            <WebrtcPlayer url={Class["live_urls"].web_rtc}  />
                         </div>
                         <div className="col-sm-12 col-md-4">
 
