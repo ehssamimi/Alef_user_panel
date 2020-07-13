@@ -52,7 +52,8 @@ class Chats extends Component {
     async componentDidMount() {
         // let{socket}=this.state;
 
-        const   socket = io.connect('http://live.kelidiha.com:3004/live_class', {
+        // const   socket = io.connect('http://live.kelidiha.com:3004/live_class', {
+        const   socket = io.connect('https://websocket.kelidiha.com/live_class', {
             transportOptions: {
                 polling: {
                     extraHeaders: {

@@ -69,7 +69,11 @@ export default function RightMenu (props){
                      setselected("online-scheduler");
                      setCollapse(true);
                      break;
-                 case "user-profile" || "user-info":
+                 case "user-profile" :
+                     setselected("user-profile");
+                     setCollapse(false);
+                     break;
+                 case   "user-info":
                      setselected("user-profile");
                      setCollapse(false);
                      break;
@@ -250,7 +254,7 @@ export default function RightMenu (props){
                                                 <span className="zIndex-3 list-user-profile w-100 pl-2 green-them"><span className="mr-2"><FiLogOut /> </span>خروج</span>
                                             </div> :
                                             <div className="w-100 h-100 position-relative text-white ">
-                                                <Link to="/exit"   onClick={() => setselected("exit")}>
+                                                <Link to="/exit"   onClick={handelExit }>
                                                     <span className="zIndex-3 list-user-profile w-100 pl-2 text-white"><span className="mr-2"><FiLogOut /> </span>خروج</span>
                                                 </Link>
                                             </div>

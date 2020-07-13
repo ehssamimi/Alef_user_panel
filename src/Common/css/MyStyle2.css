@@ -391,6 +391,9 @@ select option:hover {
 .FS0 {
     font-size: Calc(0.5vw + 0.2rem) !important;
 }
+.FS01 {
+    font-size: Calc(0.2vw + 0.5rem) !important;
+}
 .FsHeaderLogin1{
     font-size: Calc(1vw + 0.7rem);
 }
