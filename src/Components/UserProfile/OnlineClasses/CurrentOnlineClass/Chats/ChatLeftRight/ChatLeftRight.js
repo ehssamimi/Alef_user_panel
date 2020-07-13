@@ -37,8 +37,8 @@ const ChatLeftRight = (props) => {
 
             <div className={["talk-bubble tri-right round-top-left  left-top   ",`${props.chatBg}`].join(" ")}>
                 <div className="talktext">
-                    <p className="chat-header  IranSans d-flex justify-content-start">{props.sn}</p>
-                    <p style={{direction:"rtl"}} className={["  IranSans text-justify ",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
+                    <p className="chat-header  IranSans d-flex justify-content-start mb-0">{props.sn}</p>
+                    <p style={{direction:"rtl"}} className={["  IranSans text-justify  mb-0",`${props.chatBg.includes("bg-chat-other")?"text-black":"text-white"}`].join(" ")}   >{props.cn}</p>
                <div className="w-100 d-flex justify-content-end">
                    <span className= "chat-header  IranSans " >{props.time}</span>
                </div>
