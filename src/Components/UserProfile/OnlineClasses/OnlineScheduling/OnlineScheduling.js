@@ -34,7 +34,7 @@ const OnlineScheduling = (props) => {
             {/*    <ClassRoomListRow list={list}/>*/}
             {/*</div>*/}
 
-            <div className=" col-sm-12  p-0 ">
+            <div className=" col-sm-12    ">
                 <div className="w-100    d-sm-none">
                     <MobileStudioTable />
                 </div>
