@@ -16,6 +16,7 @@ import RequestSchedule from "./subs/RequestSchedule";
 import Loader from "../../Common/Loader/Loader";
 import WatingForPdf from "./subs/WatingForPdf";
 import UrlProvider from "../../Common/Context/UrlProvider";
+import IsLoaderComponent from "../../Common/Loader/IsLoaderComponent";
 
 
 export default  function MySchedule(props) {
@@ -71,29 +72,22 @@ export default  function MySchedule(props) {
                 <div className="mt-3 col-12 ml-auto mr-auto">
 
 
-                    <HeaderNavigation content={{"main":"اطلاعات کاربری","branch":"برنامه مطالعاتی"}}/>
-                    {
-                        isLoder ?   // *******checking for submit form or get category Option is then loader start then loader close**********
-                            <div className='d-flex justify-content-center align-items-center'>
-                                <div className='col-6'>
-                                    <Loader/>
-                                </div>
-                            </div> :
-                            <div className="w-100">
-                                <div className="col-sm-12  col-md-7 col-lg-5 col-xl-4 mt-5 ">
-                                    {
-                                        content !== null ?
-                                            <DownloadPdf  {...content}/>
-                                          :  message==="requested"?<WatingForPdf  />:<RequestSchedule handelSubmitRequest={handelSubmitRequest} />
-                                    }
+                    {/*<HeaderNavigation content={{"main":"اطلاعات کاربری","branch":"برنامه مطالعاتی"}}/>*/}
+                    <IsLoaderComponent isLoader={isLoder}>
+                        <div className="w-100">
+                            <div className="col-sm-12  col-md-7 col-lg-5 col-xl-4 mt-5 ">
+                                {
+                                    content !== null ?
+                                        <DownloadPdf  {...content}/>
+                                        :  message==="requested"?<WatingForPdf  />:<RequestSchedule handelSubmitRequest={handelSubmitRequest} />
+                                }
 
-                                </div>
-                                <div className="col-12">
-                                    <TodayText {...Today}/>
-                                </div>
                             </div>
-                    }
-
+                            <div className="col-12">
+                                <TodayText {...Today}/>
+                            </div>
+                        </div>
+                    </IsLoaderComponent>
 
                 </div>
 

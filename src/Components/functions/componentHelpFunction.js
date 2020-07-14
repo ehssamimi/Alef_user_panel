@@ -220,16 +220,16 @@ export const   chackingPersian=(phonenumber) =>{
 
 // **********convert Days********
 
-export function bgClassroomConfige(item){
+export function bgClassroomConfige(item,type){
 
     // let bg;
     let value={bg:"",border:"",mainColor:"",SecondColor:""};
     if (item.class_type==="public"){
-        value={bg:"bg-white",border:"border-main-green br-r-11",mainColor:"mainColor",SecondColor:"mainColor"};
+        value={bg:"bg-white",border:`border-main-green   ${type==="m"?"br5px":"br-r-11"}`,mainColor:"mainColor",SecondColor:"mainColor"};
     }else if (item.class_type==="special") {
-        value={bg:"bg-white",border:"border-table-red br-r-11",mainColor:"dark-red-color",SecondColor:"mainColor"};
+        value={bg:"bg-white",border:`border-table-red ${type==="m"?"br5px":"br-r-11"}`,mainColor:"dark-red-color",SecondColor:"mainColor"};
     }else {
-        value={bg:" ",border:"br-r-11 bg-main border-primary-s",mainColor:"text-white",SecondColor:"text-white"};
+        value={bg:" ",border:`${type==="m"?"br5px":"br-r-11"} bg-main border-primary-s`,mainColor:"text-white",SecondColor:"text-white"};
     }
     return value
 }

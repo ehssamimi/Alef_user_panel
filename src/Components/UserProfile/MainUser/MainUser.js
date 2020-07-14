@@ -12,43 +12,43 @@ import CurrentClass from "../OnlineClasses/CurrentOnlineClass/CurrentClass/Curre
 const MainUser = (props) => {
 
 
-
-
     return (
         <div className="w-100  ">
-            <HeaderTopWithRightMenu  {...props}>
-                <div className="w-100">
-                    {
-                        props.match.path==="/my-course"?<MyCourse {...props}/>:""
-                     }
-                     {
-                        props.match.path==="/my-schedule"?<MySchedule {...props}/>:""
-                     }
-                     {
-                        props.match.path==="/user-profile"?<UserProfile {...props}/>:""
-                     }
-
-                     {
-                        props.match.path==="/online-scheduler"?<OnlineScheduling {...props}/>:""
-                     }
-                     {
-                        props.match.path==="/current-online-class"?<CurrentOnlineClass {...props}/>:""
-                     }
-                     {
-                        props.match.path==="/online-class/:id"?<CurrentClass {...props}/>:""
-                     }
-                     {
-                        props.match.path==="/user-info"?<UserInfo {...props}/>:""
-                     }
-                     {
-                        props.match.path==="/exit"?<Exit {...props}/>:""
-                     }
-                </div>
 
 
+                    <HeaderTopWithRightMenu  {...props}>
+                        <div className="w-100">
+                            {
+                                props.match.path === "/my-course" ? <MyCourse {...props}/> : ""
+                            }
+                            {
+                                props.match.path === "/my-schedule" ? <MySchedule {...props}/> : ""
+                            }
+                            {
+                                props.match.path === "/user-profile" ? <UserProfile {...props}/> : ""
+                            }
+
+                            {
+                                props.match.path === "/online-scheduler" ? <OnlineScheduling {...props}/> : ""
+                            }
+                            {
+                                props.match.path === "/current-online-class" ? <CurrentOnlineClass {...props}/> : ""
+                            }
+                            {/*{*/}
+                            {/*    props.match.path === "/online-class/:id" ? <CurrentClass {...props}/> : ""*/}
+                            {/*}*/}
+                            {
+                                props.match.path === "/user-info" ? <UserInfo {...props}/> : ""
+                            }
+                            {
+                                props.match.path === "/exit" ? <Exit {...props}/> : ""
+                            }
+                        </div>
+
+                    </HeaderTopWithRightMenu>
 
 
-            </HeaderTopWithRightMenu>
+
         </div>
     );
 };

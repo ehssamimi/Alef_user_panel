@@ -23,6 +23,7 @@ import cookie from 'react-cookies'
 import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
 import MainRoute from "./Components/Common/MainRoute";
 import MainUser from "./Components/UserProfile/MainUser/MainUser";
+ import CurrentClass from "./Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass";
 
 
 
@@ -81,6 +82,7 @@ function App() {
                           <Route path="/home" exact={true} component={Home}/>
                           <Route path="/about" component={MainAbout}/>
                           <Route path="/courses" component={ShowAllCourse}/>
+                          <Route path="/online-class/:id" component={CurrentClass}/>
                           <Route path="/course/:id"   component={MainCourses}/>
 
                       <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={MainUser}  />
@@ -91,7 +93,7 @@ function App() {
                           <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={MainUser}/>
 
                           {/*<AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>*/}
-                          <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MainUser}/>
+                          <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MainUser}  />
                           <AuthRoute path="/online-scheduler" authUser={ User.isLogIn} component={MainUser}/>
                           <AuthRoute path="/current-online-class" authUser={ User.isLogIn} component={MainUser}/>
                           <AuthRoute path="/online-class/:id" authUser={ User.isLogIn} component={MainUser}/>

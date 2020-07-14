@@ -187,13 +187,17 @@ class StudioInTable extends Component {
                                             id={index + days[iterate]}
                                             onClick={() => this.handelClick(item.id, days[iterate], index + days[iterate], index)}>
                                             <a href="#">
-                                                <div className="pl-2 pr-1 d-none d-sm-block">
-                                                    <p className="mb-0 lesson FsFooterLogin text-left font-weight-bold"></p>
-                                                    <p className="mb-0 grade FS0 text-left"></p>
+                                                <div className="pl-2 pr-1  ">
+                                                    <p className="mb-1 mt-1 lesson FsFooterLogin text-left font-weight-bold"></p>
+                                                    <p className="mb-1 grade FS0 text-left"></p>
                                                 </div>
-                                                <div className=" d-sm-none addClassNumber" >
+                                                {/*<div className="pl-2 pr-1 d-none d-sm-block">*/}
+                                                {/*    <p className="mb-0 lesson FsFooterLogin text-left font-weight-bold"></p>*/}
+                                                {/*    <p className="mb-0 grade FS0 text-left"></p>*/}
+                                                {/*</div>*/}
+                                                {/*<div className=" d-sm-none addClassNumber" >*/}
 
-                                                </div>
+                                                {/*</div>*/}
                                             </a>
                                         </td>
                                     )}

@@ -116,10 +116,10 @@ export default function MainHeader (props){
 
 
     return (
-            <div className="HomePage " dir="ltr">
+              <div className="HomePage" dir="ltr">
                 <Navbar   light expand="md">
                     <NavbarBrand href="/">
-                        <div className="logo-in-top">
+                        <div className="logo-in-top HomePage">
                             <img src={logo} alt="logo" className="img-self-fill"/>
                         </div>
                     </NavbarBrand>

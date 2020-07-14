@@ -47,6 +47,14 @@ $background-color: #f7faf8 !important;
   align-items: center;
   cursor: pointer;
 }
+.border-Carousel2{
+  border: dashed 1.3px rgb(99, 159, 117);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 .br-y{
  border:3px solid $yellow;
 }
@@ -654,7 +662,7 @@ $chat-header-name: rgb(195, 196, 189) !default;
   right: auto;
   top: 0px;
   bottom: auto;
-  border: 20px solid;
+  border: 9px solid;
 
 }
 .tri-right.bg-chat-mySelf:after{
@@ -737,6 +745,17 @@ table {
 .w-135{
   width: 13.5% !important;
 }
+.w-22{
+  width: 22% !important;
+}
+.w-42{
+  width: 42% !important;
+}.w-44{
+  width: 44% !important;
+}
+ .FHR{
+   color:#cdd1d4!important;
+ }
 
 
 
@@ -800,7 +819,7 @@ table {
 //
 //}
 .h-chatvh{
-  height: 40vh;
+  //height: 40vh;
   max-height: 75vh;
 }
 .width-chat-profile{
@@ -826,6 +845,7 @@ table {
     height: 40vh;
     max-height: 45vh;
   }
+
 
 }
 
