@@ -36,7 +36,7 @@ class Chats extends Component {
                 transportOptions: {
                     polling: {
                         extraHeaders: {
-                            'token': Const.UserId,
+                            'token': Const.Token,
                             "gpid": props.gid,
                             "classid": props.classId
                         }
@@ -58,7 +58,7 @@ class Chats extends Component {
             transportOptions: {
                 polling: {
                     extraHeaders: {
-                        'token':  Const.UserId,
+                        'token':  Const.Token,
                         "gpid": this.props.gid,
                         "classid": this.props.classId
                     }
@@ -174,7 +174,7 @@ class Chats extends Component {
         // ***get all product and current page ***
         // let {state, Description} = await GetAllUser(pageStart);
         let{UsersIDImg,pageStart}=this.state;
-        let {state, Description} = await GetHistoryChat(this.props.gid,pageStart,Const.UserId);
+        let {state, Description} = await GetHistoryChat(this.props.gid,pageStart,Const.Token,);
         console.log("Description");
         console.log(Description);
         console.log("pageStart")
