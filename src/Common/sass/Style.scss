@@ -619,8 +619,8 @@ $chat-header-name: rgb(195, 196, 189) !default;
   border-radius: 50%;
   position:absolute;
   left: 9%;top: -30%;
-  min-width: 2em;
-  min-height: 2em;
+   width: 1.8em;
+   height: 1.8em;
 }
 
 
@@ -842,7 +842,7 @@ table {
     line-height: 1em;
   }
   .h-chatvh{
-    height: 40vh;
+    height: 36vh;
     max-height: 45vh;
   }
 

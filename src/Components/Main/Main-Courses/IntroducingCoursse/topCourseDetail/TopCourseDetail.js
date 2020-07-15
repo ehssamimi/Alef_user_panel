@@ -10,8 +10,8 @@ const TopCourseDetail = (props) => {
 let{video_img,Video_src,course_img,grade,name,cost,sellCost,field,description,schedule,off,price}=props;
 
     return (
-        <div className="w-100 row   ">
-            <div className="w-100 row wrapper-login">
+        <div className="w-100 row  ml-0  ">
+            <div className="w-100 row wrapper-login ml-0 ">
                 <HeaderCourse main={"دوره ها "} sub={name} branch={grade} mainLink={"/courses"}/>
                 <div className="col-md-8 col-sm-12 br20px   p-0">
                     <div className="w-100 br20px overflow-hidden">

@@ -122,9 +122,12 @@ class WebrtcPlayer extends Component {
                     {/*URL:*/}
                     <input type="text" id="txt_url" className="input-xxlarge d-none" value={this.props.url}/>
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
-                    <div   className="btn green-background  br10px  input-s col-3 ml-r-auto justify-content-center mt-2 ">
-                        <Button className="text-white fontFamily-Sans FsFooterLogin" id="btn_play">مشاهده کلاس  </Button>
+                    {/*<div   className="     input-s col-3 ml-r-auto justify-content-center  ">*/}
+                    <div className="w-100 d-flex justify-content-center">
+                        <Button className="btn text-white br10px green-background fontFamily-Sans FsFooterLogin mt-2  " id="btn_play">مشاهده کلاس  </Button>
+
                     </div>
+                    {/*</div>*/}
                     {/*<div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn '/></div>*/}
 
                 </div>

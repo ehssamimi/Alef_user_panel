@@ -14,7 +14,7 @@ export default function MainCourses (props){
         <HeaderTop {...props} isBuy={true}>
 
 
-            <div className="w-100" dir="rtl">
+            <div className="w-100 pl-4 pr-4 ml-r-auto" dir="rtl">
                 <CourseIntroducing id={params.id}/>
             </div>
 
