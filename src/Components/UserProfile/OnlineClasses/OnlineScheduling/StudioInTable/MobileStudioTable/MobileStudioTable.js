@@ -250,8 +250,8 @@ class MobileStudioTable extends Component {
                             <tr>
                                 <th className="    br-th-column br-th-row position-relative">
                                     <div className="carousel-button-group2" dir={"ltr"}>
-                                        <span className= ' border-Carousel2   ml-2' style={{height:"1.1em", color:"#67796c"}}  onClick={()=>{this.handelClick("next")} }><FaAngleLeft className="Fs17-5" /></span>
-                                        <span  className="border-Carousel2"   style={{height:"1.1em", color:"#67796c"}} onClick={()=>{this.handelClick("prev")}}><FaAngleRight className="Fs17-5"/></span>
+                                        <span className= ' border-Carousel2   ml-2' style={{height:"5.5vw",width:"5.5vw", color:"#67796c"}}  onClick={()=>{this.handelClick("next")} }><FaAngleLeft className="Fs17-5" /></span>
+                                        <span  className="border-Carousel2"   style={{height:"5.5vw",width:"5.5vw", color:"#67796c"}} onClick={()=>{this.handelClick("prev")}}><FaAngleRight className="Fs17-5"/></span>
                                         {/*<button  onClick={() => goToSlide(currentSlide + 1)}> Go to any slide </button >*/}
                                     </div>
 
