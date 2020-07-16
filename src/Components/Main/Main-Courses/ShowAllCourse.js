@@ -48,7 +48,7 @@ export default function ShowAllCourse (props){
                             <Loader/>
                         </div>
                     </div> :
-                    <div className="w-100" dir="ltr">
+                    <div className="w-100 pl-4 pr-4 ml-r-auto" dir="ltr">
                         {courses.data.map((item, index) =>
                             <div  key={index} className={["row w-100 ", index===0?"mt-4":"mt-14"].join(" ") }>
                                 <CarouselMain type={"courseMain"}

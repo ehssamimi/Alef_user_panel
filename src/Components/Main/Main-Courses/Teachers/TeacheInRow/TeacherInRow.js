@@ -12,7 +12,7 @@ export default function TeacherInRow (props){
         <div className="d-flex col-6 col-lg-4 mt-4" dir="rtl">
 
                 <div className='profile-pic br-g br-r50  p-05'>
-                    <img src={props.img} alt="profile" className="img-self-cover br-r50 br-y"/>
+                    <img src={props.img} alt="profile" className="img-self-cover br-r50 br-y p-0"/>
                 </div>
 
 

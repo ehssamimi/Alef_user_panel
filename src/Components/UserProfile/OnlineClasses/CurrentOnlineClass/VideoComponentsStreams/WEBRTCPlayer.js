@@ -109,7 +109,7 @@ class WebrtcPlayer extends Component {
 
     render() {
         return (
-            <div className="w-100">
+            <div className="w-100" id="playVideo">
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
 
                 <div className="video-container">

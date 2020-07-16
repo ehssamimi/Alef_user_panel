@@ -289,33 +289,35 @@ class Chats extends Component {
                     <h4 className="  FsFooterLogin green-them font-weight-bold pl-3    header-chat-wide">
                         گفت  و گو ها
                     </h4>
-                    <InfiniteScrollReverse
+                    <div className="w-100 " id="chat">
+                        <InfiniteScrollReverse
 
-                        // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
-                        className=" row rtl m-0 overFlow-y-scroll h-chatvh pl-4 d-flex  w-100  flex-wrap align-items-end pb-4 "
-                        pageStart={0}
-                        loadMore={this.loadMore}
-                        hasMore={ hasMore}
-                        isLoading={true }
-                        loadArea={10}
-                         loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
-                    >
+
+                            // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
+                            className=" row rtl m-0 overFlow-y-scroll  h-100 pl-4 d-flex  w-100  flex-wrap align-items-end   "
+                            pageStart={0}
+                            loadMore={this.loadMore}
+                            hasMore={ hasMore}
+                            isLoading={true }
+                            loadArea={10}
+                            loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
+                        >
 
                             {productSeparate.length > 0 && Array.isArray(productSeparate) ?
 
-                                        productSeparate.slice(0).reverse().map((todo, index) =>
-                                                todo.st === "admin" ?
-                                                    <ChatLeftRight chatBg={"green-background border-chat-left"}
-                                                                   key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                                    : todo.sid === Const.UserId ?
-                                                    <ChatRightTop chatBg={"bg-chat-mySelf border-chat-mySelf"}
-                                                                  key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                                    : <ChatLeftRight chatBg={"bg-chat-other border-chat-other"}
-                                                                     key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                productSeparate.slice(0).reverse().map((todo, index) =>
+                                        todo.st === "admin" ?
+                                            <ChatLeftRight chatBg={"green-background border-chat-left"}
+                                                           key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                            : todo.sid === Const.UserId ?
+                                            <ChatRightTop chatBg={"bg-chat-mySelf border-chat-mySelf"}
+                                                          key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                            : <ChatLeftRight chatBg={"bg-chat-other border-chat-other"}
+                                                             key={index} {...todo} UsersIDImg={UsersIDImg}/>
 
 
-                                            // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                        )
+                                    // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                )
 
                                 : []
                             }
@@ -324,10 +326,12 @@ class Chats extends Component {
 
 
 
-                    </InfiniteScrollReverse>
+                        </InfiniteScrollReverse>
 
-                    <InputSendMessage sendMessage={this.sendMessage}/>
+
+                    </div>
                 </Card>
+                <InputSendMessage sendMessage={this.sendMessage}/>
 
 
 

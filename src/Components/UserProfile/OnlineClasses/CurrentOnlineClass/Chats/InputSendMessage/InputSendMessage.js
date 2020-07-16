@@ -33,15 +33,15 @@ const InputSendMessage = (props) => {
 
 
     return (
-        <div className="w-100  ">
-            <div className="position-relative w-100">
+        <div className="w-100 position-relative ">
+            <div className=" w-100 position-absolute" style={{bottom:0}}>
 
             </div>
-            <form onSubmit={ onFormSubmit} className="w-100">
+            <form onSubmit={ onFormSubmit} className="w-100 ">
                 <div className="position-relative  w-100  ">
 
                     <textarea placeholder="تایپ کنید ..." className="col-12 text-break inputSendChat form-control pt-2 " onChange={ onchange}  onKeyDown={ handleKeyDown} value={value} />
-                    <button className="  button-send-Chat chat-header  Fs3  " style={{zIndex:99}} type="submit"><IoIosSend/></button>
+                    <button className="  button-send-Chat chat-header  Fs3 p-0  " style={{zIndex:99}} type="submit"><IoIosSend className="p-0"/></button>
                     {error? (
                         <div className="invalid-feedback d-block">
                             {error}

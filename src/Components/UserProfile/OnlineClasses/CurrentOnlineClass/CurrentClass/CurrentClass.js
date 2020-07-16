@@ -5,31 +5,55 @@ import {GetClassroom} from "../../../../../Common/Const/ServerConnection";
 import IsLoaderComponent from "../../../../Common/Loader/IsLoaderComponent";
 import WebrtcPlayer from "../VideoComponentsStreams/WEBRTCPlayer";
 import HeaderTop from "../../../../Common/Header-top/HeaderTop";
+import $ from 'jquery'
 
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
     const [IsLoader, setIsLoader] = useState(true);
+
+    function windowsDimention(){
+        const Width = window.outerWidth;
+
+        if (Width <= 768) {
+
+            var link = $('#playVideo');
+
+            var offset = link.offset();
+            var top = offset.top;
+
+            let Height=$(window).height() - top - link.height()
+            $('#chat').height( Height-(0.13*Height));
+
+
+        } else {
+            $('#chat').height("75vh");
+        }
+    }
+
+
+
     useEffect(  () => {
-    async function getClassDetail() {
+
+        async function getClassDetail() {
+
+
         console.log(props.match.params.id);
         let Classroom=  await GetClassroom(props.match.params.id)
+
+
+
         setClass(Classroom)
         if (Classroom!==""){
             setIsLoader(false)
             console.log(Classroom)
         }
-
-        // props.getGroupId(Description.group_chat_id);
-        // active: false
-        // group_chat_id: "5f04ab34a95b3636c4fe1ae3"
-        // information: {grade: "کنکوری (دوازدهم)", field: "ریاضی فیزیک", lesson_name: "ریاضی"}
-        // live_urls: {key: "konkor riazi", websocket: "ws://live.kelidiha.com:8000/live/konkor riazi.flv", hls: "http://live.kelidiha.com:8000/live/konkor riazi/index.m3u8", rtmp: "rtmp://live.kelidiha.com/live/konkor riazi", dash: "http://live.kelidiha.com:8000/live/konkor riazi/index.mpd", …}
-        // payment: {price: 50000}
+            windowsDimention();
+            window.addEventListener("resize",windowsDimention)
         return ()=>{setClass("")}
      }
         getClassDetail()
 
-
+        return ()=>window.removeEventListener("resize",windowsDimention)
     }, [props,IsLoader]);
 
     return (
