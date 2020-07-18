@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
+import $ from 'jquery'
 import {parse_query_string, parse_rtmp_url, srs_init_rtc} from "../../../../functions/WEBRTC";
-import $ from 'jquery';
 import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
-import poster from "./../../../../../Common/img/default_pic-169 Cropped.png"
-import {Link} from "react-router-dom";
-import Button from "@material-ui/core/Button/Button";
 import {FaExchangeAlt} from "react-icons/fa";
-class WebrtcPlayer extends Component {
+
+
+
+class ReactPlayerConf extends Component {
     constructor(props) {
         super(props);
 
@@ -58,19 +58,14 @@ class WebrtcPlayer extends Component {
                     }
 
                     // var url = schema + '//' + urlObject.server + ':' + port + api;
-                    var url = 'https:' + '//' + urlObject.server + ':' + port + api;
-                    for (var key in urlObject.user_query) {
-                        if (key != 'api' && key != 'play') {
-                            url += '&' + key + '=' + urlObject.user_query[key];
-                        }
-                    }
+                    // for (var key in urlObject.user_query) {
+                    //     if (key != 'api' && key != 'play') {
+                    //         url += '&' + key + '=' + urlObject.user_query[key];
+                    //     }
+                    // }
                     // Replace /rtc/v1/play/&k=v to /rtc/v1/play/?k=v
-                    url = url.replace(api + '&', api + '?');
-                    console.log("url")
-                    console.log(url)
-                    console.log('https:'+'//'+urlObject.server+"/1985"+api)
-
-                    // var url ='https:'+'//'+urlObject.server+"/1985"+api;
+                    // url = url.replace(api + '&', api + '?');
+                    var url ='https:'+'//'+urlObject.server+"/1985"+api;
                     // @see https://github.com/rtcdn/rtcdn-draft
                     var data = {
                         api: url, streamurl: urlObject.url, clientip: null, sdp: offer.sdp
@@ -84,7 +79,6 @@ class WebrtcPlayer extends Component {
                         console.log("Got answer: ", data);
                         resolve(data.sdp);
                     }).fail(function(reason){
-                        console.log("reject response")
                         reject(reason);
                     });
                 });
@@ -107,36 +101,26 @@ class WebrtcPlayer extends Component {
             startPlay();
         }
 
+
+
+
     }
 
 
     render() {
         return (
-            <div className="w-100" id="playVideo">
+            <div className="w-100">
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
-
-                <div className="video-container">
-                    <video id="rtc_media_player" controls autoPlay  className="video-element " poster={poster}/>
-                </div>
-
-
-
+                <video id="rtc_media_player" controls autoPlay  className="w-100"/>
                 <div className="form-inline">
                     {/*URL:*/}
                     <input type="text" id="txt_url" className="input-xxlarge d-none" value={this.props.url}/>
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
-                    {/*<div   className="     input-s col-3 ml-r-auto justify-content-center  ">*/}
-                    <div className="w-100 d-flex justify-content-center">
-                        <Button className="btn text-white br10px green-background fontFamily-Sans FsFooterLogin mt-2  " id="btn_play">مشاهده کلاس  </Button>
-                        {/*<div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit*/}
-                        {/*    label={"پخش"} value={"WebRTC"} className='fS1vw btn btn-outline-primary'/></div>*/}
 
+                    <div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit
+                        label={"پخش"} value={"WebRTC"} className='fS1vw btn btn-outline-primary'/></div>
 
-                        <button onClick={()=>{this.props.changeUrl()}}><FaExchangeAlt/></button>
-                    </div>
-                    {/*</div>*/}
-                    {/*<div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn '/></div>*/}
-
+                    <button onClick={()=>{this.props.changeUrl()}}><FaExchangeAlt/></button>
                 </div>
 
 
@@ -145,4 +129,4 @@ class WebrtcPlayer extends Component {
     }
 }
 
-export default WebrtcPlayer;
+export default ReactPlayerConf;

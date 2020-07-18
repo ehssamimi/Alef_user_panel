@@ -6,10 +6,12 @@ import IsLoaderComponent from "../../../../Common/Loader/IsLoaderComponent";
 import WebrtcPlayer from "../VideoComponentsStreams/WEBRTCPlayer";
 import HeaderTop from "../../../../Common/Header-top/HeaderTop";
 import $ from 'jquery'
+import ReactPlayerConf from "../VideoComponentsStreams/ReactPlayerConf";
 
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
     const [IsLoader, setIsLoader] = useState(true);
+    const [VideoType, setVideoType] = useState(true);
 
     function windowsDimention(){
         const Width = window.outerWidth;
@@ -64,8 +66,22 @@ const CurrentClass = (props) => {
                     {
                         Class !== "" ? <div className="row m-0 ">
                             <div className="col-sm-12    col-lg-8 p-0 pr-lg-1">
+                                {
+                                    VideoType ?
+                                        <WebrtcPlayer url={Class["live_urls"].web_rtc}
+                                                              changeUrl={() => setVideoType(false)}/>
+                                                              // <ReactPlayerConf url={Class["live_urls"].web_rtc} changeUrl={() => setVideoType(false)}/>
+
+
+
+                                                              :
+                                        <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
+                                }
+
+
                                 {/*<NewWebsocketPlayer url={Class["live_urls"].websocket}/>*/}
-                                <WebrtcPlayer url={Class["live_urls"].web_rtc}/>
+                                {/*<NewWebsocketPlayer url={Class["live_urls"].http_flv}/>*/}
+
                             </div>
                             <div className="col-sm-12  col-lg-4 p-0 pl-lg-5">
 

@@ -15,6 +15,7 @@ import ModalCustomVideo from "../../Common/Modal/ModalCustom";
 import VideoModalDemo from "../../Common/VideoPlayerComponents/VideoModal/VideoModalDemo";
 import VideoModal from "../../Common/VideoPlayerComponents/VideoModal/VideoModal";
 import {TextInput} from "../../Common/Forms/textInput/TextInput";
+import ModalBiginner from "../../Common/Modal/ModalBiginner/ModalBiginner";
 
 export default function UserProfile (props){
     const [isLoder, setisLoder] = useState(true);
@@ -170,6 +171,7 @@ export default function UserProfile (props){
 
                         </div>
                 }
+                <ModalBiginner  PopUpType={"user_panel"}/>
 
             </div>
 

@@ -63,7 +63,8 @@ const FormSignUp = (props) => {
         if (validator.isEmpty(values.phoneNumber)) {
             formValidate = false;
             errors['phoneNumber']="شماره تلفن همراه خود را وارد کنید  ";
-        }else if (!validatephoneNumber(values.phoneNumber)) {
+        }
+        else if (!validatephoneNumber(values.phoneNumber)) {
             formValidate = false;
             errors['phoneNumber']="شماره ای که وارد کرده اید غیر مجاز است !  ";
         }
@@ -91,7 +92,7 @@ const FormSignUp = (props) => {
             // console.log(englisghString);
             // let englishNumber=Number(englisghString);
             if (validate){
-                console.log("send");
+                // console.log("send");
                 loading(100,1);
                 let Data= {
                     "personal_info": {
@@ -107,7 +108,7 @@ const FormSignUp = (props) => {
                         "school_type": ""
                 }
                 };
-                console.log(Data)
+                // console.log(Data)
                 loading(100, 1);
                 let {state ,Description} = await Regestry(JSON.stringify(Data));
                 console.log(state ,Description)
@@ -119,7 +120,7 @@ const FormSignUp = (props) => {
                     localStorage.setItem("phoneNumber_K",englishNumber)
                     let {state  ,Description } = await GetVerifycationCode(englishNumber);
                     if (state ===200){
-                        console.log(Description )
+                        // console.log(Description )
                         handelType("register")
                         handelChangeForm("validate");
                     } else {

@@ -626,6 +626,28 @@ export async  function  GetClassroom(id){
     return resp;
 }
 
+// ****Configuarte*********
+export async  function  ModalList( ){
+
+    let headers = {
+        'Token': Const.Token,
+        'accept': 'application/json',
+    };
+
+
+    var resp ="";
+    await axios.get(`${Const.userKilidiha}modal/` ,{headers: headers}).then(function (response) {
+        console.log(response );
+
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        resp=Error(error)
+    });
+    return resp;
+}
+
 
 
 
