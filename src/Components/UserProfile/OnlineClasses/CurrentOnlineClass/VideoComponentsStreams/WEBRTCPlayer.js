@@ -6,6 +6,7 @@ import poster from "./../../../../../Common/img/default_pic-169 Cropped.png"
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button/Button";
 import {FaExchangeAlt} from "react-icons/fa";
+import RowShowShowEditWithoutLabel from "../../../../Common/RowShowShowColEdit/RowShowShowEditWithoutLabel";
 class WebrtcPlayer extends Component {
     constructor(props) {
         super(props);
@@ -42,7 +43,7 @@ class WebrtcPlayer extends Component {
                 return pc.setLocalDescription(offer).then(function(){ return offer; });
             }).then(function(offer) {
                 return new Promise(function(resolve, reject) {
-                    var port = urlObject.port || 1985;
+                    var port = urlObject.port || 1958;
 
                     // @see https://github.com/rtcdn/rtc
                     //
@@ -58,19 +59,19 @@ class WebrtcPlayer extends Component {
                     }
 
                     // var url = schema + '//' + urlObject.server + ':' + port + api;
-                    var url = 'https:' + '//' + urlObject.server + ':' + port + api;
-                    for (var key in urlObject.user_query) {
-                        if (key != 'api' && key != 'play') {
-                            url += '&' + key + '=' + urlObject.user_query[key];
-                        }
-                    }
+                    // var url = 'https:' + '//' + urlObject.server + ':' + port + api;
+                    // for (var key in urlObject.user_query) {
+                    //     if (key != 'api' && key != 'play') {
+                    //         url += '&' + key + '=' + urlObject.user_query[key];
+                    //     }
+                    // }
                     // Replace /rtc/v1/play/&k=v to /rtc/v1/play/?k=v
-                    url = url.replace(api + '&', api + '?');
-                    console.log("url")
-                    console.log(url)
-                    console.log('https:'+'//'+urlObject.server+"/1985"+api)
+                    // url = url.replace(api + '&', api + '?');
+                    // console.log("url")
+                    // console.log(url)
+                    // console.log('https:'+'//'+urlObject.server+"/1958"+api)
 
-                    // var url ='https:'+'//'+urlObject.server+"/1985"+api;
+                    var url ='https:'+'//'+urlObject.server+"/1958"+api;
                     // @see https://github.com/rtcdn/rtcdn-draft
                     var data = {
                         api: url, streamurl: urlObject.url, clientip: null, sdp: offer.sdp
@@ -127,12 +128,19 @@ class WebrtcPlayer extends Component {
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
                     {/*<div   className="     input-s col-3 ml-r-auto justify-content-center  ">*/}
                     <div className="w-100 d-flex justify-content-center">
-                        <Button className="btn text-white br10px green-background fontFamily-Sans FsFooterLogin mt-2  " id="btn_play">مشاهده کلاس  </Button>
-                        {/*<div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit*/}
-                        {/*    label={"پخش"} value={"WebRTC"} className='fS1vw btn btn-outline-primary'/></div>*/}
+                        <div id="btn_play">
+                            <RowShowShowColEdit  label={"پخش"} value={"web-rtc"}   className='fS1vw btn btn-outline-main'/>
+                        </div>
+                        <div className={"ml-3"} onClick={()=>{this.props.changeUrl()}}>
+                            <RowShowShowEditWithoutLabel  label={"پخش"} value={<FaExchangeAlt/>} className='fS1vw btn btn-outline-main '/>
+                        </div>
 
 
-                        <button onClick={()=>{this.props.changeUrl()}}><FaExchangeAlt/></button>
+                        {/*<Button className="btn text-white br10px green-background fontFamily-Sans FsFooterLogin mt-2  " id="btn_play">مشاهده کلاس  </Button>*/}
+
+
+
+                        {/*<button onClick={()=>{this.props.changeUrl()}}><FaExchangeAlt/></button>*/}
                     </div>
                     {/*</div>*/}
                     {/*<div id="btn_play" className=' w-100 d-flex justify-content-center fS1vw'><RowShowShowColEdit label={"پخش"} value={"WebRTC"}  className='fS1vw btn '/></div>*/}

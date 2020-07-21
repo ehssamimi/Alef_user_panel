@@ -1,54 +1,70 @@
 import React, {useState, useEffect} from 'react';
 // import {ReactFlvPlayer} from 'react-flv-player';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 import poster from "../../../../../Common/img/default_pic-169 Cropped.png";
 // import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
-
+import {ReactFlvPlayer} from 'react-flv-player'
 import {FaExchangeAlt}  from "react-icons/fa";
+import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
+import RowShowShowEditWithoutLabel from "../../../../Common/RowShowShowColEdit/RowShowShowEditWithoutLabel";
 
 const NewWebsocketPlayer = (props) => {
-    // const [count, setCount] = useState(1);
-    useEffect(() => {
-        // const script = document.createElement('script');
-        //
-        // script.src = "https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js";
-        // script.async = true;
-        //
-        // document.body.appendChild(script);
-        //
-        // return () => {
-        //     document.body.removeChild(script);
-        // }
-    }, []);
+    const [url, setURL] = useState(false);
+
+    const handelSetURL=()=>{
+        console.log("setUrl")
+        setURL(true)
+    }
+
 
 
     return (
         <div className="w-100" id="playVideo">
 
                 <div className="video-container h-100">
-                    <ReactPlayer
-                        url={props.url}
-                        heigh = "100%"
-                        width = "100%"
-                        className="video-element h-100"
-                        // fileConfig={{ attributes: { poster: poster } }}
-                        config={{
-                            file: { attributes: { poster: poster } }
 
-                            // attributes: { poster: poster }
-                            // youtube: {
-                            //     playerVars: { showinfo: 1 }
-                            // },
-                            // facebook: {
-                            //     appId: '12345'
-                            // }
-                        }}
-                    />
+                    {
+                        url?  <div  className="video-element h-100">
+                                <ReactFlvPlayer
+                                    url ={props.url}
+                                    heigh = "100%"
+                                    width = "100%"
+                                    isMuted={false}
+                                    isLive={true}
+                                    className="video-element h-100"
+                                    config={{file: { attributes: { poster: poster } }}}
+                                />       </div>
+                                :
+
+
+
+                            <img src={poster} alt="def" className={"video-element h-100 w-100"} />
+
+                    }
+                    {/*<ReactPlayer*/}
+                    {/*    url={props.url}*/}
+                    {/*    heigh = "100%"*/}
+                    {/*    width = "100%"*/}
+                    {/*    className="video-element h-100"*/}
+                    {/*     config={{file: { attributes: { poster: poster } }}}*/}
+                    {/*/>*/}
 
                 </div>
             <div className="w-100 d-flex justify-content-center">
-                <span className=" text-white br10px br fontFamily-Sans FsFooterLogin mt-2  " id="btn_play">http_flv پخش  </span>
-                <button onClick={()=>{props.changeUrl()}}><FaExchangeAlt/></button>
+
+                <div   className=' w-100 d-flex justify-content-center fS1vw' >
+                    <div  onClick={handelSetURL}>
+                        <RowShowShowColEdit label={"پخش"} value={"http_flv"}   className='fS1vw btn btn-outline-main'/>
+                    </div>
+                    <div className={"ml-3"} onClick={()=>{props.changeUrl()}}>
+                        <RowShowShowEditWithoutLabel  label={"پخش"} value={<FaExchangeAlt/>} className='fS1vw btn btn-outline-main '/>
+
+                    </div>
+
+
+                </div>
+                {/*<span className=" text-white br10px br fontFamily-Sans FsFooterLogin mt-2  " id="btn_play">http_flv پخش  </span>*/}
+                {/*<button onClick={()=>{props.changeUrl()}}><FaExchangeAlt/></button>*/}
 
             </div>
 

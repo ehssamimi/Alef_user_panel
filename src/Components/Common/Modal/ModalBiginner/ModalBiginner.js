@@ -3,12 +3,17 @@ import ModalCustomVideo from "../ModalCustom";
 import HeaderTop from "../../Header-top/HeaderTop";
 import {ModalList} from "../../../../Common/Const/ServerConnection";
 import {error_Notification} from "../../../functions/componentHelpFunction";
+import cookie from 'react-cookies'
 
 const ModalBiginner = (props) => {
     const [isLoder, setisLoder] = useState(true);
     const [list, setList] = useState({});
     const [isOpenModal, setIsOpenModal] = useState(false);
     useEffect((  ) => {
+
+
+
+
         async function getmodals( ) {
             let{state,Description}= await ModalList()
             setisLoder(false)
@@ -17,8 +22,27 @@ const ModalBiginner = (props) => {
             console.log(props);
             if (state===200){
                 setList(Description)
+                console.log("Description")
+                console.log(Description)
                 if (Description[props.PopUpType]!==undefined &&   Description[props.PopUpType]!==null){
-                    setIsOpenModal(true)
+                    let Modals=cookie.load('Modals')
+                    console.log("Modals")
+                    console.log(Modals)
+                    if (Modals===undefined){
+                        let modala={    course_page: "", homepage: "", user_panel: ""}
+                        modala[props.PopUpType]=Description[props.PopUpType]
+                        cookie.save('Modals', modala, { path: '/' })
+                        setIsOpenModal(true)
+                    }else {
+                        if (Modals[props.PopUpType]!==Description[props.PopUpType]){
+                            Modals[props.PopUpType]=Description[props.PopUpType]
+                            cookie.save('Modals', Modals, { path: '/' })
+                            setIsOpenModal(true)
+                        }
+                    }
+
+
+
                 }
 
             }else {

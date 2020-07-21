@@ -1046,5 +1046,20 @@ select option:hover {
 
 }
 
+.btn-outline-main {
+    color: #215831;
+    border-color: #215831!important;
+}
+
+.btn-outline-main:hover {
+    color: #fff!important;
+    background-color: #215831!important;
+    border-color: #215831!important;
+}
+
+.btn-outline-main.focus, .btn-outline-main:focus {
+    box-shadow: 0 0 0 .2rem rgba(33, 88, 44, .5)
+}
+
 
 

@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Common/css/MyStyle2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/css/MyStyle2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Common/Modal/ModalBiginner/ModalBiginner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Common/Modal/ModalBiginner/ModalBiginner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/ReactPlayerConf.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/ReactPlayerConf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WebSocketVideoPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WebSocketVideoPlayer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Game-site/28-2/public_html(21-4)/public_html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AdminKlid" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -162,6 +168,9 @@
       <workItem from="1594838471406" duration="2208000" />
       <workItem from="1594897945060" duration="4585000" />
       <workItem from="1595053539761" duration="1576000" />
+      <workItem from="1595078435962" duration="13634000" />
+      <workItem from="1595160700406" duration="1311000" />
+      <workItem from="1595367926436" duration="4804000" />
     </task>
     <servers />
   </component>
@@ -182,30 +191,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="686" y="223" key="#ESLint/0.0.1920.1040@0.0.1920.1040" timestamp="1594727264226" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1595060944059">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1595369349475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595060944059" />
-    <state width="1877" height="367" key="GridCell.Tab.0.bottom" timestamp="1594912132297">
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595369349475" />
+    <state width="1877" height="367" key="GridCell.Tab.0.bottom" timestamp="1595368012338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594673786556" />
-    <state width="1877" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594912132297" />
-    <state width="1877" height="367" key="GridCell.Tab.0.center" timestamp="1594912132292">
+    <state width="1877" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595368012338" />
+    <state width="1877" height="367" key="GridCell.Tab.0.center" timestamp="1595368012337">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594673786555" />
-    <state width="1877" height="367" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594912132292" />
-    <state width="1877" height="367" key="GridCell.Tab.0.left" timestamp="1594912132285">
+    <state width="1877" height="367" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595368012337" />
+    <state width="1877" height="367" key="GridCell.Tab.0.left" timestamp="1595368012336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594673786554" />
-    <state width="1877" height="367" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594912132285" />
-    <state width="1877" height="367" key="GridCell.Tab.0.right" timestamp="1594912132292">
+    <state width="1877" height="367" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595368012336" />
+    <state width="1877" height="367" key="GridCell.Tab.0.right" timestamp="1595368012337">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594673786555" />
-    <state width="1877" height="367" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594912132292" />
+    <state width="1877" height="367" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595368012337" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1594065865173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -214,6 +223,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="567" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594312337311" />
+    <state x="767" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595090193888">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="767" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595090193888" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1594838740865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
