@@ -68,11 +68,9 @@ const CurrentClass = (props) => {
                             <div className="col-sm-12    col-lg-8 p-0 pr-lg-1">
                                 {
                                     VideoType ?
+                                        // <ReactPlayerConf url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
                                         <WebrtcPlayer url={Class["live_urls"].web_rtc}
                                                               changeUrl={() => setVideoType(false)}/>
-                                                              // <ReactPlayerConf url={Class["live_urls"].web_rtc} changeUrl={() => setVideoType(false)}/>
-
-
 
                                                               :
                                         <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>

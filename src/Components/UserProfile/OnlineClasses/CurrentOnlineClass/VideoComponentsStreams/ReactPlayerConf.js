@@ -56,10 +56,10 @@ class ReactPlayerConf extends Component {
                     //
                     //
                     // dn-draft
-                    var api = urlObject.user_query.play || '/rtc/v1/play/';
-                    if (api.lastIndexOf('/') != api.length - 1) {
-                        api += '/';
-                    }
+                    // var api = urlObject.user_query.play || '/rtc/v1/play/';
+                    // if (api.lastIndexOf('/') != api.length - 1) {
+                    //     api += '/';
+                    // }
 
                     // var url = schema + '//' + urlObject.server + ':' + port + api;
                     // for (var key in urlObject.user_query) {
@@ -69,8 +69,10 @@ class ReactPlayerConf extends Component {
                     // }
                     // Replace /rtc/v1/play/&k=v to /rtc/v1/play/?k=v
                     // url = url.replace(api + '&', api + '?');
-                    var url ='https:'+'//'+urlObject.server+"/1958"+api;
+                    // var url ='https:'+'//'+urlObject.server+"/1958"+api;
                     // @see https://github.com/rtcdn/rtcdn-draft
+                    var api = '/rtc/v1/play/';
+                    var url = 'https:' + '//' + urlObject.server + "/1985" + api;
                     var data = {
                         api: url, streamurl: urlObject.url, clientip: null, sdp: offer.sdp
                     };
