@@ -49,12 +49,6 @@ class ReactPlayerConf extends Component {
                     var port = urlObject.port || 1985;
 
                     // @see https://github.com/rtcdn/rtc
-                    //
-                    //
-                    //
-                    //
-                    //
-                    //
                     // dn-draft
                     // var api = urlObject.user_query.play || '/rtc/v1/play/';
                     // if (api.lastIndexOf('/') != api.length - 1) {

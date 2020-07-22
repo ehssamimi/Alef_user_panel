@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/ReactPlayerConf.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/ReactPlayerConf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +31,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AdminKlid" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -169,7 +166,7 @@
       <workItem from="1595160700406" duration="1311000" />
       <workItem from="1595367926436" duration="4983000" />
       <workItem from="1595400702753" duration="112000" />
-      <workItem from="1595409049628" duration="2725000" />
+      <workItem from="1595409049628" duration="3675000" />
     </task>
     <servers />
   </component>
@@ -190,10 +187,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="686" y="223" key="#ESLint/0.0.1920.1040@0.0.1920.1040" timestamp="1594727264226" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1595400811327">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1595412105962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595400811327" />
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595412105962" />
     <state width="1493" height="274" key="GridCell.Tab.0.bottom" timestamp="1595409219154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
