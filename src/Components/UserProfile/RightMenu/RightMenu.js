@@ -3,18 +3,17 @@ import profile from './../../../Common/img/profile.png'
 import active from './../../../Common/img/white_selector.png'
 import { GiGraduateCap } from "react-icons/gi";
 import { AiOutlineUser } from "react-icons/ai";
-import { MdExitToApp } from "react-icons/md";
+import * as Const from "./../../../Common/Const/ServerConst";
 import { FiCalendar ,FiLogOut} from "react-icons/fi";
 import {Link} from "react-router-dom";
 import {UrlContext} from "../../Common/Context/UrlProvider";
-import {LogOut} from "../../../Common/Const/ServerConnection";
+import {GetConfigMqtt, LogOut} from "../../../Common/Const/ServerConnection";
 import {NotificationManager} from "react-notifications";
 import { RiVidiconLine } from "react-icons/ri";
 import cookie from 'react-cookies';
 import {Collapse} from "reactstrap";
 
-
-
+const mqtt = require('mqtt')
 
 
 export default function RightMenu (props){
@@ -30,6 +29,70 @@ export default function RightMenu (props){
 
 
      useEffect(()=>{
+         async function connectToMqtt() {
+             let {state,Description:{topics}}=await GetConfigMqtt();
+             console.log(topics)
+             // 0: "GB-TIME-IR"
+             // 1: "NT-U-5ea0132cd8cbe2eb0b7e2361"
+             // 2: "NT-WEB"
+
+
+
+
+             const options = {
+                 clean: true, // retain session
+                 connectTimeout: 4000, // Timeout period
+                 // Authentication information
+                 clientId: Const.Token
+             }
+             // cm
+
+             const connectUrl = 'wss://websocket.kelidiha.com/notification'
+             // const connectUrl = 'ws://localhost:8083/mqtt'
+             const client = mqtt.connect(connectUrl, options)
+
+             for (let i = 0; i < topics.length; i++) {
+
+                 console.log(topics[i])
+                 client.subscribe(topics[i])
+             }
+
+
+
+
+             //
+             // client.subscribe("GB-TIME-IR")
+             // client.subscribe("NT-U-5e82a422dc5d87cead3bab42")
+
+             client.on('reconnect', (error) => {
+                 console.log('reconnecting:', error)
+             })
+
+             client.on('error', (error) => {
+                 console.log('Connection failed:', error)
+             })
+
+             client.on('message', (topic, message) => {
+                 console.log('receive message：', topic, JSON.parse(message))
+                 // if (topic === "GB-TIME-IR") {
+                 //     document.getElementById("global_time").textContent = JSON.parse(message).TIME;
+                 // }
+             })
+
+         }
+
+         connectToMqtt()
+
+
+
+
+
+
+
+
+
+
+
          if (localStorage.getItem("user_alef")) {
              setUserSumery(localStorage.getItem("user_alef").split(","))
          } else {

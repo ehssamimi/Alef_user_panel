@@ -285,7 +285,7 @@ class Chats extends Component {
         console.log(productSeparate);
         return (
             <div  >
-                <Card className="card-shadow-default  br-0  ">
+                <Card className="card-shadow-default  br10px   ">
                     <h4 className="  FsFooterLogin green-them font-weight-bold pl-3    header-chat-wide">
                         گفت  و گو ها
                     </h4>

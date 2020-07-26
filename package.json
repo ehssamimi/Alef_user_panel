@@ -24,6 +24,7 @@
     "jss-rtl": "^0.3.0",
     "moment": "2.22.2",
     "mousetrap": "^1.6.5",
+    "mqtt": "^4.1.0",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "rc-slider": "^8.7.1",

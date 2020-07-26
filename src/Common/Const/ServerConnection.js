@@ -647,6 +647,25 @@ export async  function  ModalList( ){
     });
     return resp;
 }
+export async function GetConfigMqtt() {
+    let headers = {
+        'token': Const.Token,
+        'accept': 'application/json',
+    };
+
+
+    var resp ="";
+    await axios.get("https://api.kelidiha.com/notification/http/user/configs" ,{headers: headers}).then(function (response) {
+        console.log(response );
+
+        // let {Items} = response.data;
+        resp={state:200,Description:response.data};
+
+    }).catch(function (error) {
+        resp=Error(error)
+    });
+    return resp;
+}
 
 
 

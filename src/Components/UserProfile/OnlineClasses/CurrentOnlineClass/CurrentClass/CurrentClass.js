@@ -7,6 +7,7 @@ import WebrtcPlayer from "../VideoComponentsStreams/WEBRTCPlayer";
 import HeaderTop from "../../../../Common/Header-top/HeaderTop";
 import $ from 'jquery'
 import ReactPlayerConf from "../VideoComponentsStreams/ReactPlayerConf";
+ import UploadFileDesktop from "../Chats/UploadFileDesktop/UploadFileDesktop";
 
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
@@ -15,20 +16,21 @@ const CurrentClass = (props) => {
 
     function windowsDimention(){
         const Width = window.outerWidth;
+        var link = $('#playVideo');
 
+        var offset = link.offset();
+        var top = offset.top;
+
+        let Height=$(window).height() - top - link.height()
         if (Width <= 768) {
-
-            var link = $('#playVideo');
-
-            var offset = link.offset();
-            var top = offset.top;
-
-            let Height=$(window).height() - top - link.height()
+            $("#uploadFileDesktop").addClass("d-none")
             $('#chat').height( Height-(0.13*Height));
-
 
         } else {
             $('#chat').height("75vh");
+            $("#uploadFileDesktop").removeClass("d-none").height(  Height-(0.13*Height))
+
+
         }
     }
 
@@ -75,9 +77,11 @@ const CurrentClass = (props) => {
                                                               :
                                         <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
                                 }
+                                <UploadFileDesktop/>
 
 
-                                {/*<NewWebsocketPlayer url={Class["live_urls"].websocket}/>*/}
+
+
 
 
                             </div>
