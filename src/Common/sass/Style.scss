@@ -389,6 +389,10 @@ body{
 
 /* CSS talk bubble */
 
+.overFlow-main-upload{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 .border{
   border: 8px solid #666;
 }
@@ -787,6 +791,12 @@ table {
   display: inline-block;
   position: relative;
   width: 70%;
+  height: auto;
+}
+.upload-bubble-desktop {
+  display: inline-block;
+  position: relative;
+  width: 98%;
   height: auto;
 }
 .p-s-0{

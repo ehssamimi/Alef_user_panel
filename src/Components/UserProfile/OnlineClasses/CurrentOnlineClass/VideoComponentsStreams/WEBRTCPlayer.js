@@ -93,7 +93,7 @@ class WebrtcPlayer extends Component {
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
 
                 <div className="video-container">
-                    <video id="rtc_media_player" controls autoPlay  className="video-element " poster={poster}/>
+                    <video id="rtc_media_player" controls autoPlay  className="video-element br10px-top"   poster={poster}/>
                 </div>
 
 
@@ -103,7 +103,7 @@ class WebrtcPlayer extends Component {
                     <input type="text" id="txt_url" className="input-xxlarge d-none" value={this.props.url}/>
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
                     {/*<div   className="     input-s col-3 ml-r-auto justify-content-center  ">*/}
-                    <div className="w-100 d-flex justify-content-center">
+                    <div className="w-100 d-flex justify-content-center brVideoBtn">
                         <div id="btn_play">
                             <RowShowShowColEdit  label={"پخش"} value={"web-rtc"}   className='fS1vw btn btn-outline-main'/>
                         </div>

@@ -11,6 +11,7 @@ import ReactPlayerConf from "../VideoComponentsStreams/ReactPlayerConf";
 
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
+    const [newFile, setnewFile] = useState("");
     const [IsLoader, setIsLoader] = useState(true);
     const [VideoType, setVideoType] = useState(true);
 
@@ -24,11 +25,16 @@ const CurrentClass = (props) => {
         let Height=$(window).height() - top - link.height()
         if (Width <= 768) {
             $("#uploadFileDesktop").addClass("d-none")
+            $("#uploadFileMobile").height(Height-(0.13*Height))
+            $("#chat-tab2").removeClass("d-none")
             $('#chat').height( Height-(0.13*Height));
 
         } else {
             $('#chat').height("75vh");
             $("#uploadFileDesktop").removeClass("d-none").height(  Height-(0.13*Height))
+
+            $("#chat-tab2").addClass("d-none")
+            $("#chat-tab1").click();
 
 
         }
@@ -77,7 +83,7 @@ const CurrentClass = (props) => {
                                                               :
                                         <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
                                 }
-                                <UploadFileDesktop/>
+                                <UploadFileDesktop newFile={newFile} class_id={props.match.params.id}/>
 
 
 

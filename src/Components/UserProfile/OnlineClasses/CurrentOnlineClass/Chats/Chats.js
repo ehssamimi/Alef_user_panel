@@ -9,6 +9,7 @@ import Loader from "../../../../Common/Loader/Loader";
 import *  as Const from '../../../../../Common/Const/ServerConst'
 import {Card} from 'reactstrap'
 import ChatLeftRight from "./ChatLeftRight/ChatLeftRight";
+import UploadFileMobile from "./UploadFileMobile/UploadFileMobile";
 
 //
 // const   socket = io.connect('http://live.kelidiha.com:3004/live_class', {
@@ -29,7 +30,7 @@ class Chats extends Component {
     constructor(props) {
         super(props);
         this.state={
-            messages:[],InitialData:[],productSeparate:[],pageStart:1,hasMore:true,UsersIDImg:{UsersIDImg:[],UsersId:[]},gid:null,
+            messages:[],InitialData:[],productSeparate:[],pageStart:1,hasMore:true,UsersIDImg:{UsersIDImg:[],UsersId:[]},gid:null,tab1:true,newFile:"",
 
             // socket : io.connect('http://live.kelidiha.com:3004/live_class', {
                socket: io.connect(Const.LiveClass, {
@@ -285,53 +286,67 @@ class Chats extends Component {
         console.log(productSeparate);
         return (
             <div  >
-                <Card className="card-shadow-default  br10px   ">
-                    <h4 className="  FsFooterLogin green-them font-weight-bold pl-3    header-chat-wide">
-                        گفت  و گو ها
+                <Card className="card-shadow-default   br10px-top  font-weight-lighter  ">
+                    <h4 className="  FsFooterLogin  pl-3    header-chat-wide d-flex w-100   ">
+                        <span id="chat-tab1" className={this.state.tab1 ? "green-them font-weight-bold" : "green-color font-weight-lighter"}
+                            onClick={() => {this.setState({tab1: true})}}> گفت  و گو ها</span>
+                        <span id="chat-tab2" className={["ml-5", this.state.tab1 ? "green-color font-weight-lighter " : "green-them font-weight-bold"].join(" ")}
+                        onClick={() => {this.setState({tab1: false})}}> فایل های ضمیمه شده </span>
                     </h4>
-                    <div className="w-100 " id="chat">
-                        <InfiniteScrollReverse
 
 
-                            // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
-                            className=" row rtl m-0 overFlow-y-scroll  h-100 pl-4 d-flex  w-100  flex-wrap align-items-end   "
-                            pageStart={0}
-                            loadMore={this.loadMore}
-                            hasMore={ hasMore}
-                            isLoading={true }
-                            loadArea={10}
-                            loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
-                        >
-
-                            {productSeparate.length > 0 && Array.isArray(productSeparate) ?
-
-                                productSeparate.slice(0).reverse().map((todo, index) =>
-                                        todo.st === "admin" ?
-                                            <ChatLeftRight chatBg={"green-background border-chat-left"}
-                                                           key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                            : todo.sid === Const.UserId ?
-                                            <ChatRightTop chatBg={"bg-chat-mySelf border-chat-mySelf"}
-                                                          key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                            : <ChatLeftRight chatBg={"bg-chat-other border-chat-other"}
-                                                             key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                    {
+                        this.state.tab1?
+                            <div className="w-100 " id="chat">
+                                <InfiniteScrollReverse
 
 
-                                    // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
-                                )
+                                    // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
+                                    className=" row rtl m-0 overFlow-y-scroll  h-100 pl-4 d-flex  w-100  flex-wrap align-items-end   "
+                                    pageStart={0}
+                                    loadMore={this.loadMore}
+                                    hasMore={ hasMore}
+                                    isLoading={true }
+                                    loadArea={10}
+                                    loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
+                                >
 
-                                : []
-                            }
+                                    {productSeparate.length > 0 && Array.isArray(productSeparate) ?
+
+                                        productSeparate.slice(0).reverse().map((todo, index) =>
+                                                todo.st === "admin" ?
+                                                    <ChatLeftRight chatBg={"green-background border-chat-left"}
+                                                                   key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                                    : todo.sid === Const.UserId ?
+                                                    <ChatRightTop chatBg={"bg-chat-mySelf border-chat-mySelf"}
+                                                                  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                                    : <ChatLeftRight chatBg={"bg-chat-other border-chat-other"}
+                                                                     key={index} {...todo} UsersIDImg={UsersIDImg}/>
+
+
+                                            // <ChatRightTop chatBg={"green-background border-chat-left"}  key={index} {...todo} UsersIDImg={UsersIDImg}/>
+                                        )
+
+                                        : []
+                                    }
 
 
 
 
 
-                        </InfiniteScrollReverse>
+                                </InfiniteScrollReverse>
 
 
-                    </div>
+                            </div>   :
+                             <UploadFileMobile newFile={this.state.newFile} class_id={this.props.classId}/>
+                    }
+
+
+
                 </Card>
-                <InputSendMessage sendMessage={this.sendMessage}/>
+                {
+                    this.state.tab1 ?
+                        <InputSendMessage sendMessage={this.sendMessage}/> : ""}
 
 
 

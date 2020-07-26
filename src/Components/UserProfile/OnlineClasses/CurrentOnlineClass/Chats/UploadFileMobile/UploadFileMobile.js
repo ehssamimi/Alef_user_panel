@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import {Card} from "reactstrap";
-import UploadFileRight from "./UploadFileRight/UploadFileRight";
-
-
-import IsLoaderComponent from "../../../../../Common/Loader/IsLoaderComponent";
-import {error_Notification} from "../../../../../functions/componentHelpFunction";
 import {ShowFileToClass} from "../../../../../../Common/Const/ServerConnection";
+import {error_Notification} from "../../../../../functions/componentHelpFunction";
+import IsLoaderComponent from "../../../../../Common/Loader/IsLoaderComponent";
+import UploadFileRight from "../UploadFileDesktop/UploadFileRight/UploadFileRight";
 
-class UploadFileDesktop extends Component {
+class UploadFileMobile extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -67,31 +64,24 @@ class UploadFileDesktop extends Component {
         let{isLoader,UploadList}=this.state;
         return (
             <IsLoaderComponent isLoader={isLoader}>
-                <div className="w-100   mobileNotView" id="uploadFileDesktop">
-                    <div className="w-100 h-100">
-                        <div className="card-shadow-default  br-0     "  >
-                            <h4 className="  FsFooterLogin green-them font-weight-bold ml-4    header-chat-wide">
-                                فایل های ضمیمه شده
-                            </h4>
-                            <div className="w-100   pb-4 overflow-scroll d-flex ml-4">
+                    <div className="w-100  " id="uploadFileMobile">
+
+                            <div className="w-100   pb-4 overflow-y-scroll h-100  ">
 
                                 {
                                     (UploadList!==undefined&&UploadList.length>0)?
                                         UploadList.map((item, index) =>
-                                            <UploadFileRight key={index} {...item} {...this.props} updateList={()=>this.getUploadList()}/>
+                                            <UploadFileRight key={index} {...item} {...this.props} kind="mobile" index={index} updateList={()=>this.getUploadList()}/>
                                         ):" "
                                 }
 
                             </div>
-                        </div>
+
                     </div>
-                </div>
-
-
 
             </IsLoaderComponent>
         );
     }
 }
 
-export default UploadFileDesktop;
+export default UploadFileMobile;

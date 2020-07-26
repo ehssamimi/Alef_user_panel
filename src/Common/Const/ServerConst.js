@@ -22,3 +22,4 @@ export const kelidihaadmin="https://kelidihaadmin.liara.run/";
 export const LiveKelid="http://live.kelidiha.com:3004/";
 export const LiveClass="https://websocket.kelidiha.com/live_class";
 export const userKilidiha="https://user.kelidiha.com/";
+export const ClassRoom="https://classroom.kelidiha.com/";

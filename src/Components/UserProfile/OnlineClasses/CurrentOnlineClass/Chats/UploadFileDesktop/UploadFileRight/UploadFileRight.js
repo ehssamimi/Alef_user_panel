@@ -1,26 +1,38 @@
 import React, {useState, useEffect} from 'react';
-import profile from './../../../../../../../Common/img/default_pic@3x.png'
+import UploadIcon from './../../../../../../../Common/img/UploadIcons.png'
 
 const UploadFileRight = (props) => {
     // const [count, setCount] = useState(1);
+    let{title,url,file_name,file_size,class_id}= props;
     useEffect(() => {
         // Update the document title using the browser API
         // return //for componentDidMount
     }, []);
 
     return (
-        <div className="col-8 row  mt-3 p-0">
-            <div className="width-chat-profile position-relative">
-                <div className="profile-pic-chat  br-r50  p-05 position-absolute br-g">
-                    <img src={  profile} alt="profile" className="img-self-cover br-r50 br-y text-justify  "/>
-                </div>
-            </div>
-
-            <div className= "talk-bubble tri-right round-top-right   right-top   green-background border-chat-mySelf " >
+        <div className={["col-sm-12    mt-sm-3     p-0",props.kind==="mobile"?props.index===0?" text-center":"mt-3 text-center ":"col-md-4"].join(" ")}>
+            <div className= "upload-bubble-desktop tri-right round  green-background border-chat-left  " >
                 <div className="talktext">
-                    <p className="chat-header  IranSans mb-0 text-left FS01">{"استاد امین بابازاده"}</p>
-                    <p className=  "  IranSans text-justify mb-0 FS02 text-white"      >{"نمونه سوالات هالیدی"}</p>
-                    <div className="w-100 d-flex justify-content-end">
+                    {/*<p className="chat-header  IranSans mb-0 text-right FS01">{"استاد امین بابازاده"}</p>*/}
+                    <p className=  "  IranSans text-justify mb-0 FS02 text-white"  >{title}</p>
+                    <div className="text-left mb-2">
+                        <div className="row">
+                            <div className=" col-9">
+                                <p className=" IranSans mb-0 text-justify FS01 hidden-txt text-white mb-0 font-weight-light">{file_name}</p>
+                                <p className=  "  IranSans text-justify mb-0 FS01 text-white font-weight-light"  >{file_size}</p>
+                            </div>
+                            <div className="    font-weight-light ">
+
+                                <a href={url} target="_blank" download className="profile-pic-chat  br-r50  p-05 position-absolute leftSideUploadBtn"  >
+                                    <img src={UploadIcon} alt={"upload-Icon"} className="img-self-cover br-r50   text-justify  "/>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    {/*<div className="w-100 d-flex justify-content-end">*/}
+                    <div className={["w-100 d-flex justify-content-end",props.kind==="mobile"? "pt-2 ":""].join(" ")}>
                         <span className= "chat-header  IranSans  FS01 " >{"12:22"}</span>
                     </div>
                 </div>

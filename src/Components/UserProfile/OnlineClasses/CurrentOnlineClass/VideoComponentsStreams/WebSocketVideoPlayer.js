@@ -31,7 +31,7 @@ const NewWebsocketPlayer = (props) => {
                                     width = "100%"
                                     isMuted={false}
                                     isLive={true}
-                                    className="video-element h-100"
+                                    className="video-element h-100 br10px-top"
                                     config={{file: { attributes: { poster: poster } }}}
                                 />       </div>
                                 :
@@ -52,7 +52,7 @@ const NewWebsocketPlayer = (props) => {
                 </div>
             <div className="w-100 d-flex justify-content-center">
 
-                <div   className=' w-100 d-flex justify-content-center fS1vw' >
+                <div   className=' w-100 d-flex justify-content-center fS1vw brVideoBtn' >
                     <div  onClick={handelSetURL}>
                         <RowShowShowColEdit label={"پخش"} value={"http_flv"}   className='fS1vw btn btn-outline-main'/>
                     </div>

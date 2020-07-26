@@ -556,6 +556,29 @@ export async  function  GetCurrentUserClassList(id){
     return resp;
 }
 
+export async  function ShowFileToClass( class_id){
+
+    let headers = {
+        'token': Const.Token,
+        'Id': Const.ID,
+    };
+    var resp = '';
+
+
+
+
+    await axios.get(`${Const.ClassRoom}user/live-class/files?class_id=${class_id}` , {headers: headers}).then(function (response) {
+        console.log(response);
+        resp = {state: 200, Description: response.data};
+
+        // let {UploadId} = response.data;
+        // resp = UploadId;
+    }).catch(function (error) {
+        Error(error)
+    });
+    return resp
+}
+
 
 // **************chat********
 export async  function  GetUserProfileImg(user_id){

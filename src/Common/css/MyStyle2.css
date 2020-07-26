@@ -302,6 +302,12 @@ select option:hover {
 .overflow-scroll{
     overflow: scroll;
 }
+.overflow-y-scroll{
+    overflow-y: scroll;
+}
+.leftSideUploadBtn{
+    left:0.5vw
+}
 
 .text-break{
     overflow-wrap: break-word;
@@ -588,6 +594,20 @@ select option:hover {
     top: 0;
     left: 0;
 }
+.br10px-top{
+    border-radius: 10px 10px 0 0 !important;
+}
+.br10px-bottom{
+    border-radius: 0 0 10px 10px !important;
+}
+.brVideoBtn{
+border-right: 1px solid #687a6d;
+border-left: 1px solid #687a6d;
+border-bottom: 1px solid #687a6d;
+    border-radius: 0 0 10px 10px;
+padding-bottom: .5rem!important;
+}
+
 
 
 
@@ -598,7 +618,16 @@ select option:hover {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .mobileNotView {
+        display: none;
+    }
 
+    .mobileView {
+        display: block;
+    }
+    .leftSideUploadBtn{
+        left:2vw
+    }
     .loaderLogInM{
 
         display: flex;
@@ -715,6 +744,17 @@ select option:hover {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    .mobileNotView {
+        display: none;
+    }
+
+    .mobileView {
+        display: block;
+    }
+
+    .leftSideUploadBtn{
+        left:2vw
+    }
     .loaderLogInM{
         display: flex;
         justify-content: center;
@@ -815,6 +855,17 @@ select option:hover {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+
+    .mobileNotView {
+        display: none;
+    }
+
+    .mobileView {
+        display: block;
+    }
+    .leftSideUploadBtn{
+        left:0.5vw
+    }
     .loaderLogInM{
         /*color: #364539 !important;*/
         display: none;
@@ -894,6 +945,16 @@ select option:hover {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .mobileNotView {
+        display: block;
+    }
+
+    .mobileView {
+        display: none;
+    }
+    .leftSideUploadBtn{
+        left:0.5vw
+    }
     .loaderLogInM{
         /*color: #364539 !important;*/
         display: none;
@@ -971,6 +1032,16 @@ select option:hover {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+    .mobileNotView {
+        display: block;
+    }
+
+    .mobileView {
+        display: none;
+    }
+    .leftSideUploadBtn{
+        left:0.5vw
+    }
     .loaderLogInM{
         /*color: #364539 !important;*/
         display: none;
