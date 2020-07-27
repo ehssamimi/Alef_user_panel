@@ -304,6 +304,8 @@ select option:hover {
 }
 .overflow-y-scroll{
     overflow-y: scroll;
+}.overflow-x-scroll{
+    overflow-x: scroll;
 }
 .leftSideUploadBtn{
     left:0.5vw
@@ -600,13 +602,23 @@ select option:hover {
 .br10px-bottom{
     border-radius: 0 0 10px 10px !important;
 }
+.br32px{
+    border-radius: 32px !important;
+}
+.br32px-top{
+    border-radius: 32px 32px 0 0 !important;
+}
+.br32px-bottom{
+    border-radius: 0 0 32px 32px !important;
+}
 .brVideoBtn{
-border-right: 1px solid #687a6d;
-border-left: 1px solid #687a6d;
-border-bottom: 1px solid #687a6d;
-    border-radius: 0 0 10px 10px;
+border-right:    1px solid rgba(0,0,0,.125);
+border-left:1px solid rgba(0,0,0,.125);
+border-bottom:1px solid rgba(0,0,0,.125);
+    border-radius: 0 0 32px 32px;
 padding-bottom: .5rem!important;
 }
+
 
 
 

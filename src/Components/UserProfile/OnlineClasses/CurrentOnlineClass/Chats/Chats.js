@@ -174,8 +174,10 @@ class Chats extends Component {
         // sender_name: "amin jamal"
         // ***get all product and current page ***
         // let {state, Description} = await GetAllUser(pageStart);
+
         let{UsersIDImg,pageStart}=this.state;
         let {state, Description} = await GetHistoryChat(this.props.gid,pageStart,Const.Token,);
+        console.log("Load More Chat");
         console.log("Description");
         console.log(Description);
         console.log("pageStart")
@@ -286,8 +288,8 @@ class Chats extends Component {
         console.log(productSeparate);
         return (
             <div  >
-                <Card className="card-shadow-default   br10px-top  font-weight-lighter  ">
-                    <h4 className="  FsFooterLogin  pl-3    header-chat-wide d-flex w-100   ">
+                <Card className="card-shadow-default   br32px-top  font-weight-lighter  ">
+                    <h4 className="  FsFooterLogin  pl-4    header-chat-wide d-flex w-100   ">
                         <span id="chat-tab1" className={this.state.tab1 ? "green-them font-weight-bold" : "green-color font-weight-lighter"}
                             onClick={() => {this.setState({tab1: true})}}> گفت  و گو ها</span>
                         <span id="chat-tab2" className={["ml-5", this.state.tab1 ? "green-color font-weight-lighter " : "green-them font-weight-bold"].join(" ")}
@@ -303,10 +305,14 @@ class Chats extends Component {
 
                                     // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
                                     className=" row rtl m-0 overFlow-y-scroll  h-100 pl-4 d-flex  w-100  flex-wrap align-items-end   "
+                                    // pageStart={0}
+                                    // loadMore={this.loadMore}
+                                    // hasMore={ hasMore}
+                                    // isLoading={true }
+                                    // loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
                                     pageStart={0}
                                     loadMore={this.loadMore}
                                     hasMore={ hasMore}
-                                    isLoading={true }
                                     loadArea={10}
                                     loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
                                 >

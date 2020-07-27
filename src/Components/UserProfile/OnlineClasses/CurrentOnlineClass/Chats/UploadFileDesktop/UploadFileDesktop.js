@@ -67,13 +67,14 @@ class UploadFileDesktop extends Component {
         let{isLoader,UploadList}=this.state;
         return (
             <IsLoaderComponent isLoader={isLoader}>
-                <div className="w-100   mobileNotView" id="uploadFileDesktop">
+                <div className="w-100   mobileNotView mt-2" id="uploadFileDesktop">
                     <div className="w-100 h-100">
-                        <div className="card-shadow-default  br-0     "  >
-                            <h4 className="  FsFooterLogin green-them font-weight-bold ml-4    header-chat-wide">
-                                فایل های ضمیمه شده
+                        <div className="card-shadow-default      br32px  border-default   "  >
+                            <h4 className="  FsFooterLogin green-them font-weight-bold ml-4 mb-0  header-chat-wide  ">
+                                <span>فایل های ضمیمه شده</span>
+
                             </h4>
-                            <div className="w-100   pb-4 overflow-scroll d-flex ml-4">
+                            <div className="w-100   pb-4 overflow-x-scroll  d-flex pl-4">
 
                                 {
                                     (UploadList!==undefined&&UploadList.length>0)?

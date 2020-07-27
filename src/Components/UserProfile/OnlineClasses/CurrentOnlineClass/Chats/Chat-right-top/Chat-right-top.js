@@ -12,7 +12,7 @@ function search(nameKey, myArray){
     const [profile, setProfile] = useState(profile1);
     useEffect(() => {
         let arr=search(props.sid,props.UsersIDImg["UsersIDImg"])
-        console.log(props )
+        // console.log(props )
 
          const reader = new FileReader();
         reader.onload = () => {
@@ -21,13 +21,13 @@ function search(nameKey, myArray){
         };
         reader.readAsDataURL(arr.profile );
 
-        console.log("next user")
+        // console.log("next user")
 
     }, [props]);
 
 
     return (
-        <div className="col-12 row  mt-3 p-0">
+        <div className="col-12 row  mt-3 p-0 pl-3">
             <div className="width-chat-profile position-relative">
                <div className="profile-pic-chat  br-r50  p-05 position-absolute br-g">
                     <img src={  profile} alt="profile" className="img-self-cover br-r50 br-y text-justify  "/>

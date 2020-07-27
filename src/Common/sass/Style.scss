@@ -388,11 +388,22 @@ body{
 
 
 /* CSS talk bubble */
+.hidden-txt{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 90%;
+  display: inline-block;
+  overflow: hidden;
+}
+.border-default{
+  border: 1px solid rgba(0,0,0,.125);
+}
 
 .overFlow-main-upload{
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 .border{
   border: 8px solid #666;
 }
