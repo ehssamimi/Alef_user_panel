@@ -78,12 +78,16 @@ class WebrtcPlayer extends Component {
         // srs_init_rtc("#txt_url", query);
 
         $("#btn_play").click(startPlay);
+
         if (query.autostart === 'true') {
             // For autostart, we should mute it, see https://www.jianshu.com/p/c3c6944eed5a
             $('#rtc_media_player').prop('muted', true);
             startPlay();
         }
 
+    }
+    handelSetURL=()=>{
+        console.log("پخش webrtc ")
     }
 
 
@@ -93,7 +97,7 @@ class WebrtcPlayer extends Component {
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
 
                 <div className="video-container">
-                    <video id="rtc_media_player" controls autoPlay  className="video-element   card-shadow-default   br32px-top border-default"   poster={poster}/>
+                    <video id="rtc_media_player" controls autoPlay  className="video-element   card-shadow-default   br10px-top border-default"   poster={poster}/>
                 </div>
 
 
@@ -104,8 +108,8 @@ class WebrtcPlayer extends Component {
                     {/*<button className="btn btn-primary d-none" id="btn_play">播放视频</button>*/}
                     {/*<div   className="     input-s col-3 ml-r-auto justify-content-center  ">*/}
                     <div className="w-100 d-flex justify-content-center brVideoBtn">
-                        <div id="btn_play">
-                            <RowShowShowColEdit  label={"پخش"} value={"web-rtc"}   className='fS1vw btn btn-outline-main'/>
+                        <div id="btn_play"  className="zIndex-3"  onClick={this.handelSetURL}>
+                            <RowShowShowColEdit  label={"پخش"} value={"web-rtc"}     className='fS1vw btn btn-outline-main'/>
                         </div>
                         <div className={"ml-3"} onClick={()=>{this.props.changeUrl()}}>
                             <RowShowShowEditWithoutLabel  label={"پخش"} value={<FaExchangeAlt/>} className='fS1vw btn btn-outline-main '/>

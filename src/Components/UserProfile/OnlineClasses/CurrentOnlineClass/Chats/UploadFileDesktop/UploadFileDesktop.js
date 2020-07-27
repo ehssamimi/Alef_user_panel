@@ -69,10 +69,9 @@ class UploadFileDesktop extends Component {
             <IsLoaderComponent isLoader={isLoader}>
                 <div className="w-100   mobileNotView mt-2" id="uploadFileDesktop">
                     <div className="w-100 h-100">
-                        <div className="card-shadow-default      br32px  border-default   "  >
+                        <div className="card-shadow-default      br10px  border-default   "  >
                             <h4 className="  FsFooterLogin green-them font-weight-bold ml-4 mb-0  header-chat-wide  ">
                                 <span>فایل های ضمیمه شده</span>
-
                             </h4>
                             <div className="w-100   pb-4 overflow-x-scroll  d-flex pl-4">
 

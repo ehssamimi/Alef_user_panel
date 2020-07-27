@@ -4,12 +4,10 @@
     <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Common/css/MyStyle2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/css/MyStyle2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Common/sass/Style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/sass/Style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/Chat-right-top/Chat-right-top.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/Chat-right-top/Chat-right-top.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/ChatLeftRight/ChatLeftRight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/ChatLeftRight/ChatLeftRight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/Chats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/Chats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/InputSendMessage/InputSendMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/InputSendMessage/InputSendMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/UploadFileDesktop/UploadFileDesktop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/UploadFileDesktop/UploadFileDesktop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WebSocketVideoPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WebSocketVideoPlayer.js" afterDir="false" />
     </list>
@@ -179,7 +177,7 @@
       <workItem from="1595683565205" duration="10200000" />
       <workItem from="1595802034159" duration="3132000" />
       <workItem from="1595834326666" duration="2796000" />
-      <workItem from="1595860345711" duration="5381000" />
+      <workItem from="1595860345711" duration="9996000" />
     </task>
     <servers />
   </component>

@@ -227,8 +227,8 @@ class Chats extends Component {
                 hasMore:messages.length !== 0
 
             }),()=>{
-                console.log(this.state.productSeparate)
-                console.log(this.state.UsersIDImg)
+                // console.log(this.state.productSeparate)
+                // console.log(this.state.UsersIDImg)
             });
             // setproductSeparate([...productSeparate, ...productsSeparate]);
 
@@ -288,7 +288,7 @@ class Chats extends Component {
         console.log(productSeparate);
         return (
             <div  >
-                <Card className="card-shadow-default   br32px-top  font-weight-lighter  ">
+                <Card className="card-shadow-default   br10px-top  font-weight-lighter  ">
                     <h4 className="  FsFooterLogin  pl-4    header-chat-wide d-flex w-100   ">
                         <span id="chat-tab1" className={this.state.tab1 ? "green-them font-weight-bold" : "green-color font-weight-lighter"}
                             onClick={() => {this.setState({tab1: true})}}> گفت  و گو ها</span>

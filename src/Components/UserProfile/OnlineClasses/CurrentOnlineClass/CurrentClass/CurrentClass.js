@@ -17,19 +17,26 @@ const CurrentClass = (props) => {
 
     function windowsDimention(){
         const Width = window.outerWidth;
-        var link = $('#playVideo');
 
-        var offset = link.offset();
-        var top = offset.top;
-
-        let Height=$(window).height() - top - link.height()
         if (Width <= 768) {
+            var link = $('#playVideo');
+
+            var offset = link.offset();
+            var top = offset.top;
+
+            let Height=$(window).height() - top - link.height()
             $("#uploadFileDesktop").addClass("d-none")
             $("#uploadFileMobile").height(Height-(0.13*Height))
             $("#chat-tab2").removeClass("d-none")
             $('#chat').height( Height-(0.13*Height));
 
         } else {
+            var link = $('#playVideo');
+
+            var offset = link.offset();
+            var top = offset.top;
+
+            let Height=$(window).height() - top - link.height()
             $('#chat').height("75vh");
             $("#uploadFileDesktop").removeClass("d-none").height(  Height-(0.13*Height))
 
@@ -73,7 +80,7 @@ const CurrentClass = (props) => {
                 <IsLoaderComponent isLoader={IsLoader}>
                     {
                         Class !== "" ? <div className="row m-0 ">
-                            <div className="col-sm-12    col-lg-8 p-0 pr-lg-1">
+                            <div className="col-sm-12    col-lg-7 p-0 pr-lg-1">
                                 {
                                     VideoType ?
                                         // <ReactPlayerConf url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
@@ -91,11 +98,14 @@ const CurrentClass = (props) => {
 
 
                             </div>
-                            <div className="col-sm-12  col-lg-4 p-0 pl-lg-5">
+                            <div className="col-sm-12 col-lg-5 p-0 d-flex justify-content-center">
+                                <div className="w-100  col-sm-12 col-lg-9 p-0 ">
 
-                                {/*<Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>*/}
-                                <Chats gid={Class.group_chat_id} classId={props.match.params.id}/>
+                                    {/*<Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>*/}
+                                    <Chats gid={Class.group_chat_id} classId={props.match.params.id}/>
+                                </div>
                             </div>
+
                         </div> : ""
                     }
 

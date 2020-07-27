@@ -12,7 +12,7 @@ const NewWebsocketPlayer = (props) => {
     const [url, setURL] = useState(false);
 
     const handelSetURL=()=>{
-        console.log("setUrl")
+        console.log("پخش http_flv")
         setURL(true)
     }
 
@@ -24,21 +24,21 @@ const NewWebsocketPlayer = (props) => {
                 <div className="video-container h-100">
 
                     {
-                        url?  <div  className="video-element h-100 br32px-top">
+                        url?  <div  className="video-element h-100 br10px-top">
                                 <ReactFlvPlayer
                                     url ={props.url}
                                     heigh = "100%"
                                     width = "100%"
                                     isMuted={false}
                                     isLive={true}
-                                    className="video-element h-100  border-default  card-shadow-default   br32px-top"
+                                    className="video-element h-100  border-default  card-shadow-default   br10px-top"
                                     config={{file: { attributes: { poster: poster } }}}
                                 />       </div>
                                 :
 
 
 
-                            <img src={poster} alt="def" className={"video-element h-100 w-100 br32px-top"} />
+                            <img src={poster} alt="def" className={"video-element h-100 w-100 br10px-top"} />
 
                     }
                     {/*<ReactPlayer*/}
@@ -53,10 +53,10 @@ const NewWebsocketPlayer = (props) => {
             <div className="w-100 d-flex justify-content-center">
 
                 <div   className=' w-100 d-flex justify-content-center fS1vw brVideoBtn' >
-                    <div  onClick={handelSetURL}>
+                    <div  onClick={handelSetURL} className="zIndex-3">
                         <RowShowShowColEdit label={"پخش"} value={"http_flv"}   className='fS1vw btn btn-outline-main'/>
                     </div>
-                    <div className={"ml-3"} onClick={()=>{props.changeUrl()}}>
+                    <div className= "ml-3 "  onClick={()=>{props.changeUrl()}}>
                         <RowShowShowEditWithoutLabel  label={"پخش"} value={<FaExchangeAlt/>} className='fS1vw btn btn-outline-main '/>
 
                     </div>
