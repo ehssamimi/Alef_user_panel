@@ -399,6 +399,7 @@ body{
   border: 1px solid rgba(0,0,0,.125);
 }
 
+
 .overFlow-main-upload{
   overflow-y: scroll;
   overflow-x: hidden;
@@ -824,6 +825,11 @@ table {
   line-height: 1.4em;
   min-height: 3rem;
 }
+.uploadtext{
+  padding:  0.3em 0.7rem 0.2rem 0.7rem;
+  text-align: left;
+  min-height: 2.5rem;
+}
 //.p-s-0::after {
 //  content: "-";
 //  color: $LightGreen;
@@ -846,8 +852,115 @@ table {
 .width-chat-profile{
   width: calc(3.8rem);
 }
-/* Extra small devices (phones, 600px and down) */
+.sm-mt-3{
+  margin-top: 0.001rem!important;
+}
+
+.page-title:after {
+  content: ""; /* This is necessary for the pseudo element to work. */
+  display: block; /* This will put the pseudo element on its own line. */
+  margin-left:   70%; /* This will center the border. */
+  width: 25%; /* Change this to whatever width you want. */
+  padding-bottom:  -15px; /* This creates some space between the element and the border. */
+  border-bottom: 2px solid transparent; /* This creates the border. Replace black with whatever color you want. */
+}
+.pl-lg-video{
+  padding-left: 7em!important;
+  padding-right :0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.brVideoBtn {
+  border-right: 1px solid rgba(0, 0, 0, .125);
+  border-left: 1px solid rgba(0, 0, 0, .125);
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 0 0 10px 10px;
+  padding-bottom: .5rem !important;
+}
+
+
+
+.download-pic-chat {
+  width: calc(2.5rem) !important;
+  height: calc(2.5rem) !important;
+  /*min-width: calc(2rem + 2vw)!important;*/
+  /*min-height:  calc(2rem + 2vw)!important;*/
+}
+.border-Default_in-md{
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .border-Default_in-md{
+    border: 1px solid transparent;
+  }
+  .chat-css{
+    background:transparent!important; ;
+    border: 0!important;
+  }
+  .brVideoBtn {
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: .5rem !important;
+  }
+  .pl-lg-video{
+    padding: 0!important;
+  }
+  .page-title:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin-left:   70%; /* This will center the border. */
+    width: 25%; /* Change this to whatever width you want. */
+    padding-bottom:  -15px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid $green; /* This creates the border. Replace black with whatever color you want. */
+  }
+  .sm-mt-3 {
+    margin-top: 1rem !important;
+  }
+
+
+}
+  /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
+  .border-Default_in-md{
+    border: 1px solid transparent;
+  }
+  .download-pic-chat {
+    width: 2rem  !important;
+    height:  2rem !important;
+
+  }
+  .chat-css{
+    background:transparent!important; ;
+    border: 0!important;
+  }
+  .brVideoBtn {
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: .5rem !important;
+  }
+  .pl-lg-video{
+    padding: 0!important;
+  }
+  .page-title:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin-left:   70%; /* This will center the border. */
+    width: 25%; /* Change this to whatever width you want. */
+    padding-bottom:  -15px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid $green; /* This creates the border. Replace black with whatever color you want. */
+  }
+
+  .sm-mt-3{
+    margin-top: 1rem!important;
+  }
   .p-s-0{
     padding:0!important;
   }

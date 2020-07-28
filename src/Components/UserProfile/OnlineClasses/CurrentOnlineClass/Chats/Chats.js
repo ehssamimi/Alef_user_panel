@@ -7,9 +7,10 @@ import {GetHistoryChat, GetUserProfileImg} from "../../../../../Common/Const/Ser
 import {error_Notification} from "../../../../functions/componentHelpFunction";
 import Loader from "../../../../Common/Loader/Loader";
 import *  as Const from '../../../../../Common/Const/ServerConst'
-import {Card} from 'reactstrap'
+import {Badge, Card} from 'reactstrap'
 import ChatLeftRight from "./ChatLeftRight/ChatLeftRight";
 import UploadFileMobile from "./UploadFileMobile/UploadFileMobile";
+import $ from'jquery'
 
 //
 // const   socket = io.connect('http://live.kelidiha.com:3004/live_class', {
@@ -30,7 +31,7 @@ class Chats extends Component {
     constructor(props) {
         super(props);
         this.state={
-            messages:[],InitialData:[],productSeparate:[],pageStart:1,hasMore:true,UsersIDImg:{UsersIDImg:[],UsersId:[]},gid:null,tab1:true,newFile:"",
+            messages:[],InitialData:[],productSeparate:[],pageStart:1,hasMore:true,UsersIDImg:{UsersIDImg:[],UsersId:[]},gid:null,tab1:true,newFile:"",number_File:"",
 
             // socket : io.connect('http://live.kelidiha.com:3004/live_class', {
                socket: io.connect(Const.LiveClass, {
@@ -133,6 +134,7 @@ class Chats extends Component {
 
 
             }
+            $("#chat").animate({ scrollTop: $("#inputChatId").scrollTop() }, 2000);
 
 
 
@@ -288,12 +290,12 @@ class Chats extends Component {
         console.log(productSeparate);
         return (
             <div  >
-                <Card className="card-shadow-default   br10px-top  font-weight-lighter  ">
+                <Card className="card-shadow-default   br10px-top  font-weight-lighter  chat-css ">
                     <h4 className="  FsFooterLogin  pl-4    header-chat-wide d-flex w-100   ">
-                        <span id="chat-tab1" className={this.state.tab1 ? "green-them font-weight-bold" : "green-color font-weight-lighter"}
+                        <span id="chat-tab1" className={this.state.tab1 ? "green-them font-weight-bold page-title" : "green-color font-weight-lighter"}
                             onClick={() => {this.setState({tab1: true})}}> گفت  و گو ها</span>
-                        <span id="chat-tab2" className={["ml-5", this.state.tab1 ? "green-color font-weight-lighter " : "green-them font-weight-bold"].join(" ")}
-                        onClick={() => {this.setState({tab1: false})}}> فایل های ضمیمه شده </span>
+                        <span id="chat-tab2" className={["ml-5", this.state.tab1 ? "green-color font-weight-lighter " : "green-them font-weight-bold page-title"].join(" ")}
+                        onClick={() => {this.setState({tab1: false})}}>فایل های ضمیمه شده{this.state.number_File!==""?<span  className={this.state.tab1 ?"NumberFileUpload ml-2":"NumberFileUpload-active ml-2"}>{this.state.number_File}</span>:""}  </span>
                     </h4>
 
 
@@ -344,7 +346,10 @@ class Chats extends Component {
 
 
                             </div>   :
-                             <UploadFileMobile newFile={this.state.newFile} class_id={this.props.classId}/>
+                            <div className="w-100 h-100" id="chat2">
+                                <UploadFileMobile newFile={this.state.newFile} class_id={this.props.classId} numberUpload={(value)=>{this.setState({number_File:value})}}/>
+
+                            </div>
                     }
 
 

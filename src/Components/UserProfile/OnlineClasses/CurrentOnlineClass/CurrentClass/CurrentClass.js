@@ -18,33 +18,35 @@ const CurrentClass = (props) => {
     function windowsDimention(){
         const Width = window.outerWidth;
 
-        if (Width <= 768) {
-            var link = $('#playVideo');
-
+        var link = $('#playVideo');
+        console.log("link-link-link-link")
+        console.log(link)
+        if (link.offset()!==undefined){
             var offset = link.offset();
             var top = offset.top;
-
             let Height=$(window).height() - top - link.height()
-            $("#uploadFileDesktop").addClass("d-none")
-            $("#uploadFileMobile").height(Height-(0.13*Height))
-            $("#chat-tab2").removeClass("d-none")
-            $('#chat').height( Height-(0.13*Height));
+            console.log(Height)
 
-        } else {
-            var link = $('#playVideo');
+            if (Width <= 768) {
 
-            var offset = link.offset();
-            var top = offset.top;
+                // $("#uploadFileDesktop").addClass("d-none")
+                $("#uploadFileMobile").height(Height-(0.13*Height))
+                $("#chat-tab2").removeClass("d-none")
+                $('#chat').height( Height-(0.13*Height));
+                $('#chat2').height( Height-(0.13*Height));
 
-            let Height=$(window).height() - top - link.height()
-            $('#chat').height("75vh");
-            $("#uploadFileDesktop").removeClass("d-none").height(  Height-(0.13*Height))
+            } else {
 
-            $("#chat-tab2").addClass("d-none")
-            $("#chat-tab1").click();
+                $('#chat').height("75vh");
+                 // $("#uploadFileDesktop").removeClass("d-none").css({"height":Height-(0.13*Height),overflowY:"auto"})
+
+                $("#chat-tab2").addClass("d-none")
+                $("#chat-tab1").click();
 
 
+            }
         }
+
     }
 
 
@@ -80,16 +82,19 @@ const CurrentClass = (props) => {
                 <IsLoaderComponent isLoader={IsLoader}>
                     {
                         Class !== "" ? <div className="row m-0 ">
-                            <div className="col-sm-12    col-lg-7 p-0 pr-lg-1">
-                                {
-                                    VideoType ?
-                                        // <ReactPlayerConf url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
-                                        <WebrtcPlayer url={Class["live_urls"].web_rtc}
-                                                              changeUrl={() => setVideoType(false)}/>
+                            <div className="col-sm-12    col-lg-8  pl-lg-video">
+                                <div className="w-100"  id="playVideo">
+                                    {
+                                        VideoType ?
+                                            // <ReactPlayerConf url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
+                                            <WebrtcPlayer url={Class["live_urls"].web_rtc}
+                                                          changeUrl={() => setVideoType(false)}/>
 
-                                                              :
-                                        <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
-                                }
+                                            :
+                                            <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
+                                    }
+                                </div>
+
                                 <UploadFileDesktop newFile={newFile} class_id={props.match.params.id}/>
 
 
@@ -98,8 +103,8 @@ const CurrentClass = (props) => {
 
 
                             </div>
-                            <div className="col-sm-12 col-lg-5 p-0 d-flex justify-content-center">
-                                <div className="w-100  col-sm-12 col-lg-9 p-0 ">
+                            <div className="col-sm-12 col-lg-4 p-0 d-flex justify-content-center">
+                                <div className="w-100    ">
 
                                     {/*<Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>*/}
                                     <Chats gid={Class.group_chat_id} classId={props.match.params.id}/>

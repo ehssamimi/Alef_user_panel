@@ -33,7 +33,7 @@ const InputSendMessage = (props) => {
 
 
     return (
-        <div className="w-100 position-relative br10px-bottom ">
+        <div className="w-100 position-relative br10px-bottom " id="inputChatId">
             <div className=" w-100 position-absolute" style={{bottom:0}}>
 
             </div>

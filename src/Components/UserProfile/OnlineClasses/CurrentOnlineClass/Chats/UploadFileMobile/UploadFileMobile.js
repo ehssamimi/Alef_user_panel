@@ -3,6 +3,7 @@ import {ShowFileToClass} from "../../../../../../Common/Const/ServerConnection";
 import {error_Notification} from "../../../../../functions/componentHelpFunction";
 import IsLoaderComponent from "../../../../../Common/Loader/IsLoaderComponent";
 import UploadFileRight from "../UploadFileDesktop/UploadFileRight/UploadFileRight";
+import Loader from "../../../../../Common/Loader/Loader";
 
 class UploadFileMobile extends Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class UploadFileMobile extends Component {
         if (state === 200) {
             console.log("show uploade")
             console.log(Description)
+            this.props.numberUpload(Description.files.length)
             this.setState({
                 isLoader: false,
                 UploadList: Description.files,
@@ -63,23 +65,37 @@ class UploadFileMobile extends Component {
     render() {
         let{isLoader,UploadList}=this.state;
         return (
-            <IsLoaderComponent isLoader={isLoader}>
-                    <div className="w-100  " id="uploadFileMobile">
+            <div className="w-100 h-100">
+                {
+                    isLoader
+                        ? <div className='d-flex justify-content-center align-items-center'>
+                            <div className='col-6'>
+                                <Loader/>
+                            </div>
+                        </div> :
+                        <div className="w-100 h-100 ">
+                            <div className="w-100 h-100 " id="uploadFileMobile">
 
-                            <div className="w-100   pb-4 overflow-y-scroll h-100  ">
+                                <div className="w-100   pb-4 overflow-y-scroll h-100  ">
 
-                                {
-                                    (UploadList!==undefined&&UploadList.length>0)?
-                                        UploadList.map((item, index) =>
-                                            <UploadFileRight key={index} {...item} {...this.props} kind="mobile" index={index} updateList={()=>this.getUploadList()}/>
-                                        ):" "
-                                }
+                                    {
+                                        (UploadList!==undefined&&UploadList.length>0)?
+                                            UploadList.map((item, index) =>
+                                                <UploadFileRight key={index} {...item} {...this.props} kind="mobile" index={index} updateList={()=>this.getUploadList()}/>
+                                            ):" "
+                                    }
+
+                                </div>
 
                             </div>
 
-                    </div>
+                        </div>
 
-            </IsLoaderComponent>
+                }
+            </div>
+
+
+
         );
     }
 }

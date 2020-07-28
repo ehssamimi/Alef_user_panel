@@ -10,20 +10,20 @@ const UploadFileRight = (props) => {
     }, []);
 
     return (
-        <div className={["col-sm-12    mt-sm-3     p-0",props.kind==="mobile"?props.index===0?" text-center":"mt-3 text-center ":"col-md-4"].join(" ")}>
+        <div className={["col-sm-12    sm-mt-3    p-0",props.kind==="mobile"?props.index===0?" w-75 ml-auto mr-auto":" w-75  ml-auto mr-auto ":"col-md-5"].join(" ")}>
             <div className= "upload-bubble-desktop tri-right round  green-background border-chat-left  " >
                 <div className="talktext">
                     {/*<p className="chat-header  IranSans mb-0 text-right FS01">{"استاد امین بابازاده"}</p>*/}
                     <p className=  "  IranSans text-justify mb-0 FS02 text-white"  >{title}</p>
-                    <div className="text-left mb-2">
+                    <div className="text-left  ">
                         <div className="row">
                             <div className=" col-9">
-                                <p className=" IranSans mb-0 text-justify FS01 hidden-txt text-white mb-0 font-weight-light">{file_name}</p>
-                                <p className=  "  IranSans text-justify mb-0 FS01 text-white font-weight-light"  >{file_size}</p>
+                                <p className=" IranSans mb-0 text-justify FS01 hidden-txt text-white   font-weight-light w-100  ">{file_name}</p>
+                                <p className=  "  IranSans text-justify mb-0 FS01 text-white font-weight-light lineHeight14"  >{file_size}</p>
                             </div>
-                            <div className="    font-weight-light ">
+                            <div className="    font-weight-light " >
 
-                                <a href={url} target="_blank" download className="profile-pic-chat  br-r50  p-05 position-absolute leftSideUploadBtn"  >
+                                <a href={url} target="_blank" download className="download-pic-chat  br-r50  p-05 position-absolute leftSideUploadBtn"    >
                                     <img src={UploadIcon} alt={"upload-Icon"} className="img-self-cover br-r50   text-justify  "/>
                                 </a>
                             </div>
@@ -32,7 +32,7 @@ const UploadFileRight = (props) => {
 
                     </div>
                     {/*<div className="w-100 d-flex justify-content-end">*/}
-                    <div className={["w-100 d-flex justify-content-end",props.kind==="mobile"? "pt-2 ":""].join(" ")}>
+                    <div className={["w-100 d-flex justify-content-end",props.kind==="mobile"? " ":""].join(" ")}>
                         <span className= "chat-header  IranSans  FS01 " >{"12:22"}</span>
                     </div>
                 </div>
