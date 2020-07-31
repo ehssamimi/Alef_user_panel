@@ -10,9 +10,13 @@ const MainAbout = (props) => {
     // });
 
     return (
-        <HeaderTop {...props} isBuy={false}>
+        // <HeaderTop {...props} isBuy={false}>
+        //     this is about
+        // </HeaderTop>
+        <div>
             this is about
-        </HeaderTop>
+
+        </div>
     );
 };
 

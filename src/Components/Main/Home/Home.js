@@ -15,14 +15,17 @@ const Home = (props) => {
     // });
 
     return (
-        <HeaderTop {...props} isBuy={false}>
-            <HomePageFirst/>
-            {/*<HomePageSecond/>*/}
-            this is header
-            {/*<ReactHLS url="https://cors-anywhere.herokuapp.com/rtmp://37.152.183.79/live/livestream/aminjamal" />*/}
+        // <HeaderTop {...props} isBuy={false}>
+            <div>
+                <HomePageFirst/>
+                {/*<HomePageSecond/>*/}
+                this is header
+                {/*<ReactHLS url="https://cors-anywhere.herokuapp.com/rtmp://37.152.183.79/live/livestream/aminjamal" />*/}
 
-            {/*<PlayVideo169 video={"https://cors-anywhere.herokuapp.com/rtmp://37.152.183.79/live/livestream/aminjamal"} img={ax} aspect={ "16:9"}/>*/}
-        </HeaderTop>
+                {/*<PlayVideo169 video={"https://cors-anywhere.herokuapp.com/rtmp://37.152.183.79/live/livestream/aminjamal"} img={ax} aspect={ "16:9"}/>*/}
+            </div>
+
+        // </HeaderTop>
     );
 };
 

@@ -21,6 +21,8 @@ export default function UserProfile (props){
     const [isLoder, setisLoder] = useState(true);
     const[profileData,setprofileData]=useState({"name":null,"grade":"پایه یازدهم","class":"ریاضی و فیزیک","phoneNUmber":"09112561701","country":"مازندران","city":"ساری",});
     useEffect(() => {
+        console.log("props"  )
+        console.log(props  )
         // Update the document title using the browser API
 
         async function  getData(){
@@ -57,7 +59,6 @@ export default function UserProfile (props){
         getData()
 
     },  [] );
-
 
 
         // function handleClick() {

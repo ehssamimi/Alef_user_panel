@@ -29,59 +29,65 @@ export default function RightMenu (props){
 
 
      useEffect(()=>{
-         async function connectToMqtt() {
-             let {state,Description:{topics}}=await GetConfigMqtt();
-             console.log(topics)
-             // 0: "GB-TIME-IR"
-             // 1: "NT-U-5ea0132cd8cbe2eb0b7e2361"
-             // 2: "NT-WEB"
-
-
-
-
-             const options = {
-                 clean: true, // retain session
-                 connectTimeout: 4000, // Timeout period
-                 // Authentication information
-                 clientId: Const.Token
-             }
-             // cm
-
-             const connectUrl = 'wss://websocket.kelidiha.com/notification'
-             // const connectUrl = 'ws://localhost:8083/mqtt'
-             const client = mqtt.connect(connectUrl, options)
-
-             for (let i = 0; i < topics.length; i++) {
-
-                 console.log(topics[i])
-                 client.subscribe(topics[i])
-             }
-
-
-
-
-             //
-             // client.subscribe("GB-TIME-IR")
-             // client.subscribe("NT-U-5e82a422dc5d87cead3bab42")
-
-             client.on('reconnect', (error) => {
-                 console.log('reconnecting:', error)
-             })
-
-             client.on('error', (error) => {
-                 console.log('Connection failed:', error)
-             })
-
-             client.on('message', (topic, message) => {
-                 console.log('receive message：', topic, JSON.parse(message))
-                 // if (topic === "GB-TIME-IR") {
-                 //     document.getElementById("global_time").textContent = JSON.parse(message).TIME;
-                 // }
-             })
-
-         }
-
-         connectToMqtt()
+//          async function connectToMqtt() {
+//              let {state,Description:{topics}}=await GetConfigMqtt();
+//              console.log(topics)
+//              // 0: "GB-TIME-IR"
+//              // 1: "NT-U-5ea0132cd8cbe2eb0b7e2361"
+//              // 2: "NT-WEB"
+//
+//
+//
+//
+//              const options = {
+//                  clean: true, // retain session
+//                  connectTimeout: 4000, // Timeout period
+//                  // Authentication information
+//                  clientId: Const.Token
+//              }
+//              // cm
+//
+//              const connectUrl = 'wss://websocket.kelidiha.com/notification'
+//              // const connectUrl = 'ws://localhost:8083/mqtt'
+//              const client = mqtt.connect(connectUrl, options)
+//
+//              for (let i =0; i < topics.length; i++) {
+//
+//                  console.log(topics[i])
+//                  client.subscribe(topics[i])
+//              }
+//              // client.subscribe("NT-U-5ea0132cd8cbe2eb0b7e2361")
+//
+//
+//
+//              //
+//              // client.subscribe("GB-TIME-IR")
+//              // client.subscribe("NT-U-5e82a422dc5d87cead3bab42")
+//
+//              client.on('reconnect', (error) => {
+//                  console.log('reconnecting:', error)
+//              })
+//
+//              client.on('error', (error) => {
+//                  console.log('Connection failed:', error)
+//              })
+//
+//              client.on('message', (topic, message) => {
+//                  console.log('receive message：', topic, JSON.parse(message))
+//                  // console.log(topics[1]);
+//                  // console.log(topic);
+//                  // console.log(JSON.parse(message));
+//                  // if (topic === topics[1]) {
+//                  //
+//                  // }
+//
+//              })
+// // if (topic === "GB-TIME-IR") {
+//              //     document.getElementById("global_time").textContent = JSON.parse(message).TIME;
+//              // }
+//          }
+//
+//          connectToMqtt()
 
 
 

@@ -11,14 +11,14 @@ export default function MainCourses (props){
     const {match: {params}} =  props;
 
     return (
-        <HeaderTop {...props} isBuy={true}>
+        // <HeaderTop {...props} isBuy={true}>
 
 
             <div className="w-100 pl-4 pr-4 ml-r-auto" dir="rtl">
                 <CourseIntroducing id={params.id}/>
             </div>
 
-        </HeaderTop>
+        // </HeaderTop>
     )
 }
 

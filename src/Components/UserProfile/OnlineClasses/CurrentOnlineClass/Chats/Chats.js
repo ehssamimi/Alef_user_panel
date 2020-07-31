@@ -100,9 +100,10 @@ class Chats extends Component {
                 console.log("MList")
                 console.log(MList)
                 MList.unshift(data);
+                // MList.push(data);
                 console.log(MList)
                 this.setState({
-                    productSeparate:MList
+                    productSeparate:MList,hasMore:false
                 })
 
 
@@ -121,10 +122,11 @@ class Chats extends Component {
                 console.log("MList")
                 console.log(MList)
                 MList.unshift(data);
+                // MList.push(data);
                 console.log(MList)
                 this.setState({
                     productSeparate:MList,
-                    UsersIDImg:Ussers
+                    UsersIDImg:Ussers,hasMore:false
                 })
 
                 // this.setState(prevState => ({
@@ -134,7 +136,22 @@ class Chats extends Component {
 
 
             }
-            $("#chat").animate({ scrollTop: $("#inputChatId").scrollTop() }, 2000);
+
+            var objDiv = document.querySelector(".chatLists");
+            var objDiv2 = document.getElementById("end_list");
+            objDiv.scrollTop = objDiv2.scrollTop;
+            console.log(" objDiv.scrollHeight");
+            console.log( objDiv.scrollHeight);
+
+            $('.chatLists').animate({ scrollTop:objDiv.scrollHeight }, 100)
+            var _this = this;
+            setTimeout(function () {
+                _this.setState({
+                    hasMore: true
+                })
+            },3000)
+
+            // $("#chat").animate({ scrollTop: $("#inputChatId").scrollTop() }, 2000);
 
 
 
@@ -229,6 +246,7 @@ class Chats extends Component {
                 hasMore:messages.length !== 0
 
             }),()=>{
+
                 // console.log(this.state.productSeparate)
                 // console.log(this.state.UsersIDImg)
             });
@@ -287,7 +305,7 @@ class Chats extends Component {
 
     render() {
         let{messages,productSeparate,hasMore,UsersIDImg}=this.state
-        console.log(productSeparate);
+        // console.log(productSeparate);
         return (
             <div  >
                 <Card className="card-shadow-default   br10px-top  font-weight-lighter  chat-css ">
@@ -305,17 +323,19 @@ class Chats extends Component {
                                 <InfiniteScrollReverse
 
 
+
                                     // className="row rtl  mr-0 ml-0  pb-5 overFlow-y-scroll disable-scrollbars   pl-4 border-chat-left h-max-75vh flex-wrap align-content-end "
-                                    className=" row rtl m-0 overFlow-y-scroll  h-100 pl-4 d-flex  w-100  flex-wrap align-items-end   "
+                                    className=" row rtl m-0 overFlow-y-scroll  h-100 pl-4 d-flex  w-100  flex-wrap align-items-end  chatLists "
                                     // pageStart={0}
-                                    // loadMore={this.loadMore}
+
                                     // hasMore={ hasMore}
                                     // isLoading={true }
                                     // loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
                                     pageStart={0}
                                     loadMore={this.loadMore}
                                     hasMore={ hasMore}
-                                    loadArea={10}
+                                    // loadArea={10}
+                                    // isLoading={1}
                                     loader={<div className="loader col-6 offset-3" key={0}><Loader/></div>}
                                 >
 
@@ -346,11 +366,12 @@ class Chats extends Component {
 
 
                             </div>   :
-                            <div className="w-100 h-100" id="chat2">
+                            <div className="w-100 h-100  " id="chat2"  >
                                 <UploadFileMobile newFile={this.state.newFile} class_id={this.props.classId} numberUpload={(value)=>{this.setState({number_File:value})}}/>
 
                             </div>
                     }
+                    <span id="end_list" style={{opacity:0}}>aaa</span>
 
 
 

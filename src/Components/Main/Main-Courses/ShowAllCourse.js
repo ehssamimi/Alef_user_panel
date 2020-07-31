@@ -46,9 +46,9 @@ export default function ShowAllCourse (props){
     }, [ ] );
 
     return (
-        <HeaderTop {...props} isBuy={true}>
-
-            {
+        // <HeaderTop {...props} isBuy={true}>
+            <div>
+                {
 
                     <IsLoaderComponent isLoader={isLoder}>
                         <div className="w-100 pl-4 pr-4 ml-r-auto" dir="ltr">
@@ -69,14 +69,17 @@ export default function ShowAllCourse (props){
 
 
 
-            }
-            <ModalBiginner PopUpType={"course_page"}/>
+                }
+                <ModalBiginner PopUpType={"course_page"}/>
+            </div>
 
 
 
 
+    //{/*</HeaderTop>*/}
 
-        </HeaderTop>
+
+
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
+import {  Switch, Redirect } from 'react-router-dom';
 
 
 

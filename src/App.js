@@ -1,9 +1,8 @@
-import React,{useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import './Common/sass/Style.scss'
 import './App.css';
-import MainAbout from "./Components/Main/Main-About/MainAbout";
-import MainCourses from "./Components/Main/Main-Courses/MainCourses";
+
 import NoMatch from "./Components/NoMatch/NoMatch";
 // import MainHeader from "./Components/Main/Main-Header/MainHeader";
 // import UserInfo from "./Components/UserProfile/UserInfo/UserInfo";
@@ -15,15 +14,26 @@ import NoMatch from "./Components/NoMatch/NoMatch";
 // import UrlProvider from "./Components/Common/Context/UrlProvider";
 // import Exit from "./Components/UserProfile/Exit/Exit";
 
-import Home from "./Components/Main/Home/Home";
+
 import Login from "./Components/LogIn/LogIn";
 import {UserContext} from "./Components/Common/Context/UserProvider";
 import SignUp from "./Components/LogIn/SignUp";
 import cookie from 'react-cookies'
-import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
+// import Home from "./Components/Main/Home/Home";
+// import ShowAllCourse from "./Components/Main/Main-Courses/ShowAllCourse";
+// import CurrentClass from "./Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass";
+// import MainAbout from "./Components/Main/Main-About/MainAbout";
+// import MainCourses from "./Components/Main/Main-Courses/MainCourses";
 import MainRoute from "./Components/Common/MainRoute";
 import MainUser from "./Components/UserProfile/MainUser/MainUser";
- import CurrentClass from "./Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass";
+import MainUrl from "./Components/UserProfile/MainUser/MainUrl";
+import {GetConfigMqtt, getprofile} from "./Common/Const/ServerConnection";
+import * as Const from "./Common/Const/ServerConst";
+import {NotificationManager} from "react-notifications";
+
+
+
+
 
 
 
@@ -64,8 +74,10 @@ const AuthLogin = ({ component: Component, authUser, ...rest }) => (
 );
 
 function App() {
+    const [notifOnlineClass, setNotifOnlineClass] = useState("");
     const User=useContext(UserContext);
     cookie.save('basket', [], { path: '/' });
+
 
   return (
       <div className="w-100 h-100">
@@ -79,28 +91,33 @@ function App() {
                           render={props => <MainRoute {...props} />}
                       />
 
-                          <Route path="/home" exact={true} component={Home}/>
-                          <Route path="/about" component={MainAbout}/>
-                          <Route path="/courses" component={ShowAllCourse}/>
-                          <Route path="/online-class/:id" component={CurrentClass}/>
-                          <Route path="/course/:id"   component={MainCourses}/>
 
-                      <AuthRoute  path="/user-info" authUser={ User.isLogIn} component={MainUser}  />
+
+
+
+                      <Route path="/home"   component={(props) => <MainUrl {...props}   />} />
+                      <Route path="/about" component={(props) => <MainUrl {...props}   />} />
+                      <Route path="/courses"  component={(props) => <MainUrl {...props}   />}/>
+                      <Route path="/online-class/:id"  component={(props) => <MainUrl {...props}   />}/>
+                      <Route path="/course/:id"   component={(props) => <MainUrl {...props}   />}/>
+
+
+                      <AuthRoute  path="/user-info" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />}  />
 
                           {/*<Route path="/user-info" component={UserInfo}/>*/}
 
                           {/*<AuthRoute path="/user-profile" authUser={ User.isLogIn} component={UserProfile}/>*/}
-                          <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={MainUser}/>
+                          <AuthRoute path="/user-profile" authUser={ User.isLogIn} component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
 
                           {/*<AuthRoute path="/my-course" authUser={ User.isLogIn} component={MyCourse}/>*/}
-                          <AuthRoute path="/my-course" authUser={ User.isLogIn} component={MainUser}  />
-                          <AuthRoute path="/online-scheduler" authUser={ User.isLogIn} component={MainUser}/>
-                          <AuthRoute path="/current-online-class" authUser={ User.isLogIn} component={MainUser}/>
-                          <AuthRoute path="/online-class/:id" authUser={ User.isLogIn} component={MainUser}/>
+                          <AuthRoute path="/my-course" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />}  />
+                          <AuthRoute path="/online-scheduler" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
+                          <AuthRoute path="/current-online-class" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
+                          {/*<AuthRoute path="/online-class/:id" authUser={ User.isLogIn} component={MainUser}/>*/}
                           {/*<AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>*/}
-                          <AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MainUser}/>
-                          <AuthRoute path="/exit" authUser={ User.isLogIn} component={MainUser}/>
-                          <AuthLogin path="/login" authUser={ User.isLogIn} component={Login}/>
+                          <AuthRoute path="/my-schedule" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
+                          <AuthRoute path="/exit" authUser={ User.isLogIn} component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
+                          <AuthLogin path="/login" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
                           {/*<Route path="/login" component={Login}/>*/}
                           <Route path="/sign-up" component={SignUp}/>
                           <Route  component={NoMatch}/>

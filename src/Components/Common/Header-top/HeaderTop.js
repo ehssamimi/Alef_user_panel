@@ -16,21 +16,20 @@ const HeaderTop = (props) => {
     return (
         <UrlProvider {...props}>
             <MetaTagsComponent/>
+            <div className="w-100 d-flex justify-content-center">
+                <div className="header-top">
 
-        <div className="w-100 d-flex justify-content-center">
-            <div className="header-top">
+                </div>
+                <MainHeader {...props}>
+                    {props.children}
+                </MainHeader>
+                {
+                    isBuy ? <BuyFooter price={2000} off={0.3} data={cookie.load('basket')}/> : ""
+                }
+
+                <NotificationContainer/>
 
             </div>
-            <MainHeader {...props}>
-                {props.children }
-            </MainHeader>
-            {
-                isBuy?<BuyFooter price={2000} off={0.3} data={cookie.load('basket')}/>:""
-            }
-
-            <NotificationContainer />
-
-        </div>
 
         </UrlProvider>
     );

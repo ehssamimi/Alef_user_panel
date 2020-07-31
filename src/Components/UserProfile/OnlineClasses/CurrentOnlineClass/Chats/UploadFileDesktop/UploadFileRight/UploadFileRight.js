@@ -11,8 +11,9 @@ const UploadFileRight = (props) => {
 
     return (
         <div className={["col-sm-12    sm-mt-3    p-0",props.kind==="mobile"?props.index===0?" w-75 ml-auto mr-auto":" w-75  ml-auto mr-auto ":"col-md-5"].join(" ")}>
-            <div className= "upload-bubble-desktop tri-right round  green-background border-chat-left  " >
-                <div className="talktext">
+            <div className= {["upload-bubble-desktop tri-right round ",props.type==="old"?" green-background border-chat-left":" bg-chat-mySelf border-chat-mySelf"].join(" ")} >
+                {/*green-background border-chat-left*/}
+                <div className="talktext  ">
                     {/*<p className="chat-header  IranSans mb-0 text-right FS01">{"استاد امین بابازاده"}</p>*/}
                     <p className=  "  IranSans text-justify mb-0 FS02 text-white"  >{title}</p>
                     <div className="text-left  ">

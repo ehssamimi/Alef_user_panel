@@ -4,28 +4,33 @@ import NewWebsocketPlayer from "../VideoComponentsStreams/WebSocketVideoPlayer";
 import {GetClassroom} from "../../../../../Common/Const/ServerConnection";
 import IsLoaderComponent from "../../../../Common/Loader/IsLoaderComponent";
 import WebrtcPlayer from "../VideoComponentsStreams/WEBRTCPlayer";
-import HeaderTop from "../../../../Common/Header-top/HeaderTop";
 import $ from 'jquery'
-import ReactPlayerConf from "../VideoComponentsStreams/ReactPlayerConf";
  import UploadFileDesktop from "../Chats/UploadFileDesktop/UploadFileDesktop";
+// import {success_Notification} from "../../../../functions/componentHelpFunction";
+// import HeaderTop from "../../../../Common/Header-top/HeaderTop";
+// import ReactPlayerConf from "../VideoComponentsStreams/ReactPlayerConf";
+
 
 const CurrentClass = (props) => {
     const [Class, setClass] = useState("");
-    const [newFile, setnewFile] = useState("");
+    // const [newFile, setnewFile] = useState("");
     const [IsLoader, setIsLoader] = useState(true);
     const [VideoType, setVideoType] = useState(true);
+    // content: {class_id: "aminjamal"}
+    // type: "NT-LC-NF"
+
 
     function windowsDimention(){
         const Width = window.outerWidth;
 
         var link = $('#playVideo');
-        console.log("link-link-link-link")
-        console.log(link)
+        // console.log("link-link-link-link")
+        // console.log(link)
         if (link.offset()!==undefined){
             var offset = link.offset();
             var top = offset.top;
             let Height=$(window).height() - top - link.height()
-            console.log(Height)
+            // console.log(Height)
 
             if (Width <= 768) {
 
@@ -53,10 +58,12 @@ const CurrentClass = (props) => {
 
     useEffect(  () => {
 
+
+
         async function getClassDetail() {
 
 
-        console.log(props.match.params.id);
+        // console.log(props.match.params.id);
         let Classroom=  await GetClassroom(props.match.params.id)
 
 
@@ -64,7 +71,7 @@ const CurrentClass = (props) => {
         setClass(Classroom)
         if (Classroom!==""){
             setIsLoader(false)
-            console.log(Classroom)
+            // console.log(Classroom)
         }
             windowsDimention();
             window.addEventListener("resize",windowsDimention)
@@ -75,9 +82,13 @@ const CurrentClass = (props) => {
         return ()=>window.removeEventListener("resize",windowsDimention)
     }, [props,IsLoader]);
 
+
+
+
     return (
+
         <div>
-            <HeaderTop {...props} isBuy={true}>
+            {/*<HeaderTop {...props} isBuy={true}>*/}
 
                 <IsLoaderComponent isLoader={IsLoader}>
                     {
@@ -94,8 +105,10 @@ const CurrentClass = (props) => {
                                             <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
                                     }
                                 </div>
+                                <div className="col-12  pl-lg-video   position-absolute  " style={{bottom:0,right:0}}>
+                                    <UploadFileDesktop {... props } class_id={props.match.params.id}/>
+                                </div>
 
-                                <UploadFileDesktop newFile={newFile} class_id={props.match.params.id}/>
 
 
 
@@ -118,7 +131,7 @@ const CurrentClass = (props) => {
                 </IsLoaderComponent>
 
 
-            </HeaderTop>
+            {/*</HeaderTop>*/}
         </div>
     );
 };
