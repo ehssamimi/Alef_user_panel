@@ -62,13 +62,7 @@ class UploadFileDesktop extends Component {
                 NotificationManager.success("لیست فایل ها به روز رسانی شد ", "توجه کنید  ");
                 console.log("after");
                 console.log("props.newFile");
-                // console.log(props.notif.content.additional_data);
-                // let newUploadList=state.UploadList;
-                // console.log("old uploadList")
-                // console.log(newUploadList)
-                // newUploadList.push(props.notif.content.additional_data);
-                // console.log("new uploadList")
-                // console.log(newUploadList)
+
 
                 return {
 

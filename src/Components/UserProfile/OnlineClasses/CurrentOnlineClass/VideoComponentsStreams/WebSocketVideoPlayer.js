@@ -7,6 +7,26 @@ import {ReactFlvPlayer} from 'react-flv-player'
 import {FaExchangeAlt}  from "react-icons/fa";
 import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
 import RowShowShowEditWithoutLabel from "../../../../Common/RowShowShowColEdit/RowShowShowEditWithoutLabel";
+import {AiOutlineReload} from "react-icons/ai";
+import {Tooltip} from "reactstrap";
+
+
+const BtnUpload = (props) => {
+    const [tooltipOpen, setTooltipOpen] = useState(false);
+
+    const toggle = () => setTooltipOpen(!tooltipOpen);
+
+    return (
+
+        <div className="ml-auto mr-5">
+
+            <span   className="  " id="TooltipExample"><RowShowShowEditWithoutLabel  label={"پخش"} value={<AiOutlineReload/>} className='fS1vw btn btn-outline-main '/> </span>
+            <Tooltip placement="left" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
+                به روز رسانی لیست
+            </Tooltip>
+        </div>
+    );
+}
 
 const NewWebsocketPlayer = (props) => {
     const [url, setURL] = useState(false);
@@ -58,7 +78,9 @@ const NewWebsocketPlayer = (props) => {
                     </div>
                     <div className= "ml-3 "  onClick={()=>{props.changeUrl()}}>
                         <RowShowShowEditWithoutLabel  label={"پخش"} value={<FaExchangeAlt/>} className='fS1vw btn btn-outline-main '/>
-
+                    </div>
+                    <div className={"ml-3 UpdateBtn"}  onClick={()=>{this.props.updateFileList()}}>
+                        <BtnUpload  />
                     </div>
 
 

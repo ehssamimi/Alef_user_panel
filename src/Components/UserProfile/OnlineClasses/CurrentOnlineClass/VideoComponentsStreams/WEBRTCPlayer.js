@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {parse_query_string, parse_rtmp_url, srs_init_rtc} from "../../../../functions/WEBRTC";
 import $ from 'jquery';
 import RowShowShowColEdit from "../../../../Common/RowShowShowColEdit/RowShowShowColEdit";
@@ -7,6 +7,27 @@ import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button/Button";
 import {FaExchangeAlt} from "react-icons/fa";
 import RowShowShowEditWithoutLabel from "../../../../Common/RowShowShowColEdit/RowShowShowEditWithoutLabel";
+import {AiOutlineReload} from "react-icons/ai";
+import {Tooltip} from "reactstrap";
+const BtnUpload = (props) => {
+    const [tooltipOpen, setTooltipOpen] = useState(false);
+
+    const toggle = () => setTooltipOpen(!tooltipOpen);
+
+    return (
+
+        <div className="ml-auto mr-5">
+
+            <span   className="  " id="TooltipExample"><RowShowShowEditWithoutLabel  label={"پخش"} value={<AiOutlineReload/>} className='fS1vw btn btn-outline-main '/> </span>
+            <Tooltip placement="left" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
+                به روز رسانی لیست
+            </Tooltip>
+        </div>
+    );
+}
+
+
+
 class WebrtcPlayer extends Component {
     constructor(props) {
         super(props);
@@ -113,6 +134,9 @@ class WebrtcPlayer extends Component {
                         </div>
                         <div className={"ml-3"} onClick={()=>{this.props.changeUrl()}}>
                             <RowShowShowEditWithoutLabel  label={"پخش"} value={<FaExchangeAlt/>} className='fS1vw btn btn-outline-main '/>
+                        </div>
+                        <div className={"ml-3 UpdateBtn "}   onClick={()=>{this.props.updateFileList()}}>
+                            <BtnUpload  />
                         </div>
 
 

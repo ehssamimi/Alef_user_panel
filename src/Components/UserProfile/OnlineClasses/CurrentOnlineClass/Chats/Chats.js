@@ -367,7 +367,7 @@ class Chats extends Component {
 
                             </div>   :
                             <div className="w-100    " id="chat2"  >
-                                <UploadFileMobile newFile={this.state.newFile} class_id={this.props.classId} numberUpload={(value)=>{this.setState({number_File:value})}}/>
+                                <UploadFileMobile {...this.props} newFile={this.state.newFile} class_id={this.props.classId} numberUpload={(value)=>{this.setState({number_File:value})}}/>
 
                             </div>
                     }

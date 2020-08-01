@@ -16,6 +16,8 @@ const CurrentClass = (props) => {
     // const [newFile, setnewFile] = useState("");
     const [IsLoader, setIsLoader] = useState(true);
     const [VideoType, setVideoType] = useState(true);
+    const [updateFileList, setUpdateFileList] = useState(false);
+
     // content: {class_id: "aminjamal"}
     // type: "NT-LC-NF"
 
@@ -39,8 +41,11 @@ const CurrentClass = (props) => {
                 $("#chat-tab2").removeClass("d-none")
                 $('#chat').height( Height-(0.13*Height));
                 $('#chat2').height( Height-(0.13*Height));
+                $('.UpdateBtn').removeClass("d-none") ;
+
 
             } else {
+                $('.UpdateBtn').addClass( "d-none");
 
                 $('#chat').height("75vh");
                  // $("#uploadFileDesktop").removeClass("d-none").css({"height":Height-(0.13*Height),overflowY:"auto"})
@@ -98,11 +103,11 @@ const CurrentClass = (props) => {
                                     {
                                         VideoType ?
                                             // <ReactPlayerConf url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
-                                            <WebrtcPlayer url={Class["live_urls"].web_rtc}
+                                            <WebrtcPlayer url={Class["live_urls"].web_rtc} updateFileList={()=>{setUpdateFileList(prevupdateFileList=>!prevupdateFileList)}}
                                                           changeUrl={() => setVideoType(false)}/>
 
                                             :
-                                            <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
+                                            <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)} updateFileList={()=>{setUpdateFileList(prevupdateFileList=>!prevupdateFileList)}}/>
                                     }
                                 </div>
                                 {/*pl-lg-video   position-absolute*/}
@@ -110,18 +115,12 @@ const CurrentClass = (props) => {
                                     <UploadFileDesktop {... props } class_id={props.match.params.id}/>
                                 </div>
 
-
-
-
-
-
-
                             </div>
                             <div className="col-sm-12 col-lg-4 p-0 d-flex justify-content-center">
                                 <div className="w-100    ">
 
                                     {/*<Chats gid={"5efa3bafcd52cdd9ea00ddc2"} classId={"includeamin"}/>*/}
-                                    <Chats gid={Class.group_chat_id} classId={props.match.params.id}/>
+                                    <Chats gid={Class.group_chat_id} classId={props.match.params.id} {... props } updateFileList={updateFileList}/>
                                 </div>
                             </div>
 
