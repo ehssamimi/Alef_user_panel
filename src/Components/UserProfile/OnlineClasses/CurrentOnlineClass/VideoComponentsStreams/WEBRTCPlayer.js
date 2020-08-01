@@ -97,7 +97,7 @@ class WebrtcPlayer extends Component {
                 {/*<ReactPlayer id="rtc_media_player" url={this.props.url} />*/}
 
                 <div className="video-container">
-                    <video id="rtc_media_player" controls autoPlay  className="video-element   card-shadow-default   br10px-top border-default"   poster={poster}/>
+                    <video id="rtc_media_player" controls autoPlay  className="video-element   card-shadow-default   br10px-top border-default"   poster={poster} playsinline/>
                 </div>
 
 

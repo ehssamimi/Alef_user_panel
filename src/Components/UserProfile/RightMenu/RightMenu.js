@@ -240,12 +240,12 @@ export default function RightMenu (props){
                                                         selected === "current-online-class" ?
                                                             <div className="w-100 h-100 position-relative">
                                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
-                                                                <span className="zIndex-3 list-user-profile w-100 pl-4 green-them FsFooterLogin pt-2"><span className="mr-4 ">  </span>ورود به کلاس </span>
+                                                                <span className="zIndex-3 list-user-profile w-100   green-them FS-subMenu  "><span className="mr-4 ">  </span>ورود به کلاس </span>
                                                             </div> :
                                                             <div className="w-100 h-100 position-relative text-white "
                                                             >
                                                                 <Link to="/current-online-class" onClick={() => setselected("current-online-class")}>
-                                                                    <span className="zIndex-3 list-user-profile w-100 pl-4 text-white FsFooterLogin pt-2"><span className="mr-4  ">  </span>ورود به کلاس  </span>
+                                                                    <span className="zIndex-3 list-user-profile w-100   text-white FS-subMenu  -2"><span className="mr-4  ">  </span>ورود به کلاس  </span>
                                                                 </Link>
                                                             </div>
 
@@ -256,12 +256,12 @@ export default function RightMenu (props){
                                                         selected === "online-scheduler" ?
                                                             <div className="w-100 h-100 position-relative">
                                                                 <img src={active} alt="active" className=" img-width-fill active-bj-back zIndex-2"/>
-                                                                <span className="zIndex-3 list-user-profile w-100 pl-4 green-them FsFooterLogin pt-2"><span className="mr-4">  </span>برنامه درسی آنلاین</span>
+                                                                <span className="zIndex-3 list-user-profile w-100  green-them FS-subMenu "><span className="mr-4">  </span>برنامه درسی آنلاین</span>
                                                             </div> :
                                                             <div className="w-100 h-100 position-relative text-white "
                                                             >
                                                                 <Link to="/online-scheduler" onClick={() => setselected("online-scheduler")}>
-                                                                    <span className="zIndex-3 list-user-profile w-100 pl-4 text-white FsFooterLogin pt-2"><span className="mr-4">  </span>برنامه درسی آنلاین</span>
+                                                                    <span className="zIndex-3 list-user-profile w-100   text-white FS-subMenu  "><span className="mr-4">  </span>برنامه درسی آنلاین</span>
                                                                 </Link>
                                                             </div>
 
@@ -358,7 +358,7 @@ export default function RightMenu (props){
 
 
 
-<a className="d-none" id="gohome" href="/">home</a>
+<a style={{opacity:0}} id="gohome" href="/">home</a>
         </div>
     );
 };

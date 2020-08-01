@@ -105,7 +105,8 @@ const CurrentClass = (props) => {
                                             <NewWebsocketPlayer url={Class["live_urls"].http_flv}   changeUrl={() => setVideoType(true)}/>
                                     }
                                 </div>
-                                <div className="col-12  pl-lg-video   position-absolute  " style={{bottom:0,right:0}}>
+                                {/*pl-lg-video   position-absolute*/}
+                                <div className="col-12  p-0  " style={{bottom:0,right:0}}>
                                     <UploadFileDesktop {... props } class_id={props.match.params.id}/>
                                 </div>
 

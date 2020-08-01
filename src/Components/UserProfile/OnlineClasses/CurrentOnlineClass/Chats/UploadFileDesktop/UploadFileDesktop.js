@@ -20,7 +20,7 @@ const BtnUpload = (props) => {
 
 
 
-        <div className="ml-auto mr-3">
+        <div className="ml-auto mr-5">
             {/*<span onClick={this.getUploadList} className="ml-auto mr-3  br10px  d-flex collapseSpanHeight align-items-end mt-2  fS1vw btn btn-outline-main "><AiOutlineReload/> </span>*/}
             <span onClick={props.update} className="  br10px  d-flex collapseSpanHeight align-items-end mt-2  fS1vw btn btn-outline-main " id="TooltipExample"><AiOutlineReload/> </span>
              <Tooltip placement="left" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
@@ -105,22 +105,30 @@ class UploadFileDesktop extends Component {
 
               if (Width <= 768) {
 
-                  $("#uploadFileDesktop").addClass("d-none")
+                  // $("#uploadFileDesktop").addClass("d-none")
+                  $("#UploadDesktopOuter").addClass("d-none")
+
                   $("#uploadFileMobile").height(Height - (0.12 * Height))
                   $("#chat-tab2").removeClass("d-none")
-                  $('#chat').height(Height - (0.13 * Height));
+
 
               } else {
 
-                  $('#chat').height("75vh");
-                  $("#uploadFileDesktop").removeClass("d-none").css({
-                      "maxHeight": Height - (0.15 * Height),
-                      // overflowY: "auto",
-                      // overflowX: "auto"
+
+                  // $("#uploadFileDesktop").removeClass("d-none").css({
+                  //     "height": Height - (0.12 * Height),
+                  //     "marginTop":0.3*Height
+                  // })
+                  $("#uploadFileDesktop").css({
+                      "height": Height - (0.25 * Height),
+                      // "marginTop":0.3*Height
+                  })
+                  $("#UploadDesktopOuter").removeClass("d-none").css({
+                      "marginTop": Height - (0.8 * Height)
                   })
 
                   $("#chat-tab2").addClass("d-none")
-                  $("#chat-tab1").click();
+
 
 
               }
@@ -192,9 +200,9 @@ class UploadFileDesktop extends Component {
 
         return (
             <IsLoaderComponent isLoader={isLoader}>
-                <div className="overflow-hidden br10px  border-default card-shadow-default mt-2">
+                <div className="overflow-hidden br10px  border-default card-shadow-default " id="UploadDesktopOuter">
                     <div className="  hideScrollY"  id="uploadFileDesktop">
-                        <h4 className="  FsFooterLogin green-them font-weight-bold ml-4 mb-0  header-chat-wide d-flex align-items-center ">
+                        <h4 className="  FsFooterLogin green-them font-weight-bold ml-4  ml-lg-3 mb-0  header-chat-wide d-flex align-items-center ">
                             <span>فایل های ضمیمه شده</span> <BtnUpload update={this.getUploadbtn}/>
                         </h4>
                         <div className="w-100   mobileNotView    overflow-hidden  " style={{height:"83%"}}  >
@@ -207,7 +215,7 @@ class UploadFileDesktop extends Component {
                                         (UploadList!==undefined&&UploadList.length>0)?
                                             UploadList.map((item, index) =>
                                                 <UploadFileRight key={index} {...item} {...this.props} updateList={()=>this.getUploadList()}/>
-                                            ):" "
+                                            ): <div className="d-flex align-items-center "><p className="  round">در حال حاظر فایلی برای این کلاس آپلود نشده است </p></div>
                                     }
 
                                 </div>

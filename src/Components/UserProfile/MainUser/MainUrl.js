@@ -49,7 +49,7 @@ class MainUrl extends Component {
             const connectUrl = 'wss://websocket.kelidiha.com/notification'
             // const connectUrl = 'ws://localhost:8083/mqtt'
             const client = mqtt.connect(connectUrl, options)
-
+        if (topics!==undefined){
             for (let i =0; i < topics.length; i++) {
 
                 console.log(topics[i])
@@ -103,6 +103,9 @@ class MainUrl extends Component {
                 // }
 
             })
+        }
+
+
 // if (topic === "GB-TIME-IR") {
             //     document.getElementById("global_time").textContent = JSON.parse(message).TIME;
             // }

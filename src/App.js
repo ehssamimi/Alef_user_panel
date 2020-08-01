@@ -12,7 +12,7 @@ import NoMatch from "./Components/NoMatch/NoMatch";
 // import CourseIntroducing from "./Components/Main/Main-Courses/IntroducingCoursse/CourseIntroducing";
 // import IntroducingCourse from "./Components/Main/Main-Courses/IntroducingCoursse/IntroducingCourse";
 // import UrlProvider from "./Components/Common/Context/UrlProvider";
-// import Exit from "./Components/UserProfile/Exit/Exit";
+import Exit from "./Components/UserProfile/Exit/Exit";
 
 
 import Login from "./Components/LogIn/LogIn";
@@ -116,8 +116,10 @@ function App() {
                           {/*<AuthRoute path="/online-class/:id" authUser={ User.isLogIn} component={MainUser}/>*/}
                           {/*<AuthRoute path="/my-schedule" authUser={ User.isLogIn} component={MySchedule}/>*/}
                           <AuthRoute path="/my-schedule" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
-                          <AuthRoute path="/exit" authUser={ User.isLogIn} component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
-                          <AuthLogin path="/login" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />
+                          {/*<AuthRoute path="/exit" authUser={ User.isLogIn} component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />*/}
+                          {/*<AuthLogin path="/login" authUser={ User.isLogIn}  component={(props) => <MainUser {...props} notif={notifOnlineClass} />} />  */}
+                          <AuthRoute path="/exit"  component={Exit}  />
+                          <AuthLogin path="/login" authUser={ User.isLogIn}  component={Login} />
                           {/*<Route path="/login" component={Login}/>*/}
                           <Route path="/sign-up" component={SignUp}/>
                           <Route  component={NoMatch}/>

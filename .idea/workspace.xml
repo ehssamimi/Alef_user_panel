@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72a950a7-bfcc-4d9b-acc1-75966755f28e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/UserProfile/MainUser/MainUrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Common/css/MyStyle2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/css/MyStyle2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Common/Context/UserProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Common/Context/UserProvider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Common/Header-top/HeaderTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Common/Header-top/HeaderTop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Common/MainRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Common/MainRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Common/MetaTags/MetaTagsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Common/MetaTags/MetaTagsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Main/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Main/Main-About/MainAbout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main/Main-About/MainAbout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Main/Main-Courses/MainCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main/Main-Courses/MainCourses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Main/Main-Courses/ShowAllCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Main/Main-Courses/ShowAllCourse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Common/sass/Style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/sass/Style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/MainUser/MainUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/MainUser/MainUrl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/Chats.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/Chats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/UploadFileDesktop/UploadFileDesktop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/UploadFileDesktop/UploadFileDesktop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/UploadFileDesktop/UploadFileRight/UploadFileRight.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/Chats/UploadFileDesktop/UploadFileRight/UploadFileRight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/CurrentClass/CurrentClass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/OnlineClasses/CurrentOnlineClass/VideoComponentsStreams/WEBRTCPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/RightMenu/RightMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/RightMenu/RightMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserProfile/UserProfilew/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserProfile/UserProfilew/UserProfile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +39,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AdminKlid" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -190,7 +180,8 @@
       <workItem from="1595834326666" duration="2796000" />
       <workItem from="1595860345711" duration="29928000" />
       <workItem from="1596038309328" duration="18929000" />
-      <workItem from="1596183995353" duration="23666000" />
+      <workItem from="1596183995353" duration="24542000" />
+      <workItem from="1596262939402" duration="6409000" />
     </task>
     <servers />
   </component>
@@ -215,26 +206,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596184979784" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1596184992007">
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1596262973413">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="274" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595409219154" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596184992007" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1596184992007">
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596230273438" />
+    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596262973413" />
+    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1596262973413">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="274" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595409219154" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596184992007" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1596184992006">
+    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596230273438" />
+    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596262973413" />
+    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1596262973412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="274" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595409219153" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596184992006" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1596184992007">
+    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596230273437" />
+    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596262973412" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1596262973413">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="274" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595409219154" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596184992007" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596230273438" />
+    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596262973413" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1594065865173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
